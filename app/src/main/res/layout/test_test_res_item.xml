@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWrite"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/test_test_res_no"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sort_number"
+            android:textAlignment="center"
+            android:textColor="@color/JH_333333"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/JH_333333" />
+
+        <TextView
+            android:id="@+id/test_test_res_temperature"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/temperature"
+            android:textAlignment="center"
+            android:textColor="@color/JH_333333"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/JH_333333" />
+
+        <TextView
+            android:id="@+id/test_test_res_value"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/automatic_titrator"
+            android:textAlignment="center"
+            android:textColor="@color/JH_333333"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/JH_333333"/>
+</LinearLayout>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorGray1"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="left"
+        android:padding="10dp">
+
+        <CheckBox
+            android:id="@+id/data_search_use_starttime"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="@string/start_date"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"/>
+
+        <CheckBox
+            android:id="@+id/data_search_use_endtime"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="@string/end_date"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_search_start_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/start_date"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <DatePicker
+            android:id="@+id/data_search_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:datePickerMode="spinner"></DatePicker>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_search_end_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:visibility="gone"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/end_date"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <DatePicker
+            android:id="@+id/data_search_end"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:datePickerMode="spinner"></DatePicker>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:gravity="left">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_name"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/data_search_sampleName"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_white"
+            android:imeOptions="actionDone"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:gravity="left">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/operator"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/data_search_creator"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_white"
+            android:imeOptions="actionDone"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:gravity="left">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/scale"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/data_search_scale_gt"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_white"
+            android:imeOptions="actionDone"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/range"
+            android:gravity="center"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/data_search_scale_lt"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edit_text_white"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:singleLine="true"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_search_search_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/black_button"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/search"
+            android:gravity="center"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

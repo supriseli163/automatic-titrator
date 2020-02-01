@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/use_manager_list_item_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            app:buttonTint="@color/colorBlue"
+            android:buttonTint="@color/colorBlue" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/use_manager_list_item_sortid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="序号"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/use_manager_list_item_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="用户名"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/use_manager_list_item_creator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="创建人"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/use_manager_list_item_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="创建时间"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/use_manager_list_item_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="备注"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/use_manager_list_item_usertype"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="用户类型"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center">
+            <Button
+                android:id="@+id/use_manager_list_item_lock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/blue_button"
+                android:layout_margin="5px"
+                android:text="@string/lock"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#B7B7B7"/>
+</LinearLayout>

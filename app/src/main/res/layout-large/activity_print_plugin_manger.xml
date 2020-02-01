@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/HPFontColorWhite">
+
+    <TextView
+        android:id="@+id/plugin_manager_sub_toolbar"
+        android:layout_width="match_parent"
+        android:minHeight="44dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="@string/plugin_manager_sub_title"
+        android:padding="10dp"
+        android:background="@color/PluginSubTitleBKColorGrey"
+        android:textColor="@color/PluginFontColorBlack"
+        android:elevation="1dp"
+        android:gravity="center_vertical"
+        android:ellipsize="end"/>
+
+    <View
+        android:id="@+id/list_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/print_btn"
+        android:background="@color/PluginMGDividerColor" />
+
+    <Button
+        android:id="@+id/print_btn"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="@color/HPFontColorWhite"
+        android:textColor="@color/PluginBtnColorBlue"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/continue_to_print"
+        android:paddingRight="20dp"
+        android:gravity="center_vertical|end"
+        android:clickable="true">
+    </Button>
+
+
+    <ListView
+        android:id="@+id/plugin_manager_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="17dp"
+        android:layout_below="@+id/plugin_manager_sub_toolbar"
+        android:layout_above="@+id/list_divider"
+        android:scrollbars="vertical"
+        android:divider="@color/PluginListViewDividerColor"
+        android:dividerHeight="1dp"/>
+
+
+</RelativeLayout>

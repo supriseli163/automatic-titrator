@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="DropEditText">
+        <attr name="drawableRight" format="reference" />
+        <attr name="dropMode">
+            <enum name="flow_parent" value="0" />
+            <enum name="wrap_content" value="1" />
+        </attr>
+        <attr name="hint" format="string|reference" />
+    </declare-styleable>
+    <declare-styleable name="PagePreviewView">
+        <attr name="sizeFontColor" format="reference|color"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="136dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/help_md5_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab_cur"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/help_md5_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="MD5"
+                android:textColor="@color/fontOrange"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/help_update_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/help_update_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/update"
+                android:textColor="@color/fontWhite"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/help_instruction_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/help_instruction_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/instruction"
+                android:textColor="@color/fontWhite"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/help_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </FrameLayout>
+</LinearLayout>

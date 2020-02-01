@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/test_setting_fragment_view"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:clickable="true"
+    android:background="@drawable/item_backgroud"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/test_setting_search_item_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="14sp"
+        android:textColor="@color/fontWhite"/>
+</LinearLayout>

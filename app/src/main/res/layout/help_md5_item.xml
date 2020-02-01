@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="41dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/help_md5_item_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            app:buttonTint="@color/colorBlue"
+            android:buttonTint="@color/colorBlue" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/help_md5_item_no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/help_md5_item_createdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/automatic_titrator"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/help_md5_item_createtime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/automatic_titrator"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/help_md5_item_filename"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/help_md5_item_filesize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/automatic_titrator"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/help_md5_item_md5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/automatic_titrator"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#B7B7B7" />
+</LinearLayout>

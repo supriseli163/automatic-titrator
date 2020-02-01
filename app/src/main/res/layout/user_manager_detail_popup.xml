@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/popup">
+
+    <RelativeLayout
+        android:id="@+id/user_detail_popup_top"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorGray1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/auth_and_desc"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/user_detail_popup_close"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/icon_close" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/user_detail_popup_top1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/user_detail_popup_top"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="@string/auth"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/user_detail_popup_auth"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/user_detail_popup_top1"
+        android:background="@color/colorSliver">
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_paramsetting"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_paramsetting"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_datadelte"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/user_detail_popup_paramsetting"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_datadelete"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_datasearch"
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/user_detail_popup_datadelte"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_datasearch"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_dataexport"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/user_detail_popup_paramsetting"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_dataexport"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_dataprint"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_paramsetting"
+            android:layout_toRightOf="@+id/user_detail_popup_dataexport"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_dataprint"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_dataupload"
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_paramsetting"
+            android:layout_toRightOf="@+id/user_detail_popup_dataprint"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_dataupload"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_recovery"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/user_detail_popup_dataexport"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_recovery"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_language"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_dataexport"
+            android:layout_toRightOf="@+id/user_detail_popup_recovery"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_language"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_timeupdate"
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_dataexport"
+            android:layout_toRightOf="@+id/user_detail_popup_language"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_timeupdate"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_correct"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/user_detail_popup_recovery"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_correct"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_method"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_recovery"
+            android:layout_toRightOf="@+id/user_detail_popup_correct"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_method"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_usermanager"
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_recovery"
+            android:layout_toRightOf="@+id/user_detail_popup_method"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_usermanager"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_audit"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_correct"
+            android:layout_alignParentLeft="true"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_audit"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_wavelength"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_correct"
+            android:layout_toRightOf="@+id/user_detail_popup_audit"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_wavelength"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_fomulaadd"
+            android:layout_width="104dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_correct"
+            android:layout_toRightOf="@+id/user_detail_popup_wavelength"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_fomula"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_fileserver"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_audit"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_fileserver"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <CheckBox
+            android:id="@+id/user_detail_popup_networksetting"
+            android:layout_width="98dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/user_detail_popup_audit"
+            android:layout_toRightOf="@+id/user_detail_popup_fileserver"
+            android:buttonTint="@color/colorBlue"
+            app:buttonTint="@color/colorBlue"
+            android:gravity="center_vertical"
+            android:text="@string/auth_network"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/user_detail_popup_bottom1"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/user_detail_popup_auth"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/desc"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/user_detail_popup_user_desc"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/edit_text"
+            android:imeOptions="actionDone"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/user_detail_popup_savebtn"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/orange_button"
+            android:text="@string/save"
+            android:textColor="@color/fontWhite"
+            android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="100px">
+
+    <TextView
+        android:id="@+id/export_sv_title1"
+        android:layout_width="wrap_content"
+        android:layout_height="80px"
+        android:textColor="@color/fontBlack1"
+        android:textSize="48px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/export_sv_title2"
+        android:layout_width="wrap_content"
+        android:layout_height="70px"
+        android:textColor="@color/fontBlack1"
+        android:textSize="44px"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/export_sv_title3"
+        android:layout_width="wrap_content"
+        android:layout_height="60px"
+        android:textColor="@color/fontBlack1"
+        android:textSize="36px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="260px"
+        android:orientation="vertical"
+        android:paddingTop="20px">
+
+        <TextView
+            android:id="@+id/export_sv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="60px"
+            android:textColor="@color/fontBlack1"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/export_sv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="60px"
+            android:textColor="@color/fontBlack1"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/export_sv_creator"
+            android:layout_width="wrap_content"
+            android:layout_height="60px"
+            android:textColor="@color/fontBlack1"
+            android:textSize="32px" />
+
+        <TextView
+            android:id="@+id/export_sv_autograph"
+            android:layout_width="wrap_content"
+            android:layout_height="60px"
+            android:textColor="@color/fontBlack1"
+            android:textSize="32px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="140px"
+            android:layout_height="wrap_content"
+            android:text="@string/sort_number"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_name"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="180px"
+            android:layout_height="wrap_content"
+            android:text="@string/sample_no"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="140px"
+            android:layout_height="wrap_content"
+            android:text="@string/date"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="140px"
+            android:layout_height="wrap_content"
+            android:text="@string/time"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:text="@string/temperature"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="120px"
+            android:layout_height="wrap_content"
+            android:text="@string/result_type"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="160px"
+            android:layout_height="wrap_content"
+            android:text="@string/test_result"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+
+        <TextView
+            android:layout_width="140px"
+            android:layout_height="wrap_content"
+            android:text="@string/operator"
+            android:textAlignment="center"
+            android:textColor="@color/fontBlack1"
+            android:textSize="22px" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/export_sv_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+</LinearLayout>

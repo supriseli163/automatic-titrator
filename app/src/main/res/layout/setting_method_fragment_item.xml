@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="41dp"
+    android:layout_margin="20dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/setting_method_item_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            app:buttonTint="@color/colorBlue"
+            android:buttonTint="@color/colorBlue" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/setting_method_item_sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="序号"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/setting_method_item_testname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="方法名称"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/setting_method_item_resulttype"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="结果类型"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/setting_method_item_temperature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="温度"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/setting_method_item_autotest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="自动测试"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/setting_method_item_createtime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="创建时间"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#B7B7B7" />
+
+        <TextView
+            android:id="@+id/setting_method_item_creator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="创建人"
+            android:textAlignment="center"
+            android:textColor="@color/fontGray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#B7B7B7" />
+</LinearLayout>

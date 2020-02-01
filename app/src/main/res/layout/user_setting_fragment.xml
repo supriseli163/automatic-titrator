@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/JH_f3f3f3"
+    android:orientation="vertical">
+
+    //TWO CHANGE
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="6dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:background="@color/colorWrite"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/JH_4d6083"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/update_password"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/old_password"
+                        android:textColor="@color/fontGray" />
+
+                    <EditText
+                        android:id="@+id/user_setting_old_password"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:background="@drawable/edit_text"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                        android:textColor="@color/fontGray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_password"
+                        android:textColor="@color/fontGray" />
+
+                    <EditText
+                        android:id="@+id/user_setting_new_password1"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:background="@drawable/edit_text"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                        android:textColor="@color/fontGray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="50dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_password1"
+                        android:textColor="@color/fontGray" />
+
+                    <EditText
+                        android:id="@+id/user_setting_new_password2"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:padding="5dp"
+                        android:background="@drawable/edit_text"
+                        android:inputType="textPassword"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
+                        android:textColor="@color/fontGray" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@color/colorWrite"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/JH_4d6083"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/update_head_img"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/current_head_img"
+                            android:textColor="@color/fontGray"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:id="@+id/user_setting_head"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/head_portrait1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/head_portrait1" />
+
+                            <RadioButton
+                                android:id="@+id/user_setting_head1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:buttonTint="@color/colorBlue"
+                                app:buttonTint="@color/colorBlue"
+                                android:checked="true"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/head_portrait2" />
+
+                            <RadioButton
+                                android:id="@+id/user_setting_head2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                app:buttonTint="@color/colorBlue"
+                                android:buttonTint="@color/colorBlue" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/head_portrait3" />
+
+                            <RadioButton
+                                android:id="@+id/user_setting_head3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                app:buttonTint="@color/colorBlue"
+                                android:buttonTint="@color/colorBlue" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/head_portrait4" />
+
+                            <RadioButton
+                                android:id="@+id/user_setting_head4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                app:buttonTint="@color/colorBlue"
+                                android:buttonTint="@color/colorBlue" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    //AUTO LOGIN
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="match_parent">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_login"
+                android:textColor="@color/fontGray"
+                android:textSize="20sp" />
+
+            <CheckBox
+                android:id="@+id/user_setting_autologin"
+                android:layout_width="84dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="20dp"
+                android:button="@drawable/checkbox1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    //BTN
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="580dp"
+            android:layout_height="match_parent">
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/user_setting_logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logout_btn"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="@string/logout"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="14dp"
+            android:layout_height="match_parent">
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/user_setting_save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/save_btn"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="@string/save"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

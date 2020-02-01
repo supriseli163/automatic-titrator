@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray1"
+    android:gravity="center"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_name1"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/data_print_title_name1"
+            android:layout_width="120dp"
+            android:layout_height="36dp"
+            android:background="@drawable/edit_text_white"
+            android:layout_marginLeft="10dp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_name2"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/data_print_title_name2"
+            android:layout_width="120dp"
+            android:layout_height="36dp"
+            android:background="@drawable/edit_text_white"
+            android:layout_marginLeft="10dp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_name3"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/data_print_title_name3"
+            android:layout_width="120dp"
+            android:layout_height="36dp"
+            android:background="@drawable/edit_text_white"
+            android:layout_marginLeft="10dp"
+            android:singleLine="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/layout"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <RadioGroup
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/data_print_export_type_horizontal_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:checked="true"
+                android:textColor="@color/fontWhite"
+                android:text="@string/horizontal_simple"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/data_print_export_type_vertical_simple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/fontWhite"
+                android:text="@string/vertical_simple"></RadioButton>
+
+            <RadioButton
+                android:id="@+id/data_print_export_type_vertical_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/fontWhite"
+                android:text="@string/vertical_detail"></RadioButton>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/data_print_save_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/black_button"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/print"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

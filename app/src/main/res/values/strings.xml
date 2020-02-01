@@ -1,0 +1,620 @@
+<resources>
+    <string name="app_name">卓光</string>
+    <string name="device_name">全自动电位滴定仪</string>
+
+    <string-array name="user_type">
+        <item>主管</item>
+        <item>操作员</item>
+    </string-array>
+
+    <string-array name="concentration_type">
+        <item>g/l</item>
+        <item>g/ml</item>
+        <item>g/100ml</item>
+    </string-array>
+
+    <string-array name="test_result_type">
+        <item>α</item>
+        <item>[α]</item>
+        <item>C</item>
+    </string-array>
+
+    <string-array name="number_decimal">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="test_atlasY">
+        <item>±10°</item>
+        <item>±20°</item>
+        <item>±30°</item>
+        <item>±40°</item>
+        <item>±50°</item>
+        <item>±60°</item>
+        <item>±70°</item>
+        <item>±80°</item>
+        <item>±90°</item>
+    </string-array>
+
+    <string-array name="number_0_9">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="number_1_10">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="number_test">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="test_result_desc_type">
+        <item>旋光度</item>
+        <item>比旋度</item>
+        <item>浓度</item>
+    </string-array>
+
+    <string-array name="test_result_unit_type">
+        <item>°</item>
+        <item>°</item>
+        <item>g/l</item>
+        <item>g/l</item>
+    </string-array>
+
+    <string-array name="temperature_type">
+        <item>°C</item>
+        <item>K</item>
+        <item>°F</item>
+    </string-array>
+
+    <string-array name="changeV_type">
+        <item>Digipol p610</item>
+        <item>Digipol p620</item>
+        <item>Digipol p630</item>
+        <item>Digipol p910</item>
+        <item>Digipol p920</item>
+        <item>Digipol p930</item>
+    </string-array>
+
+    <string-array name="test_atlasX">
+        <item>1小时</item>
+        <item>2小时</item>
+        <item>4小时</item>
+    </string-array>
+
+    <string-array name="test_accuracy">
+        <item>快速测量</item>
+        <item>高精度测量</item>
+    </string-array>
+
+    <string-array name="language">
+        <item>中文</item>
+        <item>英语</item>
+    </string-array>
+
+    <string-array name="bool">
+        <item>是</item>
+        <item>否</item>
+    </string-array>
+
+    <string name="nm">nm</string>
+    <string name="cm">cm</string>
+    <string name="seperate_line">====================================================================</string>
+
+    <string name="sugger">国际糖度</string>
+    <string name="setting">设置</string>
+    <string name="help">帮助</string>
+    <string name="user">用户</string>
+    <string name="update">版本升级</string>
+    <string name="custom">通用设置</string>
+    <string name="method_manager">方法管理</string>
+    <string name="correct">校正</string>
+    <string name="network">网络设置</string>
+    <string name="formula">公式编辑</string>
+    <string name="audit">审计跟踪</string>
+    <string name="initial">初始化</string>
+    <string name="factory_initial">出厂设置</string>
+    <string name="param_setting">参数设置</string>
+    <string name="user_setting">用户设置</string>
+    <string name="user_manager">用户管理</string>
+    <string name="method_setting">方法设置</string>
+
+    <string name="single_page">单页</string>
+    <string name="all_page">全部</string>
+    <string name="next_page">下一页</string>
+    <string name="pres_page">上一页</string>
+
+    <string name="page">页</string>
+    <string name="submit">确认</string>
+    <string name="cancel">取消</string>
+    <string name="add">添加</string>
+    <string name="save">保存</string>
+    <string name="saving">正在保存</string>
+    <string name="save_success">保存成功</string>
+    <string name="temperature_saving">正在温控</string>
+    <string name="delete_success">删除成功</string>
+    <string name="delete_ensure">确认删除</string>
+    <string name="delete_export_ensure">是否删除已导出</string>
+    <string name="password_illegal">两次输入的密码不匹配</string>
+    <string name="password_null">密码不能为空</string>
+    <string name="new_password_null">新密码不能为空</string>
+    <string name="password_error">密码错误</string>
+    <string name="prompt">提示</string>
+    <string name="no_need_to_delete">请至少选择一项删除</string>
+    <string name="only_one_checked">请确认只选择了一个选项</string>
+    <string name="checked_ensure">请确认至少选择了一个选项</string>
+    <string name="testing_delete_unlimit">正在测试，不能进行删除或修改</string>
+    <string name="default_method_name">默认方法名</string>
+    <string name="default_test_name">默认测试名</string>
+
+    <string name="file_path">路径</string>
+    <string name="file_type">文件类型</string>
+    <string name="file_name">文件名</string>
+    <string name="title_name">标题</string>
+    <string name="title_name1">标题1</string>
+    <string name="title_name2">标题2</string>
+    <string name="title_name3">标题3</string>
+    <string name="changing_to_print">打印文件生成成功</string>
+    <string name="title_can_not_be_null">标题不能为空</string>
+    <string name="title1_can_not_be_null">标题1不能为空</string>
+    <string name="use_detail">详情</string>
+    <string name="file_length">文件大小</string>
+    <string name="clear">清零</string>
+
+    <string name="current_version">当前版本：</string>
+    <string name="newest_version">最新版本：</string>
+    <string name="need_update">需要更新：</string>
+    <string name="check_update">检查更新</string>
+
+    <string name="export_type_excel_simple">excel-概要</string>
+    <string name="export_type_excel_detail">excel-详情</string>
+    <string name="export_type_pdf_hsimple">pdf-横版-概要</string>
+    <string name="export_type_pdf_vsimple">pdf-竖版-概要</string>
+    <string name="export_type_pdf_vdetail">pdf-竖版-详情</string>
+    <string name="file_name_can_not_be_null">文件名不能为空</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+
+    <string name="layout">排版</string>
+    <string name="vertical_simple">竖版-概要</string>
+    <string name="vertical_detail">竖版-详情</string>
+    <string name="horizontal_simple">横版-概要</string>
+
+    <string name="search">检索</string>
+    <string name="print">打印</string>
+    <string name="sensitive">热敏打印</string>
+    <string name="details">详细</string>
+    <string name="delete">删除</string>
+
+    <string name="date">日期</string>
+    <string name="time">时间</string>
+    <string name="start_date">起始日期</string>
+    <string name="end_date">结束日期</string>
+    <string name="create_date">创建日期</string>
+
+    <string name="printer_list">打印机列表</string>
+
+    <string name="creator">创建人</string>
+    <string name="creator1">生成</string>
+    <string name="creator2">操作员</string>
+
+    <string name="sort_number">序号</string>
+
+    <!--auth-->
+    <string name="auth">权限分配</string>
+    <string name="auth_and_desc">用户权限分配及备注</string>
+    <string name="desc">描述</string>
+    <string name="auth_paramsetting">参数设置</string>
+    <string name="auth_datadelete">数据删除</string>
+    <string name="auth_datasearch">数据检索</string>
+    <string name="auth_dataexport">数据导出</string>
+    <string name="auth_dataprint">打印</string>
+    <string name="auth_dataupload">上传</string>
+    <string name="auth_recovery">恢复出厂</string>
+    <string name="auth_language">语言切换</string>
+    <string name="auth_timeupdate">时间修改</string>
+    <string name="auth_correct">用户校正</string>
+    <string name="auth_method">方法设置</string>
+    <string name="auth_usermanager">账户管理</string>
+    <string name="auth_audit">审计跟踪</string>
+    <string name="auth_wavelength">波长设定</string>
+    <string name="auth_fomula">自定义公式</string>
+    <string name="auth_cloud">云服务</string>
+    <string name="auth_network">网络设置</string>
+    <string name="auth_fileserver">云服务</string>
+
+    <!--user-->
+    <string name="user_exists">用户已存在</string>
+    <string name="user_update_success">保存成功</string>
+    <string name="username">用户名</string>
+    <string name="password">密  码</string>
+    <string name="password_ensure">输入密码</string>
+
+    <!--network-->
+    <string name="dhcp">DHCP</string>
+    <string name="ip">IP</string>
+    <string name="subnet_mark">子网掩码</string>
+    <string name="gateway">网关</string>
+    <string name="dns">DNS</string>
+    <string name="connect">连接</string>
+
+    <!--test-->
+    <string name="sample_name">样品名称</string>
+    <string name="sample_no">样品编号</string>
+    <string name="test_method">测试方法</string>
+    <string name="test_method_name">测试方法名</string>
+    <string name="setting_temperature">设置温度</string>
+    <string name="real_temperature">实时温度</string>
+    <string name="concentration">浓度</string>
+    <string name="test_count">测试次数</string>
+    <string name="accuracy">测量准确度</string>
+    <string name="result_type">结果类型</string>
+    <string name="wavelength">波长</string>
+    <string name="showdecimals">显示位数</string>
+    <string name="testtubelength">试管长度</string>
+    <string name="specificrotation">比旋度</string>
+    <string name="atlas">图谱</string>
+    <string name="temperature">温度</string>
+    <string name="temperature_use">是否控温</string>
+    <string name="temperature_setting">设置温度</string>
+    <string name="temperature_true">实际温度</string>
+    <string name="autotest">自动测试</string>
+    <string name="autotesttimes">重复次数</string>
+    <string name="autotestinterval">时间间隔(分)</string>
+    <string name="param_set_promt">请先进行参数设置</string>
+    <string name="test_start_saving">正在保存数据，请稍后</string>
+    <string name="test_result">测量值</string>
+    <string name="method_name">方法名称</string>
+    <string name="select">选取</string>
+    <string name="test_date">测试日期</string>
+    <string name="test_time">测试时间</string>
+    <string name="export">导出</string>
+
+    <!--network-->
+    <string name="network_get_error">寻找网络失败</string>
+    <string name="internet_not_connect">网络未连接</string>
+
+    <!--export-->
+    <string name="export_success">导出成功</string>
+
+    <!--correct-->
+    <string name="recover_success">恢复出厂设置成功</string>
+    <string name="wavelength_choose">波长切换</string>
+    <string name="wavelength_choosing">波长切换中...</string>
+    <string name="wavelength_choose_success">波长切换成功</string>
+    <string name="automatic_titrator">旋光度</string>
+    <string name="average">平均值</string>
+    <string name="first_test">第一次测量</string>
+    <string name="second_test">第二次测量</string>
+    <string name="third_test">第三次测量</string>
+    <string name="restore_factory_settings">恢复出厂设置</string>
+    <string name="standard_value_add">标准值添加</string>
+    <string name="standard_value">标准值</string>
+
+    <!--initial-->
+    <string name="temperature_add">温度补偿</string>
+    <string name="wavelength_add">波长添加</string>
+    <string name="wavelength_1">波长1</string>
+    <string name="wavelength_2">波长2</string>
+    <string name="wavelength_3">波长3</string>
+    <string name="wavelength_4">波长4</string>
+    <string name="wavelength_5">波长5</string>
+    <string name="wavelength_6">波长6</string>
+    <string name="wavelength_7">波长7</string>
+    <string name="wavelength_8">波长8</string>
+    <string name="autoclean_3">锁零点(精确到千分之一)</string>
+    <string name="autoclean_4">锁零点(精确到万分之一)</string>
+    <string name="middle_change">中性切换</string>
+    <string name="initialization">初始化</string>
+    <string name="store_factory_settings">写入出厂设置</string>
+    <string name="ensure_recovery">确定恢复出厂设置?</string>
+    <string name="ensure_cover">确定写入出厂设置?写入后不可恢复</string>
+    <string name="recovering">正在恢复出厂设置</string>
+
+    <!--audit-->
+    <string name="operator">操作人</string>
+    <string name="fragment">操作界面</string>
+    <string name="event">操作事件</string>
+
+
+    <!--standard-->
+    <string name="auto_clear">自动清零</string>
+    <string name="language">语言</string>
+
+    <!--user manager-->
+    <string name="create_user">创建用户</string>
+    <string name="user_type">用户类型</string>
+    <string name="password_update">修改密码</string>
+    <string name="old_password">旧密码</string>
+    <string name="new_password">新密码</string>
+    <string name="new_password1">确认密码</string>
+    <string name="update_head_img">修改头像</string>
+    <string name="current_head_img">当前头像</string>
+    <string name="auto_login">自动登录</string>
+    <string name="logout">登出</string>
+
+    <!--login-->
+    <string name="error_account">账号或密码错误</string>
+    <string name="null_account_info">账号和密码均不能为空</string>
+
+    <string name="gen_please_wait">请稍等</string>
+    <string name="gen_pdf_file">正在生成文件，请稍后</string>
+    <string name="gen_print_file">正在生成打印文件，请稍后</string>
+    <string name="can_not_be_null">不能为空</string>
+    <string name="reloading">重新加载</string>
+    <string name="update_password">修改密码</string>
+    <string name="user_cannot_be_null">用户名不能为空</string>
+    <string name="auth_illegal">您没有该操作权限</string>
+    <string name="create">新建</string>
+    <string name="login_success">登录成功</string>
+
+    <!--formula-->
+    <string name="formula_name">公式名称</string>
+    <string name="formula_simple_name">简称</string>
+    <string name="formula_unit">单位</string>
+    <string name="formula_decimal">位数</string>
+    <string name="formula_show_percent">百分比显示</string>
+    <string name="formula_date">日期</string>
+    <string name="formula_time">时间</string>
+    <string name="formula_desc">备注</string>
+    <!--conversion-->
+    <string name="conversion_add">添加结果区间</string>
+    <string name="conversion_range">区间范围（&lt;x&lt;=）</string>
+    <string name="range_illegal">区间范围（&lt;x&lt;=）为[-90,90],且不能重叠</string>
+
+    <string name="field_illegal">字段不合法</string>
+    <string name="alter">修改</string>
+
+    <string name="udisk_not_found">未检测到U盘</string>
+    <string name="apk_not_found">未检测到安装包</string>
+    <string name="save_failed">保存失败</string>
+
+    <string name="already_exist">已存在</string>
+
+    <string-array name="temperature_range_err">
+        <item>温度范围应为10C°-50C°</item>
+        <item>温度范围应为283.15K-323.15K</item>
+        <item>温度范围应为50F°-122F°</item>
+    </string-array>
+
+    <string name="autotest_range">自动测试次数范围为1到60(包含1和60)</string>
+
+    <string name="version_is_new">当前已为最新版本</string>
+    <string name="illegal_ip">ip地址不合法</string>
+    <string name="static_ip_not_supported">系统不支持修改静态ip</string>
+
+    <string name="exporting_excel">正在导出excel</string>
+    <string name="sugger_cannot_delete">糖度不能删除</string>
+
+    <string name="scale">范围</string>
+    <string name="range">&lt;=x&lt;=</string>
+    <string name="clear_success">清零成功</string>
+    <string name="clearing">正在清零</string>
+    <string name="install_app_not_found">未找到应用程序安装器</string>
+    <string name="clean_all">删除</string>
+
+
+    <string name="instruction">说明</string>
+    <string name="instruction_desc">
+        当仪器工作在比旋度模式，请务必输入溶液的浓度和试管长度；\n当仪器工作在浓度模式，请务必输入溶液的比旋度和试管长度。\n使用时，请保持仪器平稳，确保测量准确性。\n进行控温时，请先设定温度值，然后打开控温开关。\n不用控温时，请及时把控温开关关闭，避免长期工作。\n如果需要更多操作说明，请查看仪器使用说明书，需要帮助请联系客服人员</string>
+    <string name="tel">Tel: 400-8089310</string>
+    <string name="update_success">系统升级成功</string>
+    <string name="updating">正在升级</string>
+
+    <string name="x5">&#160;X<sup>5</sup> +&#160;</string>
+    <string name="x4">&#160;X<sup>4</sup> +&#160;</string>
+    <string name="x3">&#160;X<sup>3</sup> +&#160;</string>
+    <string name="x2">&#160;X<sup>2</sup> +&#160;</string>
+    <string name="x1">&#160;X +&#160;</string>
+    <string name="change_v">版本切换</string>
+    <string name="clouds">云服务</string>
+    <string name="http_addr">服务器地址</string>
+    <string name="autograph">电子签名</string>
+    <string name="func">自定义公式</string>
+    <string name="mt">分钟/次&#160;&#160;&#160;第</string>
+    <string name="fenzhongjishi">分钟计时</string>
+
+    <string name="data_export">导出</string>
+    <string name="user_login">登录</string>
+
+    <string name="subfragment">子界面</string>
+
+    <!--界面相关-->
+    <string name="login">登录</string>
+    <string name="login_login">登录</string>
+
+    <string name="test">测试</string>
+    <string name="test_param_setting">参数设置</string>
+    <string name="test_param_setting_save">保存</string>
+    <string name="routine_maintain">维护</string>
+    <string name="emergency_stop">紧急停止</string>
+    <string name="work_state">工作状态</string>
+    <string name="sample_information">样品信息</string>
+    <string name="start">开始滴定</string>
+    <string name="stop">停止滴定</string>
+
+
+
+    <string name="data">数据</string>
+    <string name="data_delete">删除</string>
+    <string name="data_detail">详情查看</string>
+    <string name="data_search">检索</string>
+    <string name="data_print">打印</string>
+
+    <string name="method">方法</string>
+    <string name="create_method">新建方法</string>
+    <string name="delete_method">删除方法</string>
+    <string name="import_method">导入方法</string>
+    <string name="export_method">导出方法</string>
+    <string name="save_method">保存方法</string>
+    <string name="run_method">运行方法</string>
+    <string name="commit_method">提交方法</string>
+
+    <string name="stardand_setting">通用设置</string>
+    <string name="stardand_setting_save">通用设置修改</string>
+    <string name="method_setting_add">方法设置</string>
+    <string name="method_setting_delete">方法删除</string>
+    <string name="method_setting_detail">方法详情</string>
+    <string name="method_setting_update">方法修改</string>
+    <string name="method_setting_search">方法检索</string>
+    <string name="correct_setting">方法校正</string>
+    <string name="correct_setting_test">测试</string>
+    <string name="correct_setting_clean">清零</string>
+    <string name="correct_setting_save">保存</string>
+    <string name="correct_setting_add_standard">标准值添加</string>
+    <string name="correct_setting_submit_standard">标准值确认</string>
+    <string name="correct_setting_delete_standard">标准值删除</string>
+    <string name="correct_setting_recover">恢复出厂设置</string>
+    <string name="network_setting">网络设置</string>
+    <string name="network_setting_updpate">网络修改</string>
+    <string name="formula_setting">公式编辑</string>
+    <string name="formula_setting_add">公式添加</string>
+    <string name="formula_setting_updpate">公式修改</string>
+    <string name="formula_setting_delete">公式删除</string>
+    <string name="audit_setting">审计跟踪</string>
+    <string name="audit_setting_delete">删除</string>
+    <string name="audit_setting_search">检索</string>
+    <string name="init_setting">出厂设置</string>
+    <string name="init_setting_saving">保存</string>
+    <string name="init_setting_add_to_init">写入出厂设置</string>
+    <string name="init_setting_recover">初始化</string>
+
+    <string name="help_md5">md5</string>
+    <string name="help_md5_search">md5检索</string>
+    <string name="help_md5_clear">md5清空</string>
+
+    <string name="user_setting_saving">修改用户基础信息</string>
+    <string name="user_setting_logout">登出</string>
+    <string name="user_manager_add">添加用户</string>
+    <string name="user_manager_alter">修改用户</string>
+    <string name="user_manager_delete">删除用户</string>
+    <string name="user_manager_delete_batch">删除多个用户</string>
+    <string name="alter_language">修改语言</string>
+    <string name="alter_date">修改时间</string>
+    <string name="alter_auto_clean">修改清零</string>
+    <string name="logining">登录中</string>
+    <string name="stop_test">停止</string>
+    <string name="temp_control_success">温度控制完成</string>
+
+    <string name="lock">锁定</string>
+    <string name="unlock">解锁</string>
+    <string name="user_locked">账号已被锁定</string>
+    <string name="update_username">修改账号</string>
+
+    <string name="title_activity_print_preview">打印预览</string>
+    <string name="title_activity_print_place_holder">打印</string>
+    <string name="action_settings">设置</string>
+    <string name="print_preview_prompt">想象一个大型图像出现在下部</string>
+    <string name="learn_about_mobile_print">打印引导</string>
+    <string name="support">支持</string>
+    <string name="paper_size">纸张大小</string>
+    <string name="paper_type">纸张类型</string>
+    <string name="lib_font"></string>
+
+    <string name="preview_spinner_4x5">4 x 5</string>
+    <string name="preview_spinner_4x6">4 x 6</string>
+    <string name="preview_spinner_5x7">5 x 7</string>
+    <string name="preview_spinner_letter">8.5 x 11</string>
+
+    <string-array name="paper_type_array">
+        <item> 照片纸 </item>
+    </string-array>
+    <!-- Print Preview -->
+    <string name="print_preview_menu_help">打印帮助</string>
+    <string name="print_preview_menu_print_service_plugins">打印服务插件</string>
+
+    <!-- Print Plugin installation -->
+    <string name="hp_print_plugin_alert_header">惠普打印插件</string>
+    <string name="install_hp_print_plugin_msg">你有惠普打印机吗？为了打印最好质量的照片，请安装惠普打印插件。</string>
+    <string name="update_hp_print_plugin_msg">你有惠普打印机吗？为了打印最好质量的照片，请更新惠普打印插件。</string>
+    <string name="enable_hp_print_plugin_msg">确认你的惠普打印插件可用。</string>
+
+    <!-- Print Plugin helper -->
+    <string name="hp_print_helper_header">打印服务助手</string>
+    <string name="install_print_plugin_msg">为了打印最好质量的照片，请安装合适的插件并启动。</string>
+
+    <!-- Print Service Plugin Information -->
+    <string name="title_activity_print_service_plugin_info">打印服务信息</string>
+    <string name="print_service_help_title_1">获取打印服务插件</string>
+    <string name="print_service_help_msg_1">你必须安装打印服务插件。每个品牌的打印机都有自己的插件，使您可以使用移动设备打印。通用打印服务插件也可使用。选择为您提供最佳服务的插件。你可以随时添加额外的打印插件。</string>
+    <string name="print_service_help_title_2">启动插件</string>
+    <string name="print_service_help_msg_2">下载打印服务插件后，你应该试图启动插件，选中并切换到“ON”</string>
+
+    <!-- Print Help -->
+    <string name="title_activity_print_help">打印服务</string>
+    <string name="print_help_activity_title_1">确认打印服务插件安装并启动完成。</string>
+    <string name="print_help_activity_msg_1_part_1">你必须安装打印服务插件。每个品牌的打印机都有自己的插件，使您可以使用移动设备打印。通用打印服务插件也可使用。选择为您提供最佳服务的插件。你可以随时添加额外的打印插件。</string>
+    <string name="print_help_activity_msg_1_part_2">下载打印服务插件后，你应该试图启动插件，选中并切换到“ON”</string>
+    <string name="print_help_activity_msg_1_link">检查你的打印服务插件</string>
+    <string name="print_help_activity_title_2">确认你的移动设备和打印机连接到同一网络中。</string>
+    <string name="print_help_activity_msg_2">您的移动设备和打印机必须连接到您的本地Wi-Fi网络。查看您的设备的Wi-Fi信息，并按照指示连接。</string>
+    <string name="print_help_activity_title_3">检查您的打印机的任何错误信息或者电源问题。</string>
+    <string name="print_help_activity_msg_3">一些常见的打印机问题有墨量低、卡纸、未装纸。另外检查确认打印机的电源。</string>
+
+
+    <!-- Snap Shots Prompt -->
+    <string name="snap_shots_prompt_header">在4x5纸上打印</string>
+    <string name="snap_shots_prompt_ok">继续</string>
+    <string name="snap_shots_prompt_do_not_show">不再显示</string>
+    <string name="snap_shots_prompt_message">您选择了4x5作为纸张大小。下一个屏幕将显示4x6，但是别担心，打印机将正确工作。</string>
+
+    <!-- Print Plugin Manager -->
+    <string name="plugin_manager_title">打印服务管理</string>
+    <string name="plugin_manager_sub_title">你需要安装和启动打印服务插件</string>
+
+    <string-array name="plugin_names">
+        <item>惠普打印服务插件</item>
+        <item>打印服务</item>
+        <item>兄弟打印服务插件</item>
+        <item>三星打印服务插件</item>
+        <item>佳能打印服务</item>
+        <item>爱普生打印技术</item>
+        <item>其他打印服务插件</item>
+    </string-array>
+
+    <string-array name="plugin_makers">
+        <item>惠普公司</item>
+        <item>Mopria联盟</item>
+        <item>兄弟工业有限公司</item>
+        <item>三星电子有限公司</item>
+        <item>佳能公司</item>
+        <item>精工爱普生公司</item>
+        <item>N/A</item>
+    </string-array>
+
+    <string name="continue_to_print">继续打印</string>
+    <string name="skip">跳过</string>
+    <string name="before_enable_tips">你将被引导至安卓打印设置</string>
+    <string name="before_enable_tips_title">启动插件</string>
+    <string name="ok">去设置</string>
+    <string name="enabled">启动</string>
+    <string name="disabled">不启动</string>
+
+    <!--Toast Strings-->
+    <string name="set_print_job_data">请首先设置打印作业数据</string>
+</resources>

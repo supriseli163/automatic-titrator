@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="136dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top">
+
+        <LinearLayout
+            android:id="@+id/setting_standard_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_standard_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/custom"
+                android:textColor="@color/colorWrite" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_method_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_method_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/method_setting"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_correcting_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_correcting_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/correct"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_network_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_network_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/network"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_formula_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_formula_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/func"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_audit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_audit_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/audit"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_autograph_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_autograph_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/autograph"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_clouds_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_clouds_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/clouds"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_initail_layout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/top_tab"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_initail_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:text="@string/factory_initial"
+                android:textColor="@color/JH_333333"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/setting_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </FrameLayout>
+</LinearLayout>

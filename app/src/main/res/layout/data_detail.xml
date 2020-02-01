@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="800dp"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_number"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_sort_number"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"></LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_name"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_name"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_no"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_sample_no"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_date"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/time"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_time"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/result_type"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_resType"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/test_result"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_res"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_setting"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_temperature_setting"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_temperature"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/wavelength"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_wavelength"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/testtubelength"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_testtubelength"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/automatic_titrator"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_automatic_titrator"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/specificrotation"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_specific_rotation"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/concentration"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_concentration"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/test_method"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_test_method"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/operator"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/data_detail_creator"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fontWhite"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

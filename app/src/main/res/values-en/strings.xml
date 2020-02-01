@@ -1,0 +1,617 @@
+<resources>
+    <string name="app_name">卓光</string>
+    <string name="device_name">Automatic Polarimeter</string>
+
+    <string-array name="user_type">
+        <item>Administrator</item>
+        <item>Operator</item>
+    </string-array>
+
+    <string-array name="concentration_type">
+        <item>g/l</item>
+        <item>g/ml</item>
+        <item>g/100ml</item>
+    </string-array>
+
+    <string-array name="test_result_type">
+        <item>α</item>
+        <item>[α]</item>
+        <item>C</item>
+    </string-array>
+
+    <string-array name="number_decimal">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="test_atlasY">
+        <item>±10°</item>
+        <item>±20°</item>
+        <item>±30°</item>
+        <item>±40°</item>
+        <item>±50°</item>
+        <item>±60°</item>
+        <item>±70°</item>
+        <item>±80°</item>
+        <item>±90°</item>
+    </string-array>
+
+    <string-array name="number_0_9">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string-array name="number_1_10">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="number_test">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    <string-array name="test_result_desc_type">
+        <item>旋光度</item>
+        <item>比旋度</item>
+        <item>浓度</item>
+    </string-array>
+
+    <string-array name="test_result_unit_type">
+        <item>°</item>
+        <item>°</item>
+        <item>g/l</item>
+        <item>g/l</item>
+    </string-array>
+
+    <string-array name="temperature_type">
+        <item>°C</item>
+        <item>K</item>
+        <item>°F</item>
+    </string-array>
+
+    <string-array name="changeV_type">
+        <item>Digipol p610</item>
+        <item>Digipol p620</item>
+        <item>Digipol p630</item>
+        <item>Digipol p910</item>
+        <item>Digipol p920</item>
+        <item>Digipol p930</item>
+    </string-array>
+
+    <string-array name="test_atlasX">
+        <item>1Hour</item>
+        <item>2Hour</item>
+        <item>4Hour</item>
+    </string-array>
+
+    <string-array name="test_accuracy">
+        <item>Fast</item>
+        <item>High Precision</item>
+    </string-array>
+
+    <string-array name="language">
+        <item>English</item>
+        <item>Chinese</item>
+    </string-array>
+
+    <string-array name="bool">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+    <string name="nm">nm</string>
+    <string name="cm">cm</string>
+    <string name="seperate_line">====================================================================</string>
+
+    <string name="sugger">Sugar Degree</string>
+    <string name="setting">Setting</string>
+    <string name="help">Helping</string>
+    <string name="user">User</string>
+    <string name="update">Upgrade</string>
+    <string name="update_success">Upgrade Success</string>
+    <string name="updating">Upgrading</string>
+    <string name="custom">Setting</string>
+    <string name="method_manager">Method Management</string>
+    <string name="correct">Calibration</string>
+    <string name="network">Network</string>
+    <string name="formula">Formula</string>
+    <string name="audit">Audit Trail</string>
+    <string name="initial">Initializing</string>
+    <string name="factory_initial">Factory Setting</string>
+    <string name="param_setting">Parameter</string>
+    <string name="user_setting">User Setting</string>
+    <string name="user_manager">User Manage</string>
+    <string name="method_setting">Method Setting</string>
+
+    <string name="single_page">Current page</string>
+    <string name="all_page">All pages</string>
+    <string name="next_page">Next</string>
+    <string name="pres_page">Previous</string>
+
+    <string name="page">page</string>
+    <string name="submit">OK</string>
+    <string name="cancel">Cancle</string>
+    <string name="add">Adding</string>
+    <string name="save">Save</string>
+    <string name="saving">Saving</string>
+    <string name="save_success">Saved</string>
+    <string name="temperature_saving">Temperature controlling</string>
+    <string name="delete_success">Deleted</string>
+    <string name="delete_ensure">Delete it?</string>
+    <string name="delete_export_ensure">Already exported and delete?</string>
+    <string name="password_illegal">Passords not the same</string>
+    <string name="password_null">Password cannot be empty</string>
+    <string name="new_password_null">Password cannot be empty</string>
+    <string name="password_error">Wrong password</string>
+    <string name="prompt">Hint</string>
+    <string name="no_need_to_delete">Delete one item at least</string>
+    <string name="only_one_checked">Please confirm only choose one item</string>
+    <string name="checked_ensure">Please confirm choose one at least</string>
+    <string name="testing_delete_unlimit">Measuring, can’t deleting and editing</string>
+    <string name="default_method_name">Default Method Name</string>
+    <string name="default_test_name">Default Measurement Name</string>
+    <string name="file_path">Path</string>
+    <string name="file_type">File Type</string>
+    <string name="file_name">File Name</string>
+    <string name="title_name">Title</string>
+    <string name="title_name1">Title1</string>
+    <string name="title_name2">Title2</string>
+    <string name="title_name3">Title3</string>
+    <string name="changing_to_print">File is printed</string>
+    <string name="title_can_not_be_null">Title cannot be empty</string>
+    <string name="title1_can_not_be_null">Title1 cannot be empty</string>
+    <string name="use_detail">Details</string>
+    <string name="file_length">File size</string>
+    <string name="clear">Zero Clearing</string>
+
+    <string name="current_version">Current Version：</string>
+    <string name="newest_version">Latest Version：</string>
+    <string name="need_update">Required new version：</string>
+    <string name="check_update">Check update</string>
+
+    <string name="export_type_excel_simple">excel-Outline</string>
+    <string name="export_type_excel_detail">excel-Detail</string>
+    <string name="export_type_pdf_hsimple">Pdf -Layout-Outline</string>
+    <string name="export_type_pdf_vsimple">Pdf -Vertical-Outline</string>
+    <string name="export_type_pdf_vdetail">Pdf -Vertical-Detail</string>
+    <string name="file_name_can_not_be_null">File name cannot be empty</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+
+    <string name="layout">Vertical</string>
+    <string name="vertical_simple">Vertical-Outline</string>
+    <string name="vertical_detail">Vertical-Detail</string>
+    <string name="horizontal_simple">Layout-Outline</string>
+
+    <string name="search">Search</string>
+    <string name="print">Print</string>
+    <string name="sensitive">SentitivePrint</string>
+    <string name="details">Details</string>
+    <string name="delete">Delete</string>
+
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="start_date">From Date</string>
+    <string name="end_date">Date closed</string>
+    <string name="create_date">Date created</string>
+
+    <string name="printer_list">打印机列表</string>
+
+    <string name="creator">Creater</string>
+    <string name="creator1">Creation</string>
+    <string name="creator2">Operator</string>
+
+    <string name="sort_number">Series Number</string>
+
+    <!--auth-->
+    <string name="auth">Authorization</string>
+    <string name="auth_and_desc">User authorization and Remark</string>
+    <string name="desc">Description</string>
+    <string name="auth_paramsetting">Configuration</string>
+    <string name="auth_datadelete">Data Delete</string>
+    <string name="auth_datasearch">Data Search</string>
+    <string name="auth_dataexport">Data Output</string>
+    <string name="auth_dataprint">Print</string>
+    <string name="auth_dataupload">Up/Down load</string>
+    <string name="auth_recovery">Reset to factory setting</string>
+    <string name="auth_language">Language</string>
+    <string name="auth_timeupdate">Date &amp; Time</string>
+    <string name="auth_correct">Calibration</string>
+    <string name="auth_method">Method</string>
+    <string name="auth_usermanager">User Management</string>
+    <string name="auth_audit">Audit Trail</string>
+    <string name="auth_wavelength">Wavelength</string>
+    <string name="auth_fomula">Self-defining Formula</string>
+    <string name="auth_cloud">Cloud Data</string>
+    <string name="auth_network">Network</string>
+    <string name="auth_fileserver">Web Service</string>
+
+    <!--user-->
+    <string name="user_exists">User already existing</string>
+    <string name="user_update_success">Saved</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+    <string name="password_ensure">Enter Password</string>
+
+    <!--network-->
+    <string name="dhcp">DHCP</string>
+    <string name="ip">IP</string>
+    <string name="subnet_mark">Subnet Mask</string>
+    <string name="gateway">Gateway</string>
+    <string name="dns">DNS</string>
+    <string name="connect">Connect</string>
+
+    <!--test-->
+    <string name="sample_name">Name</string>
+    <string name="sample_no">Sample ID</string>
+    <string name="test_method">Method</string>
+    <string name="test_method_name">Method Name</string>
+    <string name="setting_temperature">Temperature Setting</string>
+    <string name="real_temperature">Current Temperature</string>
+    <string name="concentration">Concentration</string>
+    <string name="test_count">Measurement Times</string>
+    <string name="accuracy">Measurement Accuracy</string>
+    <string name="result_type">Index</string>
+    <string name="wavelength">Wavelength</string>
+    <string name="showdecimals">Display Resolution</string>
+    <string name="testtubelength">Tube Length</string>
+    <string name="specificrotation">Specific Rotation</string>
+    <string name="atlas">Graph</string>
+    <string name="temperature">Temperature</string>
+    <string name="temperature_use">Temperature controlling</string>
+    <string name="temperature_setting">Temperature Setting</string>
+    <string name="temperature_true">Current temperature</string>
+    <string name="autotest">Automatic Measurement</string>
+    <string name="autotesttimes">Repeat Times</string>
+    <string name="autotestinterval">Interval</string>
+    <string name="param_set_promt">Please set parameter first</string>
+    <string name="test_start_saving">Saving, Please wait</string>
+    <string name="test_result">Result</string>
+    <string name="method_name">Method</string>
+    <string name="select">select</string>
+    <string name="test_date">Date</string>
+    <string name="test_time">Time</string>
+    <string name="export">Output</string>
+
+    <!--network-->
+    <string name="network_get_error">Search filed</string>
+    <string name="internet_not_connect">Network disconnected</string>
+
+    <!--export-->
+    <string name="export_success">Output Successful</string>
+
+    <!--correct-->
+    <string name="recover_success">Reset completed</string>
+    <string name="wavelength_choose">Wavelength</string>
+    <string name="wavelength_choosing">Switching...</string>
+    <string name="wavelength_choose_success">Switching completed</string>
+    <string name="automatic_titrator">Optical Rotation</string>
+    <string name="average">Avg.Value</string>
+    <string name="first_test">Mea1</string>
+    <string name="second_test">Mea2</string>
+    <string name="third_test">Mea3</string>
+    <string name="restore_factory_settings">Factory Resetting</string>
+    <string name="standard_value_add">Reference Value</string>
+    <string name="standard_value">Reference Value</string>
+
+    <!--initial-->
+    <string name="temperature_add">Temperature Compensation</string>
+    <string name="wavelength_add">Adding Wavelength</string>
+    <string name="wavelength_1">Wavelength 1</string>
+    <string name="wavelength_2">Wavelength 2</string>
+    <string name="wavelength_3">Wavelength 3</string>
+    <string name="wavelength_4">Wavelength 4</string>
+    <string name="wavelength_5">Wavelength 5</string>
+    <string name="wavelength_6">Wavelength 6</string>
+    <string name="wavelength_7">Wavelength 7</string>
+    <string name="wavelength_8">Wavelength 8</string>
+    <string name="autoclean_3">Precision (Accurate to 0.001)</string>
+    <string name="autoclean_4">Precision (Accurate to 0.0001)</string>
+    <string name="middle_change">Switch</string>
+    <string name="initialization">Formatting</string>
+    <string name="store_factory_settings">Write in factory setting</string>
+    <string name="ensure_recovery">Reset to factory setting?</string>
+    <string name="ensure_cover">Write Factory setting? It can’t be reset after writing.</string>
+    <string name="recovering">Resetting factory setting</string>
+
+    <!--audit-->
+    <string name="operator">Operator</string>
+    <string name="fragment">Operation Tab</string>
+    <string name="event">Log</string>
+    <string name="subfragment">Sub Tab</string>
+
+    <!--standard-->
+    <string name="auto_clear">Zero Clearing</string>
+    <string name="language">Language</string>
+
+    <!--user manager-->
+    <string name="create_user">Create Account</string>
+    <string name="user_type">Account Type</string>
+    <string name="password_update">Change Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="new_password1">Confirm</string>
+    <string name="update_head_img">Change Icon</string>
+    <string name="current_head_img">Current Icon</string>
+    <string name="auto_login">Automatic Login</string>
+    <string name="logout">Log out</string>
+
+    <!--login-->
+    <string name="error_account">Incorrect account name or password.</string>
+    <string name="null_account_info">Account name and password cannot be empty.</string>
+
+    <string name="gen_please_wait">Please wait</string>
+    <string name="gen_pdf_file">Generating file, please wait</string>
+    <string name="gen_print_file">Generating printing file, please wait</string>
+    <string name="can_not_be_null">Cannot be empty</string>
+    <string name="reloading">Reloading</string>
+    <string name="update_password">Change password</string>
+    <string name="user_cannot_be_null">User name cannot be empty</string>
+    <string name="auth_illegal">Not be authorized</string>
+    <string name="create">Create</string>
+    <string name="login_success">Login succeed</string>
+
+    <!--formula-->
+    <string name="formula_name">Name</string>
+    <string name="formula_simple_name">Short Name</string>
+    <string name="formula_unit">Unit</string>
+    <string name="formula_decimal">Precision</string>
+    <string name="formula_show_percent">Display in %</string>
+    <string name="formula_date">Date</string>
+    <string name="formula_time">Time</string>
+    <string name="formula_desc">Remark</string>
+    <!--conversion-->
+    <string name="conversion_add">Add “x” value range</string>
+    <string name="conversion_range">Value Range（&lt;x&lt;=）</string>
+    <string name="range_illegal">Value range should be [-90,90]</string>
+
+    <string name="field_illegal">Field is not valid</string>
+    <string name="alter">Edit</string>
+
+    <string name="udisk_not_found">Not detect U disk</string>
+    <string name="apk_not_found">Not detect APK</string>
+    <string name="save_failed">Save failure</string>
+
+    <string name="already_exist">&#160;Existed</string>
+
+    <string-array name="temperature_range_err">
+        <item>Temperature Range should be : 10°C-50°C</item>
+        <item>Temperature Range should be : 283.15K-323.15K</item>
+        <item>Temperature Range should be : 50°F-122°F</item>
+    </string-array>
+
+    <string name="autotest_range">Automatic measurement times should be 1-60(include 1 time and 60times)</string>
+
+    <string name="version_is_new">Current version is latest version</string>
+    <string name="illegal_ip">IP address is not valid</string>
+    <string name="static_ip_not_supported">System does not support modifying static IP</string>
+
+    <string name="exporting_excel">Outputting Excel file</string>
+    <string name="sugger_cannot_delete">Value can’t be deleted</string>
+
+    <string name="scale">Range</string>
+    <string name="range">&lt;=x&lt;=</string>
+    <string name="clear_success">Zero cleared</string>
+    <string name="clearing">Zero clearing</string>
+    <string name="install_app_not_found">Can’t find Installer</string>
+    <string name="clean_all">Delete</string>
+
+
+    <string name="instruction">Instruction</string>
+    <string name="instruction_desc">
+        When the instrument work in Specific Rotation mode, be sure to enter the concentration and length. When the instrument work in concentration mode, be sure to enter the specific rotation and length.\nWhen using, keep the instrument steady ensure the accuracy.\nIf you want to control the temperature, Please turn on the temperature control first, then set the temperature value.\nIf you need more instructions, please refer to the instruction manual.If need help please contact customer service.</string>
+    <string name="tel"></string>
+
+    <string name="x5">&#160;X<sup>5</sup> +&#160;</string>
+    <string name="x4">&#160;X<sup>4</sup> +&#160;</string>
+    <string name="x3">&#160;X<sup>3</sup> +&#160;</string>
+    <string name="x2">&#160;X<sup>2</sup> +&#160;</string>
+    <string name="x1">&#160;X +&#160;</string>
+
+    <string name="change_v">Change Version</string>
+    <string name="clouds">Cloud Service</string>
+    <string name="http_addr">Server Address</string>
+    <string name="autograph">Signature</string>
+    <string name="func">Custom Function</string>
+    <string name="mt">/min&#160;&#160;&#160;</string>
+    <string name="fenzhongjishi">Minute Timing</string>
+
+    <string name="user_login">Login</string>
+
+    <!--界面相关-->
+    <string name="login">Login</string>
+    <string name="login_login">Login</string>
+
+    <string name="test">Measurement</string>
+    <string name="test_param_setting">Params Setting</string>
+    <string name="test_param_setting_save">Save</string>
+    <string name="routine_maintain">Routine Maintain</string>
+    <string name="emergency_stop">Emergency Stop</string>
+    <string name="work_state">Work State</string>
+    <string name="sample_information">Sample Information</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+
+    <string name="data">Data</string>
+    <string name="data_delete">Delete</string>
+    <string name="data_detail">Detail</string>
+    <string name="data_search">Search</string>
+    <string name="data_print">Print</string>
+    <string name="data_export">Export</string>
+
+    <string name="method">Method</string>
+    <string name="create_method">Create Method</string>
+    <string name="delete_method">Delete Method</string>
+    <string name="import_method">Import Method</string>
+    <string name="export_method">Export Method</string>
+    <string name="save_method">Save Method</string>
+    <string name="run_method">Run Method</string>
+    <string name="commit_method">Commit Method</string>
+
+
+    <string name="stardand_setting">Custom Setting</string>
+    <string name="stardand_setting_save">Update</string>
+    <string name="method_setting_add">Add</string>
+    <string name="method_setting_delete">Delete</string>
+    <string name="method_setting_detail">Details</string>
+    <string name="method_setting_update">Edit</string>
+    <string name="method_setting_search">Search</string>
+    <string name="correct_setting">Calibration Setting</string>
+    <string name="correct_setting_test">Test</string>
+    <string name="correct_setting_clean">Clean</string>
+    <string name="correct_setting_save">Save</string>
+    <string name="correct_setting_add_standard">Add</string>
+    <string name="correct_setting_submit_standard">Confirm</string>
+    <string name="correct_setting_delete_standard">Delete</string>
+    <string name="correct_setting_recover">Reset</string>
+    <string name="network_setting">Network Setting</string>
+    <string name="network_setting_updpate">Update</string>
+    <string name="formula_setting">Edit</string>
+    <string name="formula_setting_add">Add</string>
+    <string name="formula_setting_updpate">Alter</string>
+    <string name="formula_setting_delete">Delete</string>
+    <string name="audit_setting">Audit Trail</string>
+    <string name="audit_setting_delete">Delete</string>
+    <string name="audit_setting_search">Search</string>
+    <string name="init_setting">Factory Setting</string>
+    <string name="init_setting_saving">Save</string>
+    <string name="init_setting_add_to_init">Save Factory Setting</string>
+    <string name="init_setting_recover">Reset</string>
+
+    <string name="help_md5">MD5</string>
+    <string name="help_md5_search">MD5 Search</string>
+    <string name="help_md5_clear">MD5 Search</string>
+    <string name="user_setting_saving">Alter</string>
+    <string name="user_setting_logout">Logout</string>
+    <string name="user_manager_add">Add</string>
+    <string name="user_manager_alter">Alter</string>
+    <string name="user_manager_delete">Delete</string>
+    <string name="user_manager_delete_batch">Batch Delete</string>
+    <string name="alter_language">Alter Languaue</string>
+    <string name="alter_date">Alter date</string>
+    <string name="alter_auto_clean">Alter clear</string>
+    <string name="logining">login...</string>
+    <string name="stop_test">Stop Testing</string>
+    <string name="temp_control_success">Temperature setting success</string>
+
+    <string name="lock">lock</string>
+    <string name="unlock">locked</string>
+    <string name="user_locked">Account Locked</string>
+    <string name="update_username">Alter Username</string>
+
+    <string name="title_activity_print_preview">Print Preview</string>
+    <string name="title_activity_print_place_holder">Print</string>
+    <string name="action_settings">Settings</string>
+    <string name="print_preview_prompt">Imagine a super duper image appears below</string>
+    <string name="learn_about_mobile_print">Print Instructions</string>
+    <string name="support">Support:</string>
+    <string name="paper_size">Paper Size:</string>
+    <string name="paper_type">Paper Type</string>
+    <string name="lib_font"></string>
+
+    <string name="preview_spinner_4x5">4 x 5</string>
+    <string name="preview_spinner_4x6">4 x 6</string>
+    <string name="preview_spinner_5x7">5 x 7</string>
+    <string name="preview_spinner_letter">8.5 x 11</string>
+
+    <string-array name="paper_type_array">
+        <item> Photo Paper </item>
+    </string-array>
+    <!-- Print Preview -->
+    <string name="print_preview_menu_help">Print Help</string>
+    <string name="print_preview_menu_print_service_plugins">Print Service Plugins</string>
+
+    <!-- Print Plugin installation -->
+    <string name="hp_print_plugin_alert_header">HP Print Plugin</string>
+    <string name="install_hp_print_plugin_msg">Do you have an HP printer? To print the best quality photos, please install HP Print Plugin.</string>
+    <string name="update_hp_print_plugin_msg">Do you have an HP printer? To print the best quality photos, please update HP Print Plugin.</string>
+    <string name="enable_hp_print_plugin_msg">Ensure your HP Print Plugin is enabled.</string>
+
+    <!-- Print Plugin helper -->
+    <string name="hp_print_helper_header">Print Service Helper</string>
+    <string name="install_print_plugin_msg">To print the best quality photos, please install and enable the proper plugin for your printer.</string>
+
+    <!-- Print Service Plugin Information -->
+    <string name="title_activity_print_service_plugin_info">Print Service Information</string>
+    <string name="print_service_help_title_1">Get a Print Service Plugin</string>
+    <string name="print_service_help_msg_1">You must have a print service plugin installed to print. Each brand of printer has their own plugin that enables you to print from your mobile device. Generic print service plugins are also available. Select the plugin that serves you best. You can add additional print plugins anytime.</string>
+    <string name="print_service_help_title_2">Enable Plugin</string>
+    <string name="print_service_help_msg_2">After downloading a Print Service Plugin, you will be prompted to enable your plugin. Just select it and tap the switch to “ON”.</string>
+
+    <!-- Print Help -->
+    <string name="title_activity_print_help">Print Help</string>
+    <string name="print_help_activity_title_1">Ensure your Print Service Plugin is installed and enabled</string>
+    <string name="print_help_activity_msg_1_part_1">You must have a print service plugin installed and enabled to print. Each brand of printer has their own plugin that enables you to print from your mobile device. Generic print service plugins are also available. Select the plugin that serves you best. You can add additional print plugins anytime.</string>
+    <string name="print_help_activity_msg_1_part_2">After downloading a Print Service Plugin, you will be prompted to enable your plugin. Just select it and tap the switch to “ON”.</string>
+    <string name="print_help_activity_msg_1_link">Check your Print Service Plugins</string>
+    <string name="print_help_activity_title_2">Ensure your mobile device and printer are connected to the same network</string>
+    <string name="print_help_activity_msg_2">Your mobile device and printer must be connected to your local Wi-Fi network. Review both of your device’s Wi-Fi information and follow instructions to connect.</string>
+    <string name="print_help_activity_title_3">Check your printer for any error messages or power issues</string>
+    <string name="print_help_activity_msg_3">Some common printer issues are low ink, a paper jam, and paper not loaded. Additionally check to ensure there is power to the printer.</string>
+
+
+    <!-- Snap Shots Prompt -->
+    <string name="snap_shots_prompt_header">Printing on 4x5 Paper</string>
+    <string name="snap_shots_prompt_ok">CONTINUE</string>
+    <string name="snap_shots_prompt_do_not_show">Do not show again.</string>
+    <string name="snap_shots_prompt_message">You have selected 4x5 as your paper size. The next screen will show 4x6, but don\'t worry, it will print correctly.</string>
+
+    <!-- Print Plugin Manager -->
+    <string name="plugin_manager_title">Print Service Manager</string>
+    <string name="plugin_manager_sub_title">You need a Print Service Plugin installed &amp; enabled to print.</string>
+
+    <string-array name="plugin_names">
+        <item>HP Print Service Plugin</item>
+        <item>Mopria Print Service</item>
+        <item>Brother Print Service Plugin</item>
+        <item>Samsung Print Service Plugin</item>
+        <item>Canon Print Service</item>
+        <item>Epson Print Enabler</item>
+        <item>Other PrintServicePlugin</item>
+    </string-array>
+
+    <string-array name="plugin_makers">
+        <item>HP Inc.</item>
+        <item>Mopria Alliance</item>
+        <item>Brother Industries, Ltd.</item>
+        <item>Samsung Electronics Co., Ltd.</item>
+        <item>Canon Inc.</item>
+        <item>Seiko Epson Corporation</item>
+        <item>N/A</item>
+    </string-array>
+
+    <string name="continue_to_print">CONTINUE TO PRINT</string>
+    <string name="skip">SKIP</string>
+    <string name="before_enable_tips">You will be directed to the Android Print Settings.</string>
+    <string name="before_enable_tips_title">Enable your Plugin</string>
+    <string name="ok">GO TO SETTINGS</string>
+    <string name="enabled">Enabled</string>
+    <string name="disabled">Disabled</string>
+
+    <!--Toast Strings-->
+    <string name="set_print_job_data">Please set PrintJobData first</string>
+
+</resources>

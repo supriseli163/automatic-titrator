@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray1"
+    android:gravity="center"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:datePickerMode="spinner"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <Button
+            android:id="@+id/date_picker_submit"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:text="@string/submit"
+            android:background="@drawable/blue_button"/>
+    </LinearLayout>
+
+</LinearLayout>

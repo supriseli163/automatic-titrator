@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="JH_333333">#333333</color>
+    <color name="JH_666666">#666666</color>
+    <color name="JH_f3f3f3">#f3f3f3</color>
+    <color name="JH_4d6083">#4d6083</color>
+    <!--<color name="JH_">#FFDDDDDD</color>-->
+    <!--<color name="JH_">#FFEEEEEE</color>-->
+    <!--<color name="JH_">#FF111111</color>-->
+    <!--<color name="JH_">#4d6083</color>-->
+
+    <color name="colorPrimary">#FF3F51B5</color>
+    <color name="colorPrimaryDark">#FF303F9F</color>
+    <color name="colorAccent">#FFFF4081</color>
+    <color name="colorWrite">#FFFFFFFF</color>
+    <color name="colorSliver">#FFDDDDDD</color>
+    <color name="colorWrite1">#FFEEEEEE</color>
+    <color name="colorBlack">#FF111111</color>
+    <color name="color4d6083">#4d6083</color>
+
+    <color name="colorGray">#FF332222</color>
+    <color name="colorGray1">#FF555555</color>
+    <color name="colorBlue">#FF00AAFF</color>
+    <color name="colorOrange">#FFF47920</color>
+
+    <color name="fontBlack">#FF333333</color>
+    <color name="fontBlack1">#FF000000</color>
+    <color name="fontGray">#FF666666</color>
+    <color name="fontWhite">#FFEEEEEE</color>
+    <color name="fontOrange">#FFF47920</color>
+
+    <color name="colorLogin">#FFF47920</color>
+
+    <color name="icon_choose_true">#FF333333</color>
+    <color name="icon_choose_false">#FF444444</color>
+
+
+    <color name="black_overlay">#66000000</color>
+    <color name="black_overlay1">#FF111111</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="HPFontColorDarkGrey">#3A3A3A</color>
+    <color name="HPFontColorBlue">#0096D9</color>
+    <color name="HPFontColorWhite">#FFFFFF</color>
+    <color name="HPFontColorDarkBlue">#007eba</color>
+    <color name="HPLightGreyBackground">#EFEFF4</color>
+    <color name="HPFontColorCarbonGrey">#333333</color>
+    <color name="HPFontColorGrey">#8F8F95</color>
+    <color name="HPFontColorLightGrey">#61E3E3EC</color>
+    <color name="PrintPreviewBG">#2c363c</color>
+
+    <color name="PluginMGDividerColor">#9B9B9B</color>
+    <color name="PluginBtnColorBlue">#00849D</color>
+    <color name="PluginToolbarBKColor">#00A5C4</color>
+    <color name="PluginSubTitleBKColorGrey">#F2F1F2</color>
+    <color name="PluginFontColorBlack">#000000</color>
+    <color name="PluginNameFontColor">#333333</color>
+    <color name="PluginMakerFontColor">#959595</color>
+    <color name="PluginListViewDividerColor">#FFEFEEEE</color>
+</resources>

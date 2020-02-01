@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray1"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/method_name"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_method_alter_method_name"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontWhite" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_method_alter_method_concentration_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/concentration"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_method_alter_method_concentration"
+                    android:layout_width="110dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/edit_text1"
+                    android:gravity="right"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_method_concentrationtype"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:dropDownSelector="@color/colorSliver"
+                        android:entries="@array/concentration_type"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_count"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_testcount"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/number_test"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accuracy"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_accuracy"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/test_accuracy"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_type"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_formula"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/test_result_type"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wavelength"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_wavelength"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/showdecimals"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_showdecimals"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/number_decimal"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_method_alter_testtubelength_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/testtubelength"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_method_alter_testtubelength"
+                    android:layout_width="160dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/cm"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:id="@+id/setting_method_alter_specificrotation_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/specificrotation"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_method_alter_specificrotation"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/atlas"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="x："
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_atlasX"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/test_atlasX"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="y："
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_atlasY"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/test_atlasY"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temperature"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/setting_method_alter_usetemperature"
+                    android:layout_width="84dp"
+                    android:layout_height="42dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:button="@drawable/checkbox1"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5" />
+
+                <EditText
+                    android:id="@+id/setting_method_alter_temperature"
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_alter_temperaturetype"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:entries="@array/temperature_type"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/autotest"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/setting_method_alter_autotest"
+                    android:layout_width="84dp"
+                    android:layout_height="42dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:button="@drawable/checkbox1"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5" />
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/autotesttimes"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_method_alter_autotesttimes"
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="30dp"
+                    android:text="@string/autotestinterval"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_method_alter_autotestinterval"
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:inputType="number"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:paddingRight="20dp">
+
+        <LinearLayout
+            android:id="@+id/setting_method_alter_save_button"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/orange_button"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/setting_method_alter_save_button_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textColor="@color/fontWhite"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

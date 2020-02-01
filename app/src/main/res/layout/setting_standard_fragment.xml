@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/fontGray"
+                    android:text="@string/date"/>
+                <TextView
+                    android:id="@+id/setting_standard_date"
+                    android:layout_width="220dp"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/fontGray"
+                    android:background="@drawable/edit_text"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/fontGray"
+                    android:text="@string/time"/>
+                <TextView
+                    android:id="@+id/setting_standard_time"
+                    android:layout_width="220dp"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/fontGray"
+                    android:background="@drawable/edit_text"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/fontGray"
+                    android:text="@string/auto_clear"/>
+                <CheckBox
+                    android:id="@+id/setting_standard_auto_clean"
+                    android:layout_width="84dp"
+                    android:layout_height="42dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:button="@drawable/checkbox1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_standard_language_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/fontGray"
+                    android:text="@string/language"/>
+                <LinearLayout
+                    android:layout_width="220dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="right">
+
+                    <Spinner
+                        android:id="@+id/setting_standard_language"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="5dp"
+                        android:backgroundTint="@color/colorGray"
+                        android:dropDownSelector="@color/colorSliver"
+                        android:entries="@array/concentration_type"
+                        android:inputType="text"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <LinearLayout
+            android:layout_width="700dp"
+            android:layout_height="match_parent">
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/setting_standard_save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/save_btn"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:text="@string/save"
+                android:textColor="@color/colorWrite"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

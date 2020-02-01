@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+            <ScrollView
+                android:layout_width="300dp"
+                android:layout_height="match_parent">
+                <RadioGroup
+                    android:id="@+id/setting_network_list"
+                    android:layout_width="300dp"
+                    android:layout_height="match_parent">
+                </RadioGroup>
+            </ScrollView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dhcp"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/setting_network_dhcp"
+                    android:layout_width="84dp"
+                    android:layout_height="42dp"
+                    android:button="@drawable/checkbox1"
+                    android:checked="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ip"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_network_ip"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:enabled="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subnet_mark"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_network_subnet_mask"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:enabled="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gateway"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_network_gateway"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:enabled="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="60dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dns"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_network_dns"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:enabled="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="60dp">
+
+                <Button
+                    android:id="@+id/setting_network_save_btn"
+                    android:layout_width="280dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/orange_button"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp"
+                    android:text="@string/save"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

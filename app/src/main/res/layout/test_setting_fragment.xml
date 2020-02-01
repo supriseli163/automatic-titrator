@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/test_setting_fragment_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWrite"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_name"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_name"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_no"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_id"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_method"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="right"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_method"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/concentration_type"
+                        android:inputType="text" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/test_setting_fragment_concentration_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/concentration"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_concentration"
+                    android:layout_width="110dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/edit_text"
+                    android:gravity="right"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_concentrationtype"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:dropDownSelector="@color/colorSliver"
+                        android:entries="@array/concentration_type"
+                        android:inputType="text"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_count"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_testcount"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/number_1_10"
+                        android:inputType="text"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accuracy"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_accuracy"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/test_accuracy"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result_type"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_formula"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/test_result_type"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wavelength"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_wavelength"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:inputType="text"></Spinner>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@string/nm"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/showdecimals"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_showdecimals"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/number_decimal"
+                        android:inputType="text"></Spinner>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/test_setting_fragment_testtubelength_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/testtubelength"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_testtubelength"
+                    android:layout_width="160dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@string/cm"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/test_setting_fragment_specificrotation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/specificrotation"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_specificrotation"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/atlas"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:text="x："
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_atlasX"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/test_atlasX"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="y："
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_atlasY"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/test_atlasY"
+                        android:inputType="text"></Spinner>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temperature"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/test_setting_fragment_usetemperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:button="@drawable/checkbox1" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_temperature"
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="36dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/edit_text">
+
+                    <Spinner
+                        android:id="@+id/test_setting_fragment_temperaturetype"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorGray"
+                        android:entries="@array/temperature_type"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"></Spinner>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/autotest"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/test_setting_fragment_autotest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:button="@drawable/checkbox1" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/autotesttimes"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_autotesttimes"
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="30dp"
+                    android:text="@string/autotestinterval"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/test_setting_fragment_autotestinterval"
+                    android:layout_width="120dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:layout_width="700dp"
+                android:layout_height="match_parent">
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/test_setting_frament_save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/save_btn"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:text="@string/save"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

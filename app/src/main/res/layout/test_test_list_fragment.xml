@@ -1,0 +1,207 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@color/JH_f3f3f3"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="2"
+        android:background="@color/colorWrite">
+
+        <TextView
+            android:id="@+id/test_test_list_frame_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:text="样品名称:酒精001"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/test_test_list_frame_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/test_test_list_frame_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="样品编号:002"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/test_test_list_frame_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/test_test_list_frame_no"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="试管长度:2cm"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/test_test_list_frame_length1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/test_test_list_frame_length"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="波长:400nm"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/test_test_list_frame_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/test_test_list_frame_length1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="设置温度:50°C"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/test_test_list_frame_temperature1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/test_test_list_frame_temperature"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="实际温度:50°C"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/test_test_list_frame_test_times"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/test_test_list_frame_temperature1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="测试次数:1"
+            android:textColor="@color/colorGray"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="@color/colorWrite">
+
+        <LinearLayout
+            android:id="@+id/test_test_list_res_title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/JH_4d6083"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sort_number"
+                android:textAlignment="center"
+                android:textColor="@color/colorWrite"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWrite" />
+
+            <TextView
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/temperature"
+                android:textAlignment="center"
+                android:textColor="@color/colorWrite"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorWrite" />
+
+            <TextView
+                android:id="@+id/test_test_list_testtype"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/automatic_titrator"
+                android:textAlignment="center"
+                android:textColor="@color/colorWrite"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/test_test_list_frame_avg_rsp"
+            android:layout_below="@+id/test_test_list_res_title"
+            android:background="@color/colorWrite">
+
+            <ListView
+                android:id="@+id/test_test_list_res_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/test_test_list_frame_avg_rsp"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#B7B7B7" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/test_test_list_res_avg_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="1"
+                    android:text="AVG:0°"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/fontBlack"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/test_test_list_res_rsp_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1"
+                    android:text="RSP:0"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/fontBlack"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

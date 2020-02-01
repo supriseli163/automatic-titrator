@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray1"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/start_date"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <DatePicker
+            android:id="@+id/audit_search_start"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:datePickerMode="spinner"></DatePicker>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/end_date"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <DatePicker
+            android:id="@+id/audit_search_end"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:datePickerMode="spinner"></DatePicker>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/operator"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/audit_search_operator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/fontWhite"
+            android:background="@drawable/edit_text"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/audit_search_search_btn"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/black_button"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search"
+            android:textColor="@color/fontWhite"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
