@@ -8,6 +8,7 @@ import com.jh.automatic_titrator.entity.SpecificRotation;
 import com.jh.automatic_titrator.entity.common.Formula;
 import com.jh.automatic_titrator.entity.common.SingleResult;
 import com.jh.automatic_titrator.entity.common.TestMethod;
+import com.jh.automatic_titrator.entity.common.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.User;
 
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class Cache {
     private static volatile String testId;
 
     private static volatile TestMethod testMethod;
+
+    private static volatile TitratorMethod titratorMethod;
 
     private static volatile List<SingleResult> singleResults;
 
@@ -119,6 +122,14 @@ public class Cache {
 
     public static TestMethod getTestMethod() {
         return testMethod;
+    }
+
+    public static TitratorMethod getTitratorMethod() {
+        return titratorMethod;
+    }
+
+    public static void setTitratorMethod(TitratorMethod titratorMethod) {
+        Cache.titratorMethod = titratorMethod;
     }
 
     public static void setTestMethod(TestMethod testMethod) {

@@ -4,6 +4,10 @@ package com.jh.automatic_titrator.entity.common;
  * 滴定方法
  */
 public class TitratorMethod {
+    //测试id
+    private int id;
+    //测试方法Id
+    private String titratorMethodId;
     //滴定类型
     private String titratorType;
     //方法名
@@ -18,7 +22,7 @@ public class TitratorMethod {
     private String sampleMeasurementUnit;
     //滴定显示单位
     private String titrationDisplayUnit;
-    //补液速度
+    //补液速度
     private String replenishmentSpeed;
     //搅拌速度
     private String stiringSpeed;

@@ -614,4 +614,33 @@
     <!--Toast Strings-->
     <string name="set_print_job_data">Please set PrintJobData first</string>
 
+    <!--滴定方法-->
+    <string name="titrator_type">滴定类型</string>
+    <string name="titrator_method_name">方法名</string>
+    <string name="burette_volume">滴定管体积</string>
+    <string name="working_electrode">工作电级</string>
+    <string name="reference_electrode">参比电级</string>
+    <string name="sample_measurement_unit">样品计量单位</string>
+    <string name="titration_display_unit">滴定显示单位</string>
+    <string name="replenishment_speed">补液速度</string>
+    <string name="stiring_speed">搅拌速度</string>
+    <string name="electroed_equilibration_time">电极平衡时间</string>
+    <string name="electroed_equilibrium_potential">电极平衡电位</string>
+    <string name="pre_stiring_time">预搅拌时间</string>
+    <string name="per_add_volume">每次添加体积</string>
+    <string name="end_volume">结束体积</string>
+    <string name="titration_speed">滴定速度</string>
+    <string name="slow_titration_volume">慢滴体积</string>
+    <string name="fastTitration_volume">快滴体积</string>
+
+    <string name="create_titrator_method">新建方法</string>
+    <string name="delete_titrator_method">删除方法</string>
+    <string name="import_titrator_method">导入方法</string>
+    <string name="export_titrator_method">导出方法</string>
+    <string name="save_titrator_method">保存方法</string>
+    <string name="run_titrator_method">运行方法</string>
+    <string name="commit_titrator_method">提交方法</string>
+    <string name="add_titrator_method">添加</string>
+    <string name="update_titrator_method">修改</string>
+    <string name="delete_titrator_method_simplfy">删除</string>
 </resources>

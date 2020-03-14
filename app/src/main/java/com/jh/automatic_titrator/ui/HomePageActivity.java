@@ -3,6 +3,7 @@ package com.jh.automatic_titrator.ui;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,7 @@ import com.jh.automatic_titrator.service.DBService;
 import com.jh.automatic_titrator.service.TimeService;
 import com.jh.automatic_titrator.service.WifiService;
 import com.jh.automatic_titrator.ui.data.DataFragment;
+import com.jh.automatic_titrator.ui.execute.ExecuteFragment;
 import com.jh.automatic_titrator.ui.help.HelpFragment;
 import com.jh.automatic_titrator.ui.setting.SettingFragment;
 import com.jh.automatic_titrator.ui.test.TestFragment;
@@ -47,6 +49,8 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
 
     private TestFragment testFragment;
 
+    private ExecuteFragment executeFragment;
+
     private DataFragment dataFragment;
 
     private UserFragment userFragment;
@@ -60,6 +64,10 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
     private View testLayout;
     private ImageView testImage;
     private TextView testText;
+
+    private View executeLayout;
+    private ImageView executeImage;
+    private TextView executeView;
 
     private View dataLayout;
     private ImageView dataImage;
@@ -167,6 +175,10 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         testText = (TextView) findViewById(R.id.home_test_txt);
         testLayout.setOnClickListener(this);
 
+        executeLayout = findViewById(R.id.home_titrator_test_layout);
+        executeImage = (ImageView)findViewById(R.id.home_titrator_test_icon);
+        executeLayout.setOnClickListener(this);
+
         dataLayout = findViewById(R.id.home_data_layout);
         dataImage = (ImageView) findViewById(R.id.home_data_icon);
         dataText = (TextView) findViewById(R.id.home_data_txt);
@@ -272,6 +284,13 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
                     fragmentTransaction.show(testFragment);
                 }
                 break;
+            case R.id.home_titrator_test_layout:
+                changeToExecuteFragment();
+                if(executeFragment == null) {
+                    executeFragment = new ExecuteFragment();
+                    executeFragment.setActivityHandler(handler);
+                }
+
             case R.id.home_data_layout:
                 changeToDataFragment();
                 if (dataFragment == null) {
@@ -343,6 +362,10 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         testLayout.setBackground(getResources().getDrawable(R.color.icon_choose_true));
         testImage.setImageResource(R.drawable.left_icon_cs2);
         testText.setTextColor(getResources().getColor(R.color.colorWrite));
+    }
+
+    private void changeToExecuteFragment() {
+
     }
 
     private void changeToDataFragment() {
