@@ -53,7 +53,7 @@ public class ExecuteSettingFragment extends Fragment implements View.OnClickList
                     @Override
                     public void run() {
                         testMethods.clear();
-                        testMethods.addAll()
+//                        testMethods.addAll();
                     }
                 }
         );

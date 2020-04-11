@@ -1,40 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-    <!--android:gravity="center"-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/main_activity_vertical_margin"
-    android:paddingLeft="@dimen/main_activity_horizontal_margin"
-    android:paddingRight="@dimen/main_activity_horizontal_margin"
-    android:paddingTop="@dimen/main_activity_vertical_margin"
-    android:background="@drawable/load"
-    android:id="@+id/activity_load"
-    android:layout_gravity="center_horizontal"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:mContext=".ui.LoadActivity">
+<?xml version="1.0" encoding="utf-8"?><!--android:gravity="center"-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:id="@+id/img_logo"
+        android:id="@+id/activity_load"
         android:layout_width="match_parent"
-        android:layout_height="300px"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/load"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/main_activity_horizontal_margin"
+        android:paddingTop="@dimen/main_activity_vertical_margin"
+        android:paddingRight="@dimen/main_activity_horizontal_margin"
+        android:paddingBottom="@dimen/main_activity_vertical_margin"
+        tools:mContext=".ui.LoadActivity">
 
-        <ImageView
+        <LinearLayout
+            android:id="@+id/img_logo"
             android:layout_width="match_parent"
-            android:layout_height="100px"
-            android:src="@drawable/logo2"
-            android:layout_marginTop="30px"
-            android:layout_marginRight="15px"/>
-    </LinearLayout>
+            android:layout_height="300px"
+            android:gravity="center_horizontal">
 
-    <LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="300dp"
-        android:layout_marginRight="15px"
-        android:background="@color/colorWrite">
-        <include layout="@layout/login_layout"/>
-    </LinearLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginTop="30px"
+                android:layout_marginRight="15px"
+                android:src="@drawable/logo2" />
+        </LinearLayout>
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="300dp"
+            android:layout_marginRight="15px"
+            android:background="@color/colorWrite">
+
+            <include layout="@layout/login_layout" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

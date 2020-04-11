@@ -3,23 +3,33 @@ package com.jh.automatic_titrator.ui;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.Cache;
 import com.jh.automatic_titrator.common.utils.SharedPreferenceUtils;
 import com.jh.automatic_titrator.service.DBService;
 
 import java.util.Locale;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+
 /**
  * Created by apple on 2016/10/25.
  */
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity<T extends ViewDataBinding> extends AppCompatActivity {
 
     public static final int DELETE_SUCCESS = 0x00000040;
     public static final int DELETE_FAILED = 0x00000041;
@@ -56,6 +66,23 @@ public class BaseActivity extends AppCompatActivity {
     public static final int HOLD_BUTTON_NO = 0x00f00003;
 
     public static final int SHOW_MSG = 0x00ff0000;
+    public T viewBinding;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_base_layout);
+        RelativeLayout container = findViewById(R.id.base_view);
+        View layout = LayoutInflater.from(this).inflate(getLayoutRes(), container, false);
+        container.removeAllViews();
+        container.addView(layout);
+        viewBinding = DataBindingUtil.bind(container.getChildAt(0));
+        onInit(savedInstanceState);
+    }
+
+    public abstract void onInit(Bundle savedInstanceState);
+
+    public abstract int getLayoutRes();
 
     public void selectLanguage(String language) {
         //设置语言类型
@@ -65,21 +92,21 @@ public class BaseActivity extends AppCompatActivity {
         int version = android.os.Build.VERSION.SDK_INT;
         switch (language) {
             case "en":
-                if(version > 16) {
+                if (version > 16) {
                     configuration.setLocale(Locale.US);
                 } else {
                     configuration.locale = Locale.US;
                 }
                 break;
             case "zh":
-                if(version > 16) {
+                if (version > 16) {
                     configuration.setLocale(Locale.CHINESE);
                 } else {
                     configuration.locale = Locale.CHINESE;
                 }
                 break;
             default:
-                if(version > 16) {
+                if (version > 16) {
                     configuration.setLocale(Locale.getDefault());
                 } else {
                     configuration.locale = Locale.getDefault();
@@ -134,17 +161,17 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public boolean getAutoClean() {
-        int autoClean = (int)SharedPreferenceUtils.get(this, "autoClean", 0);
+        int autoClean = (int) SharedPreferenceUtils.get(this, "autoClean", 0);
         return autoClean != 0;
     }
 
     public float getInitAutoClean3() {
-        float initAutoClean3 = (float)SharedPreferenceUtils.get(this, "initAutoClean3", 0.001f);
+        float initAutoClean3 = (float) SharedPreferenceUtils.get(this, "initAutoClean3", 0.001f);
         return initAutoClean3;
     }
 
     public float getInitAutoClean4() {
-        float initAutoClean4 = (float)SharedPreferenceUtils.get(this, "initAutoClean4", 0.001f);
+        float initAutoClean4 = (float) SharedPreferenceUtils.get(this, "initAutoClean4", 0.001f);
         return initAutoClean4;
     }
 
@@ -157,12 +184,12 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public float getAutoClean3() {
-        float initAutoClean3 = (float)SharedPreferenceUtils.get(this, "autoClean3", getInitAutoClean3());
+        float initAutoClean3 = (float) SharedPreferenceUtils.get(this, "autoClean3", getInitAutoClean3());
         return initAutoClean3;
     }
 
     public float getAutoClean4() {
-        float initAutoClean4 = (float)SharedPreferenceUtils.get(this, "autoClean4", getInitAutoClean4());
+        float initAutoClean4 = (float) SharedPreferenceUtils.get(this, "autoClean4", getInitAutoClean4());
         return initAutoClean4;
     }
 

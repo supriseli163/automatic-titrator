@@ -42,9 +42,9 @@ public class ExecuteFragment extends Fragment implements View.OnClickListener, O
         clearSelection();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         hideFragments(fragmentTransaction);
-        switch (v.getId()) {
-            case R.id.test_
-        }
+//        switch (v.getId()) {
+//            case R.id.test_
+//        }
 
     }
 
@@ -90,11 +90,11 @@ public class ExecuteFragment extends Fragment implements View.OnClickListener, O
     }
 
     private void hideFragments(FragmentTransaction fragmentTransaction) {
-        if(executeLayout != null) {
-            fragmentTransaction.hide(fragmentTransaction);
-        }
-        if(executeLayout != null) {
-            fragmentTransaction.hide()
-        }
+//        if(executeLayout != null) {
+//            fragmentTransaction.hide(fragmentTransaction);
+//        }
+//        if(executeLayout != null) {
+//            fragmentTransaction.hide()
+//        }
     }
 }

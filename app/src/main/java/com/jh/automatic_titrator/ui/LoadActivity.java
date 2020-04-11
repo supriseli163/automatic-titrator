@@ -28,6 +28,7 @@ import com.jh.automatic_titrator.common.utils.JsonHelper;
 import com.jh.automatic_titrator.common.utils.SharedPreferenceUtils;
 import com.jh.automatic_titrator.common.utils.TimeTool;
 import com.jh.automatic_titrator.common.utils.ToastUtil;
+import com.jh.automatic_titrator.databinding.ActivityLoadPageBinding;
 import com.jh.automatic_titrator.entity.Concentration;
 import com.jh.automatic_titrator.entity.OpticalRotation;
 import com.jh.automatic_titrator.entity.SpecificRotation;
@@ -42,7 +43,7 @@ import com.jh.automatic_titrator.service.ExecutorService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadActivity extends BaseActivity implements View.OnFocusChangeListener, AdapterView.OnItemClickListener, View.OnClickListener {
+public class LoadActivity extends BaseActivity<ActivityLoadPageBinding> implements View.OnFocusChangeListener, AdapterView.OnItemClickListener, View.OnClickListener {
 
     public static final int LOGIN_SUCCESS = 200;
     public static final int LOGIN_FAILED = 400;
@@ -66,15 +67,12 @@ public class LoadActivity extends BaseActivity implements View.OnFocusChangeList
     private Toast mToast;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    public void onInit(Bundle savedInstanceState) {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         selectLanguage((String) SharedPreferenceUtils.get(this, "language", "zh"));
-        setContentView(R.layout.activity_load_page);
+//        setContentView(R.layout.activity_load_page);
 
         mToast = ToastUtil.createToast(this);
-
         view = findViewById(R.id.activity_load);
         view.setOnClickListener(this);
         trunkUtil = TrunkUtil.getInstance();
@@ -126,8 +124,12 @@ public class LoadActivity extends BaseActivity implements View.OnFocusChangeList
         String userName = userHelper.getAutoLoginUser();
         if (userName != null) {
             doAutoLogin(userName);
-            return;
-        }
+            return;}
+    }
+
+    @Override
+    public int getLayoutRes() {
+        return R.layout.activity_load_page;
     }
 
     private void checkTemperature() {
