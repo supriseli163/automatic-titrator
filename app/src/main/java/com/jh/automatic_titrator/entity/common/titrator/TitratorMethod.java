@@ -1,4 +1,4 @@
-package com.jh.automatic_titrator.entity.common;
+package com.jh.automatic_titrator.entity.common.titrator;
 
 /**
  * 滴定方法
@@ -42,6 +42,22 @@ public class TitratorMethod {
     private String slowTitrationVolume;
     //快滴体积
     private String fastTitrationVolume;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitratorMethodId() {
+        return titratorMethodId;
+    }
+
+    public void setTitratorMethodId(String titratorMethodId) {
+        this.titratorMethodId = titratorMethodId;
+    }
 
     public String getTitratorType() {
         return titratorType;

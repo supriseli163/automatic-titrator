@@ -1,4 +1,4 @@
-package com.jh.automatic_titrator;
+package com.jh.test;
 
 import org.junit.Test;
 

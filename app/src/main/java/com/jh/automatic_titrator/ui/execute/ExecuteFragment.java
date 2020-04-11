@@ -1,8 +1,11 @@
 package com.jh.automatic_titrator.ui.execute;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
 import androidx.fragment.app.Fragment;
@@ -17,7 +20,6 @@ import com.jh.automatic_titrator.ui.test.TestFragment;
 
 public class ExecuteFragment extends Fragment implements View.OnClickListener, Observer,
         CompoundButton.OnCheckedChangeListener {
-
 
     private FragmentManager fragmentManager;
 
@@ -45,7 +47,6 @@ public class ExecuteFragment extends Fragment implements View.OnClickListener, O
         switch (v.getId()) {
             case R.id.test_
         }
-
     }
 
     private void doUpdate() {
@@ -53,6 +54,7 @@ public class ExecuteFragment extends Fragment implements View.OnClickListener, O
                 new Runnable() {
                     @Override
                     public void run() {
+
                     }
                 }
         );
@@ -60,6 +62,16 @@ public class ExecuteFragment extends Fragment implements View.OnClickListener, O
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.execute_fragment, container, false);
+        fragmentManager = getFragmentManager();
+        handler = new ExecuteHandler();
+
+
 
     }
 
@@ -90,11 +102,11 @@ public class ExecuteFragment extends Fragment implements View.OnClickListener, O
     }
 
     private void hideFragments(FragmentTransaction fragmentTransaction) {
-        if(executeLayout != null) {
-            fragmentTransaction.hide(fragmentTransaction);
-        }
-        if(executeLayout != null) {
-            fragmentTransaction.hide()
-        }
+//        if(executeLayout != null) {
+//            fragmentTransaction.hide(fragmentTransaction);
+//        }
+//        if(executeLayout != null) {
+//            fragmentTransaction.hide()
+//        }
     }
 }

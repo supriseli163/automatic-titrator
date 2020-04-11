@@ -25,6 +25,7 @@ import com.jh.automatic_titrator.service.WifiService;
 import com.jh.automatic_titrator.ui.data.DataFragment;
 import com.jh.automatic_titrator.ui.execute.ExecuteFragment;
 import com.jh.automatic_titrator.ui.help.HelpFragment;
+import com.jh.automatic_titrator.ui.method.MethodFragment;
 import com.jh.automatic_titrator.ui.setting.SettingFragment;
 import com.jh.automatic_titrator.ui.test.TestFragment;
 import com.jh.automatic_titrator.ui.user.UserFragment;
@@ -57,7 +58,9 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
 
     private HelpFragment helpFragment;
 
-    private SettingFragment settingFragment;
+//    private SettingFragment settingFragment;
+
+    private MethodFragment methodFragment;
 
     private TextView userName;
 
@@ -73,9 +76,13 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
     private ImageView dataImage;
     private TextView dataText;
 
-    private View settingLayout;
-    private ImageView settingImage;
-    private TextView settingText;
+//    private View settingLayout;
+//    private ImageView settingImage;
+//    private TextView settingText;
+
+    private View methodLayout;
+    private ImageView methodImage;
+    private TextView methodText;
 
     private View helpLayout;
     private ImageView helpImage;
@@ -170,8 +177,8 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         userName = (TextView) findViewById(R.id.home_user_account_txt);
         userName.setText(user.getUserName());
 
-        testLayout = findViewById(R.id.home_test_layout);
-        testImage = (ImageView) findViewById(R.id.home_test_icon);
+        testLayout = findViewById(R.id.home_titrator_test_layout);
+        testImage = (ImageView) findViewById(R.id.home_titrator_test_icon);
         testText = (TextView) findViewById(R.id.home_test_txt);
         testLayout.setOnClickListener(this);
 
@@ -179,15 +186,20 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         executeImage = (ImageView)findViewById(R.id.home_titrator_test_icon);
         executeLayout.setOnClickListener(this);
 
-        dataLayout = findViewById(R.id.home_data_layout);
-        dataImage = (ImageView) findViewById(R.id.home_data_icon);
-        dataText = (TextView) findViewById(R.id.home_data_txt);
+        dataLayout = findViewById(R.id.home_titrator_data_layout);
+        dataImage = (ImageView) findViewById(R.id.home_titrator_data_icon);
+        dataText = (TextView) findViewById(R.id.home_titrator_data_txt);
         dataLayout.setOnClickListener(this);
 
-        settingLayout = findViewById(R.id.home_setting_layout);
-        settingImage = (ImageView) findViewById(R.id.home_setting_icon);
-        settingText = (TextView) findViewById(R.id.home_setting_txt);
-        settingLayout.setOnClickListener(this);
+//        settingLayout = findViewById(R.id.home_setting_layout);
+//        settingImage = (ImageView) findViewById(R.id.home_setting_icon);
+//        settingText = (TextView) findViewById(R.id.home_setting_txt);
+//        settingLayout.setOnClickListener(this);
+        methodLayout = findViewById(R.id.home_method_layout);
+        methodImage = (ImageView)findViewById(R.id.home_method_icon);
+        methodText = (TextView)findViewById(R.id.home_method_txt);
+        methodLayout.setOnClickListener(this);
+
 
         helpLayout = findViewById(R.id.home_help_layout);
         helpImage = (ImageView) findViewById(R.id.home_help_icon);
@@ -274,7 +286,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         hideFragments(fragmentTransaction);
         switch (v.getId()) {
-            case R.id.home_test_layout:
+            case R.id.home_titrator_test_layout:
                 changeToTestFragment();
                 if (testFragment == null) {
                     testFragment = new TestFragment();
@@ -284,14 +296,7 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
                     fragmentTransaction.show(testFragment);
                 }
                 break;
-            case R.id.home_titrator_test_layout:
-                changeToExecuteFragment();
-                if(executeFragment == null) {
-                    executeFragment = new ExecuteFragment();
-                    executeFragment.setActivityHandler(handler);
-                }
-
-            case R.id.home_data_layout:
+            case R.id.home_titrator_data_layout:
                 changeToDataFragment();
                 if (dataFragment == null) {
                     dataFragment = new DataFragment();
@@ -301,14 +306,14 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
                     fragmentTransaction.show(dataFragment);
                 }
                 break;
-            case R.id.home_setting_layout:
-                changeToSettingFragment();
-                if (settingFragment == null) {
-                    settingFragment = new SettingFragment();
-                    settingFragment.setActivityHandler(handler);
-                    fragmentTransaction.add(R.id.home_frame, settingFragment);
+            case R.id.home_method_layout:
+                changeToMethodFragment();
+                if (methodFragment == null) {
+                    methodFragment = new MethodFragment();
+                    methodFragment.setActivityHandler(handler);
+                    fragmentTransaction.add(R.id.help_frame, methodFragment);
                 } else {
-                    fragmentTransaction.show(settingFragment);
+                    fragmentTransaction.show(methodFragment);
                 }
                 break;
             case R.id.home_help_layout:
@@ -374,10 +379,17 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         dataText.setTextColor(getResources().getColor(R.color.colorWrite));
     }
 
-    private void changeToSettingFragment() {
-        settingLayout.setBackground(getResources().getDrawable(R.color.icon_choose_true));
-        settingImage.setImageResource(R.drawable.left_icon_sz2);
-        settingText.setTextColor(getResources().getColor(R.color.colorWrite));
+//    private void changeToSettingFragment() {
+//        settingLayout.setBackground(getResources().getDrawable(R.color.icon_choose_true));
+//        settingImage.setImageResource(R.drawable.left_icon_sz2);
+//        settingText.setTextColor(getResources().getColor(R.color.colorWrite));
+//    }
+
+    private void changeToMethodFragment() {
+        methodLayout.setBackground(getResources().getDrawable(R.color.icon_choose_true));
+        methodImage.setImageResource(R.drawable.left_icon_sz2);
+        methodText.setTextColor(getResources().getColor(R.color.colorWrite));
+
     }
 
     private void changeToHelpFragment() {
@@ -401,9 +413,13 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         dataImage.setImageResource(R.drawable.left_icon_sj);
         dataText.setTextColor(getResources().getColor(R.color.color4d6083));
 
-        settingLayout.setBackground(getResources().getDrawable(R.color.icon_choose_false));
-        settingImage.setImageResource(R.drawable.left_icon_sz);
-        settingText.setTextColor(getResources().getColor(R.color.color4d6083));
+//        settingLayout.setBackground(getResources().getDrawable(R.color.icon_choose_false));
+//        settingImage.setImageResource(R.drawable.left_icon_sz);
+//        settingText.setTextColor(getResources().getColor(R.color.color4d6083));
+
+        methodLayout.setBackground(getResources().getDrawable(R.color.icon_choose_false));
+        methodImage.setImageResource(R.drawable.left_icon_sz);
+        methodText.setTextColor(getResources().getColor(R.color.color4d6083));
 
         helpLayout.setBackground(getResources().getDrawable(R.color.icon_choose_false));
         helpImage.setImageResource(R.drawable.left_icon_bz);
@@ -421,8 +437,11 @@ public class HomePageActivity extends BaseActivity implements View.OnClickListen
         if (dataFragment != null) {
             fragmentTransaction.hide(dataFragment);
         }
-        if (settingFragment != null) {
-            fragmentTransaction.hide(settingFragment);
+//        if (settingFragment != null) {
+//            fragmentTransaction.hide(settingFragment);
+//        }
+        if(methodFragment != null) {
+            fragmentTransaction.hide(methodFragment);
         }
         if (helpFragment != null) {
             fragmentTransaction.hide(helpFragment);

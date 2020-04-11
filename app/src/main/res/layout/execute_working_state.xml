@@ -1,6 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="157dp"
+    android:clickable="true"
+    android:orientation="horizontal"
+    android:layout_height="346dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="8.9dp"
+                android:layout_height="8.65dp"
+                android:layout_marginLeft="8.5dp"
+                android:layout_marginTop="8dp"
+                android:drawable="@drawable/shape7">
+            </ImageView>
+
+            <TextView
+                android:layout_width="23.5dp"
+                android:layout_height="6dp"
+                android:textColor="@color/colorWrite"
+                android:textSize="6sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="20dp"
+                android:text="@string/regular_maintaince">
+            </TextView>
+
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="9dp"
+                android:layout_marginLeft="64.5dp"
+                android:layout_marginTop="7dp"
+                android:drawable="@drawable/shape8">
+            </ImageView>
+
+            <TextView
+                android:layout_width="23.5dp"
+                android:layout_height="6dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorWrite"
+                android:textSize="6sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="58.5dp"
+                android:text="@string/emergency_stop">
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2.5dp"
+                android:layout_marginRight="5.75dp"
+                android:background="#000000">
+            </View>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/work_status_sample_info"
+                    android:layout_width="74dp"
+                    android:layout_height="3dp"
+                    android:layout_marginRight="17dp"
+                    android:background="@mipmap/group1"
+                    android:text="@string/work_status_sample_info"
+                    android:textSize="7sp"
+                    android:layout_marginLeft="27dp"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawable="@drawable/group1"
+                    android:layout_marginLeft="27dp"
+                    android:layout_marginRight="29.55dp"/>
+            </LinearLayout>
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <TextView-->
+<!--                    android:id="@+id/work_status_sample_info"-->
+<!--                    android:layout_width="74dp"-->
+<!--                    android:layout_height="3dp"-->
+<!--                    android:layout_marginRight="17dp"-->
+<!--                    android:background="@mipmap/group1"-->
+<!--                    android:text="@string/work_status_sample_info"-->
+<!--                    android:textSize="7sp" />-->
+<!--            </LinearLayout>-->
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="142dp"
+            android:layout_height="144dp">
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="20dp"
+        android:background="@color/colorWrite" />
+
+
+
+
+
+
+<!--    <ImageView-->
+<!--        android:layout_width="38.33dp"-->
+<!--        android:layout_height="38.33dp"-->
+<!--        android:layout_marginLeft="17dp"-->
+<!--        android:layout_marginRight="17dp"-->
+<!--        android:src="@drawable/shape7"-->
+<!--        android:scaleType="fitCenter"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/print_help_activity_title_1"-->
+<!--        android:layout_width="74dp"-->
+<!--        android:layout_height="3dp"-->
+<!--        android:layout_marginRight="17dp"-->
+<!--        android:background="@mipmap/group1"-->
+<!--        android:text="@string/work_status_sample_info"-->
+<!--        android:textSize="7sp" />-->
+
+<!--    <ImageView-->
+<!--        android:layout_width="142dp"-->
+<!--        android:layout_height="144dp"-->
+<!--        android:src="@mipmap/group_circule">-->
+<!--    </ImageView>-->
 </LinearLayout>

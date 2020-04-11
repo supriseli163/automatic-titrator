@@ -6,6 +6,7 @@ import com.jh.automatic_titrator.common.db.AuditHelper;
 import com.jh.automatic_titrator.common.db.DBHelper;
 import com.jh.automatic_titrator.common.db.FormulaHelper;
 import com.jh.automatic_titrator.common.db.MD5Helper;
+import com.jh.automatic_titrator.common.db.MethodHelper;
 import com.jh.automatic_titrator.common.db.StandardValueHelper;
 import com.jh.automatic_titrator.common.db.TestHelper;
 import com.jh.automatic_titrator.common.db.TestMethodHelper;
@@ -30,6 +31,8 @@ public class DBService {
     private static Map<Context, TestHelper> testHelperMap = new HashMap();
 
     private static Map<Context, TestMethodHelper> testMethodHelperMap = new HashMap();
+
+    private static Map<Context, MethodHelper> methodHelperMap = new HashMap<>();
 
     private static Map<Context, UserHelper> userHelperMap = new HashMap();
 
@@ -88,6 +91,23 @@ public class DBService {
             return testHelper;
         }
         return testHelperMap.get(context);
+    }
+
+    public static MethodHelper getMethodHelper(Context context) {
+        if(dbHelperMap.containsKey(context)) {
+            dbHelperMap.put(context, new DBHelper(context));
+        }
+        DBHelper dbHelper = dbHelperMap.get(context);
+        if(!dbHelper.getWritableDatabase().isOpen()) {
+            dbHelperMap.put(context, new DBHelper(context));
+        }
+        dbHelper = dbHelperMap.get(context);
+        if(!methodHelperMap.containsKey(context)) {
+            MethodHelper methodHelper = new MethodHelper(dbHelper);
+            methodHelperMap.put(context, methodHelper);
+            return methodHelper;
+        }
+        return methodHelperMap.get(context);
     }
 
     public static TestMethodHelper getTestMethodHelper(Context context) {

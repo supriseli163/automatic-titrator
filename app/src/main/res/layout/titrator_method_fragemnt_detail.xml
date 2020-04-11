@@ -60,7 +60,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/setting_method_alter_method_concentration"
+                    android:id="@+id/titrator_method_input_type"
                     android:layout_width="110dp"
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1"
@@ -115,13 +115,17 @@
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1">
 
-                    <Spinner
-                        android:id="@+id/setting_method_alter_testcount"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:entries="@array/number_test"
+                    <EditText
+                        android:id="@+id/titrator_method_burette_volume"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/edit_text1"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
                         android:paddingLeft="5dp"
-                        android:paddingRight="5dp"></Spinner>
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -144,13 +148,17 @@
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1">
 
-                    <Spinner
-                        android:id="@+id/setting_method_alter_accuracy"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:entries="@array/test_accuracy"
+                    <EditText
+                        android:id="@+id/titrator_method_working_electrode"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/edit_text1"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
                         android:paddingLeft="5dp"
-                        android:paddingRight="5dp"></Spinner>
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -178,13 +186,17 @@
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1">
 
-                    <Spinner
-                        android:id="@+id/setting_method_alter_formula"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:entries="@array/test_result_type"
+                    <EditText
+                        android:id="@+id/titrator_method_reference_electrode"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/edit_text1"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
                         android:paddingLeft="5dp"
-                        android:paddingRight="5dp"></Spinner>
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -206,12 +218,17 @@
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1">
 
-                    <Spinner
-                        android:id="@+id/setting_method_alter_wavelength"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                    <EditText
+                        android:id="@+id/titrator_method_sample_measurement_unit"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/edit_text1"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
                         android:paddingLeft="5dp"
-                        android:paddingRight="5dp"></Spinner>
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -237,14 +254,17 @@
                     android:layout_width="200dp"
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1">
-
-                    <Spinner
-                        android:id="@+id/setting_method_alter_showdecimals"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:entries="@array/number_decimal"
+                    <EditText
+                        android:id="@+id/titrator_method_titration_display_unit"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/edit_text1"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
                         android:paddingLeft="5dp"
-                        android:paddingRight="5dp"></Spinner>
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -264,16 +284,16 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/setting_method_alter_testtubelength"
-                    android:layout_width="160dp"
+                    android:id="@+id/titrator_method_titration_replenishment_speed"
+                    android:layout_width="200dp"
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1"
                     android:imeOptions="actionDone"
-                    android:inputType="numberDecimal"
+                    android:inputType="text"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:textColor="@color/fontWhite"
-                    android:textSize="14sp" />
+                    android:singleLine="true"
+                    android:textColor="@color/fontWhite" />
 
                 <TextView
                     android:layout_width="80dp"
@@ -304,16 +324,16 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/setting_method_alter_specificrotation"
+                    android:id="@+id/titrator_method_stiring_speed"
                     android:layout_width="200dp"
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1"
                     android:imeOptions="actionDone"
-                    android:inputType="numberDecimal|numberSigned"
+                    android:inputType="text"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:textColor="@color/fontWhite"
-                    android:textSize="14sp" />
+                    android:singleLine="true"
+                    android:textColor="@color/fontWhite" />
             </LinearLayout>
 
             <LinearLayout
@@ -342,6 +362,18 @@
                     android:textColor="@color/fontWhite"
                     android:textSize="14sp" />
 
+                <EditText
+                    android:id="@+id/titrator_method_electroed_equilibration_time"
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/fontWhite" />
+
                 <TextView
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
@@ -354,13 +386,17 @@
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1">
 
-                    <Spinner
-                        android:id="@+id/setting_method_alter_atlasX"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:entries="@array/test_atlasX"
+                    <EditText
+                        android:id="@+id/titrator_method_electroed_equilibrium_potential"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/edit_text1"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
                         android:paddingLeft="5dp"
-                        android:paddingRight="5dp"></Spinner>
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
                 </LinearLayout>
 
                 <TextView
@@ -376,13 +412,17 @@
                     android:layout_height="36dp"
                     android:background="@drawable/edit_text1">
 
-                    <Spinner
-                        android:id="@+id/setting_method_alter_atlasY"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:entries="@array/test_atlasY"
+                    <EditText
+                        android:id="@+id/titrator_method_pre_stiring_time"
+                        android:layout_width="200dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/edit_text1"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
                         android:paddingLeft="5dp"
-                        android:paddingRight="5dp"></Spinner>
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -406,7 +446,7 @@
                     android:textSize="14sp" />
 
                 <CheckBox
-                    android:id="@+id/setting_method_alter_usetemperature"
+                    android:id="@+id/titrator_method_per_add_volume"
                     android:layout_width="84dp"
                     android:layout_height="42dp"
                     android:layout_centerVertical="true"
@@ -462,15 +502,17 @@
                     android:textColor="@color/fontWhite"
                     android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/setting_method_alter_autotest"
-                    android:layout_width="84dp"
-                    android:layout_height="42dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
-                    android:button="@drawable/checkbox1"
-                    android:scaleX="1.5"
-                    android:scaleY="1.5" />
+                <EditText
+                android:id="@+id/titrator_method_end_volume"
+                android:layout_width="200dp"
+                android:layout_height="36dp"
+                android:background="@drawable/edit_text1"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:textColor="@color/fontWhite" />
 
                 <TextView
                     android:layout_width="80dp"
@@ -546,7 +588,7 @@
         android:paddingRight="20dp">
 
         <LinearLayout
-            android:id="@+id/setting_method_alter_save_button"
+            android:id="@+id/titrator_method_alter_save_button"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
@@ -555,7 +597,7 @@
             android:gravity="center">
 
             <TextView
-                android:id="@+id/setting_method_alter_save_button_tv"
+                android:id="@+id/titor_method_alter_save_button_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/save"

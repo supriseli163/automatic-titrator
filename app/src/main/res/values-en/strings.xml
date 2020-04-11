@@ -445,16 +445,6 @@
     <string name="login">Login</string>
     <string name="login_login">Login</string>
 
-    <string name="test">Measurement</string>
-    <string name="test_param_setting">Params Setting</string>
-    <string name="test_param_setting_save">Save</string>
-    <string name="routine_maintain">Routine Maintain</string>
-    <string name="emergency_stop">Emergency Stop</string>
-    <string name="work_state">Work State</string>
-    <string name="sample_information">Sample Information</string>
-    <string name="start">Start</string>
-    <string name="stop">Stop</string>
-
     <string name="data">Data</string>
     <string name="data_delete">Delete</string>
     <string name="data_detail">Detail</string>
@@ -643,4 +633,18 @@
     <string name="add_titrator_method">添加</string>
     <string name="update_titrator_method">修改</string>
     <string name="delete_titrator_method_simplfy">删除</string>
+
+
+    <!--    test page-->
+    <string name="regular_maintaince">例行维护</string>
+    <string name="emergency_stop">紧急停止</string>
+    <string name="work_status_sample_info">工作状态 样品信息</string>
+    <string name="test">测试</string>
+    <string name="test_param_setting">参数设置</string>
+    <string name="test_param_setting_save">保存</string>
+    <string name="routine_maintain">维护</string>
+    <string name="work_state">工作状态</string>
+    <string name="sample_information">样品信息</string>
+    <string name="start">开始滴定</string>
+    <string name="stop">停止滴定</string>
 </resources>

@@ -1,7 +1,6 @@
 package com.jh.automatic_titrator.ui.execute;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,7 +15,6 @@ import androidx.annotation.Nullable;
 import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.Cache;
 import com.jh.automatic_titrator.entity.common.SimpleRes;
-import com.jh.automatic_titrator.entity.common.TitratorMethod;
 import com.jh.automatic_titrator.service.SimpleResService;
 import com.jh.automatic_titrator.ui.BaseActivity;
 import com.jh.automatic_titrator.ui.component.TitratorTestChart;
