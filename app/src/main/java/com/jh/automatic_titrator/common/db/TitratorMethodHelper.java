@@ -4,13 +4,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.jh.automatic_titrator.common.utils.StringUtils;
-import com.jh.automatic_titrator.entity.common.Test;
-import com.jh.automatic_titrator.entity.common.TitratorMethod;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MethodHelper {
+public class TitratorMethodHelper {
     private SQLiteDatabase db;
 
     private static final int MAX_Line = 10000;

@@ -41,6 +41,12 @@ public class DBHelper extends SQLiteOpenHelper {
         addBaseWavelength(db);
         addBaseFormula(db);
         writeVersion();
+
+//        //滴定仪
+//        addTitratorEndPoint(db);
+//        addEndPointSetting(db);
+//        addTitratorEndPoint(db);
+
     }
 
     @Override
@@ -63,6 +69,11 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS conversion");
         db.execSQL("DROP TABLE IF EXISTS standardvalue");
 
+        db.execSQL("DROP TABLE IF EXISTS titrator_method");
+        db.execSQL("DROP TABLE IF EXISTS end_point_setting");
+        db.execSQL("DROP TABLE IF EXISTS titrator_end_point");
+
+
         addTableMD5(db);
         addTableUser(db);
         addTableHistoryUser(db);
@@ -78,6 +89,12 @@ public class DBHelper extends SQLiteOpenHelper {
         addBaseUser(db);
         addBaseWavelength(db);
         addBaseFormula(db);
+
+//        //滴定仪
+//        addTitratorEndPoint(db);
+//        addEndPointSetting(db);
+//        addTitratorEndPoint(db);
+
     }
 
     private void updateTest(SQLiteDatabase db) {
@@ -95,11 +112,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 "md5 varchar(32)" +
                 ")");
     }
-
-
-//    private void addTableMethod(SQLiteDatabase db) {
-//        db.execSQL("CRATE TABLE IF NOT EXIST ");
-//    }
 
     private void addTableUser(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS user " +
@@ -278,7 +290,57 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("insert into wavelength (id, wavelength) values (1, '589')");
     }
 
-//    private void addMethod
+    private void addTitratorMethod(SQLiteDatabase db) {
+        String sql = "CREATE TABLE IF NOT EXISTS titrator_method (\n" +
+                "\tid integer primary key autoincrement,\n" +
+                "\ttitratorType varchar(20),\n" +
+                "\tmethodName varchar(50),\n" +
+                "\tburetteVolume double,\n" +
+                "\tworkingElectrode integer,\n" +
+                "\treferenceElectrode double,\n" +
+                "\tsampleMeasurementUnit varchar(50),\n" +
+                "\ttitrationDisplayUnit varchar(50),\n" +
+                "\treplenishmentSpeed integer,\n" +
+                "\tstiringSpeed integer,\n" +
+                "\telectroedEquilibrationTime integer,\n" +
+                "\tpreStiringTime double,\n" +
+                "\tendVolume integer,\n" +
+                "\ttitrationSpeed integer,\n" +
+                "\tslowTitrationVolume integer,\n" +
+                "\tfastTitrationVolume integer\n" +
+                ")";
+        db.execSQL(sql);
+    }
+
+    private void addEndPointSetting(SQLiteDatabase db) {
+        String sql = "CREATE TABLE IF NOT EXISTS end_point_setting (\n" +
+                "\tid integer primary key autoincrement,\n" +
+                "\ttitratorMethodId integer,\n" +
+                "\tburette integer,\n" +
+                "\treagentName double,\n" +
+                "\treagentConcentration double,\n" +
+                "\treagentConcentrationUnit varchar(50),\n" +
+                "\taddVolume double,\n" +
+                "\taddSpeed integer,\n" +
+                "\taddTime varchar(50),\n" +
+                "\treferenceEndPoint integer,\n" +
+                "\tdelayTime integer\n" +
+                ")";
+        db.execSQL(sql);
+    }
+
+    private void addTitratorEndPoint(SQLiteDatabase db) {
+        String sql = "CREATE TABLE IF NOT EXISTS titrator_end_point (\n" +
+                "\tid integer primary key autoincrement,\n" +
+                "\ttitratorMethodId integer,\n" +
+                "\tendPointValue double,\n" +
+                "\tpreControlvalue double,\n" +
+                "\tcorrelationCoefficient double,\n" +
+                "\tresultUnit varchar(50)\n" +
+                ")";
+        db.execSQL(sql);
+    }
+
 
     private void addBaseFormula(SQLiteDatabase db) {
         Cursor cursor = null;

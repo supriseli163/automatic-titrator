@@ -1,4 +1,4 @@
-package com.jh.automatic_titrator.entity.common;
+package com.jh.automatic_titrator.entity.common.titrator;
 
 /**
  * 滴定方法

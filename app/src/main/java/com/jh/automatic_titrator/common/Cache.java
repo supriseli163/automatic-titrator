@@ -8,7 +8,7 @@ import com.jh.automatic_titrator.entity.SpecificRotation;
 import com.jh.automatic_titrator.entity.common.Formula;
 import com.jh.automatic_titrator.entity.common.SingleResult;
 import com.jh.automatic_titrator.entity.common.TestMethod;
-import com.jh.automatic_titrator.entity.common.TitratorMethod;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.User;
 
 import java.util.ArrayList;
