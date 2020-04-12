@@ -40,13 +40,11 @@ public class TiratorExecuteViewBean extends BaseObservable implements Serializab
 
     @Bindable
     public boolean isTestTabSelect() {
-        Log.d("songkai", "isTestTabSelect");
         return isTestTabSelect;
     }
 
     @Bindable
     public boolean isTestSampleSelect() {
-        Log.d("songkai", "isTestSampleSelect");
         return isTestSampleSelect;
     }
 

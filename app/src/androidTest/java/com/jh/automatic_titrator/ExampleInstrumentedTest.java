@@ -1,14 +1,18 @@
 package com.jh.automatic_titrator;
 
 import android.content.Context;
+import android.util.Log;
 
-import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
+import com.jh.automatic_titrator.common.db.DBHelper;
+import com.jh.automatic_titrator.common.db.TestHelper;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnit4;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -17,11 +21,16 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+
+    @Test
+    public void add() {
+        assertEquals(4, 4 + 2);
+    }
+
     @Test
     public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-
-        assertEquals("com.jh.automatic_titrator", appContext.getPackageName());
+        DBHelper helper = new DBHelper(BaseApplication.getApplication());
+        TestHelper helper1=new TestHelper(helper);
+        helper1.saveTest(com.jh.automatic_titrator.entity.common.Test.getTestSample());
     }
 }

@@ -54,7 +54,6 @@ public class TitratorMethod extends BaseObservable {
 
     @Bindable
     public String getTitratorTypeText() {
-        Log.d("songkai", "ssssssss");
         return StringUtils.getContent(R.string.titrator_type_text, String.valueOf(titratorType));
     }
 
