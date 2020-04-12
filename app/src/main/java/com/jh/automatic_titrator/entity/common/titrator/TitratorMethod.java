@@ -1,9 +1,18 @@
 package com.jh.automatic_titrator.entity.common.titrator;
 
+import android.util.Log;
+
+import com.jh.automatic_titrator.R;
+import com.jh.automatic_titrator.common.utils.StringUtils;
+
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+
 /**
  * 滴定方法
  */
-public class TitratorMethod {
+public class TitratorMethod extends BaseObservable {
+
     //测试id
     private int id;
     //测试方法Id
@@ -43,139 +52,262 @@ public class TitratorMethod {
     //快滴体积
     private String fastTitrationVolume;
 
-    public String getTitratorType() {
-        return titratorType;
+    @Bindable
+    public String getTitratorTypeText() {
+        Log.d("songkai", "ssssssss");
+        return StringUtils.getContent(R.string.titrator_type_text, String.valueOf(titratorType));
+    }
+
+    @Bindable
+    public String getBuretteVolumeText() {
+        // TODO: 2020-04-12 单位
+        return StringUtils.getContent(R.string.burette_volume_text, String.valueOf(buretteVolume));
+    }
+
+    @Bindable
+    public String getMethodNameText() {
+        return StringUtils.getContent(R.string.method_name_text, methodName);
+    }
+
+    @Bindable
+    public String getWorkingElectrodeText() {
+        return StringUtils.getContent(R.string.working_electrode_text, String.valueOf(workingElectrode));
+    }
+
+    @Bindable
+    public String getReferenceElectrodeText() {
+        return StringUtils.getContent(R.string.reference_electrode_text, String.valueOf(referenceElectrode));
+    }
+
+    @Bindable
+    public String getSampleMeasurementUnitText() {
+        return StringUtils.getContent(R.string.sample_measurement_unit_text, sampleMeasurementUnit);
+    }
+
+    @Bindable
+    public String getTitrationDisplayUnitText() {
+        return StringUtils.getContent(R.string.titration_display_unit_text, titrationDisplayUnit);
+    }
+
+    @Bindable
+    public String getReplenishmentSpeedText() {
+        return StringUtils.getContent(R.string.replenishment_speed_text, replenishmentSpeed);
+    }
+
+    @Bindable
+    public String getStiringSpeedText() {
+        return StringUtils.getContent(R.string.stiring_speed_text, stiringSpeed);
+    }
+
+    @Bindable
+    public String getElectroedEquilibrationTimeText() {
+        return StringUtils.getContent(R.string.electroed_equilibration_time_text, electroedEquilibrationTime);
+    }
+
+    @Bindable
+    public String getElectroedEquilibriumPotentialText() {
+        return StringUtils.getContent(R.string.electroed_equilibrium_potential_text, electroedEquilibriumPotential);
+    }
+
+    @Bindable
+    public String getPreStiringTimeText() {
+        return StringUtils.getContent(R.string.prestiring_time_text, preStiringTime);
+    }
+
+    @Bindable
+    public String getPerAddVolumeText() {
+        return StringUtils.getContent(R.string.per_addvolume_text, perAddVolume);
+    }
+
+    @Bindable
+    public String getEndVolumeText() {
+        return StringUtils.getContent(R.string.end_volume_text, endVolume);
+    }
+
+    @Bindable
+    public String getTitrationSpeedText() {
+        return StringUtils.getContent(R.string.titration_speed_text, titrationSpeed);
+    }
+
+    @Bindable
+    public String getSlowTitrationVolumeText() {
+        return StringUtils.getContent(R.string.fast_titration_volume_text, slowTitrationVolume);
+    }
+
+    @Bindable
+    public String getFastTitrationVolumeText() {
+        return StringUtils.getContent(R.string.fast_titration_volume_text, fastTitrationVolume);
+    }
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitratorMethodId(String titratorMethodId) {
+        this.titratorMethodId = titratorMethodId;
     }
 
     public void setTitratorType(String titratorType) {
         this.titratorType = titratorType;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.titratorTypeText);
+    }
+
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.methodNameText);
+    }
+
+    public void setBuretteVolume(double buretteVolume) {
+        this.buretteVolume = buretteVolume;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.buretteVolumeText);
+    }
+
+    public void setWorkingElectrode(double workingElectrode) {
+        this.workingElectrode = workingElectrode;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.workingElectrodeText);
+    }
+
+    public void setReferenceElectrode(double referenceElectrode) {
+        this.referenceElectrode = referenceElectrode;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.referenceElectrodeText);
+    }
+
+    public void setSampleMeasurementUnit(String sampleMeasurementUnit) {
+        this.sampleMeasurementUnit = sampleMeasurementUnit;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.sampleMeasurementUnitText);
+    }
+
+    public void setTitrationDisplayUnit(String titrationDisplayUnit) {
+        this.titrationDisplayUnit = titrationDisplayUnit;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.titrationDisplayUnitText);
+    }
+
+    public void setReplenishmentSpeed(String replenishmentSpeed) {
+        this.replenishmentSpeed = replenishmentSpeed;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.replenishmentSpeedText);
+    }
+
+    public void setStiringSpeed(String stiringSpeed) {
+        this.stiringSpeed = stiringSpeed;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.stiringSpeedText);
+    }
+
+    public void setElectroedEquilibrationTime(String electroedEquilibrationTime) {
+        this.electroedEquilibrationTime = electroedEquilibrationTime;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.electroedEquilibrationTimeText);
+    }
+
+    public void setElectroedEquilibriumPotential(String electroedEquilibriumPotential) {
+        this.electroedEquilibriumPotential = electroedEquilibriumPotential;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.electroedEquilibriumPotentialText);
+
+    }
+
+    public void setPreStiringTime(String preStiringTime) {
+        this.preStiringTime = preStiringTime;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.preStiringTimeText);
+
+    }
+
+    public void setPerAddVolume(String perAddVolume) {
+        this.perAddVolume = perAddVolume;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.perAddVolumeText);
+    }
+
+    public void setEndVolume(String endVolume) {
+        this.endVolume = endVolume;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.endVolumeText);
+    }
+
+    public void setTitrationSpeed(String titrationSpeed) {
+        this.titrationSpeed = titrationSpeed;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.titrationSpeedText);
+    }
+
+    public void setSlowTitrationVolume(String slowTitrationVolume) {
+        this.slowTitrationVolume = slowTitrationVolume;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.slowTitrationVolumeText);
+    }
+
+    public void setFastTitrationVolume(String fastTitrationVolume) {
+        this.fastTitrationVolume = fastTitrationVolume;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.fastTitrationVolumeText);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitratorMethodId() {
+        return titratorMethodId;
+    }
+
+    public String getTitratorType() {
+        return titratorType;
     }
 
     public String getMethodName() {
         return methodName;
     }
 
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
-    }
-
     public double getBuretteVolume() {
         return buretteVolume;
-    }
-
-    public void setBuretteVolume(double buretteVolume) {
-        this.buretteVolume = buretteVolume;
     }
 
     public double getWorkingElectrode() {
         return workingElectrode;
     }
 
-    public void setWorkingElectrode(double workingElectrode) {
-        this.workingElectrode = workingElectrode;
-    }
-
     public double getReferenceElectrode() {
         return referenceElectrode;
-    }
-
-    public void setReferenceElectrode(double referenceElectrode) {
-        this.referenceElectrode = referenceElectrode;
     }
 
     public String getSampleMeasurementUnit() {
         return sampleMeasurementUnit;
     }
 
-    public void setSampleMeasurementUnit(String sampleMeasurementUnit) {
-        this.sampleMeasurementUnit = sampleMeasurementUnit;
-    }
-
     public String getTitrationDisplayUnit() {
         return titrationDisplayUnit;
-    }
-
-    public void setTitrationDisplayUnit(String titrationDisplayUnit) {
-        this.titrationDisplayUnit = titrationDisplayUnit;
     }
 
     public String getReplenishmentSpeed() {
         return replenishmentSpeed;
     }
 
-    public void setReplenishmentSpeed(String replenishmentSpeed) {
-        this.replenishmentSpeed = replenishmentSpeed;
-    }
-
     public String getStiringSpeed() {
         return stiringSpeed;
-    }
-
-    public void setStiringSpeed(String stiringSpeed) {
-        this.stiringSpeed = stiringSpeed;
     }
 
     public String getElectroedEquilibrationTime() {
         return electroedEquilibrationTime;
     }
 
-    public void setElectroedEquilibrationTime(String electroedEquilibrationTime) {
-        this.electroedEquilibrationTime = electroedEquilibrationTime;
-    }
-
     public String getElectroedEquilibriumPotential() {
         return electroedEquilibriumPotential;
-    }
-
-    public void setElectroedEquilibriumPotential(String electroedEquilibriumPotential) {
-        this.electroedEquilibriumPotential = electroedEquilibriumPotential;
     }
 
     public String getPreStiringTime() {
         return preStiringTime;
     }
 
-    public void setPreStiringTime(String preStiringTime) {
-        this.preStiringTime = preStiringTime;
-    }
-
     public String getPerAddVolume() {
         return perAddVolume;
-    }
-
-    public void setPerAddVolume(String perAddVolume) {
-        this.perAddVolume = perAddVolume;
     }
 
     public String getEndVolume() {
         return endVolume;
     }
 
-    public void setEndVolume(String endVolume) {
-        this.endVolume = endVolume;
-    }
-
     public String getTitrationSpeed() {
         return titrationSpeed;
-    }
-
-    public void setTitrationSpeed(String titrationSpeed) {
-        this.titrationSpeed = titrationSpeed;
     }
 
     public String getSlowTitrationVolume() {
         return slowTitrationVolume;
     }
 
-    public void setSlowTitrationVolume(String slowTitrationVolume) {
-        this.slowTitrationVolume = slowTitrationVolume;
-    }
-
     public String getFastTitrationVolume() {
         return fastTitrationVolume;
-    }
-
-    public void setFastTitrationVolume(String fastTitrationVolume) {
-        this.fastTitrationVolume = fastTitrationVolume;
     }
 }

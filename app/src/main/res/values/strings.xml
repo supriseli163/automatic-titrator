@@ -542,6 +542,7 @@
 
     <string name="test">测试</string>
     <string name="test_param_setting">参数设置</string>
+    <string name="test_sample_tab_params">样本信息</string>
     <string name="test_param_setting_save">保存</string>
     <string name="routine_maintain">维护</string>
     <string name="emergency_stop">紧急停止</string>
@@ -549,8 +550,8 @@
     <string name="sample_information">样品信息</string>
     <string name="start">开始滴定</string>
     <string name="stop">停止滴定</string>
-
-
+    <string name="routine_maintenance">例行维护</string>
+    <string name="atlas_switch">图谱切换</string>
 
     <string name="data">数据</string>
     <string name="data_delete">删除</string>
@@ -635,8 +636,7 @@
 
     <string-array name="paper_type_array">
         <item> 照片纸 </item>
-    </string-array>
-    <!-- Print Preview -->
+    </string-array><!-- Print Preview -->
     <string name="print_preview_menu_help">打印帮助</string>
     <string name="print_preview_menu_print_service_plugins">打印服务插件</string>
 
@@ -729,7 +729,7 @@
     <string name="titration_speed">滴定速度</string>
     <string name="slow_titration_volume">慢滴体积</string>
     <string name="fastTitration_volume">快滴体积</string>
-    
+
     <string name="create_titrator_method">新建方法</string>
     <string name="delete_titrator_method">删除方法</string>
     <string name="import_titrator_method">导入方法</string>
@@ -740,4 +740,31 @@
     <string name="add_titrator_method">添加</string>
     <string name="update_titrator_method">修改</string>
     <string name="delete_titrator_method_simplfy">删除</string>
+
+    <string name="titrator_type_text">滴定类型：%s</string>
+    <string name="method_name_text">测试方法名称：%s</string>
+    <string name="burette_volume_text">滴定管体积：%s</string>
+    <string name="working_electrode_text">工作电极：%s</string>
+    <string name="reference_electrode_text">参比电极：%s</string>
+    <string name="sample_measurement_unit_text">样品计量单位：%s</string>
+    <string name="titration_display_unit_text">滴定显示单位：%s</string>
+    <string name="replenishment_speed_text">补液速度：%s</string>
+    <string name="stiring_speed_text">搅拌速度：%s</string>
+    <string name="electroed_equilibration_time_text">电极平衡时间：%s</string>
+    <string name="electroed_equilibrium_potential_text">电极平衡电位：%s</string>
+    <string name="prestiring_time_text">预搅拌时间：%s</string>
+    <string name="per_addvolume_text">每次添加体积：%s</string>
+    <string name="end_volume_text">结束体积：%s</string>
+    <string name="titration_speed_text">滴定速度：%s</string>
+    <string name="slow_titration_volume_text">慢滴体积：%s</string>
+    <string name="fast_titration_volume_text">快滴体积：%s</string>
+
+    <!-- 滴定测试结果 -->
+    <string name="result_end_number">终极序号</string>
+    <string name="result_end_volume">体积</string>
+    <string name="result_end_titrant_concentration">滴定剂浓度</string>
+    <string name="result_end_blank_volume">空白体积</string>
+    <string name="result_end_sample_size">样品量</string>
+    <string name="result_end_sample_coefficient">样品系数</string>
+    <string name="result_end_info">结果</string>
 </resources>

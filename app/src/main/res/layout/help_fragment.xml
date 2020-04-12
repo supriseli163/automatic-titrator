@@ -14,7 +14,7 @@
             android:id="@+id/help_md5_layout"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:background="@drawable/top_tab_cur"
+            android:background="@drawable/top_tab_select"
             android:gravity="center">
 
             <TextView

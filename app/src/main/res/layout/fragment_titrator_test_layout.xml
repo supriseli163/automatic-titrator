@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="bean"
+            type="com.jh.automatic_titrator.entity.test.TiratorExecuteViewBean" />
+
+        <variable
+            name="method"
+            type="com.jh.automatic_titrator.entity.common.titrator.TitratorMethod" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/titrator_test_function_bg"
+            android:layout_width="@dimen/_135px"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titrator_test_entrance"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_58px"
+                android:background="@{bean.isTestTabSelect?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                android:gravity="center"
+                android:text="@string/test"
+                android:textAlignment="center"
+                android:textColor="@{bean.isTestTabSelect?@color/colorWrite:@color/icon_choose_true}"
+                android:textSize="@dimen/_20px"
+                tools:background="@drawable/top_tab_new" />
+
+            <TextView
+                android:id="@+id/titrator_sample_entrance"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_58px"
+                android:background="@{bean.isTestSampleSelect?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                android:gravity="center"
+                android:text="@string/test_sample_tab_params"
+                android:textAlignment="center"
+                android:textColor="@{bean.isTestSampleSelect?@color/colorWrite:@color/icon_choose_true}"
+                android:textSize="@dimen/_20px"
+                tools:background="@drawable/top_tab_new" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/titrator_operate_btn_bg">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:padding="@dimen/_60px"
+                        android:src="@mipmap/ic_launcher" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/titrator_operate_btn_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/titrator_operate_test_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ceshi_btn_new"
+                            android:paddingLeft="@dimen/_55px"
+                            android:paddingRight="@dimen/_20px"
+                            android:text="@string/start"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/titrator_operate_clear_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10px"
+                            android:background="@drawable/qingling_btn_new"
+                            android:paddingLeft="@dimen/_55px"
+                            android:paddingRight="@dimen/_20px"
+                            android:text="@string/stop"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/test_test_routine_maintenance_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20px"
+                            android:background="@drawable/ceshi_btn_new"
+                            android:paddingLeft="@dimen/_55px"
+                            android:paddingRight="@dimen/_20px"
+                            android:text="@string/routine_maintenance"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/titrator_emergency_stop_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_10px"
+                            android:layout_marginTop="@dimen/_20px"
+                            android:background="@drawable/qingling_btn"
+                            android:paddingLeft="@dimen/_55px"
+                            android:paddingRight="@dimen/_20px"
+                            android:text="@string/emergency_stop"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorWrite"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/titrator_atlas_switch_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20px"
+                        android:background="@drawable/ceshi_btn_new"
+                        android:paddingLeft="@dimen/_55px"
+                        android:paddingRight="@dimen/_20px"
+                        android:text="@string/atlas_switch"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="20sp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3">
+
+                <include
+                    android:id="@+id/method_list_layout"
+                    layout="@layout/itatrator_test_list_layout"
+                    android:visibility="@{bean.isAtlasShow?View.GONE:View.VISIBLE}"
+                    app:method="@{method}" />
+
+                <com.jh.automatic_titrator.ui.execute.view.AtlasView
+                    android:id="@+id/atlas_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{bean.isAtlasShow?View.VISIBLE:View.GONE}" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

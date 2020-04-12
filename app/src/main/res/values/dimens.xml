@@ -105,6 +105,9 @@
     <dimen name="_98px">98.0dp</dimen>
     <dimen name="_99px">99.0dp</dimen>
     <dimen name="_100px">100.0dp</dimen>
+    <dimen name="_110px">110.0dp</dimen>
+    <dimen name="_120px">120.0dp</dimen>
+    <dimen name="_135px">135.0dp</dimen>
 
     <dimen name="_1spx">1.0sp</dimen>
     <dimen name="_2spx">2.0sp</dimen>
