@@ -6,8 +6,6 @@ package com.jh.automatic_titrator.entity.common.titrator;
 public class TitratorMethod {
     //测试id
     private int id;
-    //测试方法Id
-    private String titratorMethodId;
     //滴定类型
     private String titratorType;
     //方法名

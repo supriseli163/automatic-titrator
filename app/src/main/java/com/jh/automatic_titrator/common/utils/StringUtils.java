@@ -88,4 +88,12 @@ public class StringUtils {
         }
         return res;
     }
+
+    public static String dBValueInputFormat(String value) {
+        return String.format("'%s',", value);
+    }
+
+    public static String dBValueInputFormat(double value) {
+        return String.format("'%s',", value);
+    }
 }

@@ -1,4 +1,4 @@
-package com.jh.automatic_titrator.common.db;
+package com.jh.automatic_titrator.common.db.titrator;
 
 import android.database.sqlite.SQLiteDatabase;
 
