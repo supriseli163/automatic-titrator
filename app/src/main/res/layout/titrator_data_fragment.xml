@@ -43,7 +43,7 @@
                 android:gravity="center"
                 android:text="@string/dynamic_titrator"
                 android:textAlignment="center"
-                android:textColor="@{bean.isEqualTitrator?@color/colorWrite:@color/icon_choose_true}"
+                android:textColor="@{bean.dynamicTitrator?@color/colorWrite:@color/icon_choose_true}"
                 android:textSize="@dimen/_20px"
                 tools:background="@drawable/top_tab_new" />
 
@@ -51,11 +51,11 @@
                 android:id="@+id/titrator_manual"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_58px"
-                android:background="@{bean.isEqualTitrator?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                android:background="@{bean.manualTitrator?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
                 android:gravity="center"
                 android:text="@string/manual_titrator"
                 android:textAlignment="center"
-                android:textColor="@{bean.isEqualTitrator?@color/colorWrite:@color/icon_choose_true}"
+                android:textColor="@{bean.manualTitrator?@color/colorWrite:@color/icon_choose_true}"
                 android:textSize="@dimen/_20px"
                 tools:background="@drawable/top_tab_new" />
 
@@ -340,10 +340,67 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/_10px"
                 android:gravity="right">
 
+
                 <LinearLayout
-                    android:id="@+id/data_delete_btn"
+                    android:id="@+id/method_new_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/output_btn"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:src="@drawable/icon_upan" />-->
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/normal_new"
+                        android:textAlignment="center"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/method_modify_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/detail_btn"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:src="@drawable/icon_xiangxi" />-->
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/normal_edit"
+                        android:textAlignment="center"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/method_delete_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
@@ -365,140 +422,6 @@
                         android:textColor="@color/fontWhite"
                         android:textSize="14sp"
                         android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/data_detail_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/detail_btn"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <!--<ImageView-->
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="20dp"-->
-                    <!--android:src="@drawable/icon_xiangxi" />-->
-
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:text="@string/details"
-                        android:textAlignment="center"
-                        android:textColor="@color/fontWhite"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/data_search_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/search_btn"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <!--<ImageView-->
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="20dp"-->
-                    <!--android:src="@drawable/icon_jiansuo" />-->
-
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:text="@string/search"
-                        android:textAlignment="center"
-                        android:textColor="@color/fontWhite"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/data_print_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/print_btn"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <!--<ImageView-->
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="20dp"-->
-                    <!--android:src="@drawable/icon_dayin" />-->
-
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:text="@string/print"
-                        android:textAlignment="center"
-                        android:textColor="@color/fontWhite"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/data_sensitive_btn"
-                    android:layout_width="126px"
-                    android:layout_height="48px"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/orange_button"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10px"
-                    android:paddingRight="10px">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/icon_dayin" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="@string/sensitive"
-                        android:textAlignment="center"
-                        android:textColor="@color/fontWhite"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/data_export_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/output_btn"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp">
-
-                    <!--<ImageView-->
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="20dp"-->
-                    <!--android:src="@drawable/icon_upan" />-->
-
-                    <TextView
-                        android:layout_width="50dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:text="@string/export"
-                        android:textAlignment="center"
-                        android:textColor="@color/fontWhite"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
                 </LinearLayout>
 
             </LinearLayout>

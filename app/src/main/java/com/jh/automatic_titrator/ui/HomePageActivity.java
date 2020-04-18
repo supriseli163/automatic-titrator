@@ -313,6 +313,9 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
         if (userFragment != null) {
             fragmentTransaction.hide(userFragment);
         }
+        if (modifyMethodFragment != null) {
+            fragmentTransaction.hide(modifyMethodFragment);
+        }
     }
 
     public void testClick(View view) {

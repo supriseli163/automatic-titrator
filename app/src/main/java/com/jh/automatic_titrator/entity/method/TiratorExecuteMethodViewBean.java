@@ -1,5 +1,6 @@
 package com.jh.automatic_titrator.entity.method;
 
+import com.jh.automatic_titrator.BR;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
 
 import java.io.Serializable;
@@ -48,7 +49,7 @@ public class TiratorExecuteMethodViewBean extends BaseObservable implements Seri
         notifyPropertyChanged(com.jh.automatic_titrator.BR.equalTitrator);
         notifyPropertyChanged(com.jh.automatic_titrator.BR.dynamicTitrator);
         notifyPropertyChanged(com.jh.automatic_titrator.BR.manualTitrator);
-        notifyPropertyChanged(com.jh.automatic_titrator.BR.endVolumeText);
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.endPointTitrator);
         notifyPropertyChanged(com.jh.automatic_titrator.BR.stopFoverTitrator);
     }
 }
