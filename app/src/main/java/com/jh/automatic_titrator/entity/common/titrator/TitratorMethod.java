@@ -141,10 +141,6 @@ public class TitratorMethod extends BaseObservable {
         this.id = id;
     }
 
-    public void setTitratorMethodId(String titratorMethodId) {
-        this.titratorMethodId = titratorMethodId;
-    }
-
     public void setTitratorType(String titratorType) {
         this.titratorType = titratorType;
         notifyPropertyChanged(com.jh.automatic_titrator.BR.titratorTypeText);
@@ -234,10 +230,6 @@ public class TitratorMethod extends BaseObservable {
 
     public int getId() {
         return id;
-    }
-
-    public String getTitratorMethodId() {
-        return titratorMethodId;
     }
 
     public String getTitratorType() {
