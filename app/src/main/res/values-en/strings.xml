@@ -447,6 +447,7 @@
 
     <string name="test">Measurement</string>
     <string name="test_param_setting">Params Setting</string>
+    <string name="test_sample_tab_params">Sample Params Setting</string>
     <string name="test_param_setting_save">Save</string>
     <string name="routine_maintain">Routine Maintain</string>
     <string name="emergency_stop">Emergency Stop</string>
@@ -454,6 +455,8 @@
     <string name="sample_information">Sample Information</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
+    <string name="routine_maintenance">routine_maintenance</string>
+    <string name="atlas_switch">atlas_switch</string>
 
     <string name="data">Data</string>
     <string name="data_delete">Delete</string>
@@ -643,4 +646,31 @@
     <string name="add_titrator_method">添加</string>
     <string name="update_titrator_method">修改</string>
     <string name="delete_titrator_method_simplfy">删除</string>
+
+    <string name="titrator_type_text">滴定类型：%s</string>
+    <string name="method_name_text">测试方法名称：%s</string>
+    <string name="burette_volume_text">滴定管体积：%s</string>
+    <string name="working_electrode_text">工作电极：%s</string>
+    <string name="reference_electrode_text">参比电极：%s</string>
+    <string name="sample_measurement_unit_text">样品计量单位：%s</string>
+    <string name="titration_display_unit_text">滴定显示单位：%s</string>
+    <string name="replenishment_speed_text">补液速度：%s</string>
+    <string name="stiring_speed_text">搅拌速度：%s</string>
+    <string name="electroed_equilibration_time_text">电极平衡时间：%s</string>
+    <string name="electroed_equilibrium_potential_text">电极平衡电位：%s</string>
+    <string name="prestiring_time_text">预搅拌时间：%s</string>
+    <string name="per_addvolume_text">每次添加体积：%s</string>
+    <string name="end_volume_text">结束体积：%s</string>
+    <string name="titration_speed_text">滴定速度：%s</string>
+    <string name="slow_titration_volume_text">慢滴体积：%s</string>
+    <string name="fast_titration_volume_text">快滴体积：%s</string>
+
+    <!-- 滴定测试结果 -->
+    <string name="result_end_number">终极序号</string>
+    <string name="result_end_volume">体积</string>
+    <string name="result_end_titrant_concentration">滴定剂浓度</string>
+    <string name="result_end_blank_volume">空白体积</string>
+    <string name="result_end_sample_size">样品量</string>
+    <string name="result_end_sample_coefficient">样品系数</string>
+    <string name="result_end_info">结果</string>
 </resources>

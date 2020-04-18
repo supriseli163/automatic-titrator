@@ -42,6 +42,26 @@ public class Test {
 
     private String testCount;
 
+    public static Test getTestSample() {
+        Test test = new Test();
+        test.setTestName("name");
+        test.setTestMethod("method");
+        test.setTestId("123");
+        test.setDate("data");
+        test.setWantedTemperature("ok");
+        test.setRealTemperature("error");
+        test.setFormulaUnit("unit");
+        test.setSimpleFormulaName("formulaName");
+        test.setFormulaName("formulaName");
+        test.setTestCreator("战三");
+        test.setWavelength("22222");
+        test.setTubelength("22222");
+        test.setSpecificrotation("22222");
+        test.setConcentration("22222");
+        test.setTestCount("22");
+        return test;
+    }
+
     public int getId() {
         return id;
     }

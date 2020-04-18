@@ -1,0 +1,363 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="method"
+            type="com.jh.automatic_titrator.entity.common.titrator.TitratorMethod" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:background="@color/JH_f3f3f3"
+        android:orientation="horizontal">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="4"
+            android:background="@color/colorWrite">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/_20px">
+
+                <TextView
+                    android:id="@+id/titrator_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.titratorTypeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_method_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.methodNameText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_burette_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.buretteVolumeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrato_working_electrode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.workingElectrodeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_working_electrode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.workingElectrodeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_reference_electrode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.referenceElectrodeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_sample_measurement_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.sampleMeasurementUnitText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_display_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.titrationDisplayUnitText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_replenishment_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.replenishmentSpeedText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_stiring_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.stiringSpeedText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_electroed_equilibration_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.electroedEquilibrationTimeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_electroed_equilibrium_potential"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.electroedEquilibriumPotentialText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_pre_stiring_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.preStiringTimeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_per_addvolume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.perAddVolumeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_end_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.endVolumeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_titration_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.titrationSpeedText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_slow_titration_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.slowTitrationVolumeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+
+                <TextView
+                    android:id="@+id/titrator_fast_titration_volume"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_40px"
+                    android:text="@{method.fastTitrationVolumeText}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/_16spx" />
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@color/colorWrite">
+
+            <LinearLayout
+                android:id="@+id/test_test_list_res_title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/JH_4d6083"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="@string/result_end_number"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWrite" />
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/result_end_volume"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWrite" />
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:text="@string/result_end_titrant_concentration"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWrite" />
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="@string/result_end_blank_volume"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWrite" />
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/result_end_sample_size"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWrite" />
+
+                <TextView
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:text="@string/result_end_sample_coefficient"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWrite" />
+
+                <TextView
+                    android:id="@+id/test_test_list_testtype"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="@string/result_end_info"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/test_test_list_frame_avg_rsp"
+                android:layout_below="@+id/test_test_list_res_title"
+                android:background="@color/colorWrite">
+
+                <ListView
+                    android:id="@+id/test_test_list_res_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/test_test_list_frame_avg_rsp"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#B7B7B7" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/test_test_list_res_avg_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginLeft="30dp"
+                        android:layout_weight="1"
+                        android:text="AVG:0°"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/fontBlack"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/test_test_list_res_rsp_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:text="RSP:0"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/fontBlack"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

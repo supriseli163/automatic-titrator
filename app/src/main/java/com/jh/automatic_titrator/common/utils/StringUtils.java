@@ -1,5 +1,9 @@
 package com.jh.automatic_titrator.common.utils;
 
+import android.text.TextUtils;
+
+import com.jh.automatic_titrator.BaseApplication;
+
 /**
  * Created by apple on 2016/10/17.
  */
@@ -80,7 +84,7 @@ public class StringUtils {
     public static String[] appendInfos(String[] a, String[] b) {
         String[] res = new String[a.length];
         for (int i = 0; i < a.length; i++) {
-            if(b.length > i) {
+            if (b.length > i) {
                 res[i] = a[i] + "(" + b[i] + ")";
             } else {
                 res[i] = a[i];
@@ -95,5 +99,16 @@ public class StringUtils {
 
     public static String dBValueInputFormat(double value) {
         return String.format("'%s',", value);
+    }
+
+    public static String getSecurity(String content) {
+        return TextUtils.isEmpty(content) ? "" : content;
+    }
+
+    public static String getContent(int resId, String content) {
+        if(TextUtils.isEmpty(content)){
+            content="**";
+        }
+        return BaseApplication.getApplication().getString(resId, content);
     }
 }

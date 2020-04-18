@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -140,7 +139,6 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
 
     @Override
     public void onClick(View v) {
-        Log.d("songkai", "v.getId");
         clearSelection();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         hideFragments(fragmentTransaction);
@@ -160,6 +158,9 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
                 if (executeFragment == null) {
                     executeFragment = new ExecuteFragment();
                     executeFragment.setActivityHandler(handler);
+                    fragmentTransaction.add(R.id.home_frame, executeFragment);
+                } else {
+                    fragmentTransaction.show(executeFragment);
                 }
                 break;
             case R.id.home_data_layout:
@@ -287,6 +288,9 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
     private void hideFragments(FragmentTransaction fragmentTransaction) {
         if (testFragment != null) {
             fragmentTransaction.hide(testFragment);
+        }
+        if (executeFragment != null) {
+            fragmentTransaction.hide(executeFragment);
         }
         if (dataFragment != null) {
             fragmentTransaction.hide(dataFragment);
