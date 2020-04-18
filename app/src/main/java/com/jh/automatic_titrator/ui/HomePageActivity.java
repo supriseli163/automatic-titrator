@@ -22,6 +22,7 @@ import com.jh.automatic_titrator.service.DBService;
 import com.jh.automatic_titrator.service.TimeService;
 import com.jh.automatic_titrator.service.WifiService;
 import com.jh.automatic_titrator.ui.data.DataFragment;
+import com.jh.automatic_titrator.ui.data.method.ModifyMethodFragment;
 import com.jh.automatic_titrator.ui.execute.ExecuteFragment;
 import com.jh.automatic_titrator.ui.help.HelpFragment;
 import com.jh.automatic_titrator.ui.setting.SettingFragment;
@@ -47,6 +48,7 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
 
     private TestFragment testFragment;
     private ExecuteFragment executeFragment;
+    private ModifyMethodFragment modifyMethodFragment;
     private DataFragment dataFragment;
     private UserFragment userFragment;
     private HelpFragment helpFragment;
@@ -145,12 +147,19 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
         switch (v.getId()) {
             case R.id.home_test_layout:
                 changeToTestFragment();
-                if (testFragment == null) {
-                    testFragment = new TestFragment();
-                    testFragment.setActivityHandler(handler);
-                    fragmentTransaction.add(R.id.home_frame, testFragment);
+//                if (testFragment == null) {
+//                    testFragment = new TestFragment();
+//                    testFragment.setActivityHandler(handler);
+//                    fragmentTransaction.add(R.id.home_frame, testFragment);
+//                } else {
+//                    fragmentTransaction.show(testFragment);
+//                }
+                if (dataFragment == null) {
+                    dataFragment = new DataFragment();
+                    dataFragment.setActivityHandler(handler);
+                    fragmentTransaction.add(R.id.home_frame, dataFragment);
                 } else {
-                    fragmentTransaction.show(testFragment);
+                    fragmentTransaction.show(dataFragment);
                 }
                 break;
             case R.id.home_titrator_test_layout:
@@ -165,12 +174,12 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
                 break;
             case R.id.home_data_layout:
                 changeToDataFragment();
-                if (dataFragment == null) {
-                    dataFragment = new DataFragment();
-                    dataFragment.setActivityHandler(handler);
-                    fragmentTransaction.add(R.id.home_frame, dataFragment);
+                if (modifyMethodFragment == null) {
+                    modifyMethodFragment = new ModifyMethodFragment();
+                    modifyMethodFragment.setActivityHandler(handler);
+                    fragmentTransaction.add(R.id.home_frame, modifyMethodFragment);
                 } else {
-                    fragmentTransaction.show(dataFragment);
+                    fragmentTransaction.show(modifyMethodFragment);
                 }
                 break;
             case R.id.home_setting_layout:
