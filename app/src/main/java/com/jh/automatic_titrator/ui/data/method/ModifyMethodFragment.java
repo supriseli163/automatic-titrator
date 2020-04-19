@@ -6,7 +6,6 @@ import android.view.View;
 
 import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
-import com.jh.automatic_titrator.common.Cache;
 import com.jh.automatic_titrator.databinding.TitratorDataFragmentBinding;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
@@ -18,13 +17,11 @@ import java.util.List;
 
 public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBinding> implements View.OnClickListener {
 
-    private TiratorMethod tiratorMethod;
     private List<TitratorParamsBean> titratorParamsBeanList;
     private MethodListAdapter adapter;
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        tiratorMethod = Cache.getTiratorMethod();
         initView();
     }
 
@@ -38,7 +35,7 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
         initMetHodListView();
     }
 
-    private void initMetHodListView(){
+    private void initMetHodListView() {
         initData();
         adapter.setParamsBeanList(titratorParamsBeanList);
         binding.dataManagerLv.setAdapter(adapter);
