@@ -44,6 +44,7 @@ public class TestMethodAddWindow implements View.OnClickListener, CompoundButton
     private View mView;
 
     private AlertDialog dialog;
+    private AlertDialog dialog2;
 
     private EditText testMethod_tv;
 
@@ -208,6 +209,7 @@ public class TestMethodAddWindow implements View.OnClickListener, CompoundButton
 
         builder.setView(mView);
         dialog = builder.create();
+
     }
 
     public void show() {
@@ -388,6 +390,16 @@ public class TestMethodAddWindow implements View.OnClickListener, CompoundButton
                 }
                 break;
             case R.id.setting_method_popup_autotest:
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(mContext);
+                builder2.setTitle("测试");
+                mView = LayoutInflater.from(mContext).inflate(R.layout.setting_method_fragment_popup, null);
+                dialog2 = builder2.create();
+                dialog2.setView(mView);
+                if (dialog2 != null) {
+                    dialog.dismiss();
+                    dialog2.show();
+                    break;
+                }
                 if (isChecked) {
                     autoTestInterval_tv.setEnabled(true);
                     autoTestInterval_tv.setAlpha(1.0f);

@@ -23,20 +23,10 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     }
 
     private void initData() {
-        if (tiratorMethod == null) {
-            tiratorMethod = new TiratorMethod();
-            tiratorMethod.tiratorExecuteMethodViewBean = new TiratorExecuteMethodViewBean();
-            tiratorMethod.tiratorExecuteMethodViewBean.setCurrentEnum(TitratorTypeEnum.EqualTitrator);
-            binding.setBean(tiratorMethod.tiratorExecuteMethodViewBean);
-        }
     }
 
     private void initView() {
-        binding.titratorEqual.setOnClickListener(this);
-        binding.titratorDynamic.setOnClickListener(this);
-        binding.titratorManual.setOnClickListener(this);
-        binding.titratorEndPoint.setOnClickListener(this);
-        binding.titratorStopForver.setOnClickListener(this);
+
     }
 
     @Override
