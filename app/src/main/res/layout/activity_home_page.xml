@@ -232,7 +232,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_20px"
-                            android:text="@string/data"
+                            android:text="@string/method"
                             android:textColor="#4d6083"
                             android:textSize="22dp" />
                     </LinearLayout>

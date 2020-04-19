@@ -2,6 +2,7 @@ package com.jh.automatic_titrator.entity;
 
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
+import com.jh.automatic_titrator.entity.common.titrator.WorkElectrodeEnnum;
 
 public class TestEntity {
     public static TitratorMethod getTitratorMethod() {
@@ -9,7 +10,7 @@ public class TestEntity {
         titratorMethod.setTitratorType(TitratorTypeEnum.DynamicTitrator.getName());
         titratorMethod.setMethodName("测试永停滴定");
         titratorMethod.setBuretteVolume(10);
-        titratorMethod.setWorkingElectrode(10);
+        titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.Calcium_Electrode);
         titratorMethod.setReferenceElectrode(10);
         titratorMethod.setTitrationDisplayUnit("1");
         titratorMethod.setReplenishmentSpeed("10");

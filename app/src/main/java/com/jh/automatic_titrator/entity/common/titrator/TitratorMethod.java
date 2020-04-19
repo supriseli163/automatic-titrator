@@ -1,7 +1,5 @@
 package com.jh.automatic_titrator.entity.common.titrator;
 
-import android.util.Log;
-
 import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 
@@ -22,7 +20,7 @@ public class TitratorMethod extends BaseObservable {
     //滴定管体积
     private double buretteVolume;
     //工作电级
-    private double workingElectrode;
+    private WorkElectrodeEnnum workingElectrode;
     //参比电级(参考电极)
     private double referenceElectrode;
     //样品计量单位
@@ -68,7 +66,11 @@ public class TitratorMethod extends BaseObservable {
 
     @Bindable
     public String getWorkingElectrodeText() {
-        return StringUtils.getContent(R.string.working_electrode_text, String.valueOf(workingElectrode));
+        if (workingElectrode != null) {
+            return StringUtils.getContent(R.string.working_electrode_text, String.valueOf(workingElectrode.getDesc()));
+        } else {
+            return "";
+        }
     }
 
     @Bindable
@@ -156,7 +158,7 @@ public class TitratorMethod extends BaseObservable {
         notifyPropertyChanged(com.jh.automatic_titrator.BR.buretteVolumeText);
     }
 
-    public void setWorkingElectrode(double workingElectrode) {
+    public void setWorkingElectrode(WorkElectrodeEnnum workingElectrode) {
         this.workingElectrode = workingElectrode;
         notifyPropertyChanged(com.jh.automatic_titrator.BR.workingElectrodeText);
     }
@@ -244,8 +246,8 @@ public class TitratorMethod extends BaseObservable {
         return buretteVolume;
     }
 
-    public double getWorkingElectrode() {
-        return workingElectrode;
+    public String getWorkingElectrode() {
+        return workingElectrode.getDesc();
     }
 
     public double getReferenceElectrode() {
