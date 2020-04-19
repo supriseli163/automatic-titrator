@@ -7,6 +7,16 @@
         <item>操作员</item>
     </string-array>
 
+    <string-array name="working_electrode_arrays">
+    <item>pH电极</item>
+    <item>pH复合电极</item>
+    <item>铂电极</item>
+    <item>银电极</item>
+    <item>钙电极</item>
+    <item>氟电极</item>
+    <item>铜电极</item>
+    </string-array>
+
     <string-array name="concentration_type">
         <item>g/l</item>
         <item>g/ml</item>

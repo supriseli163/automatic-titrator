@@ -66,7 +66,7 @@ public class MethodListAdapter extends BaseAdapter {
                 ToastUtil.toastShow(toast, "查看滴定终点");
             }
         });
-        binding.methodInfoShowBtn.setOnClickListener(new View.OnClickListener() {
+        binding.auxiliaryReagentShowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast toast = ToastUtil.createToast(BaseApplication.getApplication());

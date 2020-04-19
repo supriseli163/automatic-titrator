@@ -33,6 +33,9 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     private void initView() {
         adapter = new MethodListAdapter(BaseApplication.getApplication());
         initMetHodListView();
+        binding.methodModifyBtn.setOnClickListener(this);
+        binding.methodNewBtn.setOnClickListener(this);
+        binding.methodDeleteBtn.setOnClickListener(this);
     }
 
     private void initMetHodListView() {
@@ -59,7 +62,12 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
+            case R.id.method_delete_btn:
+                break;
+            case R.id.method_modify_btn:
+                break;
+            case R.id.method_new_btn:
+                break;
         }
     }
 }
