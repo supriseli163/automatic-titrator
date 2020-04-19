@@ -13,9 +13,11 @@ import java.util.List;
 
 public class TitratorMethodHelper {
     private SQLiteDatabase db;
+    private TitratorEndPointHelper titratorEndPointHelper;
+    private EndPointSettingHelper endPointSettingHelper;
 
-    public TitratorMethodHelper(DBHelper dbHelper) {
-        this.db = dbHelper.getWritableDatabase();
+    public TitratorMethodHelper(SQLiteDatabase sqLiteDatabase) {
+        this.db = sqLiteDatabase;
     }
 
     private static final int MAX_Line = 10000;
@@ -24,7 +26,7 @@ public class TitratorMethodHelper {
         db.close();
     }
 
-    public void insertTitratorMethod(TitratorMethod titratorMethod) {
+    public void doInsertTitratorMethod(TitratorMethod titratorMethod) {
         StringBuffer insertSql = new StringBuffer();
         insertSql.append("insert into titrator_method (titratorType, methodName, buretteVolume,workingElectrode,referenceElectrode,sampleMeasurementUnit," +
                 "titrationDisplayUnit,replenishmentSpeed,stiringSpeed,electroedEquilibrationTime,electroedEquilibriumPotential,preStiringTime" +
@@ -131,7 +133,44 @@ public class TitratorMethodHelper {
         return titratorMethods;
     }
 
-    public void selectAllMethod() {
-
+    public int count(String startDate, String endDate, String creator) {
+        StringBuilder sqlSb = new StringBuilder();
+        sqlSb.append("select count(*) from test_method");
+        boolean needAnd = false;
+        if (StringUtils.isNotEmpty(startDate)
+                || StringUtils.isNotEmpty(endDate)
+                || StringUtils.isNotEmpty(creator)) {
+            sqlSb.append("where ");
+            if (StringUtils.isNotEmpty(startDate)) {
+                sqlSb.append("datetime(`createDate`) >= datetime('").append(startDate).append("') ");
+                needAnd = true;
+            }
+            if (StringUtils.isNotEmpty(endDate)) {
+                if (needAnd) {
+                    sqlSb.append("and ");
+                }
+                sqlSb.append("datetime(`createDate`) <= datetime('").append(endDate).append("') ");
+                needAnd = true;
+            }
+            if (StringUtils.isNotEmpty(creator)) {
+                if (needAnd) {
+                    sqlSb.append("and ");
+                }
+                sqlSb.append("creator = '").append(creator).append("' ");
+            }
+        }
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery(sqlSb.toString(), null);
+            cursor.moveToFirst();
+            if (!cursor.isAfterLast()) {
+                return cursor.getInt(0);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return 0;
     }
 }

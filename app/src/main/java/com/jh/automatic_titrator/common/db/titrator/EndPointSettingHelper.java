@@ -20,6 +20,12 @@ public class EndPointSettingHelper {
         db.close();
     }
 
+    public void insertEndPointSetting(List<EndPointSetting> endPointSettings) {
+        for(EndPointSetting endPointSetting : endPointSettings) {
+            insertEndPointSetting(endPointSetting);
+        }
+    }
+
     public void insertEndPointSetting(EndPointSetting endPointSetting) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("insert intro end_point_setting (titratorMethodId,burette," +
