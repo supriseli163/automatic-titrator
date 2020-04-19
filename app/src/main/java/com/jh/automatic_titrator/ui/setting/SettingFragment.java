@@ -348,6 +348,21 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
             case R.id.setting_clouds_layout:
                 changeFragment(v);
                 break;
+            case R.id.titrator_equal:
+                updateCurrentMethod(TitratorTypeEnum.EqualTitrator);
+                break;
+            case R.id.titrator_dynamic:
+                updateCurrentMethod(TitratorTypeEnum.DynamicTitrator);
+                break;
+            case R.id.titrator_manual:
+                updateCurrentMethod(TitratorTypeEnum.ManualTitrator);
+                break;
+            case R.id.titrator_end_point:
+                updateCurrentMethod(TitratorTypeEnum.EndPointTitrator);
+                break;
+            case R.id.titrator_stop_forver:
+                updateCurrentMethod(TitratorTypeEnum.StopForverTitrator);
+                break;
         }
     }
 
@@ -500,6 +515,10 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
             builder.setOnDismissListener(new KeyboardDismiss(getActivity()));
         }
         builder.create().show();
+    }
+
+    private void updateCurrentMethod(TitratorTypeEnum typeEnum) {
+        tiratorMethod.tiratorExecuteMethodViewBean.setCurrentEnum(typeEnum);
     }
 
     @Override
