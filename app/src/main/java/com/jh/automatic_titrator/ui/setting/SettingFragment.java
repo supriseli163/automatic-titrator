@@ -20,17 +20,28 @@ import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.Cache;
 import com.jh.automatic_titrator.common.db.UserHelper;
 import com.jh.automatic_titrator.common.utils.ToastUtil;
+import com.jh.automatic_titrator.databinding.SettingFragmentBinding;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
+import com.jh.automatic_titrator.entity.method.TiratorExecuteMethodViewBean;
 import com.jh.automatic_titrator.ui.BaseActivity;
+import com.jh.automatic_titrator.ui.data.method.ModifyMethodFragment;
+import com.jh.automatic_titrator.ui.data.method.TiratorMethod;
 import com.jh.automatic_titrator.ui.listener.KeyboardDismiss;
+
+import androidx.databinding.DataBindingUtil;
 
 /**
  * Created by apple on 16/9/17.
  */
 public class SettingFragment extends Fragment implements View.OnClickListener {
 
+    private SettingFragmentBinding binding;
+    private TiratorMethod tiratorMethod;
     private FragmentManager fragmentManager;
 
     private SettingAuditFragment settingAuditFragment;
+
+    private ModifyMethodFragment modifyMethodFragment;
 
     private SettingCorrectingFragment settingCorrectingFragment;
 
@@ -100,7 +111,15 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.setting_fragment, container, false);
-
+        binding = DataBindingUtil.bind(view);
+        initData();
+        if (binding != null) {
+            binding.titratorEqual.setOnClickListener(this);
+            binding.titratorDynamic.setOnClickListener(this);
+            binding.titratorManual.setOnClickListener(this);
+            binding.titratorEndPoint.setOnClickListener(this);
+            binding.titratorStopForver.setOnClickListener(this);
+        }
         mToast = ToastUtil.createToast(getActivity());
 
         fragmentManager = getFragmentManager();
@@ -148,6 +167,15 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    private void initData() {
+        if (tiratorMethod == null && binding != null) {
+            tiratorMethod = new TiratorMethod();
+            tiratorMethod.tiratorExecuteMethodViewBean = new TiratorExecuteMethodViewBean();
+            tiratorMethod.tiratorExecuteMethodViewBean.setCurrentEnum(TitratorTypeEnum.EqualTitrator);
+            binding.setBean(tiratorMethod.tiratorExecuteMethodViewBean);
+        }
+    }
+
     //这个函数什么意思 ，不懂
     private void ensureFragmentShow() {
         if (!Cache.containsAuth("network")) {
@@ -166,50 +194,54 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         hideFragments(fragmentTransaction);
         changeToStandardFragment();
-        settingStandardFragment = new SettingStandardFragment();
-        fragmentTransaction.add(R.id.setting_frame, settingStandardFragment);
+        settingMethodFragment = new SettingMethodFragment();
+        fragmentTransaction.add(R.id.setting_frame, settingMethodFragment);
         fragmentTransaction.commit();
     }
 
     private void clearSelection() {
-        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         auditTv.setTextColor(getResources().getColor(R.color.JH_333333));
         auditTv.getPaint().setFakeBoldText(false);
 
-        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         correctingTv.setTextColor(getResources().getColor(R.color.JH_333333));
         correctingTv.getPaint().setFakeBoldText(false);
 
-        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         formulaTv.setTextColor(getResources().getColor(R.color.JH_333333));
         formulaTv.getPaint().setFakeBoldText(false);
 
-        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         initialTv.setTextColor(getResources().getColor(R.color.JH_333333));
         initialTv.getPaint().setFakeBoldText(false);
 
-        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         methodTv.setTextColor(getResources().getColor(R.color.JH_333333));
         methodTv.getPaint().setFakeBoldText(false);
 
-        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         networkTv.setTextColor(getResources().getColor(R.color.JH_333333));
         networkTv.getPaint().setFakeBoldText(false);
 
-        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         standardTv.setTextColor(getResources().getColor(R.color.JH_333333));
         standardTv.getPaint().setFakeBoldText(false);
 
-        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         cloudsTv.setTextColor(getResources().getColor(R.color.JH_333333));
         cloudsTv.getPaint().setFakeBoldText(false);
 
-        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         autographTv.setTextColor(getResources().getColor(R.color.JH_333333));
         autographTv.getPaint().setFakeBoldText(false);
     }
 
     private void hideFragments(FragmentTransaction fragmentTransaction) {
+        binding.titratorTestFunctionBg.setVisibility(View.GONE);
+        if (modifyMethodFragment != null) {
+            fragmentTransaction.hide(modifyMethodFragment);
+        }
         if (settingAuditFragment != null) {
             fragmentTransaction.hide(settingAuditFragment);
         }
@@ -240,55 +272,56 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
     }
 
     private void changeToAuditFragment() {
-        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         auditTv.setTextColor(getResources().getColor(R.color.colorWrite));
         auditTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToCorrectingFragment() {
-        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         correctingTv.setTextColor(getResources().getColor(R.color.colorWrite));
         correctingTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToFormulaFragment() {
-        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         formulaTv.setTextColor(getResources().getColor(R.color.colorWrite));
         formulaTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToInitailFragment() {
-        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         initialTv.setTextColor(getResources().getColor(R.color.colorWrite));
         initialTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToMethodFragment() {
-        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        binding.titratorTestFunctionBg.setVisibility(View.VISIBLE);
+        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         methodTv.setTextColor(getResources().getColor(R.color.colorWrite));
         methodTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToNetworkFragment() {
-        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         networkTv.setTextColor(getResources().getColor(R.color.colorWrite));
         networkTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToStandardFragment() {
-        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         standardTv.setTextColor(getResources().getColor(R.color.colorWrite));
         standardTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToCloudsFragment() {
-        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         cloudsTv.setTextColor(getResources().getColor(R.color.colorWrite));
         cloudsTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToAutographFragment() {
-        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         autographTv.setTextColor(getResources().getColor(R.color.colorWrite));
         autographTv.getPaint().setFakeBoldText(true);
     }
@@ -314,6 +347,21 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
             case R.id.setting_standard_layout:
             case R.id.setting_clouds_layout:
                 changeFragment(v);
+                break;
+            case R.id.titrator_equal:
+                updateCurrentMethod(TitratorTypeEnum.EqualTitrator);
+                break;
+            case R.id.titrator_dynamic:
+                updateCurrentMethod(TitratorTypeEnum.DynamicTitrator);
+                break;
+            case R.id.titrator_manual:
+                updateCurrentMethod(TitratorTypeEnum.ManualTitrator);
+                break;
+            case R.id.titrator_end_point:
+                updateCurrentMethod(TitratorTypeEnum.EndPointTitrator);
+                break;
+            case R.id.titrator_stop_forver:
+                updateCurrentMethod(TitratorTypeEnum.StopForverTitrator);
                 break;
         }
     }
@@ -371,14 +419,14 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.setting_method_layout:
                 changeToMethodFragment();
-                if (settingMethodFragment == null) {
-                    settingMethodFragment = new SettingMethodFragment();
-                    fragmentTransaction.add(R.id.setting_frame, settingMethodFragment);
+                if (modifyMethodFragment == null) {
+                    modifyMethodFragment = new ModifyMethodFragment();
+                    fragmentTransaction.add(R.id.setting_frame, modifyMethodFragment);
                 } else {
-                    fragmentTransaction.show(settingMethodFragment);
+                    fragmentTransaction.show(modifyMethodFragment);
                 }
 
-                currentFragment = settingMethodFragment;
+                currentFragment = modifyMethodFragment;
 
                 break;
             case R.id.setting_network_layout:
@@ -467,6 +515,11 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
             builder.setOnDismissListener(new KeyboardDismiss(getActivity()));
         }
         builder.create().show();
+    }
+
+    private void updateCurrentMethod(TitratorTypeEnum typeEnum) {
+        tiratorMethod.tiratorExecuteMethodViewBean.setCurrentEnum(typeEnum);
+        modifyMethodFragment.updateCurrentMethod(typeEnum);
     }
 
     @Override

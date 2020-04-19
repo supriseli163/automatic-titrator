@@ -1,173 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.jh.automatic_titrator.entity.method.TiratorExecuteMethodViewBean" />
+
+        <import type="com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum" />
+    </data>
 
     <LinearLayout
-        android:layout_width="136dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="top">
-
-        <LinearLayout
-            android:id="@+id/setting_standard_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_standard_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/custom"
-                android:textColor="@color/colorWrite" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_method_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_method_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/method_setting"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_correcting_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_correcting_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/correct"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_network_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_network_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/network"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_formula_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_formula_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/func"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_audit_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_audit_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/audit"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_autograph_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_autograph_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/autograph"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_clouds_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_clouds_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/clouds"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/setting_initail_layout"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:background="@drawable/top_tab"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/setting_initail_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:text="@string/factory_initial"
-                android:textColor="@color/JH_333333"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/setting_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
-    </FrameLayout>
-</LinearLayout>
+        android:orientation="horizontal">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="136dp"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/setting_standard_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_standard_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/custom"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_method_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_method_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/method_setting"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/titrator_test_function_bg"
+                    android:layout_width="@dimen/_135px"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/titrator_equal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_58px"
+                        android:background="@{bean.equalTitrator?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_20px"
+                        android:text="@string/equal_titrator"
+                        android:textAlignment="center"
+                        android:textColor="@{bean.equalTitrator?@color/colorWrite:@color/icon_choose_true}"
+                        android:textSize="@dimen/_20px"
+                        tools:background="@drawable/top_tab_new" />
+
+                    <TextView
+                        android:id="@+id/titrator_dynamic"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_58px"
+                        android:background="@{bean.dynamicTitrator?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_20px"
+                        android:text="@string/dynamic_titrator"
+                        android:textAlignment="center"
+                        android:textColor="@{bean.dynamicTitrator?@color/colorWrite:@color/icon_choose_true}"
+                        android:textSize="@dimen/_20px"
+                        tools:background="@drawable/top_tab_new" />
+
+                    <TextView
+                        android:id="@+id/titrator_manual"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_58px"
+                        android:background="@{bean.manualTitrator?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_20px"
+                        android:text="@string/manual_titrator"
+                        android:textAlignment="center"
+                        android:textColor="@{bean.manualTitrator?@color/colorWrite:@color/icon_choose_true}"
+                        android:textSize="@dimen/_20px"
+                        tools:background="@drawable/top_tab_new" />
+
+                    <TextView
+                        android:id="@+id/titrator_end_point"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_58px"
+                        android:background="@{bean.endPointTitrator?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_20px"
+                        android:text="@string/endpoint_titrator"
+                        android:textAlignment="center"
+                        android:textColor="@{bean.endPointTitrator?@color/colorWrite:@color/icon_choose_true}"
+                        android:textSize="@dimen/_20px"
+                        tools:background="@drawable/top_tab_new" />
+
+                    <TextView
+                        android:id="@+id/titrator_stop_forver"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_58px"
+                        android:background="@{bean.stopFoverTitrator?@drawable/top_tab_cur_new:@drawable/top_tab_new}"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/_20px"
+                        android:text="@string/stopforvert_itrator"
+                        android:textAlignment="center"
+                        android:textColor="@{bean.stopFoverTitrator?@color/colorWrite:@color/icon_choose_true}"
+                        android:textSize="@dimen/_20px"
+                        tools:background="@drawable/top_tab_new" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_correcting_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_correcting_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/correct"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_network_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_network_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/network"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_formula_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_formula_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/func"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_audit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_audit_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/audit"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_autograph_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_autograph_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/autograph"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_clouds_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_clouds_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clouds"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_initail_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:background="@drawable/top_tab"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/setting_initail_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/factory_initial"
+                        android:textAlignment="center"
+                        android:textColor="@color/JH_333333"
+                        android:textSize="20dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/setting_frame"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+</layout>

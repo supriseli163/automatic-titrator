@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical">
+
+            <CheckBox
+                android:id="@+id/setting_method_item_cb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:buttonTint="@color/colorBlue"
+                app:buttonTint="@color/colorBlue" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#B7B7B7" />
+
+            <TextView
+                android:id="@+id/setting_method_item_sort"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="序号"
+                android:textAlignment="center"
+                android:textColor="@color/fontGray"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#B7B7B7" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                android:textColor="@color/fontGray"
+                android:textSize="14sp">
+
+                <TextView
+                    android:id="@+id/setting_method_item_testname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/method_name"
+                    android:textAlignment="center"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#B7B7B7" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:text="滴定终点"
+                android:textAlignment="center"
+                android:textColor="@color/fontGray"
+                android:textSize="14sp">
+
+                <TextView
+                    android:id="@+id/setting_method_item_resulttype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="滴定终点"
+                    android:textAlignment="center"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/end_point_info_show_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4px"
+                    android:background="@drawable/gray_button"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/_4px"
+                    android:text="@string/normal_show"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#B7B7B7" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:textAlignment="center"
+                android:textColor="@color/fontGray"
+                android:textSize="14sp">
+
+                <TextView
+                    android:id="@+id/setting_auxiliary_reagent_item"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titrator_auxiliary_reagent"
+                    android:textAlignment="center"
+                    android:textColor="@color/fontGray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/auxiliary_reagent_show_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4px"
+                    android:background="@drawable/gray_button"
+                    android:includeFontPadding="false"
+                    android:padding="@dimen/_4px"
+                    android:text="@string/normal_show"
+                    android:textColor="@color/colorWrite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#B7B7B7" />
+
+            <TextView
+                android:id="@+id/setting_method_item_createtime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="创建时间"
+                android:textAlignment="center"
+                android:textColor="@color/fontGray"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#B7B7B7" />
+
+            <TextView
+                android:id="@+id/setting_method_item_creator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="创建人"
+                android:textAlignment="center"
+                android:textColor="@color/fontGray"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#B7B7B7" />
+    </LinearLayout>
+</layout>

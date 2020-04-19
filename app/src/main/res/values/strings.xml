@@ -778,4 +778,7 @@
     <!-- 普通文本 -->
     <string name="normal_edit">编辑</string>
     <string name="normal_new">新建</string>
+    <string name="normal_show">查看</string>
+    <string name="titrator_end_point">滴定终点</string>
+    <string name="titrator_auxiliary_reagent">辅助试剂</string>
 </resources>

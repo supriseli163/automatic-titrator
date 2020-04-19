@@ -147,19 +147,12 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
         switch (v.getId()) {
             case R.id.home_test_layout:
                 changeToTestFragment();
-//                if (testFragment == null) {
-//                    testFragment = new TestFragment();
-//                    testFragment.setActivityHandler(handler);
-//                    fragmentTransaction.add(R.id.home_frame, testFragment);
-//                } else {
-//                    fragmentTransaction.show(testFragment);
-//                }
-                if (dataFragment == null) {
-                    dataFragment = new DataFragment();
-                    dataFragment.setActivityHandler(handler);
-                    fragmentTransaction.add(R.id.home_frame, dataFragment);
+                if (testFragment == null) {
+                    testFragment = new TestFragment();
+                    testFragment.setActivityHandler(handler);
+                    fragmentTransaction.add(R.id.home_frame, testFragment);
                 } else {
-                    fragmentTransaction.show(dataFragment);
+                    fragmentTransaction.show(testFragment);
                 }
                 break;
             case R.id.home_titrator_test_layout:
@@ -174,13 +167,20 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
                 break;
             case R.id.home_data_layout:
                 changeToDataFragment();
-                if (modifyMethodFragment == null) {
-                    modifyMethodFragment = new ModifyMethodFragment();
-                    modifyMethodFragment.setActivityHandler(handler);
-                    fragmentTransaction.add(R.id.home_frame, modifyMethodFragment);
+                if (dataFragment == null) {
+                    dataFragment = new DataFragment();
+                    dataFragment.setActivityHandler(handler);
+                    fragmentTransaction.add(R.id.home_frame, dataFragment);
                 } else {
-                    fragmentTransaction.show(modifyMethodFragment);
+                    fragmentTransaction.show(dataFragment);
                 }
+//                if (modifyMethodFragment == null) {
+//                    modifyMethodFragment = new ModifyMethodFragment();
+//                    modifyMethodFragment.setActivityHandler(handler);
+//                    fragmentTransaction.add(R.id.home_frame, modifyMethodFragment);
+//                } else {
+//                    fragmentTransaction.show(modifyMethodFragment);
+//                }
                 break;
             case R.id.home_setting_layout:
                 changeToSettingFragment();
