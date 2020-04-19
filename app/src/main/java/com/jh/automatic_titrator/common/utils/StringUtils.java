@@ -93,8 +93,12 @@ public class StringUtils {
         return res;
     }
 
-    public static String dBValueInputFormat(String value) {
-        return String.format("'%s',", value);
+    public static String dBValueInputFormat(String value, boolean end) {
+        if(end) {
+            return String.format("'%s'", value);
+        } else {
+            return String.format("'%s',", value);
+        }
     }
 
     public static String dBValueInputFormat(double value) {

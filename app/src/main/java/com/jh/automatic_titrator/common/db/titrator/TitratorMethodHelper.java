@@ -3,6 +3,7 @@ package com.jh.automatic_titrator.common.db.titrator;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.jh.automatic_titrator.common.db.DBHelper;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 
@@ -13,6 +14,10 @@ import java.util.List;
 public class TitratorMethodHelper {
     private SQLiteDatabase db;
 
+    public TitratorMethodHelper(DBHelper dbHelper) {
+        this.db = dbHelper.getWritableDatabase();
+    }
+
     private static final int MAX_Line = 10000;
 
     public void close() {
@@ -21,7 +26,7 @@ public class TitratorMethodHelper {
 
     public void insertTitratorMethod(TitratorMethod titratorMethod) {
         StringBuffer insertSql = new StringBuffer();
-        insertSql.append("insert insert into titrator_method (titratorType, methodName, buretteVolume,workingElectrode,referenceElectrode,sampleMeasurementUnit," +
+        insertSql.append("insert into titrator_method (titratorType, methodName, buretteVolume,workingElectrode,referenceElectrode,sampleMeasurementUnit," +
                 "titrationDisplayUnit,replenishmentSpeed,stiringSpeed,electroedEquilibrationTime,electroedEquilibriumPotential,preStiringTime" +
                 ",perAddVolume,endVolume,titrationSpeed,slowTitrationVolume,fastTitrationVolume) values (" +
                 StringUtils.dBValueInputFormat(titratorMethod.getTitratorType()) +
@@ -126,21 +131,7 @@ public class TitratorMethodHelper {
         return titratorMethods;
     }
 
-    public List<String> allMethodNames() {
-        List<String> testMethods = new ArrayList<>();
-        Cursor cursor = null;
-        try {
-            cursor = db.rawQuery("select testName from test_method", null);
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                testMethods.add(cursor.getString(0));
-                cursor.moveToNext();
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-        return testMethods;
+    public void selectAllMethod() {
+
     }
 }

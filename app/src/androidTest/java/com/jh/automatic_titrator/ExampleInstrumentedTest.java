@@ -1,18 +1,21 @@
 package com.jh.automatic_titrator;
 
-import android.content.Context;
-import android.util.Log;
+
+import android.widget.BaseAdapter;
+
+import androidx.test.runner.AndroidJUnit4;
 
 import com.jh.automatic_titrator.common.db.DBHelper;
 import com.jh.automatic_titrator.common.db.TestHelper;
+import com.jh.automatic_titrator.common.db.titrator.TitratorMethodHelper;
+import com.jh.automatic_titrator.entity.TestEntity;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
-
 import static org.junit.Assert.assertEquals;
+
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -32,5 +35,15 @@ public class ExampleInstrumentedTest {
         DBHelper helper = new DBHelper(BaseApplication.getApplication());
         TestHelper helper1=new TestHelper(helper);
         helper1.saveTest(com.jh.automatic_titrator.entity.common.Test.getTestSample());
+    }
+
+    @Test
+    public void testInsertTitratorMethod() {
+        TitratorMethod titratorMethod = TestEntity.getTitratorMethod();
+        DBHelper dbHelper= new DBHelper(BaseApplication.getApplication());
+        TitratorMethodHelper titratorMethodHelper = new TitratorMethodHelper(dbHelper);
+        dbHelper.onCreate(dbHelper.getWritableDatabase());
+        titratorMethodHelper.insertTitratorMethod(titratorMethod);
+//        List<TitratorMethod>
     }
 }

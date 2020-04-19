@@ -91,6 +91,8 @@ public class DBHelper extends SQLiteOpenHelper {
         addBaseWavelength(db);
         addBaseFormula(db);
 
+        addTitratorMethod(db);
+
 //        //滴定仪
 //        addTitratorEndPoint(db);
 //        addEndPointSetting(db);
@@ -292,23 +294,23 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private void addTitratorMethod(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS titrator_method (\n" +
-                "\tid integer primary key autoincrement,\n" +
-                "\ttitratorType varchar(20),\n" +
-                "\tmethodName varchar(50),\n" +
-                "\tburetteVolume double,\n" +
-                "\tworkingElectrode integer,\n" +
-                "\treferenceElectrode double,\n" +
-                "\tsampleMeasurementUnit varchar(50),\n" +
-                "\ttitrationDisplayUnit varchar(50),\n" +
-                "\treplenishmentSpeed integer,\n" +
-                "\tstiringSpeed integer,\n" +
-                "\telectroedEquilibrationTime integer,\n" +
-                "\tpreStiringTime double,\n" +
-                "\tendVolume integer,\n" +
-                "\ttitrationSpeed integer,\n" +
-                "\tslowTitrationVolume integer,\n" +
-                "\tfastTitrationVolume integer\n" +
+        String sql = "CREATE TABLE IF NOT EXISTS titrator_method (" +
+                "id integer primary key autoincrement," +
+                "titratorType varchar(20)," +
+                "methodName varchar(50)," +
+                "buretteVolume double," +
+                "workingElectrode integer," +
+                "\treferenceElectrode double," +
+                "\tsampleMeasurementUnit varchar(50)," +
+                "\ttitrationDisplayUnit varchar(50)," +
+                "\treplenishmentSpeed integer," +
+                "\tstiringSpeed integer," +
+                "\telectroedEquilibrationTime integer," +
+                "\tpreStiringTime double," +
+                "\tendVolume integer," +
+                "\ttitrationSpeed integer," +
+                "\tslowTitrationVolume integer," +
+                "\tfastTitrationVolume integer" +
                 ")";
         db.execSQL(sql);
     }
