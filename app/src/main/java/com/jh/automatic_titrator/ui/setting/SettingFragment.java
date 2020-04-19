@@ -200,39 +200,39 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
     }
 
     private void clearSelection() {
-        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         auditTv.setTextColor(getResources().getColor(R.color.JH_333333));
         auditTv.getPaint().setFakeBoldText(false);
 
-        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         correctingTv.setTextColor(getResources().getColor(R.color.JH_333333));
         correctingTv.getPaint().setFakeBoldText(false);
 
-        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         formulaTv.setTextColor(getResources().getColor(R.color.JH_333333));
         formulaTv.getPaint().setFakeBoldText(false);
 
-        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         initialTv.setTextColor(getResources().getColor(R.color.JH_333333));
         initialTv.getPaint().setFakeBoldText(false);
 
-        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         methodTv.setTextColor(getResources().getColor(R.color.JH_333333));
         methodTv.getPaint().setFakeBoldText(false);
 
-        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         networkTv.setTextColor(getResources().getColor(R.color.JH_333333));
         networkTv.getPaint().setFakeBoldText(false);
 
-        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         standardTv.setTextColor(getResources().getColor(R.color.JH_333333));
         standardTv.getPaint().setFakeBoldText(false);
 
-        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         cloudsTv.setTextColor(getResources().getColor(R.color.JH_333333));
         cloudsTv.getPaint().setFakeBoldText(false);
 
-        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab));
+        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_new));
         autographTv.setTextColor(getResources().getColor(R.color.JH_333333));
         autographTv.getPaint().setFakeBoldText(false);
     }
@@ -272,56 +272,56 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
     }
 
     private void changeToAuditFragment() {
-        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        auditLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         auditTv.setTextColor(getResources().getColor(R.color.colorWrite));
         auditTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToCorrectingFragment() {
-        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        correctingLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         correctingTv.setTextColor(getResources().getColor(R.color.colorWrite));
         correctingTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToFormulaFragment() {
-        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        formulaLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         formulaTv.setTextColor(getResources().getColor(R.color.colorWrite));
         formulaTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToInitailFragment() {
-        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        initialLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         initialTv.setTextColor(getResources().getColor(R.color.colorWrite));
         initialTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToMethodFragment() {
         binding.titratorTestFunctionBg.setVisibility(View.VISIBLE);
-        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        methodLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         methodTv.setTextColor(getResources().getColor(R.color.colorWrite));
         methodTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToNetworkFragment() {
-        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        networkLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         networkTv.setTextColor(getResources().getColor(R.color.colorWrite));
         networkTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToStandardFragment() {
-        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        standardLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         standardTv.setTextColor(getResources().getColor(R.color.colorWrite));
         standardTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToCloudsFragment() {
-        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        cloudsLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         cloudsTv.setTextColor(getResources().getColor(R.color.colorWrite));
         cloudsTv.getPaint().setFakeBoldText(true);
     }
 
     private void changeToAutographFragment() {
-        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur));
+        autographLayout.setBackground(getResources().getDrawable(R.drawable.top_tab_cur_new));
         autographTv.setTextColor(getResources().getColor(R.color.colorWrite));
         autographTv.getPaint().setFakeBoldText(true);
     }
@@ -519,6 +519,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
 
     private void updateCurrentMethod(TitratorTypeEnum typeEnum) {
         tiratorMethod.tiratorExecuteMethodViewBean.setCurrentEnum(typeEnum);
+        modifyMethodFragment.updateCurrentMethod(typeEnum);
     }
 
     @Override

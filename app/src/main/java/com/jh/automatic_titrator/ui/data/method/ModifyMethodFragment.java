@@ -4,29 +4,44 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.Cache;
 import com.jh.automatic_titrator.databinding.TitratorDataFragmentBinding;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
-import com.jh.automatic_titrator.entity.method.TiratorExecuteMethodViewBean;
 import com.jh.automatic_titrator.ui.base.BaseFragment;
+import com.jh.automatic_titrator.ui.data.method.adapter.MethodListAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBinding> implements View.OnClickListener {
 
     private TiratorMethod tiratorMethod;
+    private List<TitratorParamsBean> titratorParamsBeanList;
+    private MethodListAdapter adapter;
 
     @Override
     public void initView(Bundle savedInstanceState) {
         tiratorMethod = Cache.getTiratorMethod();
-        initData();
         initView();
     }
 
     private void initData() {
+        // TODO: 2020-04-19 根据当前数据类型这里从数据库获取
+        titratorParamsBeanList = new ArrayList<>();
     }
 
     private void initView() {
+        adapter = new MethodListAdapter(BaseApplication.getApplication());
+        initMetHodListView();
+    }
 
+    private void initMetHodListView(){
+        initData();
+        adapter.setParamsBeanList(titratorParamsBeanList);
+        binding.dataManagerLv.setAdapter(adapter);
     }
 
     @Override
@@ -39,28 +54,15 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
 
     }
 
-    private void updateCurrentMethod(TitratorTypeEnum typeEnum) {
-        tiratorMethod.tiratorExecuteMethodViewBean.setCurrentEnum(typeEnum);
+    public void updateCurrentMethod(TitratorTypeEnum typeEnum) {
+        initData();
+        initView();
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.titrator_equal:
-                updateCurrentMethod(TitratorTypeEnum.EqualTitrator);
-                break;
-            case R.id.titrator_dynamic:
-                updateCurrentMethod(TitratorTypeEnum.DynamicTitrator);
-                break;
-            case R.id.titrator_manual:
-                updateCurrentMethod(TitratorTypeEnum.ManualTitrator);
-                break;
-            case R.id.titrator_end_point:
-                updateCurrentMethod(TitratorTypeEnum.EndPointTitrator);
-                break;
-            case R.id.titrator_stop_forver:
-                updateCurrentMethod(TitratorTypeEnum.StopForverTitrator);
-                break;
+
         }
     }
 }

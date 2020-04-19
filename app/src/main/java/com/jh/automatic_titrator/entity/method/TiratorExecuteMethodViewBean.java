@@ -1,6 +1,5 @@
 package com.jh.automatic_titrator.entity.method;
 
-import com.jh.automatic_titrator.BR;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
 
 import java.io.Serializable;
@@ -12,8 +11,6 @@ public class TiratorExecuteMethodViewBean extends BaseObservable implements Seri
 
     // 当前滴定方式
     private TitratorTypeEnum currentEnum;
-    // 滴定方法对应滴定数据
-//    private TiratorExecuteMethodViewBean bean;
 
     @Bindable
     public boolean isEqualTitrator() {
