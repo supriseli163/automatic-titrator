@@ -47,6 +47,9 @@ public class DBHelper extends SQLiteOpenHelper {
 //        addTitratorEndPoint(db);
 //        addEndPointSetting(db);
 //        addTitratorEndPoint(db);
+        addTitratorMethod(db);
+        addEndPointSetting(db);
+        addTitratorEndPoint(db);
 
     }
 
@@ -300,46 +303,46 @@ public class DBHelper extends SQLiteOpenHelper {
                 "methodName varchar(50)," +
                 "buretteVolume double," +
                 "workingElectrode integer," +
-                "\treferenceElectrode double," +
-                "\tsampleMeasurementUnit varchar(50)," +
-                "\ttitrationDisplayUnit varchar(50)," +
-                "\treplenishmentSpeed integer," +
-                "\tstiringSpeed integer," +
-                "\telectroedEquilibrationTime integer," +
-                "\tpreStiringTime double," +
-                "\tendVolume integer," +
-                "\ttitrationSpeed integer," +
-                "\tslowTitrationVolume integer," +
-                "\tfastTitrationVolume integer" +
+                "treferenceElectrode double," +
+                "tsampleMeasurementUnit varchar(50)," +
+                "ttitrationDisplayUnit varchar(50)," +
+                "treplenishmentSpeed integer," +
+                "tstiringSpeed integer," +
+                "telectroedEquilibrationTime integer," +
+                "tpreStiringTime double," +
+                "tendVolume integer," +
+                "ttitrationSpeed integer," +
+                "tslowTitrationVolume integer," +
+                "tfastTitrationVolume integer" +
                 ")";
         db.execSQL(sql);
     }
 
     private void addEndPointSetting(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS end_point_setting (\n" +
-                "\tid integer primary key autoincrement,\n" +
-                "\ttitratorMethodId integer,\n" +
-                "\tburette integer,\n" +
-                "\treagentName double,\n" +
-                "\treagentConcentration double,\n" +
-                "\treagentConcentrationUnit varchar(50),\n" +
-                "\taddVolume double,\n" +
-                "\taddSpeed integer,\n" +
-                "\taddTime varchar(50),\n" +
-                "\treferenceEndPoint integer,\n" +
-                "\tdelayTime integer\n" +
+        String sql = "CREATE TABLE IF NOT EXISTS end_point_setting (" +
+                "tid integer primary key autoincrement," +
+                "ttitratorMethodId integer," +
+                "tburette integer," +
+                "treagentName double," +
+                "treagentConcentration double," +
+                "treagentConcentrationUnit varchar(50)," +
+                "taddVolume double," +
+                "taddSpeed integer," +
+                "taddTime varchar(50)," +
+                "treferenceEndPoint integer," +
+                "tdelayTime integer" +
                 ")";
         db.execSQL(sql);
     }
 
     private void addTitratorEndPoint(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS titrator_end_point (\n" +
-                "\tid integer primary key autoincrement,\n" +
-                "\ttitratorMethodId integer,\n" +
-                "\tendPointValue double,\n" +
-                "\tpreControlvalue double,\n" +
-                "\tcorrelationCoefficient double,\n" +
-                "\tresultUnit varchar(50)\n" +
+        String sql = "CREATE TABLE IF NOT EXISTS titrator_end_point (" +
+                "id integer primary key autoincrement," +
+                "titratorMethodId integer," +
+                "endPointValue double," +
+                "preControlvalue double," +
+                "correlationCoefficient double," +
+                "resultUnit varchar(50)" +
                 ")";
         db.execSQL(sql);
     }

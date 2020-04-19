@@ -8,6 +8,8 @@ import com.jh.automatic_titrator.common.utils.StringUtils;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import java.util.List;
+
 /**
  * 滴定方法
  */
@@ -49,6 +51,26 @@ public class TitratorMethod extends BaseObservable {
     private String slowTitrationVolume;
     //快滴体积
     private String fastTitrationVolume;
+    //滴定终点设置
+    private List<EndPointSetting> endPointSettingList;
+    //滴定终点
+    private List<TitratorEndPoint> titratorEndPoints;
+
+    public List<EndPointSetting> getEndPointSettingList() {
+        return endPointSettingList;
+    }
+
+    public void setEndPointSettingList(List<EndPointSetting> endPointSettingList) {
+        this.endPointSettingList = endPointSettingList;
+    }
+
+    public List<TitratorEndPoint> getTitratorEndPoints() {
+        return titratorEndPoints;
+    }
+
+    public void setTitratorEndPoints(List<TitratorEndPoint> titratorEndPoints) {
+        this.titratorEndPoints = titratorEndPoints;
+    }
 
     @Bindable
     public String getTitratorTypeText() {
