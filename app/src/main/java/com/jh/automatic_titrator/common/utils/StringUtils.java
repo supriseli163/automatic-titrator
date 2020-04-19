@@ -101,6 +101,10 @@ public class StringUtils {
         }
     }
 
+    public static String dBValueInputFormat(String value) {
+        return dBValueInputFormat(value,false);
+    }
+
     public static String dBValueInputFormat(double value) {
         return String.format("'%s',", value);
     }

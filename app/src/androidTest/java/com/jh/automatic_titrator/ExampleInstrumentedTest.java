@@ -14,6 +14,8 @@ import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import androidx.test.runner.AndroidJUnit4;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -33,7 +35,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         DBHelper helper = new DBHelper(BaseApplication.getApplication());
-        TestHelper helper1=new TestHelper(helper);
+        TestHelper helper1 = new TestHelper(helper);
         helper1.saveTest(com.jh.automatic_titrator.entity.common.Test.getTestSample());
     }
 

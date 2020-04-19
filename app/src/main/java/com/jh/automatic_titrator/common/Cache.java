@@ -8,8 +8,9 @@ import com.jh.automatic_titrator.entity.SpecificRotation;
 import com.jh.automatic_titrator.entity.common.Formula;
 import com.jh.automatic_titrator.entity.common.SingleResult;
 import com.jh.automatic_titrator.entity.common.TestMethod;
-import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.User;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
+import com.jh.automatic_titrator.ui.data.method.TiratorMethod;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -64,6 +65,11 @@ public class Cache {
     private static volatile int formulaPositon = 0;
 
     private static volatile long lastModify = 0;
+
+    /**
+     * 新增
+     */
+    private static TiratorMethod tiratorMethod;
 
     //权限条目
     private static void initManagerAuth() {
@@ -356,5 +362,12 @@ public class Cache {
 
     public static void setLastModify(long lastModify) {
         Cache.lastModify = lastModify;
+    }
+
+    /**
+     * 新增
+     */
+    public static TiratorMethod getTiratorMethod() {
+        return tiratorMethod;
     }
 }

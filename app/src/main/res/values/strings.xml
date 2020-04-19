@@ -767,4 +767,15 @@
     <string name="result_end_sample_size">样品量</string>
     <string name="result_end_sample_coefficient">样品系数</string>
     <string name="result_end_info">结果</string>
+
+    <!-- 滴定方法 -->
+    <string name="equal_titrator">等量滴定</string>
+    <string name="dynamic_titrator">动态滴定</string>
+    <string name="manual_titrator">手动滴定</string>
+    <string name="endpoint_titrator">终点滴定</string>
+    <string name="stopforvert_itrator">永停滴定</string>
+
+    <!-- 普通文本 -->
+    <string name="normal_edit">编辑</string>
+    <string name="normal_new">新建</string>
 </resources>
