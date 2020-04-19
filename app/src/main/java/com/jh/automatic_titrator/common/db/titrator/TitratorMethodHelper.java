@@ -2,10 +2,14 @@ package com.jh.automatic_titrator.common.db.titrator;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
+import com.jh.automatic_titrator.common.Cache;
 import com.jh.automatic_titrator.common.db.DBHelper;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
+import com.jh.automatic_titrator.entity.common.titrator.WorkElectrodeEnnum;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -98,7 +102,7 @@ public class TitratorMethodHelper {
 
     public void deleteMethod(List<Integer> ids) {
         StringBuilder deleteSql = new StringBuilder();
-        deleteSql.append("delete from method where id in(");
+        deleteSql.append("delete from titrator_method where id in(");
         for(int id : ids) {
             deleteSql.append(id).append(",");
         }
@@ -106,6 +110,8 @@ public class TitratorMethodHelper {
         deleteSql.append(")");
         db.execSQL(deleteSql.toString());
     }
+
+//    public TitratorMethod
 
     public List<TitratorMethod> listTitorMethod(String startDate,String enddate,
                                                 String sampleName,
@@ -116,7 +122,7 @@ public class TitratorMethodHelper {
                                                 int pageSize) {
         List<TitratorMethod> titratorMethods = new ArrayList<>();
         StringBuilder sqlSb = new StringBuilder();
-        sqlSb.append("select * from method");
+        sqlSb.append("select * from titrator_method");
         boolean neeAnd = false;
         if(StringUtils.isNotEmpty(startDate) ||
         StringUtils.isNotEmpty(enddate) ||
@@ -131,6 +137,58 @@ public class TitratorMethodHelper {
         }
 
         return titratorMethods;
+    }
+
+    public List<TitratorMethod> listMethodByType(TitratorTypeEnum titratorTypeEnum, int pagNum,int pageSize){
+        List<TitratorMethod> result = new ArrayList<>();
+        StringBuilder sqlSb = new  StringBuilder();
+        sqlSb.append("select * from titrator_method where titratorType = ").append(titratorTypeEnum.getDesc());
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery(sqlSb.toString(), null);
+            cursor.moveToFirst();
+            TitratorMethod titratorMethod = new TitratorMethod();
+            titratorMethod.setId(cursor.getInt(0));
+            titratorMethod.setTitratorType(cursor.getString(1));
+            titratorMethod.setMethodName(cursor.getString(2));
+            titratorMethod.setBuretteVolume(cursor.getDouble(3));
+            titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.fromDesc(cursor.getString(4)));
+            titratorMethod.setReferenceElectrode(cursor.getDouble(5));
+            titratorMethod.setSampleMeasurementUnit(cursor.getString(6));
+            titratorMethod.setTitrationDisplayUnit(cursor.getString(7));
+            titratorMethod.setPreStiringTime(cursor.getString(8));
+            titratorMethod.setEndVolume(cursor.getString(9));
+            titratorMethod.setTitrationSpeed(cursor.getString(10));
+            titratorMethod.setSlowTitrationVolume(cursor.getString(11));
+            titratorMethod.setFastTitrationVolume(cursor.getString(12));
+            result.add(titratorMethod);
+        }catch (Exception ex) {
+            Log.d("sql Exception",String.format("listMethodByType titratorTypeEnum:{}, pagNum:{},pageSize:{}", titratorTypeEnum.getDesc(), pageSize, pagNum, ex.getMessage()));
+        }finally {
+            if(cursor != null) {
+                cursor.close();
+            }
+        }
+        return result;
+    }
+
+    public Integer listMethodCountByType(TitratorTypeEnum titratorTypeEnum) {
+        int count = 0;
+        StringBuilder sqlSb = new StringBuilder();
+        sqlSb.append("select count(*) from titrator_method where titratorType =").append(titratorTypeEnum.getDesc());
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery(sqlSb.toString(), null);
+            cursor.moveToFirst();
+            if (!cursor.isAfterLast()) {
+                return cursor.getInt(0);
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+        return 0;
     }
 
     public int count(String startDate, String endDate, String creator) {

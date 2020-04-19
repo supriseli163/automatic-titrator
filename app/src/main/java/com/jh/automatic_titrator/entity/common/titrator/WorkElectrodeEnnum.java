@@ -20,6 +20,15 @@ public enum  WorkElectrodeEnnum {
         this.name = name;
     }
 
+    public static WorkElectrodeEnnum fromDesc(String desc) {
+        for(WorkElectrodeEnnum workElectrodeEnnum : WorkElectrodeEnnum.values()) {
+            if(workElectrodeEnnum.getDesc().equals(desc)) {
+                return workElectrodeEnnum;
+            }
+        }
+        return null;
+    }
+
     public String getDesc() {
         return desc;
     }

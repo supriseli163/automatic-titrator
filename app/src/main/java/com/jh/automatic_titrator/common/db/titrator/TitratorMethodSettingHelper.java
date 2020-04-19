@@ -6,6 +6,8 @@ import com.jh.automatic_titrator.common.db.DBHelper;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
 
+import java.util.List;
+
 public class TitratorMethodSettingHelper {
     private TitratorEndPointHelper titratorEndPointHelper;
     private EndPointSettingHelper endPointSettingHelper;
@@ -23,5 +25,13 @@ public class TitratorMethodSettingHelper {
         titratorMethodHelper.doInsertTitratorMethod(titratorMethod);
         endPointSettingHelper.insertEndPointSetting(titratorMethod.getEndPointSettingList());
         titratorEndPointHelper.insertTitratorEndPoints(titratorMethod.getTitratorEndPoints());
+    }
+
+    public List<TitratorMethod> listMethodByType(TitratorTypeEnum titratorTypeEnum, int pageNum, int pageSize) {
+        List<TitratorMethod> titratorMethods = titratorMethodHelper.listMethodByType(titratorTypeEnum, pageNum, pageSize);
+        for(TitratorMethod titratorMethod : titratorMethods) {
+
+        }
+        return titratorMethods;
     }
 }
