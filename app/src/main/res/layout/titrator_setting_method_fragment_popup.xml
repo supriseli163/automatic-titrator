@@ -749,6 +749,7 @@
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_90px"
@@ -834,6 +835,7 @@
 
                 </RelativeLayout>
             </LinearLayout>
+            <!-- todo 这里使用自定义View，需要等确定列表项目数以及文字占比-->
         </LinearLayout>
 
     </LinearLayout>
