@@ -48,7 +48,6 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
 
     private TestFragment testFragment;
     private ExecuteFragment executeFragment;
-    private ModifyMethodFragment modifyMethodFragment;
     private DataFragment dataFragment;
     private UserFragment userFragment;
     private HelpFragment helpFragment;
@@ -59,7 +58,6 @@ public class HomePageActivity extends BaseActivity<ActivityHomePageBinding> impl
     private Handler handler;
     private int headImg;
     private boolean showLogo;
-    private int windowWidth;
 
     private TimeService mTimeService;
     private WifiService mWifiService;

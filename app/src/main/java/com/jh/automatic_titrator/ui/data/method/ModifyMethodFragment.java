@@ -19,6 +19,13 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
 
     private List<TitratorParamsBean> titratorParamsBeanList;
     private MethodListAdapter adapter;
+    public TitratorTypeEnum titratorTypeEnum;
+
+    public static ModifyMethodFragment getInstance(TitratorTypeEnum titratorTypeEnum) {
+        ModifyMethodFragment fragment = new ModifyMethodFragment();
+        fragment.titratorTypeEnum = titratorTypeEnum;
+        return fragment;
+    }
 
     @Override
     public void initView(Bundle savedInstanceState) {

@@ -38,10 +38,20 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
     private SettingFragmentBinding binding;
     private TiratorMethod tiratorMethod;
     private FragmentManager fragmentManager;
+    private TitratorTypeEnum currentTitratorTypeEnum = TitratorTypeEnum.EqualTitrator;
 
     private SettingAuditFragment settingAuditFragment;
 
-    private ModifyMethodFragment modifyMethodFragment;
+    // 等量滴定
+    private ModifyMethodFragment modifyEqualMethodFragment;
+    // 动态滴定
+    private ModifyMethodFragment modifyDynamicMethodFragment;
+    // 手动滴定
+    private ModifyMethodFragment modifyManualMethodFragment;
+    // 终点滴定
+    private ModifyMethodFragment modifyEndPointMethodFragment;
+    // 永停滴定
+    private ModifyMethodFragment modifyStopForverMethodFragment;
 
     private SettingCorrectingFragment settingCorrectingFragment;
 
@@ -239,8 +249,20 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
 
     private void hideFragments(FragmentTransaction fragmentTransaction) {
         binding.titratorTestFunctionBg.setVisibility(View.GONE);
-        if (modifyMethodFragment != null) {
-            fragmentTransaction.hide(modifyMethodFragment);
+        if (modifyDynamicMethodFragment != null) {
+            fragmentTransaction.hide(modifyDynamicMethodFragment);
+        }
+        if (modifyEndPointMethodFragment != null) {
+            fragmentTransaction.hide(modifyEndPointMethodFragment);
+        }
+        if (modifyEqualMethodFragment != null) {
+            fragmentTransaction.hide(modifyEqualMethodFragment);
+        }
+        if (modifyManualMethodFragment != null) {
+            fragmentTransaction.hide(modifyManualMethodFragment);
+        }
+        if (modifyStopForverMethodFragment != null) {
+            fragmentTransaction.hide(modifyStopForverMethodFragment);
         }
         if (settingAuditFragment != null) {
             fragmentTransaction.hide(settingAuditFragment);
@@ -419,15 +441,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.setting_method_layout:
                 changeToMethodFragment();
-                if (modifyMethodFragment == null) {
-                    modifyMethodFragment = new ModifyMethodFragment();
-                    fragmentTransaction.add(R.id.setting_frame, modifyMethodFragment);
-                } else {
-                    fragmentTransaction.show(modifyMethodFragment);
-                }
-
-                currentFragment = modifyMethodFragment;
-
+                currentFragment = getCurrentModifyMethodFragment(fragmentTransaction);
                 break;
             case R.id.setting_network_layout:
                 changeToNetworkFragment();
@@ -478,6 +492,58 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 break;
         }
         fragmentTransaction.commit();
+    }
+
+    private ModifyMethodFragment getCurrentModifyMethodFragment(FragmentTransaction fragmentTransaction) {
+        ModifyMethodFragment fragment = null;
+        switch (currentTitratorTypeEnum) {
+            case EqualTitrator:
+                if (modifyEqualMethodFragment == null) {
+                    modifyEqualMethodFragment = ModifyMethodFragment.getInstance(TitratorTypeEnum.EqualTitrator);
+                    fragmentTransaction.add(R.id.setting_frame, modifyEqualMethodFragment);
+                } else {
+                    fragmentTransaction.show(modifyEqualMethodFragment);
+                }
+                fragment = modifyEqualMethodFragment;
+                break;
+            case DynamicTitrator:
+                if (modifyDynamicMethodFragment == null) {
+                    modifyDynamicMethodFragment = ModifyMethodFragment.getInstance(TitratorTypeEnum.DynamicTitrator);
+                    fragmentTransaction.add(R.id.setting_frame, modifyDynamicMethodFragment);
+                } else {
+                    fragmentTransaction.show(modifyDynamicMethodFragment);
+                }
+                fragment = modifyDynamicMethodFragment;
+                break;
+            case ManualTitrator:
+                if (modifyManualMethodFragment == null) {
+                    modifyManualMethodFragment = ModifyMethodFragment.getInstance(TitratorTypeEnum.ManualTitrator);
+                    fragmentTransaction.add(R.id.setting_frame, modifyManualMethodFragment);
+                } else {
+                    fragmentTransaction.show(modifyManualMethodFragment);
+                }
+                fragment = modifyManualMethodFragment;
+                break;
+            case EndPointTitrator:
+                if (modifyEndPointMethodFragment == null) {
+                    modifyEndPointMethodFragment = ModifyMethodFragment.getInstance(TitratorTypeEnum.EndPointTitrator);
+                    fragmentTransaction.add(R.id.setting_frame, modifyEndPointMethodFragment);
+                } else {
+                    fragmentTransaction.show(modifyEndPointMethodFragment);
+                }
+                break;
+            case StopForverTitrator:
+                if (modifyStopForverMethodFragment == null) {
+                    modifyStopForverMethodFragment = ModifyMethodFragment.getInstance(TitratorTypeEnum.StopForverTitrator);
+                    fragmentTransaction.add(R.id.setting_frame, modifyStopForverMethodFragment);
+                } else {
+                    fragmentTransaction.show(modifyStopForverMethodFragment);
+                }
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + currentTitratorTypeEnum);
+        }
+        return fragment;
     }
 
     private void passwordPass(final View v) {
