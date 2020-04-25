@@ -48,12 +48,6 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
         binding.methodDeleteBtn.setOnClickListener(this);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("songkai", "ModifyMethodFragment : " + titratorTypeEnum.getDesc());
-    }
-
     private void initMetHodListView() {
         initData();
         switchMethodDetailView(false);
