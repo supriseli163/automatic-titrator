@@ -35,6 +35,10 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -49,6 +53,8 @@ dependencies {
     implementation 'commons-codec:commons-codec:1.10'
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'net.sourceforge.streamsupport:streamsupport:1.7.1'
+
     // 单元测试
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
