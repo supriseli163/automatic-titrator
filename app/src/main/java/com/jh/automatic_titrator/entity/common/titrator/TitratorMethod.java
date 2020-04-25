@@ -53,6 +53,26 @@ public class TitratorMethod extends BaseObservable {
     private List<EndPointSetting> endPointSettingList;
     //滴定终点
     private List<TitratorEndPoint> titratorEndPoints;
+    //修改时间
+    private String modifyTime;
+    //修改人
+    private String userName;
+
+    public String getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime() {
+        this.modifyTime = StringUtils.getCurrentTime();
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName() {
+        this.userName = StringUtils.getCurrentUserName();
+    }
 
     public List<EndPointSetting> getEndPointSettingList() {
         return endPointSettingList;

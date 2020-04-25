@@ -4,15 +4,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.jh.automatic_titrator.common.Cache;
-import com.jh.automatic_titrator.common.db.DBHelper;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
 import com.jh.automatic_titrator.entity.common.titrator.WorkElectrodeEnnum;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class TitratorMethodHelper {
@@ -34,7 +31,7 @@ public class TitratorMethodHelper {
         StringBuffer insertSql = new StringBuffer();
         insertSql.append("insert into titrator_method (titratorType, methodName, buretteVolume,workingElectrode,referenceElectrode,sampleMeasurementUnit," +
                 "titrationDisplayUnit,replenishmentSpeed,stiringSpeed,electroedEquilibrationTime,electroedEquilibriumPotential,preStiringTime" +
-                ",perAddVolume,endVolume,titrationSpeed,slowTitrationVolume,fastTitrationVolume) values (" +
+                ",perAddVolume,endVolume,titrationSpeed,slowTitrationVolume,fastTitrationVolume,modifyTime,userName) values (" +
                 StringUtils.dBValueInputFormat(titratorMethod.getTitratorType()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getMethodName()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getBuretteVolume()) +
@@ -51,7 +48,9 @@ public class TitratorMethodHelper {
                 StringUtils.dBValueInputFormat(titratorMethod.getPreStiringTime()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getEndVolume()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getSlowTitrationVolume()) +
-                StringUtils.dBValueInputFormat(titratorMethod.getFastTitrationVolume())
+                StringUtils.dBValueInputFormat(titratorMethod.getFastTitrationVolume()) +
+                StringUtils.dBValueInputFormat(titratorMethod.getModifyTime()) +
+                StringUtils.dBValueInputFormat(titratorMethod.getUserName())
                 + ")");
         db.execSQL(insertSql.toString());
     }
@@ -76,11 +75,13 @@ public class TitratorMethodHelper {
         updateSql.append("titrationSpeed = ").append(titratorMethod.getTitrationSpeed()).append(",");
         updateSql.append("slowTitrationVolume = ").append(titratorMethod.getSlowTitrationVolume()).append(",");
         updateSql.append("fastTitrationVolume = ").append(titratorMethod.getFastTitrationVolume()).append(",");
+        updateSql.append("modifyTime = ").append(titratorMethod.getModifyTime());
+        updateSql.append("userName = ").append(titratorMethod.getUserName());
         db.execSQL(updateSql.toString());
     }
 
     public void deleteTestMethods(int methodId) {
-        StringBuilder deleteSql = new  StringBuilder();
+        StringBuilder deleteSql = new StringBuilder();
         deleteSql.append("delete from titrator_method where id = ")
                 .append(methodId);
         db.execSQL(deleteSql.toString());
@@ -91,7 +92,7 @@ public class TitratorMethodHelper {
         try {
             cursor = db.rawQuery("select count(*) from method", null);
             cursor.moveToFirst();
-            if(!cursor.isAfterLast()) {
+            if (!cursor.isAfterLast()) {
                 return cursor.getInt(0);
             }
         } finally {
@@ -103,17 +104,17 @@ public class TitratorMethodHelper {
     public void deleteMethod(List<Integer> ids) {
         StringBuilder deleteSql = new StringBuilder();
         deleteSql.append("delete from titrator_method where id in(");
-        for(int id : ids) {
+        for (int id : ids) {
             deleteSql.append(id).append(",");
         }
-        deleteSql.deleteCharAt(deleteSql.length() -1);
+        deleteSql.deleteCharAt(deleteSql.length() - 1);
         deleteSql.append(")");
         db.execSQL(deleteSql.toString());
     }
 
 //    public TitratorMethod
 
-    public List<TitratorMethod> listTitorMethod(String startDate,String enddate,
+    public List<TitratorMethod> listTitorMethod(String startDate, String enddate,
                                                 String sampleName,
                                                 Double gt,
                                                 Double lt,
@@ -124,14 +125,14 @@ public class TitratorMethodHelper {
         StringBuilder sqlSb = new StringBuilder();
         sqlSb.append("select * from titrator_method");
         boolean neeAnd = false;
-        if(StringUtils.isNotEmpty(startDate) ||
-        StringUtils.isNotEmpty(enddate) ||
-        StringUtils.isNotEmpty(creator) ||
-        StringUtils.isNotEmpty(sampleName) ||
-        gt != null ||
-        lt != null) {
+        if (StringUtils.isNotEmpty(startDate) ||
+                StringUtils.isNotEmpty(enddate) ||
+                StringUtils.isNotEmpty(creator) ||
+                StringUtils.isNotEmpty(sampleName) ||
+                gt != null ||
+                lt != null) {
             sqlSb.append("where ");
-            if(StringUtils.isNotEmpty(startDate)) {
+            if (StringUtils.isNotEmpty(startDate)) {
                 sqlSb.append("datatime(`date`) >= datetime('").append(startDate);
             }
         }
@@ -139,9 +140,9 @@ public class TitratorMethodHelper {
         return titratorMethods;
     }
 
-    public List<TitratorMethod> listMethodByType(TitratorTypeEnum titratorTypeEnum, int pagNum,int pageSize){
+    public List<TitratorMethod> listMethodByType(TitratorTypeEnum titratorTypeEnum, int pagNum, int pageSize) {
         List<TitratorMethod> result = new ArrayList<>();
-        StringBuilder sqlSb = new  StringBuilder();
+        StringBuilder sqlSb = new StringBuilder();
         sqlSb.append("select * from titrator_method where titratorType = ").append(titratorTypeEnum.getDesc());
         Cursor cursor = null;
         try {
@@ -162,10 +163,10 @@ public class TitratorMethodHelper {
             titratorMethod.setSlowTitrationVolume(cursor.getString(11));
             titratorMethod.setFastTitrationVolume(cursor.getString(12));
             result.add(titratorMethod);
-        }catch (Exception ex) {
-            Log.d("sql Exception",String.format("listMethodByType titratorTypeEnum:{}, pagNum:{},pageSize:{}", titratorTypeEnum.getDesc(), pageSize, pagNum, ex.getMessage()));
-        }finally {
-            if(cursor != null) {
+        } catch (Exception ex) {
+            Log.d("sql Exception", String.format("listMethodByType titratorTypeEnum:{}, pagNum:{},pageSize:{}", titratorTypeEnum.getDesc(), pageSize, pagNum, ex.getMessage()));
+        } finally {
+            if (cursor != null) {
                 cursor.close();
             }
         }

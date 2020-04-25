@@ -2,15 +2,18 @@ package com.jh.automatic_titrator.ui.data.method;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 
 import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
+import com.jh.automatic_titrator.common.utils.ViewUtils;
 import com.jh.automatic_titrator.databinding.TitratorDataFragmentBinding;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
 import com.jh.automatic_titrator.ui.base.BaseFragment;
 import com.jh.automatic_titrator.ui.data.method.adapter.MethodListAdapter;
+import com.jh.automatic_titrator.ui.data.method.view.ModifyMethodView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,10 +48,26 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
         binding.methodDeleteBtn.setOnClickListener(this);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("songkai", "ModifyMethodFragment : " + titratorTypeEnum.getDesc());
+    }
+
     private void initMetHodListView() {
         initData();
+        switchMethodDetailView(false);
         adapter.setParamsBeanList(titratorParamsBeanList);
         binding.dataManagerLv.setAdapter(adapter);
+        binding.methodNewBtn.setOnClickListener(this);
+        binding.methodModifyBtn.setOnClickListener(this);
+        binding.methodDeleteBtn.setOnClickListener(this);
+        binding.modifyViewBg.setListener(new ModifyMethodView.OnModifyMethodOperateListener() {
+            @Override
+            public void onClickBackToMethodListBtn() {
+                switchMethodDetailView(false);
+            }
+        });
     }
 
     @Override
@@ -61,11 +80,6 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
 
     }
 
-    public void updateCurrentMethod(TitratorTypeEnum typeEnum) {
-        initData();
-        initView();
-    }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -74,7 +88,18 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
             case R.id.method_modify_btn:
                 break;
             case R.id.method_new_btn:
+                switchMethodDetailView(true);
                 break;
         }
+    }
+
+    /**
+     * 切换编辑方法、新建方法视图
+     *
+     * @param modify
+     */
+    private void switchMethodDetailView(boolean modify) {
+        ViewUtils.setViewVisibleOrGone(binding.modifyViewBg, modify);
+        ViewUtils.setViewVisibleOrGone(binding.methodListBg, !modify);
     }
 }

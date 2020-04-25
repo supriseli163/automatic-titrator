@@ -5,289 +5,300 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/JH_f3f3f3"
-        android:orientation="vertical">
+        android:background="@color/JH_f3f3f3">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/method_list_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/data_list_opt_layout"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="20dp"
-            android:orientation="vertical">
+            android:background="@color/JH_f3f3f3">
 
             <LinearLayout
-                android:id="@+id/banner_top"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/JH_4d6083"
-                android:gravity="center_vertical">
+                android:layout_height="match_parent"
+                android:layout_above="@+id/data_list_opt_layout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:id="@+id/banner_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/JH_4d6083"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/select"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWrite" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/sort_number"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWrite" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="@string/method_name"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWrite" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="@string/titrator_end_point"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWrite" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="@string/alter_date"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWrite" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/operator"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/data_manager_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWrite" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/data_list_opt_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/data_button_group"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="#fafafa"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="@string/select"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
+                    android:gravity="center">
 
-                <View
-                    android:layout_width="1dp"
+                    <CheckBox
+                        android:id="@+id/data_list_choosepage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:buttonTint="@color/colorBlue"
+                        android:text="@string/single_page"
+                        android:textColor="@color/fontBlack"
+                        app:buttonTint="@color/colorBlue" />
+
+                    <CheckBox
+                        android:id="@+id/data_list_chooseall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:buttonTint="@color/colorBlue"
+                        android:text="@string/all_page"
+                        android:textColor="@color/fontBlack"
+                        app:buttonTint="@color/colorBlue" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWrite" />
+                    android:layout_weight="1"
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="@string/sort_number"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
+                    <TextView
+                        android:id="@+id/data_fragement_page"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/page"
+                        android:textColor="@color/fontBlack"
+                        android:textSize="14sp" />
+                </LinearLayout>
 
-                <View
-                    android:layout_width="1dp"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWrite" />
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="@string/method_name"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
+                    <Button
+                        android:id="@+id/data_list_prev_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/blue_button"
+                        android:text="@string/pres_page" />
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorWrite" />
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="@string/titrator_end_point"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorWrite" />
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="4"
-                    android:text="@string/titrator_auxiliary_reagent"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/colorWrite" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="@string/operator"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/data_manager_lv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/colorWrite" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/data_list_opt_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/data_button_group"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="#fafafa"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
-
-                <CheckBox
-                    android:id="@+id/data_list_choosepage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:buttonTint="@color/colorBlue"
-                    android:text="@string/single_page"
-                    android:textColor="@color/fontBlack"
-                    app:buttonTint="@color/colorBlue" />
-
-                <CheckBox
-                    android:id="@+id/data_list_chooseall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:buttonTint="@color/colorBlue"
-                    android:text="@string/all_page"
-                    android:textColor="@color/fontBlack"
-                    app:buttonTint="@color/colorBlue" />
+                    <Button
+                        android:id="@+id/data_list_next_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/blue_button"
+                        android:text="@string/next_page" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/data_button_group"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center">
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/_10px"
+                android:gravity="right">
 
-                <TextView
-                    android:id="@+id/data_fragement_page"
+
+                <LinearLayout
+                    android:id="@+id/method_new_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/page"
-                    android:textColor="@color/fontBlack"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="right|center_vertical">
-
-                <Button
-                    android:id="@+id/data_list_prev_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/blue_button"
-                    android:text="@string/pres_page" />
+                    android:background="@drawable/output_btn"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
 
-                <Button
-                    android:id="@+id/data_list_next_btn"
+                    <!--<ImageView-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:src="@drawable/icon_upan" />-->
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/normal_new"
+                        android:textAlignment="center"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/method_modify_btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/blue_button"
-                    android:text="@string/next_page" />
-            </LinearLayout>
-        </LinearLayout>
+                    android:background="@drawable/detail_btn"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/data_button_group"
+                    <!--<ImageView-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:src="@drawable/icon_xiangxi" />-->
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/normal_edit"
+                        android:textAlignment="center"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/method_delete_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/del_btn"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:src="@drawable/icon_qingling" />-->
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="25dp"
+                        android:text="@string/delete"
+                        android:textAlignment="center"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <com.jh.automatic_titrator.ui.data.method.view.ModifyMethodView
+            android:id="@+id/modify_view_bg"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="@dimen/_10px"
-            android:gravity="right">
-
-
-            <LinearLayout
-                android:id="@+id/method_new_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/output_btn"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
-
-                <!--<ImageView-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:src="@drawable/icon_upan" />-->
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="@string/normal_new"
-                    android:textAlignment="center"
-                    android:textColor="@color/fontWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/method_modify_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/detail_btn"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <!--<ImageView-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:src="@drawable/icon_xiangxi" />-->
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="@string/normal_edit"
-                    android:textAlignment="center"
-                    android:textColor="@color/fontWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/method_delete_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/del_btn"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <!--<ImageView-->
-                <!--android:layout_width="20dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:src="@drawable/icon_qingling" />-->
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="25dp"
-                    android:text="@string/delete"
-                    android:textAlignment="center"
-                    android:textColor="@color/fontWhite"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
     </RelativeLayout>
 </layout>

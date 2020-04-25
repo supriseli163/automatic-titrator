@@ -3,6 +3,11 @@ package com.jh.automatic_titrator.common.utils;
 import android.text.TextUtils;
 
 import com.jh.automatic_titrator.BaseApplication;
+import com.jh.automatic_titrator.common.Cache;
+import com.jh.automatic_titrator.entity.common.User;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by apple on 2016/10/17.
@@ -94,7 +99,7 @@ public class StringUtils {
     }
 
     public static String dBValueInputFormat(String value, boolean end) {
-        if(end) {
+        if (end) {
             return String.format("'%s'", value);
         } else {
             return String.format("'%s',", value);
@@ -102,7 +107,7 @@ public class StringUtils {
     }
 
     public static String dBValueInputFormat(String value) {
-        return dBValueInputFormat(value,false);
+        return dBValueInputFormat(value, false);
     }
 
     public static String dBValueInputFormat(double value) {
@@ -114,9 +119,19 @@ public class StringUtils {
     }
 
     public static String getContent(int resId, String content) {
-        if(TextUtils.isEmpty(content)){
-            content="**";
+        if (TextUtils.isEmpty(content)) {
+            content = "**";
         }
         return BaseApplication.getApplication().getString(resId, content);
+    }
+
+    public static String getCurrentTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(new Date(System.currentTimeMillis()));
+    }
+
+    public static String getCurrentUserName() {
+        User user = Cache.getUser();
+        return user != null ? getSecurity(user.getUserName()) : "未知";
     }
 }

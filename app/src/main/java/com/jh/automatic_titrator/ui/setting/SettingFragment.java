@@ -109,8 +109,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
 
     private UserHelper userHelper;
 
-    private Fragment currentFragment;
-
     private Toast mToast;
 
     public void setActivityHandler(Handler activityHandler) {
@@ -249,21 +247,7 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
 
     private void hideFragments(FragmentTransaction fragmentTransaction) {
         binding.titratorTestFunctionBg.setVisibility(View.GONE);
-        if (modifyDynamicMethodFragment != null) {
-            fragmentTransaction.hide(modifyDynamicMethodFragment);
-        }
-        if (modifyEndPointMethodFragment != null) {
-            fragmentTransaction.hide(modifyEndPointMethodFragment);
-        }
-        if (modifyEqualMethodFragment != null) {
-            fragmentTransaction.hide(modifyEqualMethodFragment);
-        }
-        if (modifyManualMethodFragment != null) {
-            fragmentTransaction.hide(modifyManualMethodFragment);
-        }
-        if (modifyStopForverMethodFragment != null) {
-            fragmentTransaction.hide(modifyStopForverMethodFragment);
-        }
+        hideModifyMethodFragments(fragmentTransaction);
         if (settingAuditFragment != null) {
             fragmentTransaction.hide(settingAuditFragment);
         }
@@ -290,6 +274,24 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
         }
         if (settingAutographFragment != null) {
             fragmentTransaction.hide(settingAutographFragment);
+        }
+    }
+
+    private void hideModifyMethodFragments(FragmentTransaction fragmentTransaction) {
+        if (modifyDynamicMethodFragment != null) {
+            fragmentTransaction.hide(modifyDynamicMethodFragment);
+        }
+        if (modifyEndPointMethodFragment != null) {
+            fragmentTransaction.hide(modifyEndPointMethodFragment);
+        }
+        if (modifyEqualMethodFragment != null) {
+            fragmentTransaction.hide(modifyEqualMethodFragment);
+        }
+        if (modifyManualMethodFragment != null) {
+            fragmentTransaction.hide(modifyManualMethodFragment);
+        }
+        if (modifyStopForverMethodFragment != null) {
+            fragmentTransaction.hide(modifyStopForverMethodFragment);
         }
     }
 
@@ -401,7 +403,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingAuditFragment);
                 }
-                currentFragment = settingAuditFragment;
                 break;
             case R.id.setting_correcting_layout:
                 changeToCorrectingFragment();
@@ -411,9 +412,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingCorrectingFragment);
                 }
-
-                currentFragment = settingCorrectingFragment;
-
                 break;
             case R.id.setting_formula_layout:
                 changeToFormulaFragment();
@@ -423,9 +421,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingFormulaFragment);
                 }
-
-                currentFragment = settingFormulaFragment;
-
                 break;
             case R.id.setting_initail_layout:
                 changeToInitailFragment();
@@ -435,13 +430,10 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingInitialFragment);
                 }
-
-                currentFragment = settingInitialFragment;
-
                 break;
             case R.id.setting_method_layout:
                 changeToMethodFragment();
-                currentFragment = getCurrentModifyMethodFragment(fragmentTransaction);
+                getCurrentModifyMethodFragment(fragmentTransaction);
                 break;
             case R.id.setting_network_layout:
                 changeToNetworkFragment();
@@ -451,9 +443,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingNetWorkFragment);
                 }
-
-                currentFragment = settingNetWorkFragment;
-
                 break;
             case R.id.setting_standard_layout:
                 changeToStandardFragment();
@@ -463,8 +452,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingStandardFragment);
                 }
-                currentFragment = settingStandardFragment;
-
                 break;
 
             case R.id.setting_clouds_layout:
@@ -475,9 +462,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingCloudsFragment);
                 }
-
-                currentFragment = settingCloudsFragment;
-
                 break;
             case R.id.setting_autograph_layout:
                 changeToAutographFragment();
@@ -487,8 +471,6 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
                 } else {
                     fragmentTransaction.show(settingAutographFragment);
                 }
-                currentFragment = settingAutographFragment;
-
                 break;
         }
         fragmentTransaction.commit();
@@ -583,9 +565,18 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
         builder.create().show();
     }
 
+    /**
+     * 设置当前设置的滴定方法
+     *
+     * @param typeEnum
+     */
     private void updateCurrentMethod(TitratorTypeEnum typeEnum) {
+        currentTitratorTypeEnum = typeEnum;
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        hideModifyMethodFragments(fragmentTransaction);
+        getCurrentModifyMethodFragment(fragmentTransaction);
+        fragmentTransaction.commit();
         tiratorMethod.tiratorExecuteMethodViewBean.setCurrentEnum(typeEnum);
-        modifyMethodFragment.updateCurrentMethod(typeEnum);
     }
 
     @Override
