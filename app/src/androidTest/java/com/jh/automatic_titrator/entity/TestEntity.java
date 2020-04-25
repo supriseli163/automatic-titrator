@@ -28,6 +28,8 @@ public class TestEntity {
         titratorMethod.setReferenceElectrode(10);
         titratorMethod.setPreStiringTime("15");
         titratorMethod.setSampleMeasurementUnit("10");
+        titratorMethod.setModifyTime();
+        titratorMethod.setUserName();
         return titratorMethod;
     }
 }
