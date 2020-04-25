@@ -36,8 +36,8 @@ android {
         enabled = true
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -55,6 +55,7 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.google.guava:guava:29.0-android'
     implementation 'com.alibaba:fastjson:1.2.68'
+    implementation 'net.sourceforge.streamsupport:streamsupport:1.7.1'
 
     // 单元测试
     testImplementation 'junit:junit:4.12'
