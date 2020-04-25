@@ -44,7 +44,7 @@ public class TitratorMethod extends BaseObservable {
     //结束体积
     private String endVolume;
     //滴定速度
-    private String titrationSpeed;
+    private int titrationSpeed;
     //慢滴体积
     private String slowTitrationVolume;
     //快滴体积
@@ -62,16 +62,18 @@ public class TitratorMethod extends BaseObservable {
         return modifyTime;
     }
 
-    public void setModifyTime() {
-        this.modifyTime = StringUtils.getCurrentTime();
+    public void setModifyTime(String modifyTime) {
+//        this.modifyTime = StringUtils.getCurrentTime();
+        this.modifyTime = modifyTime;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName() {
-        this.userName = StringUtils.getCurrentUserName();
+    public void setUserName(String modifyTime) {
+//        this.userName = StringUtils.getCurrentUserName();
+        this.userName = userName;
     }
 
     public List<EndPointSetting> getEndPointSettingList() {
@@ -167,7 +169,7 @@ public class TitratorMethod extends BaseObservable {
 
     @Bindable
     public String getTitrationSpeedText() {
-        return StringUtils.getContent(R.string.titration_speed_text, titrationSpeed);
+        return StringUtils.getContent(R.string.titration_speed_text, String.valueOf(titrationSpeed));
     }
 
     @Bindable
@@ -257,7 +259,7 @@ public class TitratorMethod extends BaseObservable {
         notifyPropertyChanged(com.jh.automatic_titrator.BR.endVolumeText);
     }
 
-    public void setTitrationSpeed(String titrationSpeed) {
+    public void setTitrationSpeed(int titrationSpeed) {
         this.titrationSpeed = titrationSpeed;
         notifyPropertyChanged(com.jh.automatic_titrator.BR.titrationSpeedText);
     }
@@ -332,7 +334,7 @@ public class TitratorMethod extends BaseObservable {
         return endVolume;
     }
 
-    public String getTitrationSpeed() {
+    public int getTitrationSpeed() {
         return titrationSpeed;
     }
 

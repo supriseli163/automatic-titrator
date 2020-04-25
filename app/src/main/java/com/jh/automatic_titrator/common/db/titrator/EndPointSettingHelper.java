@@ -28,15 +28,19 @@ public class EndPointSettingHelper {
 
     public void insertEndPointSetting(EndPointSetting endPointSetting) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("insert intro end_point_setting (titratorMethodId,burette," +
-                "reagentName,reagentConcentrationUnit,addVolume,addSpeed,addTime,referenceEndPoint,delayTime) values (");
+        stringBuilder.append("insert into end_point_setting (titratorMethodId,burette," +
+                "reagentName,reagentConcentration, reagentConcentrationUnit,addVolume,addSpeed,addTime,referenceEndPoint,delayTime) values (");
         stringBuilder.append(StringUtils.dBValueInputFormat(endPointSetting.getTitratorMethodId()))
                 .append(StringUtils.dBValueInputFormat(endPointSetting.getBurette()))
                 .append(StringUtils.dBValueInputFormat(endPointSetting.getReagentName()))
                 .append(StringUtils.dBValueInputFormat(endPointSetting.getReagentConcentration()))
                 .append(StringUtils.dBValueInputFormat(endPointSetting.getReagentConcentrationUnit()))
+                .append(StringUtils.dBValueInputFormat(endPointSetting.getAddVolume()))
                 .append(StringUtils.dBValueInputFormat(endPointSetting.getAddSpeed()))
-                .append(StringUtils.dBValueInputFormat(endPointSetting.getAddTime()));
+                .append(StringUtils.dBValueInputFormat(endPointSetting.getAddTime()))
+                .append(StringUtils.dBValueInputFormat(endPointSetting.getReferenceEndPoint()))
+                .append(StringUtils.dBValueInputFormat(endPointSetting.getDelayTime(), true));
+        db.execSQL(stringBuilder.toString());
 
     }
 
@@ -64,6 +68,7 @@ public class EndPointSettingHelper {
                 endPointSetting.setDelayTime(cursor.getInt(10));
                 cursor.moveToNext();
                 endPointSettings.add(endPointSetting);
+                cursor.moveToNext();
             }
         } catch (Exception ex) {
             throw ex.getCause();

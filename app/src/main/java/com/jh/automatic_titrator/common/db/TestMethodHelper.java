@@ -281,7 +281,7 @@ public class TestMethodHelper {
     }
 
     public void updateTestMethod(TestMethod testMethod) {
-        StringBuilder updateSB = new StringBuilder();
+         StringBuilder updateSB = new StringBuilder();
         updateSB.append("update test_method set ");
         updateSB.append("testCount = ").append(testMethod.getTestCount()).append(",");
         updateSB.append("concentration = ").append(testMethod.getConcentration()).append(",");

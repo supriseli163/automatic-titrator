@@ -26,19 +26,18 @@ public class TitratorEndPointHelper {
 
     public void insertTitratorEndPoint(TitratorEndPoint titratorEndPoint) {
         StringBuffer insertSql = new StringBuffer();
-        insertSql.append("insert insert into titrator_endPoint (titratorMethodId, endPointValue, preControlvalue,correlationCoefficient,resultUnit) values (" +
+        insertSql.append("insert into titrator_end_point (titratorMethodId, endPointValue, preControlvalue,correlationCoefficient,resultUnit) values (" +
                 StringUtils.dBValueInputFormat(titratorEndPoint.getTitratorMethodId()) +
                 StringUtils.dBValueInputFormat(titratorEndPoint.getEndPointValue()) +
                 StringUtils.dBValueInputFormat(titratorEndPoint.getPreControlvalue()) +
                 StringUtils.dBValueInputFormat(titratorEndPoint.getCorrelationCoefficient()) +
-                StringUtils.dBValueInputFormat(titratorEndPoint.getResultUnit())
-                + ")");
-        db.rawQuery(insertSql.toString(), null);
+                StringUtils.dBValueInputFormat(titratorEndPoint.getResultUnit(), true));
+        db.execSQL(insertSql.toString());
     }
 
     public List<TitratorEndPoint> queryTitratorEndPoints(int titratorMethodId) {
         StringBuilder querySql = new StringBuilder();
-        querySql.append("select * from titrator_endPoint where titratorMethodId =").append(titratorMethodId);
+        querySql.append("select * from titrator_end_point where titratorMethodId =").append(titratorMethodId);
         Cursor cursor = db.rawQuery(querySql.toString(), null);
         cursor.moveToFirst();
         List<TitratorEndPoint> titratorEndPoints = new ArrayList<>();
@@ -53,5 +52,11 @@ public class TitratorEndPointHelper {
             cursor.moveToNext();
         }
         return titratorEndPoints;
+    }
+
+    public void deleteByTitratorMethodId(int titratorMethodId) {
+        StringBuilder sqlBuilder = new StringBuilder();
+        sqlBuilder.append("delete from titrator_end_point where titratorMethodId = ").append(titratorMethodId);
+        db.execSQL(sqlBuilder.toString());
     }
 }

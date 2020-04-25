@@ -19,6 +19,24 @@ public enum  TitratorTypeEnum {
         this.name = name;
     }
 
+    public static TitratorTypeEnum fromName(String name) {
+        for(TitratorTypeEnum titratorTypeEnum : TitratorTypeEnum.values()) {
+            if(titratorTypeEnum.getName().equals(name)) {
+                return titratorTypeEnum;
+            }
+        }
+        return EqualTitrator;
+    }
+
+    public static TitratorTypeEnum fromDesc(String desc) {
+        for(TitratorTypeEnum titratorTypeEnum : TitratorTypeEnum.values()) {
+            if(titratorTypeEnum.getDesc().equals(desc)) {
+                return titratorTypeEnum;
+            }
+        }
+        return EqualTitrator;
+    }
+
     public String getDesc() {
         return desc;
     }

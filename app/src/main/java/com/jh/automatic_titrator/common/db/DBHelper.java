@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
-
+import android.util.Log;
 import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.file.FileHelper;
 import com.jh.automatic_titrator.common.utils.TimeTool;
@@ -21,6 +21,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public DBHelper(Context context) {
         super(context, name, null, version);
+        Log.i("SQLiteOpenHelper", String.valueOf(context.getDatabasePath(name + ".db")));
+
     }
 
     @Override
@@ -42,10 +44,6 @@ public class DBHelper extends SQLiteOpenHelper {
         addBaseFormula(db);
         writeVersion();
 
-//        //滴定仪
-//        addTitratorEndPoint(db);
-//        addEndPointSetting(db);
-//        addTitratorEndPoint(db);
         addTitratorMethod(db);
         addEndPointSetting(db);
         addTitratorEndPoint(db);
@@ -296,42 +294,47 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     private void addTitratorMethod(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS titrator_method (" +
+        String sql = "CREATE TABLE IF NOT EXISTS titrator_method" +
+                "(" +
                 "id integer primary key autoincrement," +
-                "titratorType varchar(20)," +
+                "titratorType varchar(40), " +
                 "methodName varchar(50)," +
                 "buretteVolume double," +
-                "workingElectrode integer," +
-                "treferenceElectrode double," +
-                "tsampleMeasurementUnit varchar(50)," +
-                "ttitrationDisplayUnit varchar(50)," +
-                "treplenishmentSpeed integer," +
-                "tstiringSpeed integer," +
-                "telectroedEquilibrationTime integer," +
-                "tpreStiringTime double," +
-                "tendVolume integer," +
-                "ttitrationSpeed integer," +
-                "tslowTitrationVolume integer," +
-                "tfastTitrationVolume integer," +
+                "workingElectrode varchar(50)," +
+                "referenceElectrode double," +
+                "sampleMeasurementUnit varchar(50)," +
+                "titrationDisplayUnit varchar(50)," +
+                "replenishmentSpeed integer," +
+                "stiringSpeed integer," +
+                "electroedEquilibrationTime varchar(50)," +
+                "electroedEquilibriumPotential varchar(50)," +
+                "preStiringTime varchar(50)," +
+                "perAddVolume varchar(50)," +
+                "endVolume integer," +
+                "titrationSpeed integer," +
+                "slowTitrationVolume integer," +
+                "fastTitrationVolume integer," +
                 "modifyTime text," +
-                "userName text" +
+                "userName varchar(50)" +
                 ")";
         db.execSQL(sql);
+
+        Log.i("CREATE TABLE", "titrator_method");
     }
 
     private void addEndPointSetting(SQLiteDatabase db) {
         String sql = "CREATE TABLE IF NOT EXISTS end_point_setting (" +
-                "tid integer primary key autoincrement," +
-                "ttitratorMethodId integer," +
-                "tburette integer," +
-                "treagentName double," +
-                "treagentConcentration double," +
-                "treagentConcentrationUnit varchar(50)," +
-                "taddVolume double," +
-                "taddSpeed integer," +
-                "taddTime varchar(50)," +
-                "treferenceEndPoint integer," +
-                "tdelayTime integer" +
+                "id integer primary key autoincrement," +
+                "titratorMethodId integer," +
+                "burette integer," +
+                "reagentName varchar(100)," +
+                "reagentConcentration double," +
+                "reagentConcentrationUnit varchar(50)," +
+                "addVolume double," +
+                "addSpeed integer," +
+                "addTime varchar(50)," +
+                "referenceEndPoint integer," +
+                "delayTime integer" +
                 ")";
         db.execSQL(sql);
     }

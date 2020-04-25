@@ -17,6 +17,8 @@ public class TitratorMethodHelper {
     private TitratorEndPointHelper titratorEndPointHelper;
     private EndPointSettingHelper endPointSettingHelper;
 
+    private static final String TITRATOR_METHOD_NAME = "titrator_method";
+
     public TitratorMethodHelper(SQLiteDatabase sqLiteDatabase) {
         this.db = sqLiteDatabase;
     }
@@ -43,16 +45,58 @@ public class TitratorMethodHelper {
                 StringUtils.dBValueInputFormat(titratorMethod.getStiringSpeed()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getElectroedEquilibrationTime()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getElectroedEquilibriumPotential()) +
-                StringUtils.dBValueInputFormat(titratorMethod.getElectroedEquilibriumPotential()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getPreStiringTime()) +
-                StringUtils.dBValueInputFormat(titratorMethod.getPreStiringTime()) +
+                StringUtils.dBValueInputFormat(titratorMethod.getPerAddVolume()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getEndVolume()) +
+                StringUtils.dBValueInputFormat(titratorMethod.getTitrationSpeed()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getSlowTitrationVolume()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getFastTitrationVolume()) +
                 StringUtils.dBValueInputFormat(titratorMethod.getModifyTime()) +
-                StringUtils.dBValueInputFormat(titratorMethod.getUserName())
-                + ")");
+                StringUtils.dBValueInputFormat(titratorMethod.getUserName(), true));
+//        db.insert(insertSql.toString());
+//        db.insert(TITRATOR_METHOD_NAME, null, )
         db.execSQL(insertSql.toString());
+    }
+
+    public TitratorMethod selectByNameAndType(String titratorType, String name) {
+        StringBuffer selectSql = new StringBuffer();
+        selectSql.append("select * from titrator_method where titratorType=").append('"' + titratorType + '"').append("and methodName=").append('"' + name + '"');
+        Cursor cursor = null;
+        TitratorMethod titratorMethod = null;
+        try {
+            cursor = db.rawQuery(selectSql.toString(), null);
+            cursor.moveToFirst();
+          while (!cursor.isAfterLast()) {
+              titratorMethod = new TitratorMethod();
+              titratorMethod.setId(cursor.getInt(0));
+              titratorMethod.setTitratorType(cursor.getString(1));
+              titratorMethod.setMethodName(cursor.getString(2));
+              titratorMethod.setBuretteVolume(cursor.getDouble(3));
+              titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.fromDesc(cursor.getString(4)));
+              titratorMethod.setReferenceElectrode(cursor.getDouble(5));
+              titratorMethod.setSampleMeasurementUnit(cursor.getString(6));
+              titratorMethod.setTitrationDisplayUnit(cursor.getString(7));
+              titratorMethod.setPreStiringTime(cursor.getString(8));
+              titratorMethod.setStiringSpeed(cursor.getString(9));
+              titratorMethod.setElectroedEquilibrationTime(cursor.getString(10));
+              titratorMethod.setElectroedEquilibriumPotential(cursor.getString(11));
+              titratorMethod.setPreStiringTime(cursor.getString(12));
+              titratorMethod.setPerAddVolume(cursor.getString(13));
+              titratorMethod.setEndVolume(cursor.getString(14));
+              titratorMethod.setTitrationSpeed(cursor.getInt(15));
+              titratorMethod.setSlowTitrationVolume(cursor.getString(16));
+              titratorMethod.setFastTitrationVolume(cursor.getString(17));
+              titratorMethod.setModifyTime(cursor.getString(18));
+              titratorMethod.setUserName(cursor.getString(19));
+              cursor.moveToNext();
+          }
+        } finally {
+            if(cursor != null) {
+                cursor.close();
+            }
+        }
+        return titratorMethod;
+
     }
 
     public void updateTitratorMethod(TitratorMethod titratorMethod) {
@@ -140,31 +184,41 @@ public class TitratorMethodHelper {
         return titratorMethods;
     }
 
-    public List<TitratorMethod> listMethodByType(TitratorTypeEnum titratorTypeEnum, int pagNum, int pageSize) {
+    public List<TitratorMethod> listMethodByType(String titratorTypeDesc, int pagNum, int pageSize) {
         List<TitratorMethod> result = new ArrayList<>();
         StringBuilder sqlSb = new StringBuilder();
-        sqlSb.append("select * from titrator_method where titratorType = ").append(titratorTypeEnum.getDesc());
+        sqlSb.append("select * from titrator_method where titratorType = ").append('"' + titratorTypeDesc + '"');
         Cursor cursor = null;
         try {
             cursor = db.rawQuery(sqlSb.toString(), null);
             cursor.moveToFirst();
-            TitratorMethod titratorMethod = new TitratorMethod();
-            titratorMethod.setId(cursor.getInt(0));
-            titratorMethod.setTitratorType(cursor.getString(1));
-            titratorMethod.setMethodName(cursor.getString(2));
-            titratorMethod.setBuretteVolume(cursor.getDouble(3));
-            titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.fromDesc(cursor.getString(4)));
-            titratorMethod.setReferenceElectrode(cursor.getDouble(5));
-            titratorMethod.setSampleMeasurementUnit(cursor.getString(6));
-            titratorMethod.setTitrationDisplayUnit(cursor.getString(7));
-            titratorMethod.setPreStiringTime(cursor.getString(8));
-            titratorMethod.setEndVolume(cursor.getString(9));
-            titratorMethod.setTitrationSpeed(cursor.getString(10));
-            titratorMethod.setSlowTitrationVolume(cursor.getString(11));
-            titratorMethod.setFastTitrationVolume(cursor.getString(12));
-            result.add(titratorMethod);
+            while (!cursor.isAfterLast()) {
+                TitratorMethod titratorMethod = new TitratorMethod();
+                titratorMethod.setId(cursor.getInt(0));
+                titratorMethod.setTitratorType(cursor.getString(1));
+                titratorMethod.setMethodName(cursor.getString(2));
+                titratorMethod.setBuretteVolume(cursor.getDouble(3));
+                titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.fromDesc(cursor.getString(4)));
+                titratorMethod.setReferenceElectrode(cursor.getDouble(5));
+                titratorMethod.setSampleMeasurementUnit(cursor.getString(6));
+                titratorMethod.setTitrationDisplayUnit(cursor.getString(7));
+                titratorMethod.setPreStiringTime(cursor.getString(8));
+                titratorMethod.setStiringSpeed(cursor.getString(9));
+                titratorMethod.setElectroedEquilibrationTime(cursor.getString(10));
+                titratorMethod.setElectroedEquilibriumPotential(cursor.getString(11));
+                titratorMethod.setPreStiringTime(cursor.getString(12));
+                titratorMethod.setPerAddVolume(cursor.getString(13));
+                titratorMethod.setEndVolume(cursor.getString(14));
+                titratorMethod.setTitrationSpeed(cursor.getInt(15));
+                titratorMethod.setSlowTitrationVolume(cursor.getString(16));
+                titratorMethod.setFastTitrationVolume(cursor.getString(17));
+                titratorMethod.setModifyTime(cursor.getString(18));
+                titratorMethod.setUserName(cursor.getString(19));
+                result.add(titratorMethod);
+                cursor.moveToNext();
+            }
         } catch (Exception ex) {
-            Log.d("sql Exception", String.format("listMethodByType titratorTypeEnum:{}, pagNum:{},pageSize:{}", titratorTypeEnum.getDesc(), pageSize, pagNum, ex.getMessage()));
+            Log.d("sql Exception", String.format("listMethodByType titratorTypeDesc:{}, pagNum:{},pageSize:{}", titratorTypeDesc, pageSize, pagNum, ex.getMessage()));
         } finally {
             if (cursor != null) {
                 cursor.close();

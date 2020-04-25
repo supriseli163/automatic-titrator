@@ -100,7 +100,7 @@ public class StringUtils {
 
     public static String dBValueInputFormat(String value, boolean end) {
         if (end) {
-            return String.format("'%s'", value);
+            return String.format("'%s' )", value);
         } else {
             return String.format("'%s',", value);
         }
@@ -108,6 +108,10 @@ public class StringUtils {
 
     public static String dBValueInputFormat(String value) {
         return dBValueInputFormat(value, false);
+    }
+
+    public static String dBValueInputFormat(int value, boolean end) {
+        return dBValueInputFormat(String.valueOf(value), end);
     }
 
     public static String dBValueInputFormat(double value) {
