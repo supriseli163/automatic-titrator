@@ -20,7 +20,7 @@ public class MethodListAdapter extends BaseAdapter {
     private List<TitratorParamsBean> paramsBeanList;
 
     private LayoutInflater inflate;
-    private int currentPosition;
+    private int currentPosition = -1;
 
     public MethodListAdapter(Context context) {
         this.inflate = LayoutInflater.from(context);

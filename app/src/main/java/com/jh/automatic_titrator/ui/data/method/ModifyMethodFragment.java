@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
@@ -89,11 +90,20 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
             case R.id.method_delete_btn:
                 break;
             case R.id.method_modify_btn:
+                onClickModifyMethodEvent();
                 break;
             case R.id.method_new_btn:
                 switchMethodDetailView(true);
                 break;
         }
+    }
+
+    private void onClickModifyMethodEvent() {
+        TitratorParamsBean bean = adapter.getCurrentBean();
+        if (bean == null) {
+            Toast.makeText(activity, "请选择要修改的方法", Toast.LENGTH_LONG).show();
+        }
+        // TODO: 2020-04-26 这里输入Bean给方法修改View
     }
 
     /**
