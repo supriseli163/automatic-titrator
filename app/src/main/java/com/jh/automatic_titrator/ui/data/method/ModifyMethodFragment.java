@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
+import com.jh.automatic_titrator.common.db.titrator.TitratorParamsBeanHelper;
 import com.jh.automatic_titrator.common.utils.ViewUtils;
 import com.jh.automatic_titrator.databinding.TitratorDataFragmentBinding;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
@@ -15,7 +16,6 @@ import com.jh.automatic_titrator.ui.base.BaseFragment;
 import com.jh.automatic_titrator.ui.data.method.adapter.MethodListAdapter;
 import com.jh.automatic_titrator.ui.data.method.view.ModifyMethodView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBinding> implements View.OnClickListener {
@@ -23,6 +23,7 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     private List<TitratorParamsBean> titratorParamsBeanList;
     private MethodListAdapter adapter;
     public TitratorTypeEnum titratorTypeEnum;
+    private int pageNum, pageSize;
 
     public static ModifyMethodFragment getInstance(TitratorTypeEnum titratorTypeEnum) {
         ModifyMethodFragment fragment = new ModifyMethodFragment();
@@ -36,8 +37,16 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     }
 
     private void initData() {
-        // TODO: 2020-04-19 根据当前数据类型这里从数据库获取
-        titratorParamsBeanList = new ArrayList<>();
+        TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+        try {
+            // TODO: 2020-04-26 pageNum,pageSize 后期补充
+            titratorParamsBeanList = helper.listMethodByType(titratorTypeEnum, pageNum, pageSize);
+            if (titratorParamsBeanList != null) {
+                Log.d("ModifyMethodFragment ", "titratorParamsBeanList : " + titratorParamsBeanList.size());
+            }
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
     }
 
     private void initView() {
