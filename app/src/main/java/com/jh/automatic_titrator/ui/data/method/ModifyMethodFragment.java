@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
+import com.jh.automatic_titrator.common.db.titrator.TitratorParamsBeanHelper;
 import com.jh.automatic_titrator.common.utils.ViewUtils;
 import com.jh.automatic_titrator.databinding.TitratorDataFragmentBinding;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
@@ -15,7 +17,6 @@ import com.jh.automatic_titrator.ui.base.BaseFragment;
 import com.jh.automatic_titrator.ui.data.method.adapter.MethodListAdapter;
 import com.jh.automatic_titrator.ui.data.method.view.ModifyMethodView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBinding> implements View.OnClickListener {
@@ -23,6 +24,7 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     private List<TitratorParamsBean> titratorParamsBeanList;
     private MethodListAdapter adapter;
     public TitratorTypeEnum titratorTypeEnum;
+    private int pageNum, pageSize;
 
     public static ModifyMethodFragment getInstance(TitratorTypeEnum titratorTypeEnum) {
         ModifyMethodFragment fragment = new ModifyMethodFragment();
@@ -36,8 +38,16 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     }
 
     private void initData() {
-        // TODO: 2020-04-19 根据当前数据类型这里从数据库获取
-        titratorParamsBeanList = new ArrayList<>();
+        TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+        try {
+            // TODO: 2020-04-26 pageNum,pageSize 后期补充
+            titratorParamsBeanList = helper.listMethodByType(titratorTypeEnum, pageNum, pageSize);
+            if (titratorParamsBeanList != null) {
+                Log.d("ModifyMethodFragment ", "titratorParamsBeanList : " + titratorParamsBeanList.size());
+            }
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
     }
 
     private void initView() {
@@ -80,11 +90,20 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
             case R.id.method_delete_btn:
                 break;
             case R.id.method_modify_btn:
+                onClickModifyMethodEvent();
                 break;
             case R.id.method_new_btn:
                 switchMethodDetailView(true);
                 break;
         }
+    }
+
+    private void onClickModifyMethodEvent() {
+        TitratorParamsBean bean = adapter.getCurrentBean();
+        if (bean == null) {
+            Toast.makeText(activity, "请选择要修改的方法", Toast.LENGTH_LONG).show();
+        }
+        // TODO: 2020-04-26 这里输入Bean给方法修改View
     }
 
     /**

@@ -98,7 +98,8 @@
                     android:padding="@dimen/_4px"
                     android:text="@string/normal_show"
                     android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <View
@@ -114,7 +115,8 @@
                 android:orientation="horizontal"
                 android:textAlignment="center"
                 android:textColor="@color/fontGray"
-                android:textSize="14sp">
+                android:textSize="14sp"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/setting_auxiliary_reagent_item"
@@ -135,7 +137,8 @@
                     android:padding="@dimen/_4px"
                     android:text="@string/normal_show"
                     android:textColor="@color/colorWrite"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <View

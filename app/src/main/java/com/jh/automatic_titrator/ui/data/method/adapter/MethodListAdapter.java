@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.jh.automatic_titrator.BaseApplication;
@@ -19,6 +20,7 @@ public class MethodListAdapter extends BaseAdapter {
     private List<TitratorParamsBean> paramsBeanList;
 
     private LayoutInflater inflate;
+    private int currentPosition = -1;
 
     public MethodListAdapter(Context context) {
         this.inflate = LayoutInflater.from(context);
@@ -58,6 +60,17 @@ public class MethodListAdapter extends BaseAdapter {
             binding = (TitratorMethodFragmentItemBinding) convertView.getTag();
         }
         TitratorParamsBean bean = getItem(position);
+        binding.settingMethodItemCb.setOnCheckedChangeListener(null);
+        binding.settingMethodItemCb.setChecked(bean.isCheck());
+        binding.settingMethodItemCb.setTag(position);
+        binding.settingMethodItemCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int position = (int) binding.settingMethodItemCb.getTag();
+                currentPosition = position;
+                refreshCheckStatus(position);
+            }
+        });
         binding.settingMethodItemTestname.setText(bean.getMethodName());
         binding.endPointInfoShowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,5 +87,17 @@ public class MethodListAdapter extends BaseAdapter {
             }
         });
         return convertView;
+    }
+
+    private void refreshCheckStatus(int selectPosition) {
+        for (int i = 0; i < getCount(); i++) {
+            TitratorParamsBean bean = getItem(i);
+            bean.setCheck(i == selectPosition);
+        }
+        notifyDataSetChanged();
+    }
+
+    public TitratorParamsBean getCurrentBean() {
+        return getItem(currentPosition);
     }
 }

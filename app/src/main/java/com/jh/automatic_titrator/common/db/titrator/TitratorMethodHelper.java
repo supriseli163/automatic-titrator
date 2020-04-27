@@ -96,7 +96,6 @@ public class TitratorMethodHelper {
             }
         }
         return titratorMethod;
-
     }
 
     public void updateTitratorMethod(TitratorMethod titratorMethod) {

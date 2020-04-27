@@ -1,6 +1,8 @@
 package com.jh.automatic_titrator.ui.base;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -14,6 +16,13 @@ import androidx.databinding.ViewDataBinding;
 public abstract class BaseFragment<T extends ViewDataBinding> extends Fragment {
 
     public T binding;
+    public Activity activity;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        activity = (Activity) context;
+    }
 
     @Nullable
     @Override

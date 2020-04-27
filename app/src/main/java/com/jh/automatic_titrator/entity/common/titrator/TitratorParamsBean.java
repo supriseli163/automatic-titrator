@@ -13,8 +13,19 @@ public class TitratorParamsBean {
     // 主滴定剂量
     public MainTitrant mainTitrant;
 
-    //滴定终点设置
+    // 滴定终点设置
     public List<EndPointSetting> endPointSettings;
+
+    // 是否选中
+    private boolean isCheck;
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setCheck(boolean check) {
+        isCheck = check;
+    }
 
     public TitratorMethod getTitratorMethod() {
         return titratorMethod;
