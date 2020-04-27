@@ -82,4 +82,9 @@ public class ExampleInstrumentedTest {
         int methodId = 15;
         titratorParamsBeanHelper.deleteByTitratorMethodId(methodId);
     }
+
+    @Test
+    public void countMethod() {
+        System.err.println(titratorParamsBeanHelper.countMethod());
+    }
 }

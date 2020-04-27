@@ -1,6 +1,7 @@
 package com.jh.automatic_titrator.common.db.titrator;
 
 import android.annotation.SuppressLint;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.google.common.collect.Lists;
@@ -64,12 +65,14 @@ public class TitratorParamsBeanHelper {
         return titratorParamsBeans;
     }
 
+    public int countMethod() {
+        return titratorMethodHelper.countMethod();
+    }
+
     public void deleteByTitratorMethodId(int titratorMethodId) {
-//        db.beginTransaction();
         titratorMethodHelper.deleteTestMethods(titratorMethodId);
         endPointSettingHelper.deleteByMethodId(titratorMethodId);
         titratorEndPointHelper.deleteByTitratorMethodId(titratorMethodId);
-//        db.endTransaction();
     }
 
     public static void fillEndPointSettingId(List<EndPointSetting> endPointSettings,  int methodId) {

@@ -131,20 +131,6 @@ public class TitratorMethodHelper {
         db.execSQL(deleteSql.toString());
     }
 
-    public int count() {
-        Cursor cursor = null;
-        try {
-            cursor = db.rawQuery("select count(*) from method", null);
-            cursor.moveToFirst();
-            if (!cursor.isAfterLast()) {
-                return cursor.getInt(0);
-            }
-        } finally {
-            cursor.close();
-        }
-        return 0;
-    }
-
     public void deleteMethod(List<Integer> ids) {
         StringBuilder deleteSql = new StringBuilder();
         deleteSql.append("delete from titrator_method where id in(");
@@ -246,43 +232,16 @@ public class TitratorMethodHelper {
         return 0;
     }
 
-    public int count(String startDate, String endDate, String creator) {
-        StringBuilder sqlSb = new StringBuilder();
-        sqlSb.append("select count(*) from test_method");
-        boolean needAnd = false;
-        if (StringUtils.isNotEmpty(startDate)
-                || StringUtils.isNotEmpty(endDate)
-                || StringUtils.isNotEmpty(creator)) {
-            sqlSb.append("where ");
-            if (StringUtils.isNotEmpty(startDate)) {
-                sqlSb.append("datetime(`createDate`) >= datetime('").append(startDate).append("') ");
-                needAnd = true;
-            }
-            if (StringUtils.isNotEmpty(endDate)) {
-                if (needAnd) {
-                    sqlSb.append("and ");
-                }
-                sqlSb.append("datetime(`createDate`) <= datetime('").append(endDate).append("') ");
-                needAnd = true;
-            }
-            if (StringUtils.isNotEmpty(creator)) {
-                if (needAnd) {
-                    sqlSb.append("and ");
-                }
-                sqlSb.append("creator = '").append(creator).append("' ");
-            }
-        }
+    public int countMethod() {
         Cursor cursor = null;
         try {
-            cursor = db.rawQuery(sqlSb.toString(), null);
+            cursor = db.rawQuery("select count(*) from titrator_method", null);
             cursor.moveToFirst();
             if (!cursor.isAfterLast()) {
                 return cursor.getInt(0);
             }
         } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
+            cursor.close();
         }
         return 0;
     }

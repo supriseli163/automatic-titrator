@@ -41,7 +41,6 @@ public class EndPointSettingHelper {
                 .append(StringUtils.dBValueInputFormat(endPointSetting.getReferenceEndPoint()))
                 .append(StringUtils.dBValueInputFormat(endPointSetting.getDelayTime(), true));
         db.execSQL(stringBuilder.toString());
-
     }
 
     public List<EndPointSetting> quertEndPointSettingByMethodId(int methodId) throws Throwable {
