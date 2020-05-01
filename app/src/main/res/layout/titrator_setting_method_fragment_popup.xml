@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <!--        android:background="@color/colorGray1"-->
+    <data>
+
+        <import type="com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils" />
+
+        <variable
+            name="bean"
+            type="com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,6 +53,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_method_type"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:background="@drawable/edit_text"
@@ -53,6 +62,7 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:singleLine="true"
+                        android:text="@{TitratorParamsBeanUtils.getTitratorType(bean)}"
                         android:textColor="@color/PluginFontColorBlack" />
 
                 </LinearLayout>
@@ -73,6 +83,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_method_name"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:background="@drawable/edit_text"
@@ -80,6 +91,7 @@
                         android:inputType="numberDecimal"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:text="@{TitratorParamsBeanUtils.getMethodName(bean)}"
                         android:textColor="@color/PluginFontColorBlack"
                         android:textSize="14sp" />
 
@@ -110,9 +122,10 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titrator_burette_volume"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
+                            android:entries="@array/titrator_burette_volume_arrays"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp" />
                     </LinearLayout>
@@ -140,6 +153,7 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titrator_method_electrode"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:entries="@array/working_electrode_arrays"
@@ -170,9 +184,10 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titrator_reference_electrode"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
+                            android:entries="@array/titrator_reference_electrode_arrays"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp" />
                     </LinearLayout>
@@ -204,9 +219,10 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titrator_sample_measurement_unit"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
+                            android:entries="@array/titrator_sample_measurement_unit_arryas"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp" />
                     </LinearLayout>
@@ -234,9 +250,10 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titration_display_unit"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
+                            android:entries="@array/titrator_display_unit_arrays"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp" />
                     </LinearLayout>
@@ -264,9 +281,10 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titrator_replenishment_speed"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
+                            android:entries="@array/titrator_speed_arrays"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp" />
                     </LinearLayout>
@@ -298,9 +316,10 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titrator_stiring_speed"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
+                            android:entries="@array/titrator_speed_arrays"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp" />
                     </LinearLayout>
@@ -326,6 +345,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_electroed_equilibration_time"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_centerVertical="true"
@@ -336,6 +356,7 @@
                         android:inputType="numberDecimal"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:text="@{TitratorParamsBeanUtils.getElectroedEquilibrationTime(bean)}"
                         android:textColor="@color/PluginFontColorBlack"
                         android:textSize="14sp" />
 
@@ -371,6 +392,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_eletroed_equilibrium_potential"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_centerVertical="true"
@@ -381,6 +403,7 @@
                         android:inputType="numberDecimal"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:text="@{TitratorParamsBeanUtils.getElectroedEquilibriumPotential(bean)}"
                         android:textColor="@color/PluginFontColorBlack"
                         android:textSize="14sp" />
 
@@ -417,6 +440,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_pre_stiring_time"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:background="@drawable/edit_text"
@@ -425,6 +449,7 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:singleLine="true"
+                        android:text="@{TitratorParamsBeanUtils.getPreStiringTime(bean)}"
                         android:textColor="@color/PluginFontColorBlack" />
 
                 </LinearLayout>
@@ -448,6 +473,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_per_add_volume"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_centerVertical="true"
@@ -458,6 +484,7 @@
                         android:inputType="numberDecimal"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:text="@{TitratorParamsBeanUtils.getPerAddVolume(bean)}"
                         android:textColor="@color/PluginFontColorBlack"
                         android:textSize="14sp" />
 
@@ -499,6 +526,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_end_volume"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_centerVertical="true"
@@ -509,6 +537,7 @@
                         android:inputType="numberDecimal"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:text="@{TitratorParamsBeanUtils.getEndVolume(bean)}"
                         android:textColor="@color/PluginFontColorBlack"
                         android:textSize="14sp" />
 
@@ -550,9 +579,10 @@
                         android:background="@drawable/edit_text">
 
                         <Spinner
+                            android:id="@+id/titration_speed"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
+                            android:entries="@array/titration_Speed"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp" />
                     </LinearLayout>
@@ -578,6 +608,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_slow_volume"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_centerVertical="true"
@@ -588,6 +619,7 @@
                         android:inputType="numberDecimal"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:text="@{TitratorParamsBeanUtils.getSlowTitrationVolume(bean)}"
                         android:textColor="@color/PluginFontColorBlack"
                         android:textSize="14sp" />
 
@@ -623,6 +655,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/titrator_fast_titration_volume"
                         android:layout_width="match_parent"
                         android:layout_height="36dp"
                         android:layout_centerVertical="true"
@@ -633,6 +666,7 @@
                         android:inputType="numberDecimal"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
+                        android:text="@{TitratorParamsBeanUtils.getFastTitrationVolume(bean)}"
                         android:textColor="@color/PluginFontColorBlack"
                         android:textSize="14sp" />
 

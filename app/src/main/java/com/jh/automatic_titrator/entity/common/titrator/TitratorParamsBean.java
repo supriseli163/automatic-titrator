@@ -3,6 +3,7 @@ package com.jh.automatic_titrator.entity.common.titrator;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.entity.common.MainTitrant;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TitratorParamsBean {
@@ -15,6 +16,12 @@ public class TitratorParamsBean {
 
     // 滴定终点设置
     public List<EndPointSetting> endPointSettings;
+
+    public TitratorParamsBean() {
+        this.titratorMethod = new TitratorMethod();
+        titratorEndPoint = new ArrayList<>();
+        mainTitrant = new MainTitrant();
+    }
 
     // 是否选中
     private boolean isCheck;

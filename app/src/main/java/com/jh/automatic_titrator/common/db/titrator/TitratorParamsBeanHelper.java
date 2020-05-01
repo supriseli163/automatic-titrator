@@ -1,7 +1,5 @@
 package com.jh.automatic_titrator.common.db.titrator;
 
-import android.annotation.SuppressLint;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.google.common.collect.Lists;
@@ -40,7 +38,7 @@ public class TitratorParamsBeanHelper {
         titratorMethod.setId(insertTitratorMethod.getId());
         fillEndPointSettingId(titratorParamsBean.getEndPointSettings(), insertTitratorMethod.getId());
         fillTitratorEndPointId(titratorParamsBean.getTitratorEndPoint(), insertTitratorMethod.getId());
-        endPointSettingHelper.insertEndPointSetting(titratorMethod.getEndPointSettingList());
+        endPointSettingHelper.insertEndPointSetting(titratorParamsBean.getEndPointSettings());
         titratorEndPointHelper.insertTitratorEndPoints(titratorMethod.getTitratorEndPoints());
 //        db.endTransaction();
     }
@@ -57,7 +55,7 @@ public class TitratorParamsBeanHelper {
             List<EndPointSetting> endPointSettings = endPointSettingHelper.quertEndPointSettingByMethodId(titratorMethod.getId());
             List<TitratorEndPoint> titratorEndPoints = titratorEndPointHelper.queryTitratorEndPoints(titratorMethod.getId());
             titratorMethod.setTitratorEndPoints(titratorEndPoints);
-            titratorMethod.setEndPointSettingList(endPointSettings);
+//            titratorMethod.setEndPointSettingList(endPointSettings);
             titratorParamsBean.setTitratorMethod(titratorMethod);
             titratorParamsBean.setEndPointSettings(endPointSettings);
             titratorParamsBean.setTitratorEndPoint(titratorEndPoints);
