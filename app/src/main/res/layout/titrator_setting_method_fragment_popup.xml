@@ -722,6 +722,7 @@
                             android:textSize="14sp" />
 
                         <EditText
+                            android:id="@+id/titrator_pre_add_volume"
                             android:layout_width="match_parent"
                             android:layout_height="36dp"
                             android:layout_centerVertical="true"
@@ -732,6 +733,7 @@
                             android:inputType="numberDecimal"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
+                            android:text="@{TitratorParamsBeanUtils.getPreAddVolume(bean)}"
                             android:textColor="@color/PluginFontColorBlack"
                             android:textSize="14sp" />
 
@@ -767,6 +769,7 @@
                             android:textSize="14sp" />
 
                         <EditText
+                            android:id="@+id/titrator_pre_after_stiring_time"
                             android:layout_width="match_parent"
                             android:layout_height="36dp"
                             android:layout_centerVertical="true"
@@ -777,6 +780,7 @@
                             android:inputType="numberDecimal"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
+                            android:text="@{TitratorParamsBeanUtils.getPreAfterStiringTime(bean)}"
                             android:textColor="@color/PluginFontColorBlack"
                             android:textSize="14sp" />
 
@@ -787,7 +791,6 @@
                             android:layout_alignParentRight="true"
                             android:layout_marginLeft="@dimen/_10px"
                             android:gravity="center_vertical"
-                            android:text="s"
                             android:textColor="@color/PluginFontColorBlack"
                             android:textSize="14sp" />
 

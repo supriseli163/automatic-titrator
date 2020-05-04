@@ -2,6 +2,7 @@ package com.jh.automatic_titrator.entity.common.titrator;
 
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.entity.common.MainTitrant;
+import com.jh.automatic_titrator.entity.common.PreTitrant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,8 @@ public class TitratorParamsBean {
     public List<TitratorEndPoint> titratorEndPoint;
     // 主滴定剂量
     public MainTitrant mainTitrant;
+    // 预滴定
+    public PreTitrant preTitrant;
 
     // 滴定终点设置
     public List<EndPointSetting> endPointSettings;
@@ -25,6 +28,14 @@ public class TitratorParamsBean {
 
     // 是否选中
     private boolean isCheck;
+
+    public PreTitrant getPreTitrant() {
+        return preTitrant;
+    }
+
+    public void setPreTitrant(PreTitrant preTitrant) {
+        this.preTitrant = preTitrant;
+    }
 
     public boolean isCheck() {
         return isCheck;
