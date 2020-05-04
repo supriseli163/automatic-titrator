@@ -883,7 +883,18 @@
 
                     </RelativeLayout>
                 </LinearLayout>
-                <!-- todo 这里使用自定义View，需要等确定列表项目数以及文字占比-->
+
+                <com.jh.automatic_titrator.ui.data.method.view.ParamsListItemView
+                    android:id="@+id/titrator_end_list_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100px" />
+
+
+                <com.jh.automatic_titrator.ui.data.method.view.ParamsListItemView
+                    android:id="@+id/titrator_extra_params_list_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100px"
+                    android:layout_marginTop="@dimen/_10px" />
             </LinearLayout>
 
         </LinearLayout>

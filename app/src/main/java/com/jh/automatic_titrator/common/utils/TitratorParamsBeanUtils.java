@@ -1,6 +1,5 @@
 package com.jh.automatic_titrator.common.utils;
 
-import com.jh.automatic_titrator.entity.common.PreTitrant;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 
@@ -193,8 +192,11 @@ public class TitratorParamsBeanUtils {
     // 预定添加体积
     public static String getPreAddVolume(TitratorParamsBean bean) {
         if (bean != null && bean.getPreTitrant() != null) {
-            PreTitrant titrant = bean.getPreTitrant();
-            return String.valueOf(titrant.getPreAddVolume());
+            double titrant = bean.getPreTitrant().getPreAddVolume();
+            if (titrant >= 0) {
+                return String.valueOf(titrant);
+            }
+            return "";
         }
         return "";
     }
@@ -202,7 +204,11 @@ public class TitratorParamsBeanUtils {
     // 预滴定后搅拌时间
     public static String getPreAfterStiringTime(TitratorParamsBean bean) {
         if (bean != null && bean.getPreTitrant() != null) {
-            return String.valueOf(bean.getPreTitrant().getPreAfterstiringTime());
+            double value = bean.getPreTitrant().getPreAfterstiringTime();
+            if (value >= 0) {
+                return String.valueOf(value);
+            }
+            return "";
         }
         return "";
     }
