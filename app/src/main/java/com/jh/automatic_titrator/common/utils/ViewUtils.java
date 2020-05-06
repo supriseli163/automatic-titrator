@@ -1,8 +1,11 @@
 package com.jh.automatic_titrator.common.utils;
 
+import android.view.Gravity;
 import android.view.View;
+import android.widget.TextView;
 
 import com.jh.automatic_titrator.BaseApplication;
+import com.jh.automatic_titrator.R;
 
 public class ViewUtils {
 
@@ -25,5 +28,10 @@ public class ViewUtils {
                 .getDisplayMetrics()
                 .density;
         return Math.round((float) dp * density);
+    }
+
+    public static void setTextViewColor(int color, TextView tv) {
+        tv.setTextColor(BaseApplication.getApplication().getResources().getColor(color));
+        tv.setGravity(Gravity.CENTER);
     }
 }

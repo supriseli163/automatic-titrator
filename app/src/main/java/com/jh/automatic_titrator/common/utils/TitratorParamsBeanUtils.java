@@ -1,7 +1,13 @@
 package com.jh.automatic_titrator.common.utils;
 
+import android.util.Log;
+
+import com.jh.automatic_titrator.entity.common.titrator.TitratorEndPoint;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TitratorParamsBeanUtils {
 
@@ -211,5 +217,46 @@ public class TitratorParamsBeanUtils {
             return "";
         }
         return "";
+    }
+
+    // 获取滴定终点List:List<String>
+    public static List<List<String>> getTitratorEndList(TitratorParamsBean bean) {
+        List<List<String>> arrays = new ArrayList<>();
+        if (bean != null) {
+            arrays.add(getChineseEndPointBar(true));
+            List<TitratorEndPoint> titratorEndPoints = bean.getTitratorEndPoint();
+            if (titratorEndPoints.size() == 0) {
+                titratorEndPoints = new ArrayList<>();
+                titratorEndPoints.add(TitratorEndPoint.getTestData());
+            }
+            Log.d("songkai", "titratorPoints: " + CollectionUtils.size(titratorEndPoints));
+            for (int i = 0; i < CollectionUtils.size(titratorEndPoints); i++) {
+                List<String> list = new ArrayList<>();
+                TitratorEndPoint point = titratorEndPoints.get(i);
+                list.add(String.valueOf(point.getResultUnit()));
+                list.add(String.valueOf(point.getPreControlvalue()));
+                list.add(String.valueOf(point.getCorrelationCoefficient()));
+                list.add(String.valueOf(point.getResultUnit()));
+                arrays.add(list);
+            }
+        }
+        return arrays;
+    }
+
+    // TODO: 2020-05-05 need to change English
+    public static List<String> getChineseEndPointBar(boolean isChinese) {
+        List<String> barList = new ArrayList<>();
+        if (isChinese) {
+            barList.add("终点值");
+            barList.add("预控值");
+            barList.add("相关系数");
+            barList.add("测试结构单位");
+        } else {
+            barList.add("终点值");
+            barList.add("预控值");
+            barList.add("相关系数");
+            barList.add("测试结构单位");
+        }
+        return barList;
     }
 }

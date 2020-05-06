@@ -4,14 +4,24 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.jh.automatic_titrator.R;
+import com.jh.automatic_titrator.common.db.titrator.TitratorParamsBeanHelper;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.databinding.TitratorSettingMethodFragmentPopupBinding;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorEndPoint;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
+
+import java.util.List;
+
+import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getTitratorEndList;
+import static com.jh.automatic_titrator.common.utils.ViewUtils.setTextViewColor;
 
 public class ModifyMethodView extends RelativeLayout {
     private TitratorSettingMethodFragmentPopupBinding binding;
@@ -62,62 +72,107 @@ public class ModifyMethodView extends RelativeLayout {
             }
         });
         // 滴定管体积
-        binding.titratorBuretteVolume.setOnItemClickListener((parent, view, position, id) -> {
-            checkBean();
-            bean.getTitratorMethod().setBuretteVolume(parent.getItemIdAtPosition(position));
+        binding.titratorBuretteVolume.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                checkBean();
+                bean.getTitratorMethod().setBuretteVolume(parent.getItemIdAtPosition(position));
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+
         });
         // 工作电极
-        binding.titratorMethodElectrode.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.titratorMethodElectrode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setWorkingElectrode(content);
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         // 参比电极
-        binding.titratorReferenceElectrode.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.titratorReferenceElectrode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setReferenceElectrode(content);
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
         // 样品计量单位
-        binding.titratorSampleMeasurementUnit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.titratorSampleMeasurementUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setSampleMeasurementUnit(content);
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         // 滴定显示单位
-        binding.titrationDisplayUnit.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.titrationDisplayUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setSampleMeasurementUnit(content);
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         // 补液速度
-        binding.titratorReplenishmentSpeed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.titratorReplenishmentSpeed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setReplenishmentSpeed(content);
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         // 搅拌速度
-        binding.titratorStiringSpeed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.titratorStiringSpeed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setStiringSpeed(content);
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         // 电极平衡时间
@@ -134,6 +189,7 @@ public class ModifyMethodView extends RelativeLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
+                checkBean();
                 String content = s != null ? s.toString() : "";
                 content = StringUtils.isEmpty(content) ? "0" : content;
                 bean.getTitratorMethod().setElectroedEquilibrationTime(content);
@@ -153,6 +209,7 @@ public class ModifyMethodView extends RelativeLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
+                checkBean();
                 String content = s != null ? s.toString() : "";
                 bean.getTitratorMethod().setElectroedEquilibriumPotential(content);
             }
@@ -189,6 +246,7 @@ public class ModifyMethodView extends RelativeLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
+                checkBean();
                 String content = s != null ? s.toString() : "";
                 bean.getTitratorMethod().setPerAddVolume(content);
             }
@@ -207,17 +265,24 @@ public class ModifyMethodView extends RelativeLayout {
 
             @Override
             public void afterTextChanged(Editable s) {
+                checkBean();
                 String content = s != null ? s.toString() : "";
                 bean.getTitratorMethod().setEndVolume(content);
             }
         });
         // 滴定速度
-        binding.titrationSpeed.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        binding.titrationSpeed.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setStiringSpeed(content);
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         // 慢滴体积
@@ -309,7 +374,34 @@ public class ModifyMethodView extends RelativeLayout {
     }
 
     public void setBean(TitratorParamsBean bean) {
+        // 刷新方法数据
+        binding.setBean(bean);
+        binding.titratorEndListLayout.setArraysList(getTitratorEndList(bean), new ParamsListItemView.OperateListener() {
+            @Override
+            public void onAddEvent() {
+                // TODO: 2020-05-05 触发弹窗
+//                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+//                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
+//                helper.insert(bean);
+            }
 
+            @Override
+            public void onModifyEvent(int position) {
+                // TODO: 2020-05-05 触发弹窗修改内容
+                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
+                helper.insert(bean);
+            }
+
+            @Override
+            public void onDeleteEvent(int position) {
+                List<TitratorEndPoint> endPoints = bean.getTitratorEndPoint();
+                endPoints.remove(position);
+                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
+                helper.insert(bean);
+            }
+        });
     }
 
     public interface OnModifyMethodOperateListener {

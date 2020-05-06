@@ -17,6 +17,17 @@ public class TitratorEndPoint {
     //测试结构单位(枚举类型): %、g/ml、mol/L
     private String resultUnit;
 
+    public static TitratorEndPoint getTestData(){
+        TitratorEndPoint endPoint=new TitratorEndPoint();
+        endPoint.setId(1);
+        endPoint.setTitratorMethodId(1);
+        endPoint.setEndPointValue(1);
+        endPoint.setPreControlvalue(1);
+        endPoint.setCorrelationCoefficient(1);
+        endPoint.setResultUnit("1");
+        return endPoint;
+    }
+
     public int getId() {
         return id;
     }

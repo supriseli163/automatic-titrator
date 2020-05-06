@@ -17,886 +17,916 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <Button
-            android:id="@+id/return_method_list_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_35px"
-            android:layout_marginBottom="@dimen/_10px"
-            android:background="@drawable/blue_button"
-            android:paddingLeft="@dimen/_10px"
-            android:paddingRight="@dimen/_10px"
-            android:text="返回方法列表页面" />
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20px">
 
+            <Button
+                android:id="@+id/return_method_list_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_35px"
+                android:background="@drawable/blue_button"
+                android:paddingLeft="@dimen/_10px"
+                android:paddingRight="@dimen/_10px"
+                android:text="返回方法列表页面" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
+            <Button
+                android:id="@+id/save_method_list_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_35px"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/blue_button"
+                android:paddingLeft="@dimen/_10px"
+                android:paddingRight="@dimen/_10px"
+                android:text="保存" />
+        </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="滴定类型"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_method_type"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="text"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:singleLine="true"
-                        android:text="@{TitratorParamsBeanUtils.getTitratorType(bean)}"
-                        android:textColor="@color/PluginFontColorBlack" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="方法名"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_method_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:text="@{TitratorParamsBeanUtils.getMethodName(bean)}"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-            </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="滴定管体积"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titrator_burette_volume"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/titrator_burette_volume_arrays"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="工作电极"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titrator_method_electrode"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/working_electrode_arrays"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="参比电极"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titrator_reference_electrode"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/titrator_reference_electrode_arrays"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="样品计量单位"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titrator_sample_measurement_unit"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/titrator_sample_measurement_unit_arryas"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="滴定显示单位"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titration_display_unit"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/titrator_display_unit_arrays"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="补液速度"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titrator_replenishment_speed"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/titrator_speed_arrays"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="搅拌速度"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titrator_stiring_speed"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/titrator_speed_arrays"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/titrator_electrode_equilibrium_time_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="电极平衡时间"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_electroed_equilibration_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/titrator_electrode_equilibrium_time_desc"
-                        android:layout_toRightOf="@+id/titrator_electrode_equilibrium_time_content"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:text="@{TitratorParamsBeanUtils.getElectroedEquilibrationTime(bean)}"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/titrator_electrode_equilibrium_time_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="@dimen/_10px"
-                        android:gravity="center_vertical"
-                        android:text="s"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/titrator_electrode_equilibrium_potential_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="电极平衡电位"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_eletroed_equilibrium_potential"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/titrator_electrode_equilibrium_potential_desc"
-                        android:layout_toRightOf="@+id/titrator_electrode_equilibrium_potential_content"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:text="@{TitratorParamsBeanUtils.getElectroedEquilibriumPotential(bean)}"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/titrator_electrode_equilibrium_potential_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="@dimen/_10px"
-                        android:gravity="center_vertical"
-                        android:text="mv"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="预搅拌时间"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_pre_stiring_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="text"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:singleLine="true"
-                        android:text="@{TitratorParamsBeanUtils.getPreStiringTime(bean)}"
-                        android:textColor="@color/PluginFontColorBlack" />
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/titrator_add_volume_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="每次添加体积"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_per_add_volume"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/titrator_add_volume_desc"
-                        android:layout_toRightOf="@+id/titrator_add_volume_content"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:text="@{TitratorParamsBeanUtils.getPerAddVolume(bean)}"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/titrator_add_volume_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="@dimen/_10px"
-                        android:gravity="center_vertical"
-                        android:text="ml"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/titrator_end_volume_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="结束体积"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_end_volume"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/titrator_end_volume_desc"
-                        android:layout_toRightOf="@+id/titrator_end_volume_content"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:text="@{TitratorParamsBeanUtils.getEndVolume(bean)}"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/titrator_end_volume_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="@dimen/_10px"
-                        android:gravity="center_vertical"
-                        android:text="ml"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="滴定速度"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:background="@drawable/edit_text">
-
-                        <Spinner
-                            android:id="@+id/titration_speed"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:entries="@array/titration_Speed"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/titrator_slow_volume_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="慢滴体积"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_slow_volume"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/titrator_slow_volume_desc"
-                        android:layout_toRightOf="@+id/titrator_slow_volume_content"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:text="@{TitratorParamsBeanUtils.getSlowTitrationVolume(bean)}"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/titrator_slow_volume_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="@dimen/_10px"
-                        android:gravity="center_vertical"
-                        android:text="ml"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/titrator_volume_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/_10px"
-                        android:paddingRight="@dimen/_10px"
-                        android:text="快滴体积"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/titrator_fast_titration_volume"
-                        android:layout_width="match_parent"
-                        android:layout_height="36dp"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/titrator_volume_desc"
-                        android:layout_toRightOf="@+id/titrator_volume_content"
-                        android:background="@drawable/edit_text"
-                        android:imeOptions="actionDone"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:text="@{TitratorParamsBeanUtils.getFastTitrationVolume(bean)}"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/titrator_volume_desc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="@dimen/_10px"
-                        android:gravity="center_vertical"
-                        android:text="ml"
-                        android:textColor="@color/PluginFontColorBlack"
-                        android:textSize="14sp" />
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_90px"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10px"
-                    android:layout_marginBottom="@dimen/_10px"
-                    android:paddingRight="@dimen/_10px"
-                    android:text="预滴定"
-                    android:textColor="@color/PluginFontColorBlack"
-                    android:textSize="16sp" />
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="滴定类型"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_method_type"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:singleLine="true"
+                                android:text="@{TitratorParamsBeanUtils.getTitratorType(bean)}"
+                                android:textColor="@color/PluginFontColorBlack" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="方法名"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_method_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="@{TitratorParamsBeanUtils.getMethodName(bean)}"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="滴定管体积"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titrator_burette_volume"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/titrator_burette_volume_arrays"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="工作电极"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titrator_method_electrode"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/working_electrode_arrays"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="参比电极"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titrator_reference_electrode"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/titrator_reference_electrode_arrays"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="样品计量单位"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titrator_sample_measurement_unit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/titrator_sample_measurement_unit_arryas"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="滴定显示单位"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titration_display_unit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/titrator_display_unit_arrays"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="补液速度"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titrator_replenishment_speed"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/titrator_speed_arrays"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="搅拌速度"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titrator_stiring_speed"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/titrator_speed_arrays"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/titrator_electrode_equilibrium_time_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="电极平衡时间"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_electroed_equilibration_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/titrator_electrode_equilibrium_time_desc"
+                                android:layout_toRightOf="@+id/titrator_electrode_equilibrium_time_content"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="@{TitratorParamsBeanUtils.getElectroedEquilibrationTime(bean)}"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/titrator_electrode_equilibrium_time_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_10px"
+                                android:gravity="center_vertical"
+                                android:text="s"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/titrator_electrode_equilibrium_potential_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="电极平衡电位"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_eletroed_equilibrium_potential"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/titrator_electrode_equilibrium_potential_desc"
+                                android:layout_toRightOf="@+id/titrator_electrode_equilibrium_potential_content"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="@{TitratorParamsBeanUtils.getElectroedEquilibriumPotential(bean)}"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/titrator_electrode_equilibrium_potential_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_10px"
+                                android:gravity="center_vertical"
+                                android:text="mv"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="预搅拌时间"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_pre_stiring_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:singleLine="true"
+                                android:text="@{TitratorParamsBeanUtils.getPreStiringTime(bean)}"
+                                android:textColor="@color/PluginFontColorBlack" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/titrator_add_volume_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="每次添加体积"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_per_add_volume"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/titrator_add_volume_desc"
+                                android:layout_toRightOf="@+id/titrator_add_volume_content"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="@{TitratorParamsBeanUtils.getPerAddVolume(bean)}"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/titrator_add_volume_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_10px"
+                                android:gravity="center_vertical"
+                                android:text="ml"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/titrator_end_volume_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="结束体积"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_end_volume"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/titrator_end_volume_desc"
+                                android:layout_toRightOf="@+id/titrator_end_volume_content"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="@{TitratorParamsBeanUtils.getEndVolume(bean)}"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/titrator_end_volume_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_10px"
+                                android:gravity="center_vertical"
+                                android:text="ml"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="滴定速度"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:background="@drawable/edit_text">
+
+                                <Spinner
+                                    android:id="@+id/titration_speed"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:entries="@array/titration_Speed"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/titrator_slow_volume_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="慢滴体积"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_slow_volume"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/titrator_slow_volume_desc"
+                                android:layout_toRightOf="@+id/titrator_slow_volume_content"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="@{TitratorParamsBeanUtils.getSlowTitrationVolume(bean)}"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/titrator_slow_volume_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_10px"
+                                android:gravity="center_vertical"
+                                android:text="ml"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/titrator_volume_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/_10px"
+                                android:paddingRight="@dimen/_10px"
+                                android:text="快滴体积"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/titrator_fast_titration_volume"
+                                android:layout_width="match_parent"
+                                android:layout_height="36dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/titrator_volume_desc"
+                                android:layout_toRightOf="@+id/titrator_volume_content"
+                                android:background="@drawable/edit_text"
+                                android:imeOptions="actionDone"
+                                android:inputType="numberDecimal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:text="@{TitratorParamsBeanUtils.getFastTitrationVolume(bean)}"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/titrator_volume_desc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginLeft="@dimen/_10px"
+                                android:gravity="center_vertical"
+                                android:text="ml"
+                                android:textColor="@color/PluginFontColorBlack"
+                                android:textSize="14sp" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_90px"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/titrator_pre_add_volume_content"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10px"
+                            android:layout_marginBottom="@dimen/_10px"
                             android:paddingRight="@dimen/_10px"
-                            android:text="预滴定添加体积"
+                            android:text="预滴定"
                             android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
+                            android:textSize="16sp" />
 
-                        <EditText
-                            android:id="@+id/titrator_pre_add_volume"
+
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="36dp"
-                            android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/titrator_pre_add_volume_desc"
-                            android:layout_toRightOf="@+id/titrator_pre_add_volume_content"
-                            android:background="@drawable/edit_text"
-                            android:imeOptions="actionDone"
-                            android:inputType="numberDecimal"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:text="@{TitratorParamsBeanUtils.getPreAddVolume(bean)}"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
+                            android:layout_height="50dp">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/titrator_pre_add_volume_content"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center_vertical"
+                                    android:paddingRight="@dimen/_10px"
+                                    android:text="预滴定添加体积"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                                <EditText
+                                    android:id="@+id/titrator_pre_add_volume"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="36dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/titrator_pre_add_volume_desc"
+                                    android:layout_toRightOf="@+id/titrator_pre_add_volume_content"
+                                    android:background="@drawable/edit_text"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:text="@{TitratorParamsBeanUtils.getPreAddVolume(bean)}"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/titrator_pre_add_volume_desc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginLeft="@dimen/_10px"
+                                    android:gravity="center_vertical"
+                                    android:text="mL"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/titrator_pre_end_stir_volume_content"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="@dimen/_10px"
+                                    android:paddingRight="@dimen/_10px"
+                                    android:text="预滴定后搅拌时间"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                                <EditText
+                                    android:id="@+id/titrator_pre_after_stiring_time"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="36dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/titrator_pre_end_stir_volume_desc"
+                                    android:layout_toRightOf="@+id/titrator_pre_end_stir_volume_content"
+                                    android:background="@drawable/edit_text"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:text="@{TitratorParamsBeanUtils.getPreAfterStiringTime(bean)}"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:id="@+id/titrator_pre_end_stir_volume_desc"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginLeft="@dimen/_10px"
+                                    android:gravity="center_vertical"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/titrator_pre_add_volume_desc"
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginLeft="@dimen/_10px"
-                            android:gravity="center_vertical"
-                            android:text="mL"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/titrator_pre_end_stir_volume_content"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/_10px"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10px"
+                            android:layout_marginBottom="@dimen/_10px"
                             android:paddingRight="@dimen/_10px"
-                            android:text="预滴定后搅拌时间"
+                            android:text="主滴定剂"
                             android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
+                            android:textSize="16sp" />
 
-                        <EditText
-                            android:id="@+id/titrator_pre_after_stiring_time"
+
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="36dp"
-                            android:layout_centerVertical="true"
-                            android:layout_toLeftOf="@+id/titrator_pre_end_stir_volume_desc"
-                            android:layout_toRightOf="@+id/titrator_pre_end_stir_volume_content"
-                            android:background="@drawable/edit_text"
-                            android:imeOptions="actionDone"
-                            android:inputType="numberDecimal"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:text="@{TitratorParamsBeanUtils.getPreAfterStiringTime(bean)}"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
+                            android:layout_height="50dp">
 
-                        <TextView
-                            android:id="@+id/titrator_pre_end_stir_volume_desc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginLeft="@dimen/_10px"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
 
-                    </RelativeLayout>
+                                <TextView
+                                    android:id="@+id/titrator_reagent_name_content"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center_vertical"
+                                    android:paddingRight="@dimen/_10px"
+                                    android:text="试剂名称"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="36dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/titrator_reagent_name_content"
+                                    android:background="@drawable/edit_text"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/titrator_theoretical_concentration_content"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerVertical="true"
+                                    android:gravity="center_vertical"
+                                    android:paddingLeft="@dimen/_10px"
+                                    android:paddingRight="@dimen/_10px"
+                                    android:text="理论浓度"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="36dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toRightOf="@+id/titrator_theoretical_concentration_content"
+                                    android:background="@drawable/edit_text"
+                                    android:imeOptions="actionDone"
+                                    android:inputType="numberDecimal"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="5dp"
+                                    android:textColor="@color/PluginFontColorBlack"
+                                    android:textSize="14sp" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <com.jh.automatic_titrator.ui.data.method.view.ParamsListItemView
+                        android:id="@+id/titrator_end_list_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10px" />
+
+
+                    <com.jh.automatic_titrator.ui.data.method.view.ParamsListItemView
+                        android:id="@+id/titrator_extra_params_list_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10px" />
                 </LinearLayout>
             </LinearLayout>
+        </ScrollView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_90px"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10px"
-                    android:layout_marginBottom="@dimen/_10px"
-                    android:paddingRight="@dimen/_10px"
-                    android:text="主滴定剂"
-                    android:textColor="@color/PluginFontColorBlack"
-                    android:textSize="16sp" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/titrator_reagent_name_content"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:paddingRight="@dimen/_10px"
-                            android:text="试剂名称"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="36dp"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@+id/titrator_reagent_name_content"
-                            android:background="@drawable/edit_text"
-                            android:imeOptions="actionDone"
-                            android:inputType="numberDecimal"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/titrator_theoretical_concentration_content"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_centerVertical="true"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/_10px"
-                            android:paddingRight="@dimen/_10px"
-                            android:text="理论浓度"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="36dp"
-                            android:layout_centerVertical="true"
-                            android:layout_toRightOf="@+id/titrator_theoretical_concentration_content"
-                            android:background="@drawable/edit_text"
-                            android:imeOptions="actionDone"
-                            android:inputType="numberDecimal"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:textColor="@color/PluginFontColorBlack"
-                            android:textSize="14sp" />
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <com.jh.automatic_titrator.ui.data.method.view.ParamsListItemView
-                    android:id="@+id/titrator_end_list_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100px" />
-
-
-                <com.jh.automatic_titrator.ui.data.method.view.ParamsListItemView
-                    android:id="@+id/titrator_extra_params_list_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100px"
-                    android:layout_marginTop="@dimen/_10px" />
-            </LinearLayout>
-
-        </LinearLayout>
     </LinearLayout>
+
 </layout>
