@@ -2,6 +2,8 @@ package com.jh.automatic_titrator;
 
 import android.app.Application;
 
+import com.jh.automatic_titrator.factory.FunctionFactory;
+
 import androidx.multidex.MultiDex;
 
 public class BaseApplication extends Application {
@@ -17,5 +19,6 @@ public class BaseApplication extends Application {
         super.onCreate();
         application = this;
         MultiDex.install(this);
+        FunctionFactory.registerDataCallBack();
     }
 }

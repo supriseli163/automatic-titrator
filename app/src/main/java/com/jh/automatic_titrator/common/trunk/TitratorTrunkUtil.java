@@ -1,23 +1,14 @@
 package com.jh.automatic_titrator.common.trunk;
 
-import android.util.Log;
-
-import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.trunk.data.CleanStatusResponseData;
 import com.jh.automatic_titrator.common.trunk.data.ResponseStatusEnum;
 import com.jh.automatic_titrator.common.trunk.data.TitratorEndPointResponseData;
 import com.jh.automatic_titrator.common.utils.HexUtil;
 import com.jh.automatic_titrator.service.ExecutorService;
 
-import org.apache.commons.codec.binary.Hex;
-
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -27,7 +18,7 @@ public class TitratorTrunkUtil {
 
     private static TitratorTrunkUtil titratorTrunkUtil;
     private SerialPortUtil serialPortUtil;
-    private Map<Integer, TitratorTrunkListener> titratorTrunkListenerMap;
+    private Map<Integer, TitratorTrunkListener> titratorTrunkListenerMap = new HashMap<>();
 
     private ByteBuffer byteBuffer;
     private byte lastByte = 0;
@@ -36,6 +27,7 @@ public class TitratorTrunkUtil {
     private int readLength = 0;
 
     private ReentrantLock reentrantLock = new ReentrantLock();
+
     private TitratorTrunkUtil() {
 
     }
@@ -43,7 +35,7 @@ public class TitratorTrunkUtil {
     private TitratorTrunkUtil(boolean mockStart) {
         this.mockStart = mockStart;
         serialPortUtil = SerialPortUtil.getInstance();
-        titratorTrunkListenerMap = new HashMap<>();
+
         byteBuffer = ByteBuffer.allocate(512);
         serialPortUtil.setOnDataReceiveListener(new SerialPortUtil.OnDataReceiveListener() {
             @Override
@@ -61,14 +53,14 @@ public class TitratorTrunkUtil {
     }
 
     public static TitratorTrunkUtil getInstance() {
-        if(titratorTrunkUtil == null) {
+        if (titratorTrunkUtil == null) {
             titratorTrunkUtil = new TitratorTrunkUtil();
         }
         return titratorTrunkUtil;
     }
 
     public static TitratorTrunkUtil getMockInstance() {
-        if(titratorTrunkUtil == null) {
+        if (titratorTrunkUtil == null) {
             titratorTrunkUtil = new TitratorTrunkUtil(true);
         }
         return titratorTrunkUtil;
@@ -76,7 +68,7 @@ public class TitratorTrunkUtil {
 
     private void readTitratorData(byte[] buffer, int size, int startIndex) {
         int finishIndex = checkFinish(lastByte, buffer, size, startIndex);
-        if(!readStarted) {
+        if (!readStarted) {
             int getStartIndex = readFromStart(buffer, size, startIndex, lastByte);
             readLength += readStartData(byteBuffer, buffer, size, lastByte, getStartIndex, finishIndex);
         } else {
@@ -219,11 +211,12 @@ public class TitratorTrunkUtil {
 
     /**
      * AA 55 00 19 80 15 00 00 19 CB 00 00 00 00 27 12 00 B0 00 00 00 02 7B CC 33
+     *
      * @param byteBuffer
      * @return
      */
     public CommandEnum getReadDataType(ByteBuffer byteBuffer) {
-        String string = HexUtil.toHexString(byteBuffer.array(),4,2);
+        String string = HexUtil.toHexString(byteBuffer.array(), 4, 2);
         return CommandEnum.fromCodes(string);
     }
 
@@ -241,13 +234,13 @@ public class TitratorTrunkUtil {
                 return readSupplementFinshedData(dataBytes);
             case CLEAN_STATUS:
                 return readCleanStatusData(dataBytes);
-                default:
-                    return null;
+            default:
+                return null;
         }
     }
 
     private Object readHandShakeData(byte[] data) {
-        if(data[0] == 0x00) {
+        if (data[0] == 0x00) {
             return ResponseStatusEnum.SUCCESS;
         } else {
             return ResponseStatusEnum.FAILED;
@@ -258,6 +251,7 @@ public class TitratorTrunkUtil {
      * 滴定完成数据指令：
      * 在电极支架的情况下代表地址，在进样器的情况下代表样品孔位
      * 指令表示某一个电机电极支架对应的滴定实验已完成
+     *
      * @param data
      * @return
      */
@@ -268,10 +262,11 @@ public class TitratorTrunkUtil {
 
     /**
      * 传输终点信息指令80 19
+     *
      * @return
      */
     private Object readTitratorEndPointData(byte[] data) {
-        int moduleAddrress= data[0];
+        int moduleAddrress = data[0];
         int endPointNum = data[1];
 //        int endPoint = data[3][4];
         return new TitratorEndPointResponseData();
@@ -280,6 +275,7 @@ public class TitratorTrunkUtil {
     /**
      * 补液完成
      * 返回主控模块地址
+     *
      * @param data
      * @return
      */
@@ -290,6 +286,7 @@ public class TitratorTrunkUtil {
 
     /**
      * 清洗状态
+     *
      * @param data
      * @return
      */
@@ -301,13 +298,6 @@ public class TitratorTrunkUtil {
         cleanStatusResponseData.setModuleAddress(moduleAddress);
         return cleanStatusResponseData;
     }
-
-
-
-
-
-
-
 
 
 ////    /**

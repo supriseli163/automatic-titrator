@@ -93,7 +93,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/titrator_operate_test_btn"
+                            android:id="@+id/titrator_operate_start_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/ceshi_btn_new"
@@ -105,11 +105,12 @@
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/titrator_operate_clear_btn"
+                            android:id="@+id/titrator_operate_stop_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_10px"
                             android:background="@drawable/qingling_btn_new"
+                            android:clickable="@{bean.isEnableClick}"
                             android:paddingLeft="@dimen/_55px"
                             android:paddingRight="@dimen/_20px"
                             android:text="@string/stop"
@@ -128,6 +129,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_20px"
                             android:background="@drawable/ceshi_btn_new"
+                            android:clickable="@{bean.isEnableClick}"
                             android:paddingLeft="@dimen/_55px"
                             android:paddingRight="@dimen/_20px"
                             android:text="@string/routine_maintenance"
@@ -141,7 +143,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_10px"
                             android:layout_marginTop="@dimen/_20px"
-                            android:background="@drawable/qingling_btn"
+                            android:background="@drawable/qingling_btn_new"
+                            android:clickable="@{bean.isEnableClick}"
                             android:paddingLeft="@dimen/_55px"
                             android:paddingRight="@dimen/_20px"
                             android:text="@string/emergency_stop"
@@ -158,6 +161,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_20px"
                         android:background="@drawable/ceshi_btn_new"
+                        android:clickable="@{bean.isEnableClick}"
                         android:paddingLeft="@dimen/_55px"
                         android:paddingRight="@dimen/_20px"
                         android:text="@string/atlas_switch"

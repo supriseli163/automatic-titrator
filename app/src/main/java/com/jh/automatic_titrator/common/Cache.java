@@ -10,6 +10,7 @@ import com.jh.automatic_titrator.entity.common.SingleResult;
 import com.jh.automatic_titrator.entity.common.TestMethod;
 import com.jh.automatic_titrator.entity.common.User;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 import com.jh.automatic_titrator.ui.data.method.TiratorMethod;
 
 import java.util.ArrayList;
@@ -65,6 +66,8 @@ public class Cache {
     private static volatile int formulaPositon = 0;
 
     private static volatile long lastModify = 0;
+
+    public static TitratorParamsBean bean;
 
     /**
      * 新增

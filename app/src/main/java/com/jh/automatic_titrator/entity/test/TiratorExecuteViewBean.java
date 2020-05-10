@@ -1,12 +1,14 @@
 package com.jh.automatic_titrator.entity.test;
 
-import android.util.Log;
+import android.widget.Toast;
+
+import com.jh.automatic_titrator.BR;
+import com.jh.automatic_titrator.BaseApplication;
 
 import java.io.Serializable;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-import androidx.databinding.library.baseAdapters.BR;
 
 public class TiratorExecuteViewBean extends BaseObservable implements Serializable {
 
@@ -16,14 +18,27 @@ public class TiratorExecuteViewBean extends BaseObservable implements Serializab
 
     public boolean isAtlasShow;
 
+    public boolean isEnableClick = true;
+
     @Bindable
     public boolean isAtlasShow() {
         return isAtlasShow;
     }
 
+    @Bindable
+    public boolean isEnableClick() {
+        Toast.makeText(BaseApplication.getApplication(), "可点击：" + isEnableClick, Toast.LENGTH_SHORT).show();
+        return isEnableClick;
+    }
+
+    public void updateEnable() {
+        isEnableClick = !isEnableClick;
+        notifyPropertyChanged(BR._all);
+    }
+
     public void updateAtlasStatus() {
         isAtlasShow = !isAtlasShow;
-        notifyPropertyChanged(BR.atlasShow);
+        notifyPropertyChanged(BR._all);
     }
 
     public void setTestTabSelect() {
