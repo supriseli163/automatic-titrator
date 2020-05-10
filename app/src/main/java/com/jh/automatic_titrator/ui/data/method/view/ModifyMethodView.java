@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -108,6 +107,7 @@ public class ModifyMethodView extends RelativeLayout {
                 checkBean();
                 String content = parent.getItemAtPosition(position).toString();
                 bean.getTitratorMethod().setReferenceElectrode(content);
+                setTextViewColor(R.color.fontBlack, (TextView) view);
             }
 
             @Override
@@ -339,7 +339,7 @@ public class ModifyMethodView extends RelativeLayout {
             public void afterTextChanged(Editable s) {
                 checkBean();
                 String content = s != null ? s.toString() : "0";
-                bean.getPreTitrant().setPreAfterstiringTime(Double.parseDouble(content));
+                bean.getPreTitrant().setPreAfterStiringTime(Double.parseDouble(content));
             }
         });
         // 预滴定添加体积
@@ -359,6 +359,58 @@ public class ModifyMethodView extends RelativeLayout {
                 checkBean();
                 String content = s != null ? s.toString() : "0";
                 bean.getPreTitrant().setPreAddVolume(Double.parseDouble(content));
+            }
+        });
+        // 主滴定剂名称
+        binding.titratorMainReagentName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                checkBean();
+                String content = s != null ? s.toString() : "";
+                bean.getMainTitrant().setReagentName(content);
+            }
+        });
+        // 主滴定剂理论浓度
+        binding.titratorMainTheoreticalConcentration.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        // 主滴定剂理论浓度
+        binding.titratorMainTheoreticalConcentrationUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                checkBean();
+                String content = parent.getItemAtPosition(position).toString();
+//                bean.getMainTitrant().setTheoreticalConcentration(content);
+                // todo设置理论单位
+                setTextViewColor(R.color.fontBlack, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }

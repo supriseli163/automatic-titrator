@@ -8,7 +8,6 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/params_list"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_200px"
             android:layout_above="@+id/data_list_opt_layout"
@@ -18,16 +17,46 @@
             android:background="@drawable/edit_text"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/banner_top"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/JH_4d6083"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
 
-            </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40px">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/JH_4d6083"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/_70px"
+                        android:layout_height="@dimen/_40px"
+                        android:text="@string/select"
+                        android:gravity="center"
+                        android:textColor="@color/colorWrite"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWrite" />
+
+                    <LinearLayout
+                        android:id="@+id/banner_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" />
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/params_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/data_button_group"
             android:layout_width="match_parent"
