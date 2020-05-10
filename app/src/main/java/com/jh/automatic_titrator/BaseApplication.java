@@ -2,6 +2,8 @@ package com.jh.automatic_titrator;
 
 import android.app.Application;
 
+import androidx.multidex.MultiDex;
+
 public class BaseApplication extends Application {
 
     private static Application application;
@@ -14,5 +16,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+        MultiDex.install(this);
     }
 }

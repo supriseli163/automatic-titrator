@@ -205,6 +205,18 @@ public class HexUtil {
 //
 //    }
 
+
+    /**
+     * 将字节数组前4字节转换为整型数值
+     *
+     * @param bytes
+     * @return
+     */
+    public static int getInt(byte[] bytes) {
+        return (0xff000000 & (bytes[0] << 24) | (0xff0000 & (bytes[1] << 16))
+                | (0xff00 & (bytes[2] << 8)) | (0xff & bytes[3]));
+    }
+
     public static String intToHex(int n,int size) {
         StringBuffer s = new StringBuffer();
         String a;
@@ -226,5 +238,63 @@ public class HexUtil {
         }else {
             return str;
         }
+    }
+
+    /**
+     * 求校验和的算法
+     * @param b 需要求校验和的字节数组
+     * @return 校验和
+     */
+    public static byte sumCheck(byte[] b, int len){
+        int sum = 0;
+        for(int i = 0; i < len; i++){
+            sum = sum + b[i];
+        }
+        if(sum > 0xff){ //超过了255，使用补码（补码 = 原码取反 + 1）
+            sum = ~sum;
+            sum = sum + 1;
+        }
+        return (byte) (sum & 0xff);
+    }
+
+    /**
+     * 校验和
+     *
+     * @param msg 需要计算校验和的byte数组
+     * @param length 校验和位数
+     * @return 计算出的校验和数组
+     */
+    public static byte[] SumCheck(byte[] msg, int length) {
+        long mSum = 0;
+        byte[] mByte = new byte[length];
+
+        /** 逐Byte添加位数和 */
+        for (byte byteMsg : msg) {
+            long mNum = ((long)byteMsg >= 0) ? (long)byteMsg : ((long)byteMsg + 256);
+            mSum += mNum;
+        } /** end of for (byte byteMsg : msg) */
+
+        /** 位数和转化为Byte数组 */
+        for (int liv_Count = 0; liv_Count < length; liv_Count++) {
+            mByte[length - liv_Count - 1] = (byte)(mSum >> (liv_Count * 8) & 0xff);
+        } /** end of for (int liv_Count = 0; liv_Count < length; liv_Count++) */
+
+        return mByte;
+    }
+
+    /**
+     * 将byte数组转换为字符串形式表示的十六进制数方便查看
+     */
+    public static StringBuffer bytesToString(byte[] bytes)
+    {
+        StringBuffer sBuffer = new StringBuffer();
+        for (int i = 0; i < bytes.length; i++)
+        {
+            String s = Integer.toHexString(bytes[i] & 0xFF);
+            if (s.length() < 2)
+                sBuffer.append('0');
+            sBuffer.append(s + " ");
+        }
+        return sBuffer;
     }
 }

@@ -109,7 +109,32 @@ public class TitratorTrunkUtil {
         if (finishIndex != -1 && finishIndex + 1 < size) {
             readTitratorData(buffer, size, finishIndex + 1);
         }
+    }
 
+    public int addListener(TitratorTrunkListener trunkListener, int id) {
+        reentrantLock.lock();
+        try {
+            titratorTrunkListenerMap.put(id, trunkListener);
+        } finally {
+            reentrantLock.unlock();
+        }
+        return id;
+    }
+
+    public void sendCmd(byte[] cmd) {
+//        int length = cmd.length + 8;
+//        int sum = length % (256 * 256) / 256 + length % 256;
+//        for (byte b : cmd) {
+//            sum += b & 0xff;
+//        }
+//        ByteBuffer byteBuffer = ByteBuffer.allocate(length);
+//        byteBuffer.put((byte) 0xAA).put((byte) 0x55);
+//        byteBuffer.put((byte) (length % (256 * 256) / 256)).put((byte) (length % 256));
+//        byteBuffer.put(cmd);
+//        byteBuffer.put((byte) ((sum & 0xff00) >> 8)).put((byte) (sum & 0xff));
+//        byteBuffer.put((byte) 0xCC).put((byte) 0x33);
+
+        serialPortUtil.sendBuffer(byteBuffer.array());
     }
 
     private byte[] getOriginData(ByteBuffer byteBuffer) {
@@ -218,7 +243,6 @@ public class TitratorTrunkUtil {
                 return readCleanStatusData(dataBytes);
                 default:
                     return null;
-
         }
     }
 

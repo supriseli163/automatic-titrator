@@ -8,6 +8,7 @@ android {
     }
 //    buildToolsVersion "29.0.2"
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.jh.automatic_titrator"
         minSdkVersion 19
         targetSdkVersion 28
@@ -59,6 +60,8 @@ dependencies {
     implementation 'net.sourceforge.streamsupport:streamsupport:1.7.1'
     implementation 'org.projectlombok:lombok:1.16.8'
     implementation 'org.glassfish:javax.annotation:10.0-b28'
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'com.android.support:multidex:1.0.3'
 
     // 单元测试
     testImplementation 'junit:junit:4.12'

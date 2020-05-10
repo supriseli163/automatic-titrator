@@ -117,10 +117,7 @@ public class TitratorCommandAdapter extends DataFrame {
 
         //00 00 代表初次添加的体积，把体积ml转换成ul避免传输小数，如0.1ml传送的时候100代表100ul
         double preAddVolume = Double.valueOf(titratorMethod.getPerAddVolume());
-
-
-
-
+        
         //00传送终点个数
         command.append(String.format("0%s", titratorParamsBean.getEndPointSettings().size()));
 

@@ -2,6 +2,8 @@ package com.jh.automatic_titrator.common.trunk;
 
 import com.jh.automatic_titrator.common.utils.HexUtil;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -26,6 +28,7 @@ public class DataFrame {
     public byte[] sum = new byte[2];
     public byte[] end = new byte[2];
     public boolean up;
+    public String cmd;
 
     public DataFrame(){
     }
@@ -94,6 +97,14 @@ public class DataFrame {
         this.command = CommandEnum.getCommandBytes(this.commandEnum);
         this.size = toByteArray(computeSize());
         this.sum = computeSum();
+
+        String cmdStr = "";
+        byte[] bytes = ArrayUtils.addAll(this.getHeader(), this.getSize());
+        bytes = ArrayUtils.addAll(bytes, this.getCommand());
+        bytes = ArrayUtils.addAll(bytes, this.getData());
+        bytes = ArrayUtils.addAll(bytes, this.getSum());
+        bytes = ArrayUtils.addAll(bytes, this.getEnd());
+        this.setCmd(HexUtil.bytesToString(bytes).toString());
     }
 
     /**
@@ -141,9 +152,17 @@ public class DataFrame {
         return this.header.length + this.command.length + 2 + this.end.length + this.data.length;
     }
 
-    public static byte[] computeSum() {
-        return new byte[0];
+    /**
+     * 校验和计算方法:
+     * @return
+     */
+    public byte[] computeSum() {
+        byte[] sum = ArrayUtils.addAll(this.getSize(), this.getCommand());
+        sum = ArrayUtils.addAll(this.getData(), sum);
+        return HexUtil.SumCheck(sum,2);
     }
+
+
 
 
     @Override
