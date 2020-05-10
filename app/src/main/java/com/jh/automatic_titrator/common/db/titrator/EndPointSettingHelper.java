@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.jh.automatic_titrator.common.utils.StringUtils;
+import com.jh.automatic_titrator.entity.common.TestMethod;
 import com.jh.automatic_titrator.entity.common.titrator.EndPointSetting;
 
 import java.util.ArrayList;
@@ -83,5 +84,28 @@ public class EndPointSettingHelper {
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("delete from end_point_setting where titratorMethodId = ").append(methodId);
         db.execSQL(sqlBuilder.toString());
+    }
+
+    public void updateEndPoint(EndPointSetting endPointSetting) {
+        StringBuilder updateSB = new StringBuilder();
+        updateSB.append("update end_point_setting set");
+        updateSB.append("titratorMethodId = ").append(endPointSetting.getTitratorMethodId()).append(",");
+        updateSB.append("burette = ").append(endPointSetting.getBurette()).append(",");
+        updateSB.append("reagentName = ").append(endPointSetting.getReagentName()).append(",");
+        updateSB.append("reagentConcentration = ").append(endPointSetting.getReagentConcentration()).append(",");
+        updateSB.append("reagentConcentrationUnit = '").append(endPointSetting.getReagentConcentrationUnit()).append("',");
+        updateSB.append("addVolume = ").append(endPointSetting.getAddVolume()).append(",");
+        updateSB.append("addSpeed = ").append(endPointSetting.getAddSpeed()).append(",");
+        updateSB.append("addTime = ").append(endPointSetting.getAddTime()).append(",");
+        updateSB.append("referenceEndPoint = ").append(endPointSetting.getReferenceEndPoint()).append(",");
+        updateSB.append("delayTime = ").append(endPointSetting.getDelayTime()).append(",");
+        updateSB.append("where ");
+        db.execSQL(updateSB.toString());
+    }
+
+    public void updateEndPoint(List<EndPointSetting> endPointSettings) {
+        for(EndPointSetting endPointSetting : endPointSettings) {
+            updateEndPoint(endPointSetting);
+        }
     }
 }

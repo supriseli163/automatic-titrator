@@ -19,6 +19,7 @@ android {
                 cppFlags "-frtti -fexceptions"
             }
         }
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
     buildTypes {
         release {
@@ -56,6 +57,8 @@ dependencies {
     implementation 'com.google.guava:guava:29.0-android'
     implementation 'com.alibaba:fastjson:1.2.68'
     implementation 'net.sourceforge.streamsupport:streamsupport:1.7.1'
+    implementation 'org.projectlombok:lombok:1.16.8'
+    implementation 'org.glassfish:javax.annotation:10.0-b28'
 
     // 单元测试
     testImplementation 'junit:junit:4.12'

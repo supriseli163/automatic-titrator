@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorEndPoint;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,5 +59,22 @@ public class TitratorEndPointHelper {
         StringBuilder sqlBuilder = new StringBuilder();
         sqlBuilder.append("delete from titrator_end_point where titratorMethodId = ").append(titratorMethodId);
         db.execSQL(sqlBuilder.toString());
+    }
+
+    public void updateEndPoint(TitratorEndPoint titratorEndPoint) {
+        StringBuilder updateSql = new StringBuilder();
+        updateSql.append("update titrator_end_point set ");
+        updateSql.append("titratorMethodId = ").append(titratorEndPoint.getTitratorMethodId()).append(",");
+        updateSql.append("endPointValue = ").append(titratorEndPoint.getEndPointValue()).append(",");
+        updateSql.append("preControlvalue = ").append(titratorEndPoint.getPreControlvalue()).append(",");
+        updateSql.append("correlationCoefficient = ").append(titratorEndPoint.getCorrelationCoefficient()).append(",");
+        updateSql.append("where id=").append(titratorEndPoint.getId());
+        db.execSQL(updateSql.toString());
+    }
+
+    public void updateEndPoints(List<TitratorEndPoint> titratorEndPoints) {
+        for(TitratorEndPoint titratorEndPoint : titratorEndPoints) {
+            updateEndPoint(titratorEndPoint);
+        }
     }
 }

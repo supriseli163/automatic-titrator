@@ -120,6 +120,7 @@ public class TitratorMethodHelper {
         updateSql.append("fastTitrationVolume = ").append(titratorMethod.getFastTitrationVolume()).append(",");
         updateSql.append("modifyTime = ").append(titratorMethod.getModifyTime());
         updateSql.append("userName = ").append(titratorMethod.getUserName());
+        updateSql.append("where id=").append(titratorMethod.getId());
         db.execSQL(updateSql.toString());
     }
 
@@ -128,45 +129,6 @@ public class TitratorMethodHelper {
         deleteSql.append("delete from titrator_method where id = ")
                 .append(methodId);
         db.execSQL(deleteSql.toString());
-    }
-
-    public void deleteMethod(List<Integer> ids) {
-        StringBuilder deleteSql = new StringBuilder();
-        deleteSql.append("delete from titrator_method where id in(");
-        for (int id : ids) {
-            deleteSql.append(id).append(",");
-        }
-        deleteSql.deleteCharAt(deleteSql.length() - 1);
-        deleteSql.append(")");
-        db.execSQL(deleteSql.toString());
-    }
-
-//    public TitratorMethod
-
-    public List<TitratorMethod> listTitorMethod(String startDate, String enddate,
-                                                String sampleName,
-                                                Double gt,
-                                                Double lt,
-                                                String creator,
-                                                int page,
-                                                int pageSize) {
-        List<TitratorMethod> titratorMethods = new ArrayList<>();
-        StringBuilder sqlSb = new StringBuilder();
-        sqlSb.append("select * from titrator_method");
-        boolean neeAnd = false;
-        if (StringUtils.isNotEmpty(startDate) ||
-                StringUtils.isNotEmpty(enddate) ||
-                StringUtils.isNotEmpty(creator) ||
-                StringUtils.isNotEmpty(sampleName) ||
-                gt != null ||
-                lt != null) {
-            sqlSb.append("where ");
-            if (StringUtils.isNotEmpty(startDate)) {
-                sqlSb.append("datatime(`date`) >= datetime('").append(startDate);
-            }
-        }
-
-        return titratorMethods;
     }
 
     public List<TitratorMethod> listMethodByType(String titratorTypeDesc, int pagNum, int pageSize) {
@@ -212,29 +174,55 @@ public class TitratorMethodHelper {
         return result;
     }
 
-    public Integer listMethodCountByType(TitratorTypeEnum titratorTypeEnum) {
-        int count = 0;
-        StringBuilder sqlSb = new StringBuilder();
-        sqlSb.append("select count(*) from titrator_method where titratorType =").append(titratorTypeEnum.getDesc());
+    public TitratorMethod selectByMethod(int titratorMethodId) {
+        StringBuilder updateSql = new StringBuilder();
+        updateSql.append("select * from titrator_method").append("where id=").append(titratorMethodId);
+        db.rawQuery(updateSql.toString(), null);
+
         Cursor cursor = null;
         try {
-            cursor = db.rawQuery(sqlSb.toString(), null);
+            cursor = db.rawQuery(updateSql.toString(), null);
             cursor.moveToFirst();
-            if (!cursor.isAfterLast()) {
-                return cursor.getInt(0);
+            while (!cursor.isAfterLast()) {
+                TitratorMethod titratorMethod = new TitratorMethod();
+                titratorMethod.setId(cursor.getInt(0));
+                titratorMethod.setTitratorType(cursor.getString(1));
+                titratorMethod.setMethodName(cursor.getString(2));
+                titratorMethod.setBuretteVolume(cursor.getDouble(3));
+                titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.fromDesc(cursor.getString(4)));
+                titratorMethod.setReferenceElectrode(cursor.getDouble(5));
+                titratorMethod.setSampleMeasurementUnit(cursor.getString(6));
+                titratorMethod.setTitrationDisplayUnit(cursor.getString(7));
+                titratorMethod.setPreStiringTime(cursor.getString(8));
+                titratorMethod.setStiringSpeed(cursor.getString(9));
+                titratorMethod.setElectroedEquilibrationTime(cursor.getString(10));
+                titratorMethod.setElectroedEquilibriumPotential(cursor.getString(11));
+                titratorMethod.setPreStiringTime(cursor.getString(12));
+                titratorMethod.setPerAddVolume(cursor.getString(13));
+                titratorMethod.setEndVolume(cursor.getString(14));
+                titratorMethod.setTitrationSpeed(cursor.getInt(15));
+                titratorMethod.setSlowTitrationVolume(cursor.getString(16));
+                titratorMethod.setFastTitrationVolume(cursor.getString(17));
+                titratorMethod.setModifyTime(cursor.getString(18));
+                titratorMethod.setUserName(cursor.getString(19));
+                return titratorMethod;
             }
+        } catch (Exception ex) {
+            Log.d("sql Exception", String.format("selectByMethod error, titratorMethodId:%s, ex:%s", titratorMethodId, ex));
         } finally {
             if (cursor != null) {
                 cursor.close();
             }
         }
-        return 0;
+        return null;
     }
 
-    public int countMethod() {
+    public int countMethod(String titratorTypeDesc) {
         Cursor cursor = null;
         try {
-            cursor = db.rawQuery("select count(*) from titrator_method", null);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("select * from titrator_method where titratorType = ").append('"').append(titratorTypeDesc).append('"');
+            cursor = db.rawQuery(stringBuilder.toString(), null);
             cursor.moveToFirst();
             if (!cursor.isAfterLast()) {
                 return cursor.getInt(0);

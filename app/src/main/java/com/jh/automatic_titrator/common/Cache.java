@@ -71,6 +71,8 @@ public class Cache {
      */
     private static TiratorMethod tiratorMethod;
 
+
+
     //权限条目
     private static void initManagerAuth() {
         managerAuth = new HashSet<>();

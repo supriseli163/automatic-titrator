@@ -20,6 +20,8 @@ public class TrunkUtil {
     private static TrunkUtil trunkUtil;
     private SerialPortUtil serialPortUtil;
     private Map<Integer, TrunkListener> trunkListeners;
+    private Map<Integer, TitratorTrunkListener> titratorTrunkListenerMap;
+
     private ByteBuffer byteBuffer;
 
     private byte lastByte = 0;
@@ -57,6 +59,7 @@ public class TrunkUtil {
         });
     }
 
+
     public static TrunkUtil getInstance() {
         if (trunkUtil == null) {
             trunkUtil = new TrunkUtil();
@@ -86,6 +89,7 @@ public class TrunkUtil {
         testData.setData(data);
         return testData;
     }
+
 
     private void readData(byte[] buffer, int size, int startIndex) {
         int finishIndex = checkFinish(lastByte, buffer, size, startIndex);
@@ -565,6 +569,18 @@ public class TrunkUtil {
         return id;
     }
 
+    public int addEventListener(TitratorTrunkListener trunkListener, int id) {
+        reentrantLock.lock();
+        try {
+            titratorTrunkListenerMap.put(id, trunkListener);
+        } finally {
+            reentrantLock.unlock();
+        }
+        return id;
+    }
+
+
+
     public void cleanListener() {
         reentrantLock.lock();
         try {
@@ -578,6 +594,15 @@ public class TrunkUtil {
         reentrantLock.lock();
         try {
             trunkListeners.remove(id);
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public void removeEventListener(int id) {
+        reentrantLock.lock();
+        try {
+            titratorTrunkListenerMap.remove(id);
         } finally {
             reentrantLock.unlock();
         }
@@ -629,5 +654,17 @@ public class TrunkUtil {
         testData.setData(data);
         TrunkData trunkData = new TrunkData(TrunkConst.TYPE_TESTDATA, testData, readLength, new byte[64]);
         return trunkData;
+    }
+
+    public static byte sumCheck(byte[] b, int len) {
+        int sum = 0;
+        for(int i = 0; i < len; i++) {
+            sum = sum + b[i];
+        }
+        if(sum > 0xff) {
+            sum = ~sum;
+            sum = sum + 1;
+        }
+        return (byte)(sum & 0xff);
     }
 }

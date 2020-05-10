@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,13 +49,13 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
                 android:src="@drawable/icon_cut" />
-            
+
             <EditText
                 android:id="@+id/et_changeV"
                 android:layout_width="200dp"
                 android:layout_height="40dp"
-                android:background="@drawable/edit_text"
                 android:layout_marginLeft="50dp"
+                android:background="@drawable/edit_text"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:textColor="@color/fontGray"
@@ -67,8 +66,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginLeft="20dp"
-                android:text="@string/change_v"
-                android:background="@color/colorBlue"/>
+                android:background="@color/colorBlue"
+                android:text="@string/change_v" />
 
         </LinearLayout>
 
@@ -76,8 +75,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -108,6 +107,7 @@
                 </LinearLayout>
 
                 //1，2
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -168,6 +168,7 @@
                 </LinearLayout>
 
                 //3，4
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -228,6 +229,7 @@
                 </LinearLayout>
 
                 //5，6
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -288,6 +290,7 @@
                 </LinearLayout>
 
                 //7，8
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -348,6 +351,7 @@
                 </LinearLayout>
 
                 //锁零点，千，万
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -428,12 +432,12 @@
                     android:id="@+id/setting_initail_movelogo_layout"
                     android:layout_width="60dp"
                     android:layout_height="30dp"
-                    android:gravity="center"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="25dp"
+                    android:layout_toRightOf="@+id/setting_initail_movelogo_txt"
                     android:background="@drawable/icon_off"
-                    android:orientation="vertical"
-                    android:layout_toRightOf="@+id/setting_initail_movelogo_txt">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <CheckBox
                         android:id="@+id/setting_initail_movelogo"
@@ -443,41 +447,41 @@
                         android:button="@drawable/checkbox1"
                         android:enabled="false"
                         android:focusable="false"
-                        android:visibility="invisible"/>
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <!--<TextView-->
-                    <!--android:id="@+id/setting_initail_changeV_txt"-->
-                    <!--android:layout_width="80dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_centerVertical="true"-->
-                    <!--android:text="@string/change_v"-->
-                    <!--android:textColor="@color/fontGray"-->
-                    <!--android:textSize="15sp"-->
-                    <!--android:layout_marginLeft="100dp"-->
-                    <!--android:layout_toRightOf="@+id/setting_initail_movelogo_layout"/>-->
+                <!--android:id="@+id/setting_initail_changeV_txt"-->
+                <!--android:layout_width="80dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:text="@string/change_v"-->
+                <!--android:textColor="@color/fontGray"-->
+                <!--android:textSize="15sp"-->
+                <!--android:layout_marginLeft="100dp"-->
+                <!--android:layout_toRightOf="@+id/setting_initail_movelogo_layout"/>-->
 
                 <!--<LinearLayout-->
-                    <!--android:id="@+id/setting_initail_changeV_layout"-->
-                    <!--android:layout_width="120dp"-->
-                    <!--android:layout_height="36dp"-->
-                    <!--android:gravity="center"-->
-                    <!--android:background="@drawable/edit_text"-->
-                    <!--android:layout_marginTop="22dp"-->
-                    <!--android:paddingLeft="5dp"-->
-                    <!--android:paddingRight="5dp"-->
-                    <!--android:orientation="vertical"-->
-                    <!--android:layout_toRightOf="@+id/setting_initail_changeV_txt">-->
+                <!--android:id="@+id/setting_initail_changeV_layout"-->
+                <!--android:layout_width="120dp"-->
+                <!--android:layout_height="36dp"-->
+                <!--android:gravity="center"-->
+                <!--android:background="@drawable/edit_text"-->
+                <!--android:layout_marginTop="22dp"-->
+                <!--android:paddingLeft="5dp"-->
+                <!--android:paddingRight="5dp"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_toRightOf="@+id/setting_initail_changeV_txt">-->
 
-                    <!--<Spinner-->
-                        <!--android:id="@+id/setting_initail_changeV_sp"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:layout_centerVertical="true"-->
-                        <!--android:backgroundTint="@color/colorGray"-->
-                        <!--android:entries="@array/changeV_type"-->
-                        <!--android:inputType="text">-->
-                    <!--</Spinner>-->
+                <!--<Spinner-->
+                <!--android:id="@+id/setting_initail_changeV_sp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:backgroundTint="@color/colorGray"-->
+                <!--android:entries="@array/changeV_type"-->
+                <!--android:inputType="text">-->
+                <!--</Spinner>-->
                 <!--</LinearLayout>-->
 
                 <LinearLayout
@@ -509,10 +513,10 @@
             android:id="@+id/setting_initail_factory_recover_btn"
             android:layout_width="140dp"
             android:layout_height="40dp"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/orange_button"
             android:gravity="center"
             android:orientation="horizontal">
@@ -530,8 +534,8 @@
             android:layout_width="140dp"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:layout_toLeftOf="@+id/setting_initail_factory_recover_btn"
             android:background="@drawable/black_button"
             android:gravity="center"

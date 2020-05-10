@@ -7,6 +7,7 @@ import com.jh.automatic_titrator.common.db.TestHelper;
 import com.jh.automatic_titrator.common.db.titrator.TitratorParamsBeanHelper;
 import com.jh.automatic_titrator.entity.TestEntity;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -74,7 +75,9 @@ public class ExampleInstrumentedTest {
      */
     @Test
     public void testUpdateTitratorType() {
-
+        TitratorParamsBean titratorParamsBean = TestEntity.getTitratorParamsBean();
+        titratorParamsBean.getTitratorMethod().setTitrationSpeed(1);
+        titratorParamsBeanHelper.updateTitratorMethod(titratorParamsBean);
     }
 
     @Test
@@ -85,6 +88,13 @@ public class ExampleInstrumentedTest {
 
     @Test
     public void countMethod() {
-        System.err.println(titratorParamsBeanHelper.countMethod());
+        System.err.println(titratorParamsBeanHelper.countMethod(TitratorTypeEnum.DynamicTitrator));
+    }
+
+    @Test
+    public void testSelectByMethod() throws Throwable {
+        int id = 17;
+        TitratorParamsBean titratorParamsBean = titratorParamsBeanHelper.selectByMethodId(id);
+        System.err.println(JSON.toJSONString(titratorParamsBean));
     }
 }

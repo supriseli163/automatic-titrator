@@ -16,7 +16,7 @@ public class TestEntity {
     public static TitratorParamsBean getTitratorParamsBean() {
         TitratorParamsBean  titratorParamsBean = new TitratorParamsBean();
         titratorParamsBean.setTitratorMethod(getTitratorMethod());
-        titratorParamsBean.setTitratorEndPoint(Lists.newArrayList(getTitratorMethodEndPoint()));
+        titratorParamsBean.setTitratorEndPoints(Lists.newArrayList(getTitratorMethodEndPoint()));
         titratorParamsBean.setEndPointSettings(Lists.newArrayList(getEndPointSetting()));
         return titratorParamsBean;
     }

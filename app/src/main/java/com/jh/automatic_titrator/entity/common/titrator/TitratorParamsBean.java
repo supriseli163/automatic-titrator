@@ -9,7 +9,7 @@ public class TitratorParamsBean {
     // 方法属性
     public TitratorMethod titratorMethod;
     // 滴定属性
-    public List<TitratorEndPoint> titratorEndPoint;
+    public List<TitratorEndPoint> titratorEndPoints;
     // 主滴定剂量
     public MainTitrant mainTitrant;
 
@@ -36,11 +36,11 @@ public class TitratorParamsBean {
     }
 
     public List<TitratorEndPoint> getTitratorEndPoint() {
-        return titratorEndPoint;
+        return titratorEndPoints;
     }
 
-    public void setTitratorEndPoint(List<TitratorEndPoint> titratorEndPoint) {
-        this.titratorEndPoint = titratorEndPoint;
+    public void setTitratorEndPoints(List<TitratorEndPoint> titratorEndPoints) {
+        this.titratorEndPoints = titratorEndPoints;
     }
 
     public List<EndPointSetting> getEndPointSettings() {
