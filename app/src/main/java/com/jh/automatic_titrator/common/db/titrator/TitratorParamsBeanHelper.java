@@ -37,7 +37,7 @@ public class TitratorParamsBeanHelper {
         fillEndPointSettingId(titratorParamsBean.getEndPointSettings(), insertTitratorMethod.getId());
         fillTitratorEndPointId(titratorParamsBean.getTitratorEndPoint(), insertTitratorMethod.getId());
         endPointSettingHelper.insertEndPointSetting(titratorParamsBean.getEndPointSettings());
-        titratorEndPointHelper.insertTitratorEndPoints(titratorMethod.getTitratorEndPoints());
+        titratorEndPointHelper.insertTitratorEndPoints(titratorParamsBean.getTitratorEndPoint());
     }
 
     public TitratorParamsBean selectByMethodId(int methodId) throws Throwable {
@@ -65,7 +65,7 @@ public class TitratorParamsBeanHelper {
             TitratorParamsBean titratorParamsBean = new TitratorParamsBean();
             List<EndPointSetting> endPointSettings = endPointSettingHelper.quertEndPointSettingByMethodId(titratorMethod.getId());
             List<TitratorEndPoint> titratorEndPoints = titratorEndPointHelper.queryTitratorEndPoints(titratorMethod.getId());
-            titratorMethod.setTitratorEndPoints(titratorEndPoints);
+//            titratorMethod.setTitratorEndPoints(titratorEndPoints);
 //            titratorMethod.setEndPointSettingList(endPointSettings);
             titratorParamsBean.setTitratorMethod(titratorMethod);
             titratorParamsBean.setEndPointSettings(endPointSettings);
@@ -76,7 +76,7 @@ public class TitratorParamsBeanHelper {
     }
 
     public int countMethod(TitratorTypeEnum titratorTypeEnum) {
-        return titratorMethodHelper.countMethod();
+        return titratorMethodHelper.countMethod(titratorTypeEnum.getDesc());
     }
 
     public void updateTitratorMethod(TitratorParamsBean titratorParamsBean) {

@@ -189,7 +189,7 @@ public class TitratorMethodHelper {
                 titratorMethod.setTitratorType(cursor.getString(1));
                 titratorMethod.setMethodName(cursor.getString(2));
                 titratorMethod.setBuretteVolume(cursor.getDouble(3));
-                titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.fromDesc(cursor.getString(4)));
+                titratorMethod.setWorkingElectrode((cursor.getString(4)));
                 titratorMethod.setReferenceElectrode(cursor.getDouble(5));
                 titratorMethod.setSampleMeasurementUnit(cursor.getString(6));
                 titratorMethod.setTitrationDisplayUnit(cursor.getString(7));

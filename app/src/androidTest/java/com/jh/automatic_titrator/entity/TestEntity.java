@@ -26,7 +26,7 @@ public class TestEntity {
         titratorMethod.setTitratorType(titratorTypeEnum.getDesc());
         titratorMethod.setMethodName("测试永停滴定");
         titratorMethod.setBuretteVolume(10);
-        titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.Calcium_Electrode);
+        titratorMethod.setWorkingElectrode(WorkElectrodeEnnum.Calcium_Electrode.getDesc());
         titratorMethod.setReferenceElectrode(10);
         titratorMethod.setTitrationDisplayUnit("1");
         titratorMethod.setReplenishmentSpeed("10");
@@ -47,8 +47,8 @@ public class TestEntity {
         titratorMethod.setSampleMeasurementUnit("10");
         titratorMethod.setModifyTime(String.valueOf(System.currentTimeMillis()));
         titratorMethod.setUserName("admin");
-        titratorMethod.setEndPointSettingList(Lists.newArrayList(getEndPointSetting()));
-        titratorMethod.setTitratorEndPoints(Lists.newArrayList(getTitratorMethodEndPoint()));
+//        titratorMethod.s(Lists.newArrayList(getEndPointSetting()));
+//        titratorMethod.setTitratorEndPoints(Lists.newArrayList(getTitratorMethodEndPoint()));
         return titratorMethod;
     }
 

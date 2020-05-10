@@ -13,7 +13,6 @@ import static com.jh.automatic_titrator.common.utils.HexUtil.toByteArray;
 import static com.jh.automatic_titrator.common.utils.HexUtil.toHexString;
 
 @Data
-@Builder
 public class DataFrame {
 
     private static final String HEADER = "AA55";
@@ -29,7 +28,6 @@ public class DataFrame {
     public boolean up;
 
     public DataFrame(){
-
     }
 
     /**
@@ -110,12 +108,6 @@ public class DataFrame {
         return this;
     }
 
-
-
-
-
-
-
     /**
      *开始滴定命令参数
      ** 主控模块下有四个滴定模块，其对应的地址如下：
@@ -143,10 +135,6 @@ public class DataFrame {
         this.sum = computeSum();
         return this;
     }
-
-
-
-
 
 
     public int computeSize() {

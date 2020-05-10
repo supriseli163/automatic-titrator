@@ -75,14 +75,14 @@ public class TitratorMethod extends BaseObservable {
 //        this.userName = StringUtils.getCurrentUserName();
         this.userName = userName;
     }
-
-    public List<TitratorEndPoint> getTitratorEndPoints() {
-        return titratorEndPoints;
-    }
-
-    public void setTitratorEndPoints(List<TitratorEndPoint> titratorEndPoints) {
-        this.titratorEndPoints = titratorEndPoints;
-    }
+//
+//    public List<TitratorEndPoint> getTitratorEndPoints() {
+//        return titratorEndPoints;
+//    }
+//
+//    public void setTitratorEndPoints(List<TitratorEndPoint> titratorEndPoints) {
+//        this.titratorEndPoints = titratorEndPoints;
+//    }
 
     @Bindable
     public String getTitratorTypeText() {

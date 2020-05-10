@@ -22,7 +22,7 @@ public class TitratorParamsBean {
 
     public TitratorParamsBean() {
         this.titratorMethod = new TitratorMethod();
-        titratorEndPoint = new ArrayList<>();
+        titratorEndPoints = new ArrayList<>();
         mainTitrant = new MainTitrant();
         preTitrant = new PreTitrant();
     }

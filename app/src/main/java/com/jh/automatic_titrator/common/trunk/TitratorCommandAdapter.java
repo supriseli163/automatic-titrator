@@ -2,6 +2,7 @@ package com.jh.automatic_titrator.common.trunk;
 
 import com.jh.automatic_titrator.entity.common.titrator.SampleTypeEnum;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorTypeEnum;
 
 import java.lang.reflect.Array;
@@ -65,7 +66,7 @@ public class TitratorCommandAdapter extends DataFrame {
      *  目前观察电极支架发送位0x00
      * @return
      */
-    public DataFrame getTitratorMethodDataFrame(TitratorMethod titratorMethod) {
+    public DataFrame getTitratorMethodDataFrame(TitratorParamsBean titratorParamsBean, TitratorMethod titratorMethod) {
         StringBuilder command = new StringBuilder();
         //滴定类型8bit， 微量滴定(1)、动态滴定(2)、手动滴定(3)、终点滴定(4)
         //最高位1代表显示的单位是mv，最高0位代表显示单位是ph
@@ -121,7 +122,7 @@ public class TitratorCommandAdapter extends DataFrame {
 
 
         //00传送终点个数
-        command.append(String.format("0%s", titratorMethod.getTitratorEndPoints().size()));
+        command.append(String.format("0%s", titratorParamsBean.getEndPointSettings().size()));
 
         //
         return new DataFrame();
