@@ -8,13 +8,56 @@
     </string-array>
 
     <string-array name="working_electrode_arrays">
-    <item>pH电极</item>
-    <item>pH复合电极</item>
-    <item>铂电极</item>
-    <item>银电极</item>
-    <item>钙电极</item>
-    <item>氟电极</item>
-    <item>铜电极</item>
+        <item>pH电极</item>
+        <item>pH复合电极</item>
+        <item>铂电极</item>
+        <item>银电极</item>
+        <item>钙电极</item>
+        <item>氟电极</item>
+        <item>铜电极</item>
+    </string-array>
+
+    <string-array name="titrator_reference_electrode_arrays">
+        <item>单盐桥甘汞电极</item>
+        <item>双盐桥甘汞电极</item>
+        <item>银-氯化银电极</item>
+    </string-array>
+
+    <string-array name="titrator_sample_measurement_unit_arryas">
+        <item>ml</item>
+        <item>g</item>
+    </string-array>
+
+    <string-array name="titrator_display_unit_arrays">
+        <item>mv</item>
+        <item>pH</item>
+    </string-array>
+
+    <string-array name="titrator_speed_arrays">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="titration_Speed">
+        <item>极快</item>
+        <item>快</item>
+        <item>标准</item>
+        <item>慢</item>
+        <item>极慢</item>
+    </string-array>
+
+    <string-array name="titrator_burette_volume_arrays">
+        <item>5mL</item>
+        <item>10mL</item>
+        <item>15mL</item>
     </string-array>
 
     <string-array name="concentration_type">

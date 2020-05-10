@@ -40,7 +40,8 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     private void initData() {
         TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
         try {
-            // TODO: 2020-04-26 pageNum,pageSize 后期补充
+            // TODO: 2020-05-01 这里count不对
+//            pageSize=helper.countMethod();
             titratorParamsBeanList = helper.listMethodByType(titratorTypeEnum, pageNum, pageSize);
             if (titratorParamsBeanList != null) {
                 Log.d("ModifyMethodFragment ", "titratorParamsBeanList : " + titratorParamsBeanList.size());
@@ -88,6 +89,7 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.method_delete_btn:
+                removeSelectMethodEvent();
                 break;
             case R.id.method_modify_btn:
                 onClickModifyMethodEvent();
@@ -101,9 +103,25 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
     private void onClickModifyMethodEvent() {
         TitratorParamsBean bean = adapter.getCurrentBean();
         if (bean == null) {
-            Toast.makeText(activity, "请选择要修改的方法", Toast.LENGTH_LONG).show();
+            showNoSelectMethodToast();
+        } else {
+            switchMethodDetailView(true);
+            binding.modifyViewBg.setBean(bean);
         }
-        // TODO: 2020-04-26 这里输入Bean给方法修改View
+    }
+
+    private void removeSelectMethodEvent() {
+        TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+        TitratorParamsBean bean = adapter.getCurrentBean();
+        if (bean != null) {
+            helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
+        } else {
+            showNoSelectMethodToast();
+        }
+    }
+
+    private void showNoSelectMethodToast() {
+        Toast.makeText(activity, "请选择要修改的方法", Toast.LENGTH_LONG).show();
     }
 
     /**

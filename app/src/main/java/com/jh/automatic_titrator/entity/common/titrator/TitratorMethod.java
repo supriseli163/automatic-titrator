@@ -1,12 +1,13 @@
 package com.jh.automatic_titrator.entity.common.titrator;
 
+import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 
+import java.util.List;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
-
-import java.util.List;
 
 /**
  * 滴定方法
@@ -49,8 +50,7 @@ public class TitratorMethod extends BaseObservable {
     private String slowTitrationVolume;
     //快滴体积
     private String fastTitrationVolume;
-    //滴定终点设置
-    private List<EndPointSetting> endPointSettingList;
+
     //滴定终点
     private List<TitratorEndPoint> titratorEndPoints;
     //修改时间
@@ -74,14 +74,6 @@ public class TitratorMethod extends BaseObservable {
     public void setUserName(String modifyTime) {
 //        this.userName = StringUtils.getCurrentUserName();
         this.userName = userName;
-    }
-
-    public List<EndPointSetting> getEndPointSettingList() {
-        return endPointSettingList;
-    }
-
-    public void setEndPointSettingList(List<EndPointSetting> endPointSettingList) {
-        this.endPointSettingList = endPointSettingList;
     }
 
     public List<TitratorEndPoint> getTitratorEndPoints() {
@@ -202,13 +194,39 @@ public class TitratorMethod extends BaseObservable {
         notifyPropertyChanged(com.jh.automatic_titrator.BR.buretteVolumeText);
     }
 
-    public void setWorkingElectrode(WorkElectrodeEnnum workingElectrode) {
-        this.workingElectrode = workingElectrode;
+    public void setWorkingElectrode(String content) {
+        if (WorkElectrodeEnnum.Calcium_Electrode.getDesc().equals(content)) {
+            this.workingElectrode = WorkElectrodeEnnum.Calcium_Electrode;
+        } else if (WorkElectrodeEnnum.Copper_Electrode.getDesc().equals(content)) {
+            this.workingElectrode = WorkElectrodeEnnum.Copper_Electrode;
+        } else if (WorkElectrodeEnnum.PH_Electrode.getDesc().equals(content)) {
+            this.workingElectrode = WorkElectrodeEnnum.PH_Electrode;
+        } else if (WorkElectrodeEnnum.Platinum_Electrode.getDesc().equals(content)) {
+            this.workingElectrode = WorkElectrodeEnnum.Platinum_Electrode;
+        } else if (WorkElectrodeEnnum.Fluoride_Electrode.getDesc().equals(content)) {
+            this.workingElectrode = WorkElectrodeEnnum.Fluoride_Electrode;
+        } else if (WorkElectrodeEnnum.PH_Mixed_Electrode.getDesc().equals(content)) {
+            this.workingElectrode = WorkElectrodeEnnum.PH_Mixed_Electrode;
+        } else if (WorkElectrodeEnnum.Silver_Electrode.getDesc().equals(content)) {
+            this.workingElectrode = WorkElectrodeEnnum.Silver_Electrode;
+        }
         notifyPropertyChanged(com.jh.automatic_titrator.BR.workingElectrodeText);
     }
 
     public void setReferenceElectrode(double referenceElectrode) {
         this.referenceElectrode = referenceElectrode;
+        notifyPropertyChanged(com.jh.automatic_titrator.BR.referenceElectrodeText);
+    }
+
+    public void setReferenceElectrode(String content) {
+        String[] arrays = BaseApplication.getApplication().getResources().getStringArray(R.array.titrator_reference_electrode_arrays);
+        if (arrays[0].equals(content)) {
+            this.referenceElectrode = 0;
+        } else if (arrays[1].equals(content)) {
+            this.referenceElectrode = 1;
+        } else if (arrays[2].equals(content)) {
+            this.referenceElectrode = 2;
+        }
         notifyPropertyChanged(com.jh.automatic_titrator.BR.referenceElectrodeText);
     }
 
@@ -291,7 +309,14 @@ public class TitratorMethod extends BaseObservable {
     }
 
     public String getWorkingElectrode() {
+        if (workingElectrode == null) {
+            return "";
+        }
         return workingElectrode.getDesc();
+    }
+
+    public WorkElectrodeEnnum getWorkElectrodeEnnum() {
+        return workingElectrode;
     }
 
     public double getReferenceElectrode() {
