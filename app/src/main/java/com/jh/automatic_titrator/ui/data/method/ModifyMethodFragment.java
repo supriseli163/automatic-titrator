@@ -41,7 +41,7 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
         TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
         try {
             // TODO: 2020-05-01 这里count不对
-            pageSize=helper.countMethod();
+//            pageSize=helper.countMethod();
             titratorParamsBeanList = helper.listMethodByType(titratorTypeEnum, pageNum, pageSize);
             if (titratorParamsBeanList != null) {
                 Log.d("ModifyMethodFragment ", "titratorParamsBeanList : " + titratorParamsBeanList.size());
