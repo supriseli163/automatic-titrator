@@ -455,8 +455,6 @@ public class ModifyMethodView extends RelativeLayout {
             public void onModifyEvent(int position) {
                 // TODO: 2020-05-05 触发弹窗修改内容
                 isCreate = false;
-                Log.d("songkai", "bean1:" + bean.getTitratorEndPoint().size());
-                Log.d("songkai", "onModifyEvent : " + position + "  " + bean.getTitratorEndPoint().size());
                 TitratorEndPoint point = bean.getTitratorEndPoint().get(position);
                 showEndPointDialog(point, position);
 //                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
@@ -487,7 +485,7 @@ public class ModifyMethodView extends RelativeLayout {
         View mView = inflater.inflate(R.layout.tirator_method_fragment_end_point_popup, null);
 
         TitratorMethodFragmentEndPointPopup pointPopup = DataBindingUtil.bind(mView);
-        pointPopup.settingPreControlValue.setText(String.valueOf(point.getEndPointValue()));
+        pointPopup.settingEndPointValue.setText(String.valueOf(point.getEndPointValue()));
         pointPopup.settingPreControlValue.setText(String.valueOf(point.getPreControlvalue()));
         pointPopup.settingMethodCorrelationCoefficient.setText(String.valueOf(point.getCorrelationCoefficient()));
         int index = getSelectIndex(point.getResultUnit(), R.array.titrator_test_end_unit);
@@ -584,7 +582,6 @@ public class ModifyMethodView extends RelativeLayout {
             public void onClick(View v) {
                 TitratorEndPoint point1 = ((TitratorEndPoint) pointPopup.getRoot().getTag());
                 bean.getTitratorEndPoint().add(point1);
-                Log.d("songkai", "bean:" + bean.getTitratorEndPoint().size());
                 if (isCreate) {
                     binding.titratorEndListLayout.addItemData(getListFromTitratorEndPoints(point1), position);
                 } else {

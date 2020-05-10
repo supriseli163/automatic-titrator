@@ -12,9 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.jh.automatic_titrator.R;
+import com.jh.automatic_titrator.databinding.TitratorCustomeScrollLayoutBinding;
 import com.jh.automatic_titrator.databinding.TitratorEndFormItemBinding;
 
 import java.util.ArrayList;
@@ -100,7 +102,6 @@ public class ParamsListItemView extends LinearLayout {
                 textView.setPadding(dpToPx(10), 0, dpToPx(10), 0);
                 textView.setTextColor(getResources().getColor(R.color.fontWhite));
                 textView.setText(content);
-                Log.d("songkai", "content:" + content);
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                 textView.setBackgroundColor(getResources().getColor(R.color.transparent));
                 binding.bannerTop.addView(textView);
@@ -110,7 +111,6 @@ public class ParamsListItemView extends LinearLayout {
                 view.setLayoutParams(viewLayout);
                 view.setBackgroundColor(getResources().getColor(R.color.colorWrite));
                 binding.bannerTop.addView(view);
-                Log.d("songkai", "count:" + binding.bannerTop.getChildCount());
             }
         }
     }
@@ -127,7 +127,10 @@ public class ParamsListItemView extends LinearLayout {
 
     // 外部处理数据传入
     public void addItemData(List<String> itemList, int position) {
+        LayoutInflater inflater=LayoutInflater.from(getContext());
+        TitratorCustomeScrollLayoutBinding viewBinding=TitratorCustomeScrollLayoutBinding.inflate(inflater,null);
         LinearLayout linearLayout = new LinearLayout(getContext());
+        viewBinding.scrollLinearlayout.addView(linearLayout);
         // 设置checkBox
         linearLayout.setBackgroundColor(getResources().getColor(R.color.fontLightGray));
         CheckBox checkBox = new CheckBox(getContext());
@@ -169,11 +172,11 @@ public class ParamsListItemView extends LinearLayout {
             checkBox.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    processSelectItemStatus((Integer) linearLayout.getTag());
+                    processSelectItemStatus((Integer) viewBinding.scrollBg.getTag());
                 }
             });
         }
-        binding.paramsList.addView(linearLayout, position);
+        binding.paramsList.addView(viewBinding.getRoot(), position);
         initTag();
     }
 
