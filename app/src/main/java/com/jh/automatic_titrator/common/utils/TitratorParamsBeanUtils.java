@@ -197,26 +197,51 @@ public class TitratorParamsBeanUtils {
 
     // 预定添加体积
     public static String getPreAddVolume(TitratorParamsBean bean) {
+        String content = "";
         if (bean != null && bean.getPreTitrant() != null) {
             double titrant = bean.getPreTitrant().getPreAddVolume();
             if (titrant >= 0) {
-                return String.valueOf(titrant);
+                content = String.valueOf(titrant);
             }
-            return "";
         }
-        return "";
+        Log.d("TitratorParamsBeanUtils", "预定添加体积getPreAddVolume: " + content);
+        return content;
     }
 
     // 预滴定后搅拌时间
     public static String getPreAfterStiringTime(TitratorParamsBean bean) {
+        String content = "";
         if (bean != null && bean.getPreTitrant() != null) {
-            double value = bean.getPreTitrant().getPreAfterstiringTime();
+            double value = bean.getPreTitrant().getPreAfterStiringTime();
             if (value >= 0) {
-                return String.valueOf(value);
+                content = String.valueOf(value);
             }
-            return "";
         }
-        return "";
+        Log.d("TitratorParamsBeanUtils", "预定添加体积getPreAddVolume: " + content);
+        return content;
+    }
+
+    // 主滴定剂名称
+    public static String getReagentName(TitratorParamsBean bean) {
+        String content = "";
+        if (bean != null && bean.getMainTitrant() != null) {
+            content = bean.getMainTitrant().getReagentName();
+        }
+        Log.d("TitratorParamsBeanUtils", "主滴定剂名称getReagentName: " + content);
+        return content;
+    }
+
+    // 主滴定剂浓度
+    public static String getTheoreticalConcentration(TitratorParamsBean bean) {
+        String content = "";
+        if (bean != null && bean.getMainTitrant() != null) {
+            double value = bean.getMainTitrant().getTheoreticalConcentration();
+            if (value >= 0) {
+                content = String.valueOf(value);
+            }
+        }
+        Log.d("TitratorParamsBeanUtils", "主滴定剂浓度getTheoreticalConcentration: " + content);
+        return content;
     }
 
     // 获取滴定终点List:List<String>

@@ -207,7 +207,8 @@ public class TitratorMethod extends BaseObservable {
             this.workingElectrode = WorkElectrodeEnnum.Fluoride_Electrode;
         } else if (WorkElectrodeEnnum.PH_Mixed_Electrode.getDesc().equals(content)) {
             this.workingElectrode = WorkElectrodeEnnum.PH_Mixed_Electrode;
-        } else if (WorkElectrodeEnnum.Silver_Electrode.getDesc().equals(content)) {
+        }
+        else if (WorkElectrodeEnnum.Silver_Electrode.getDesc().equals(content)) {
             this.workingElectrode = WorkElectrodeEnnum.Silver_Electrode;
         }
         notifyPropertyChanged(com.jh.automatic_titrator.BR.workingElectrodeText);

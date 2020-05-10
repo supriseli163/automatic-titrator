@@ -26,6 +26,7 @@
     <color name="fontBlack">#FF333333</color>
     <color name="fontBlack1">#FF000000</color>
     <color name="fontGray">#FF666666</color>
+    <color name="fontLightGray">#C4BCBC</color>
     <color name="fontWhite">#FFEEEEEE</color>
     <color name="fontOrange">#FFF47920</color>
 

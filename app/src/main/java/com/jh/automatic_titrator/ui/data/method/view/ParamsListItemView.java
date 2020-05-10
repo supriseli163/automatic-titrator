@@ -2,8 +2,10 @@ package com.jh.automatic_titrator.ui.data.method.view;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -49,6 +51,7 @@ public class ParamsListItemView extends LinearLayout {
         addBannerTop();
         addItem();
         initListener();
+        Log.d("songkai", "count:" + binding.bannerTop.getChildCount());
     }
 
     private void initListener() {
@@ -81,74 +84,87 @@ public class ParamsListItemView extends LinearLayout {
 
     private void addBannerTop() {
         if (arraysList.size() > 0) {
+            int count = 0;
             List<String> top = arraysList.get(0);
-            for (int i = 0; i < arraysList.size(); i++) {
+            binding.bannerTop.removeAllViews();
+            for (int i = 0; i < top.size(); i++) {
                 String content = top.get(i);
+                count = content.length() + count;
                 TextView textView = new TextView(getContext());
                 LinearLayout.LayoutParams topContentTextView_lp = new LinearLayout.LayoutParams(
-                        0, LinearLayout.LayoutParams.MATCH_PARENT, content.length());
+                        dpToPx(130), LinearLayout.LayoutParams.MATCH_PARENT);
                 textView.setLayoutParams(topContentTextView_lp);
-                textView.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-                textView.setTextColor(getResources().getColor(R.color.colorWrite));
+                textView.setGravity(Gravity.CENTER);
+                textView.setPadding(dpToPx(10), 0, dpToPx(10), 0);
+                textView.setTextColor(getResources().getColor(R.color.fontWhite));
                 textView.setText(content);
+                Log.d("songkai", "content:" + content);
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                textView.setBackgroundColor(getResources().getColor(R.color.transparent));
                 binding.bannerTop.addView(textView);
-                if (i != arraysList.size() - 1) {
-                    LinearLayout.LayoutParams viewLayout = new LinearLayout.LayoutParams(
-                            dpToPx(R.dimen._1px), LinearLayout.LayoutParams.MATCH_PARENT);
-                    View view = new View(getContext());
-                    view.setLayoutParams(viewLayout);
-                    view.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-                    view.setBackgroundColor(getResources().getColor(R.color.colorWrite));
-                    binding.bannerTop.addView(view);
-                }
+                LinearLayout.LayoutParams viewLayout = new LinearLayout.LayoutParams(
+                        dpToPx(1), LinearLayout.LayoutParams.MATCH_PARENT);
+                View view = new View(getContext());
+                view.setLayoutParams(viewLayout);
+                view.setBackgroundColor(getResources().getColor(R.color.colorWrite));
+                binding.bannerTop.addView(view);
+                Log.d("songkai", "count:" + binding.bannerTop.getChildCount());
             }
         }
     }
 
     private void addItem() {
+        binding.paramsList.removeAllViews();
         if (arraysList.size() > 1) {
-            for (int k = 0; k < arraysList.size(); k++) {
+            for (int k = 1; k < arraysList.size(); k++) {
                 List<String> itemList = arraysList.get(k);
-                addItemData(itemList, 0);
+                addItemData(itemList, k);
             }
         }
     }
 
 
     // 外部处理数据传入
-    public void addItemData(List<String> itemList, int position) {
+    public void addItemData(List<String> itemList, int p) {
+        LinearLayout linearLayout = new LinearLayout(getContext());
+        // 设置checkBox
+        linearLayout.setBackgroundColor(getResources().getColor(R.color.fontLightGray));
+        CheckBox checkBox = new CheckBox(getContext());
+        LinearLayout.LayoutParams checkBoxLayout = new LayoutParams(dpToPx(70), dpToPx(40));
+        checkBoxLayout.gravity = Gravity.CENTER;
+        checkBox.setLayoutParams(checkBoxLayout);
+        checkBox.setPadding(dpToPx(15), 0, 0, 0);
+        checkBox.setGravity(Gravity.CENTER);
+        checkBox.setChecked(p == currentP);
+        checkBox.setId(R.id.text_view_1);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            checkBox.setButtonTintList(ColorStateList.valueOf(Color.BLUE));
+        }
+        linearLayout.addView(checkBox);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//                checkBox.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorBlue)));
+//            }
+        addViewLine(linearLayout);
         for (int i = 0; i < itemList.size(); i++) {
-            LinearLayout linearLayout = new LinearLayout(getContext());
-            // 设置checkBox
-            CheckBox checkBox = new CheckBox(getContext());
-            LayoutParams checkBoxLayout = new LayoutParams(0, LayoutParams.MATCH_PARENT, 1);
-            checkBox.setLayoutParams(checkBoxLayout);
-            checkBox.setGravity(Gravity.CENTER);
-            checkBox.setChecked(i == currentP);
-            checkBox.setId(R.id.text_view_1);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                checkBox.setButtonTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorBlue)));
-            }
-            addViewLine(linearLayout);
+//            linearLayout.setOrientation(LinearLayout.HORIZONTAL);
+//            linearLayout.setGravity(Gravity.CENTER);
+//            linearLayout.setBackgroundColor(getResources().getColor(R.color.colorGray1));
+
             // 设置名称等
-            LayoutParams viewLayout = new LayoutParams(
-                    LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            linearLayout.setOrientation(LinearLayout.VERTICAL);
-            linearLayout.setLayoutParams(viewLayout);
             String content = itemList.get(i);
             TextView textView = new TextView(getContext());
-            LayoutParams topContentTextView_lp = new LayoutParams(
-                    0, LayoutParams.MATCH_PARENT, content.length());
+            LinearLayout.LayoutParams topContentTextView_lp = new LayoutParams(dpToPx(130), dpToPx(40));
             textView.setLayoutParams(topContentTextView_lp);
-            textView.setTextAlignment(TEXT_ALIGNMENT_CENTER);
-            textView.setTextColor(getResources().getColor(R.color.colorWrite));
+            textView.setGravity(Gravity.CENTER);
+            textView.setTextColor(getResources().getColor(R.color.fontBlack));
             textView.setText(content);
+            Log.d("songkai2", "content : " + content);
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             linearLayout.addView(textView);
-            if (i != arraysList.size() - 1) {
-                addViewLine(linearLayout);
-            }
+            addViewLine(linearLayout);
+//            if (i != itemList.size() - 1) {
+//            addViewLine(linearLayout);
+//            }
             linearLayout.setTag(i);
             linearLayout.setOnClickListener(new OnClickListener() {
                 @Override
@@ -156,8 +172,8 @@ public class ParamsListItemView extends LinearLayout {
                     processSelectItemStatus((Integer) linearLayout.getTag());
                 }
             });
-            binding.paramsList.addView(linearLayout, position);
         }
+        binding.paramsList.addView(linearLayout);
     }
 
     // 修改某个Item
@@ -174,8 +190,7 @@ public class ParamsListItemView extends LinearLayout {
     }
 
     private void addViewLine(LinearLayout viewGroup) {
-        LayoutParams layoutParams = new LayoutParams(
-                dpToPx(R.dimen._1px), LayoutParams.MATCH_PARENT);
+        LayoutParams layoutParams = new LayoutParams(dpToPx(1), dpToPx(40));
         View view = new View(getContext());
         view.setLayoutParams(layoutParams);
         view.setTextAlignment(TEXT_ALIGNMENT_CENTER);

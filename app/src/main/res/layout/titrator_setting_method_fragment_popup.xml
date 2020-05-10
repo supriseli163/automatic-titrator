@@ -77,7 +77,7 @@
                                 android:textColor="@color/PluginFontColorBlack"
                                 android:textSize="14sp" />
 
-                            <EditText
+                            <TextView
                                 android:id="@+id/titrator_method_type"
                                 android:layout_width="match_parent"
                                 android:layout_height="36dp"
@@ -85,6 +85,7 @@
                                 android:imeOptions="actionDone"
                                 android:inputType="text"
                                 android:paddingLeft="5dp"
+                                android:gravity="center"
                                 android:paddingRight="5dp"
                                 android:singleLine="true"
                                 android:text="@{TitratorParamsBeanUtils.getTitratorType(bean)}"
@@ -377,6 +378,7 @@
                                 android:layout_toLeftOf="@+id/titrator_electrode_equilibrium_time_desc"
                                 android:layout_toRightOf="@+id/titrator_electrode_equilibrium_time_content"
                                 android:background="@drawable/edit_text"
+                                android:gravity="center"
                                 android:imeOptions="actionDone"
                                 android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
@@ -424,6 +426,7 @@
                                 android:layout_toLeftOf="@+id/titrator_electrode_equilibrium_potential_desc"
                                 android:layout_toRightOf="@+id/titrator_electrode_equilibrium_potential_content"
                                 android:background="@drawable/edit_text"
+                                android:gravity="center"
                                 android:imeOptions="actionDone"
                                 android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
@@ -469,8 +472,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="36dp"
                                 android:background="@drawable/edit_text"
+                                android:gravity="center"
                                 android:imeOptions="actionDone"
-                                android:inputType="text"
+                                android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="5dp"
                                 android:singleLine="true"
@@ -505,6 +509,7 @@
                                 android:layout_toLeftOf="@+id/titrator_add_volume_desc"
                                 android:layout_toRightOf="@+id/titrator_add_volume_content"
                                 android:background="@drawable/edit_text"
+                                android:gravity="center"
                                 android:imeOptions="actionDone"
                                 android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
@@ -558,6 +563,7 @@
                                 android:layout_toLeftOf="@+id/titrator_end_volume_desc"
                                 android:layout_toRightOf="@+id/titrator_end_volume_content"
                                 android:background="@drawable/edit_text"
+                                android:gravity="center"
                                 android:imeOptions="actionDone"
                                 android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
@@ -618,7 +624,8 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:visibility="invisible">
 
                             <TextView
                                 android:id="@+id/titrator_slow_volume_content"
@@ -644,7 +651,6 @@
                                 android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="5dp"
-                                android:text="@{TitratorParamsBeanUtils.getSlowTitrationVolume(bean)}"
                                 android:textColor="@color/PluginFontColorBlack"
                                 android:textSize="14sp" />
 
@@ -665,7 +671,8 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:visibility="invisible">
 
                             <TextView
                                 android:id="@+id/titrator_volume_content"
@@ -691,7 +698,6 @@
                                 android:inputType="numberDecimal"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="5dp"
-                                android:text="@{TitratorParamsBeanUtils.getFastTitrationVolume(bean)}"
                                 android:textColor="@color/PluginFontColorBlack"
                                 android:textSize="14sp" />
 
@@ -861,15 +867,16 @@
                                     android:textSize="14sp" />
 
                                 <EditText
+                                    android:id="@+id/titrator_main_reagent_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="36dp"
                                     android:layout_centerVertical="true"
                                     android:layout_toRightOf="@+id/titrator_reagent_name_content"
                                     android:background="@drawable/edit_text"
                                     android:imeOptions="actionDone"
-                                    android:inputType="numberDecimal"
                                     android:paddingLeft="5dp"
                                     android:paddingRight="5dp"
+                                    android:text="@{TitratorParamsBeanUtils.getReagentName(bean)}"
                                     android:textColor="@color/PluginFontColorBlack"
                                     android:textSize="14sp" />
 
@@ -894,18 +901,37 @@
                                     android:textSize="14sp" />
 
                                 <EditText
+                                    android:id="@+id/titrator_main_theoretical_concentration"
                                     android:layout_width="match_parent"
                                     android:layout_height="36dp"
                                     android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/titrator_main_theoretical_concentration_unit_bg"
                                     android:layout_toRightOf="@+id/titrator_theoretical_concentration_content"
                                     android:background="@drawable/edit_text"
                                     android:imeOptions="actionDone"
-                                    android:inputType="numberDecimal"
+                                    android:layout_marginRight="@dimen/_10px"
                                     android:paddingLeft="5dp"
                                     android:paddingRight="5dp"
+                                    android:text="@{TitratorParamsBeanUtils.getTheoreticalConcentration(bean)}"
                                     android:textColor="@color/PluginFontColorBlack"
                                     android:textSize="14sp" />
 
+                                <LinearLayout
+                                    android:id="@+id/titrator_main_theoretical_concentration_unit_bg"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:background="@drawable/edit_text">
+
+                                    <Spinner
+                                        android:id="@+id/titrator_main_theoretical_concentration_unit"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:entries="@array/titrator_theoretical_concentration_unit"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="5dp" />
+                                </LinearLayout>
                             </RelativeLayout>
                         </LinearLayout>
 
