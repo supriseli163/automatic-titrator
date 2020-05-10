@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="TitratorMethodFragmentEndPointPopup">
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="终点值"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/setting_end_point_value"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:background="@drawable/edit_text1"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/_14spx"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_19px"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="预控值"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/setting_pre_control_value"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:background="@drawable/edit_text1"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/_14spx"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="相关系数"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_method_correlation_coefficient"
+                    android:layout_width="@dimen/_200px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_text1"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="@dimen/_14spx" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_method_popup_testtubelength_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="测试结果单位"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="200dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_method_popup_result_unit"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:entries="@array/titrator_test_end_unit"
+                        android:gravity="center"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_20px"
+            android:orientation="horizontal"
+            android:paddingRight="20dp">
+
+            <LinearLayout
+                android:id="@+id/setting_method_popup_save_button"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/orange_button"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_method_popup_cancel_button"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20px"
+                android:background="@drawable/orange_button"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="取消"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

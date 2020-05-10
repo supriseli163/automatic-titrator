@@ -250,22 +250,21 @@ public class TitratorParamsBeanUtils {
         if (bean != null) {
             arrays.add(getChineseEndPointBar(true));
             List<TitratorEndPoint> titratorEndPoints = bean.getTitratorEndPoint();
-            if (titratorEndPoints.size() == 0) {
-                titratorEndPoints = new ArrayList<>();
-                titratorEndPoints.add(TitratorEndPoint.getTestData());
-            }
-            Log.d("songkai", "titratorPoints: " + CollectionUtils.size(titratorEndPoints));
             for (int i = 0; i < CollectionUtils.size(titratorEndPoints); i++) {
-                List<String> list = new ArrayList<>();
-                TitratorEndPoint point = titratorEndPoints.get(i);
-                list.add(String.valueOf(point.getResultUnit()));
-                list.add(String.valueOf(point.getPreControlvalue()));
-                list.add(String.valueOf(point.getCorrelationCoefficient()));
-                list.add(String.valueOf(point.getResultUnit()));
+                List<String> list = getListFromTitratorEndPoints(titratorEndPoints.get(i));
                 arrays.add(list);
             }
         }
         return arrays;
+    }
+
+    public static List<String> getListFromTitratorEndPoints(TitratorEndPoint point) {
+        List<String> list = new ArrayList<>();
+        list.add(String.valueOf(point.getEndPointValue()));
+        list.add(String.valueOf(point.getPreControlvalue()));
+        list.add(String.valueOf(point.getCorrelationCoefficient()));
+        list.add(String.valueOf(point.getResultUnit()));
+        return list;
     }
 
     // TODO: 2020-05-05 need to change English

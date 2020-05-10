@@ -51,7 +51,6 @@ public class ParamsListItemView extends LinearLayout {
         addBannerTop();
         addItem();
         initListener();
-        Log.d("songkai", "count:" + binding.bannerTop.getChildCount());
     }
 
     private void initListener() {
@@ -59,7 +58,7 @@ public class ParamsListItemView extends LinearLayout {
             @Override
             public void onClick(View v) {
                 if (listener != null) {
-                    listener.onAddEvent();
+                    listener.onAddEvent(binding.paramsList.getChildCount());
                 }
             }
         });
@@ -67,6 +66,9 @@ public class ParamsListItemView extends LinearLayout {
             @Override
             public void onClick(View v) {
                 if (listener != null) {
+                    if (currentP < 0) {
+                        return;
+                    }
                     listener.onModifyEvent(currentP);
                 }
             }
@@ -118,14 +120,13 @@ public class ParamsListItemView extends LinearLayout {
         if (arraysList.size() > 1) {
             for (int k = 1; k < arraysList.size(); k++) {
                 List<String> itemList = arraysList.get(k);
-                addItemData(itemList, k);
+                addItemData(itemList, k - 1);
             }
         }
     }
 
-
     // 外部处理数据传入
-    public void addItemData(List<String> itemList, int p) {
+    public void addItemData(List<String> itemList, int position) {
         LinearLayout linearLayout = new LinearLayout(getContext());
         // 设置checkBox
         linearLayout.setBackgroundColor(getResources().getColor(R.color.fontLightGray));
@@ -135,7 +136,7 @@ public class ParamsListItemView extends LinearLayout {
         checkBox.setLayoutParams(checkBoxLayout);
         checkBox.setPadding(dpToPx(15), 0, 0, 0);
         checkBox.setGravity(Gravity.CENTER);
-        checkBox.setChecked(p == currentP);
+        checkBox.setChecked(position == currentP && currentP > 0);
         checkBox.setId(R.id.text_view_1);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             checkBox.setButtonTintList(ColorStateList.valueOf(Color.BLUE));
@@ -158,22 +159,29 @@ public class ParamsListItemView extends LinearLayout {
             textView.setGravity(Gravity.CENTER);
             textView.setTextColor(getResources().getColor(R.color.fontBlack));
             textView.setText(content);
-            Log.d("songkai2", "content : " + content);
             textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
             linearLayout.addView(textView);
             addViewLine(linearLayout);
 //            if (i != itemList.size() - 1) {
 //            addViewLine(linearLayout);
 //            }
-            linearLayout.setTag(i);
-            linearLayout.setOnClickListener(new OnClickListener() {
+
+            checkBox.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     processSelectItemStatus((Integer) linearLayout.getTag());
                 }
             });
         }
-        binding.paramsList.addView(linearLayout);
+        binding.paramsList.addView(linearLayout, position);
+        initTag();
+    }
+
+    private void initTag() {
+        for (int i = 0; i < binding.paramsList.getChildCount(); i++) {
+            View view = binding.paramsList.getChildAt(i);
+            view.setTag(i);
+        }
     }
 
     // 修改某个Item
@@ -187,6 +195,7 @@ public class ParamsListItemView extends LinearLayout {
         if (binding.paramsList.getChildCount() > position) {
             binding.paramsList.removeViewAt(position);
         }
+        initTag();
     }
 
     private void addViewLine(LinearLayout viewGroup) {
@@ -200,14 +209,15 @@ public class ParamsListItemView extends LinearLayout {
 
     private void processSelectItemStatus(int position) {
         currentP = position;
+        Log.d("processSelectItemStatus", "processSelectItemStatus 设置当前position: " + currentP);
         for (int i = 0; i < binding.paramsList.getChildCount(); i++) {
-            LinearLayout subView = binding.paramsList;
+            LinearLayout subView = (LinearLayout) binding.paramsList.getChildAt(i);
             ((CheckBox) subView.findViewById(R.id.text_view_1)).setChecked(i == position);
         }
     }
 
     public interface OperateListener {
-        void onAddEvent();
+        void onAddEvent(int position);
 
         void onModifyEvent(int position);
 

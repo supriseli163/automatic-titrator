@@ -1,24 +1,33 @@
 package com.jh.automatic_titrator.ui.data.method.view;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
-import com.jh.automatic_titrator.common.db.titrator.TitratorParamsBeanHelper;
+import com.jh.automatic_titrator.common.utils.SoftKeyboardUtil;
 import com.jh.automatic_titrator.common.utils.StringUtils;
+import com.jh.automatic_titrator.databinding.TitratorMethodFragmentEndPointPopup;
 import com.jh.automatic_titrator.databinding.TitratorSettingMethodFragmentPopupBinding;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorEndPoint;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import androidx.databinding.DataBindingUtil;
+
+import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getListFromTitratorEndPoints;
 import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getTitratorEndList;
 import static com.jh.automatic_titrator.common.utils.ViewUtils.setTextViewColor;
 
@@ -26,6 +35,8 @@ public class ModifyMethodView extends RelativeLayout {
     private TitratorSettingMethodFragmentPopupBinding binding;
     private OnModifyMethodOperateListener listener;
     private TitratorParamsBean bean;
+    private AlertDialog dialog2;
+    private boolean isCreate;
 
     public ModifyMethodView(Context context) {
         this(context, null);
@@ -427,10 +438,13 @@ public class ModifyMethodView extends RelativeLayout {
 
     public void setBean(TitratorParamsBean bean) {
         // 刷新方法数据
+        this.bean = bean;
         binding.setBean(bean);
         binding.titratorEndListLayout.setArraysList(getTitratorEndList(bean), new ParamsListItemView.OperateListener() {
             @Override
-            public void onAddEvent() {
+            public void onAddEvent(int position) {
+                isCreate = true;
+                showEndPointDialog(null, position);
                 // TODO: 2020-05-05 触发弹窗
 //                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
 //                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
@@ -440,20 +454,179 @@ public class ModifyMethodView extends RelativeLayout {
             @Override
             public void onModifyEvent(int position) {
                 // TODO: 2020-05-05 触发弹窗修改内容
-                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
-                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
-                helper.insert(bean);
+                isCreate = false;
+                Log.d("songkai", "bean1:" + bean.getTitratorEndPoint().size());
+                Log.d("songkai", "onModifyEvent : " + position + "  " + bean.getTitratorEndPoint().size());
+                TitratorEndPoint point = bean.getTitratorEndPoint().get(position);
+                showEndPointDialog(point, position);
+//                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+//                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
+//                helper.insert(bean);
             }
 
             @Override
             public void onDeleteEvent(int position) {
                 List<TitratorEndPoint> endPoints = bean.getTitratorEndPoint();
                 endPoints.remove(position);
-                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
-                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
-                helper.insert(bean);
+//                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+//                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
+//                helper.insert(bean);
             }
         });
+    }
+
+    private void showEndPointDialog(TitratorEndPoint point, final int position) {
+        List<TitratorEndPoint> endPointList = bean.getTitratorEndPoint();
+        if (endPointList == null) {
+            endPointList = new ArrayList<>();
+        }
+        if (point == null) {
+            point = new TitratorEndPoint();
+        }
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View mView = inflater.inflate(R.layout.tirator_method_fragment_end_point_popup, null);
+
+        TitratorMethodFragmentEndPointPopup pointPopup = DataBindingUtil.bind(mView);
+        pointPopup.settingPreControlValue.setText(String.valueOf(point.getEndPointValue()));
+        pointPopup.settingPreControlValue.setText(String.valueOf(point.getPreControlvalue()));
+        pointPopup.settingMethodCorrelationCoefficient.setText(String.valueOf(point.getCorrelationCoefficient()));
+        int index = getSelectIndex(point.getResultUnit(), R.array.titrator_test_end_unit);
+        if (index < 0) {
+//            pointPopup.settingMethodPopupResultUnit.getChildAt(0).setVisibility(INVISIBLE);
+        } else {
+//            pointPopup.settingMethodPopupResultUnit.getChildAt(0).setVisibility(VISIBLE);
+            pointPopup.settingMethodPopupResultUnit.setSelection(index);
+        }
+        pointPopup.getRoot().setTag(point);
+        pointPopup.settingEndPointValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String content = s != null ? s.toString() : "";
+                double value = 0;
+                try {
+                    value = Double.parseDouble(content);
+                } catch (Exception ex) {
+
+                }
+                ((TitratorEndPoint) pointPopup.getRoot().getTag()).setEndPointValue(value);
+            }
+        });
+        pointPopup.settingPreControlValue.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String content = s != null ? s.toString() : "";
+                double value = 0;
+                try {
+                    value = Double.parseDouble(content);
+                } catch (Exception ex) {
+
+                }
+                ((TitratorEndPoint) pointPopup.getRoot().getTag()).setPreControlvalue(value);
+            }
+        });
+        pointPopup.settingMethodCorrelationCoefficient.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String content = s != null ? s.toString() : "";
+                double value = 0;
+                try {
+                    value = Double.parseDouble(content);
+                } catch (Exception ex) {
+
+                }
+                ((TitratorEndPoint) pointPopup.getRoot().getTag()).setCorrelationCoefficient(value);
+            }
+        });
+        pointPopup.settingMethodPopupResultUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TitratorEndPoint) pointPopup.getRoot().getTag()).setResultUnit(String.valueOf(parent.getItemIdAtPosition(position)));
+                setTextViewColor(R.color.fontWhite, (TextView) view);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        pointPopup.settingMethodPopupSaveButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TitratorEndPoint point1 = ((TitratorEndPoint) pointPopup.getRoot().getTag());
+                bean.getTitratorEndPoint().add(point1);
+                Log.d("songkai", "bean:" + bean.getTitratorEndPoint().size());
+                if (isCreate) {
+                    binding.titratorEndListLayout.addItemData(getListFromTitratorEndPoints(point1), position);
+                } else {
+                    binding.titratorEndListLayout.modifyItem(getListFromTitratorEndPoints(point1), position);
+                }
+                dialog2.cancel();
+                SoftKeyboardUtil.hideSoftKeyboard();
+            }
+        });
+        pointPopup.settingMethodPopupCancelButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog2.cancel();
+            }
+        });
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
+        builder2.setTitle("测试");
+        if (dialog2 != null && dialog2.isShowing()) {
+            dialog2.dismiss();
+        }
+        mView.measure(0, 0);
+        int measuredHeight = mView.getMeasuredHeight();//测量得到的textview的高
+        int measuredWidth = mView.getMeasuredWidth();//测量得到的textview的宽
+        dialog2 = builder2.create();
+        WindowManager.LayoutParams params = dialog2.getWindow().getAttributes();
+        params.width = measuredWidth;
+        dialog2.getWindow().setAttributes(params);
+        dialog2.setView(mView);
+        if (dialog2 != null && !dialog2.isShowing()) {
+            dialog2.show();
+        }
+    }
+
+    private int getSelectIndex(String value, int resId) {
+        String[] array = BaseApplication.getApplication().getResources().getStringArray(resId);
+        for (int i = 0; i < array.length; i++) {
+            String content = array[i];
+            if (content != null && content.equals(value)) {
+                return i;
+            }
+        }
+        return 0;
     }
 
     public interface OnModifyMethodOperateListener {

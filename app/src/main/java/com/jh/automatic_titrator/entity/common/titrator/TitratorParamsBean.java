@@ -17,7 +17,7 @@ public class TitratorParamsBean {
     // 预滴定
     public PreTitrant preTitrant;
 
-    // 滴定终点设置
+    // 辅助试剂
     public List<EndPointSetting> endPointSettings;
 
     public TitratorParamsBean() {

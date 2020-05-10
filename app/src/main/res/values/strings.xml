@@ -59,8 +59,15 @@
         <item>10mL</item>
         <item>15mL</item>
     </string-array>
+
     <string-array name="titrator_theoretical_concentration_unit">
         <item>%</item>
+        <item>mol/L</item>
+    </string-array>
+
+    <string-array name="titrator_test_end_unit">
+        <item>%</item>
+        <item>g/mL</item>
         <item>mol/L</item>
     </string-array>
 
