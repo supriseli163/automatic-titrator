@@ -10,7 +10,7 @@ public class CollectionUtils {
         return collection == null || collection.isEmpty();
     }
 
-    public static int size(List<TitratorEndPoint> titratorEndPoints) {
+    public static int size(List titratorEndPoints) {
         return titratorEndPoints != null ? titratorEndPoints.size() : 0;
     }
 }

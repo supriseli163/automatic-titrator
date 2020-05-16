@@ -5,7 +5,6 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,8 +16,10 @@ import com.jh.automatic_titrator.BaseApplication;
 import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.common.utils.SoftKeyboardUtil;
 import com.jh.automatic_titrator.common.utils.StringUtils;
+import com.jh.automatic_titrator.databinding.TitratorMethodFragmentBurettePopup;
 import com.jh.automatic_titrator.databinding.TitratorMethodFragmentEndPointPopup;
 import com.jh.automatic_titrator.databinding.TitratorSettingMethodFragmentPopupBinding;
+import com.jh.automatic_titrator.entity.common.titrator.EndPointSetting;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorEndPoint;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 
@@ -27,6 +28,7 @@ import java.util.List;
 
 import androidx.databinding.DataBindingUtil;
 
+import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getAuxiliaryReagentList;
 import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getListFromTitratorEndPoints;
 import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getTitratorEndList;
 import static com.jh.automatic_titrator.common.utils.ViewUtils.setTextViewColor;
@@ -35,7 +37,7 @@ public class ModifyMethodView extends RelativeLayout {
     private TitratorSettingMethodFragmentPopupBinding binding;
     private OnModifyMethodOperateListener listener;
     private TitratorParamsBean bean;
-    private AlertDialog dialog2;
+    private AlertDialog settingDialog,dialog2;
     private boolean isCreate;
 
     public ModifyMethodView(Context context) {
@@ -440,6 +442,22 @@ public class ModifyMethodView extends RelativeLayout {
         // 刷新方法数据
         this.bean = bean;
         binding.setBean(bean);
+        binding.titratorExtraParamsListLayout.setArraysList(getAuxiliaryReagentList(bean), new ParamsListItemView.OperateListener() {
+            @Override
+            public void onAddEvent(int position) {
+                showBuretteDialog(null,position);
+            }
+
+            @Override
+            public void onModifyEvent(int position) {
+
+            }
+
+            @Override
+            public void onDeleteEvent(int position) {
+
+            }
+        });
         binding.titratorEndListLayout.setArraysList(getTitratorEndList(bean), new ParamsListItemView.OperateListener() {
             @Override
             public void onAddEvent(int position) {
@@ -473,6 +491,51 @@ public class ModifyMethodView extends RelativeLayout {
         });
     }
 
+    // 辅助试剂弹窗
+    private void showBuretteDialog(EndPointSetting setting, final int position) {
+        List<EndPointSetting> settingList = bean.getEndPointSettings();
+        if (settingList == null) {
+            settingList = new ArrayList<>();
+        }
+        if (setting == null) {
+            setting = new EndPointSetting();
+        }
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View mView = inflater.inflate(R.layout.tirator_method_fragment_burette_popup, null);
+        TitratorMethodFragmentBurettePopup pointPopup = DataBindingUtil.bind(mView);
+        pointPopup.settingMethodPopupCancelButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                settingDialog.dismiss();
+            }
+        });
+        pointPopup.settingMethodPopupSaveButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                settingDialog.dismiss();
+            }
+        });
+        // 设置参数
+        // TODO: 2020-05-16 待补充
+        pointPopup.getRoot().setTag(setting);
+        AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
+        builder2.setTitle("辅助试剂");
+        if (settingDialog != null && settingDialog.isShowing()) {
+            settingDialog.dismiss();
+        }
+        mView.measure(0, 0);
+        int measuredWidth = mView.getMeasuredWidth();//测量得到的textview的宽
+        settingDialog = builder2.create();
+        WindowManager.LayoutParams params = settingDialog.getWindow().getAttributes();
+        params.width = measuredWidth;
+        settingDialog.getWindow().setAttributes(params);
+        settingDialog.setView(mView);
+        if (settingDialog != null && !settingDialog.isShowing()) {
+            settingDialog.show();
+        }
+    }
+
+    // 终点滴定设置弹窗
     private void showEndPointDialog(TitratorEndPoint point, final int position) {
         List<TitratorEndPoint> endPointList = bean.getTitratorEndPoint();
         if (endPointList == null) {
@@ -598,12 +661,11 @@ public class ModifyMethodView extends RelativeLayout {
             }
         });
         AlertDialog.Builder builder2 = new AlertDialog.Builder(getContext());
-        builder2.setTitle("测试");
+        builder2.setTitle("滴定终点");
         if (dialog2 != null && dialog2.isShowing()) {
             dialog2.dismiss();
         }
         mView.measure(0, 0);
-        int measuredHeight = mView.getMeasuredHeight();//测量得到的textview的高
         int measuredWidth = mView.getMeasuredWidth();//测量得到的textview的宽
         dialog2 = builder2.create();
         WindowManager.LayoutParams params = dialog2.getWindow().getAttributes();

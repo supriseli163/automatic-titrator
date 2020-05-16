@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data class="TitratorMethodFragmentBurettePopup">
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="滴定管"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:background="@drawable/edit_text1">
+
+                        <Spinner
+                            android:id="@+id/setting_burette"
+                            android:layout_width="@dimen/_200px"
+                            android:layout_height="@dimen/_35px"
+                            android:entries="@array/titrator_burette_volume_arrays"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/_19px"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="试剂名称"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/setting_reagen_name"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:background="@drawable/edit_text1"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/fontWhite"
+                        android:textSize="@dimen/_14spx" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="@dimen/_100px"
+                    android:layout_height="wrap_content"
+                    android:text="试剂浓度"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_reagen_concentration"
+                    android:layout_width="@dimen/_100px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_text1"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="@dimen/_14spx" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/_90px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_marginLeft="@dimen/_10px"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_reagen_concentration_unit"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:entries="@array/titrator_theoretical_concentration_unit"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_method_popup_testtubelength_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_19px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="添加体积"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_add_volume"
+                    android:layout_width="@dimen/_200px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_text1"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="@dimen/_14spx" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="@dimen/_100px"
+                    android:layout_height="wrap_content"
+                    android:text="添加速度"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+                <LinearLayout
+                    android:layout_width="@dimen/_200px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_marginLeft="@dimen/_10px"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_add_speed"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:entries="@array/number_speed"
+                        android:gravity="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_19px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="添加时间"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/_200px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_marginLeft="@dimen/_10px"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_add_time"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:entries="@array/titrator_time"
+                        android:gravity="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="@dimen/_100px"
+                    android:layout_height="wrap_content"
+                    android:text="参考终点"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="@dimen/_200px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_marginLeft="@dimen/_10px"
+                    android:background="@drawable/edit_text1">
+
+                    <Spinner
+                        android:id="@+id/setting_reference_end_point"
+                        android:layout_width="@dimen/_200px"
+                        android:layout_height="@dimen/_35px"
+                        android:entries="@array/number_0_5"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_19px"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="添加体积"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/setting_delay_time"
+                    android:layout_width="@dimen/_180px"
+                    android:layout_height="@dimen/_35px"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_text1"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="@dimen/_14spx" />
+                <TextView
+                    android:layout_width="@dimen/_20px"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="s"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_20px"
+            android:orientation="horizontal"
+            android:paddingRight="20dp">
+
+            <LinearLayout
+                android:id="@+id/setting_method_popup_save_button"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/orange_button"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/setting_method_popup_cancel_button"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_20px"
+                android:background="@drawable/orange_button"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="取消"
+                    android:textColor="@color/fontWhite"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

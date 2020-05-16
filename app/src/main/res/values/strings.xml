@@ -46,6 +46,15 @@
         <item>10</item>
     </string-array>
 
+    <string-array name="number_0_5">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
     <string-array name="titration_Speed">
         <item>极快</item>
         <item>快</item>
@@ -88,6 +97,18 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
+    </string-array>
+
+    <string-array name="titrator_time">
+        <item>滴定前</item>
+        <item>滴定中</item>
+        <item>滴定后</item>
+    </string-array>
+
+    <string-array name="number_speed">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="test_atlasY">

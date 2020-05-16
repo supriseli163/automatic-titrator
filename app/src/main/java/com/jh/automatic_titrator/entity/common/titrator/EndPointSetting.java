@@ -16,7 +16,7 @@ public class EndPointSetting {
     private double reagentConcentration;
     //试剂浓度
     private String reagentConcentrationUnit;
-    //浓度单位，枚举类型
+    //添加体积
     private double addVolume;
     //添加速度(枚举类型): 1、2、3
     private int addSpeed;
@@ -26,6 +26,8 @@ public class EndPointSetting {
     private int referenceEndPoint;
     //延时时间(s)
     private int delayTime;
+
+    // TODO: 2020-05-16需要补充数据库
 
     public int getId() {
         return id;

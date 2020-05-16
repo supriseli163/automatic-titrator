@@ -2,6 +2,7 @@ package com.jh.automatic_titrator.common.utils;
 
 import android.util.Log;
 
+import com.jh.automatic_titrator.entity.common.titrator.EndPointSetting;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorEndPoint;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
@@ -248,10 +249,24 @@ public class TitratorParamsBeanUtils {
     public static List<List<String>> getTitratorEndList(TitratorParamsBean bean) {
         List<List<String>> arrays = new ArrayList<>();
         if (bean != null) {
-            arrays.add(getChineseEndPointBar(true));
+            arrays.add(getChineseEndPointBar());
             List<TitratorEndPoint> titratorEndPoints = bean.getTitratorEndPoint();
             for (int i = 0; i < CollectionUtils.size(titratorEndPoints); i++) {
                 List<String> list = getListFromTitratorEndPoints(titratorEndPoints.get(i));
+                arrays.add(list);
+            }
+        }
+        return arrays;
+    }
+
+    // 获取滴定辅助试剂List:List<String>
+    public static List<List<String>> getAuxiliaryReagentList(TitratorParamsBean bean) {
+        List<List<String>> arrays = new ArrayList<>();
+        if (bean != null) {
+            arrays.add(getAuxiliaryReagent());
+            List<EndPointSetting> endPointSettingsList = bean.getEndPointSettings();
+            for (int i = 0; i < CollectionUtils.size(endPointSettingsList); i++) {
+                List<String> list = getListFromEndPointSetting(endPointSettingsList.get(i));
                 arrays.add(list);
             }
         }
@@ -267,14 +282,50 @@ public class TitratorParamsBeanUtils {
         return list;
     }
 
+    public static List<String> getListFromEndPointSetting(EndPointSetting point) {
+        List<String> list = new ArrayList<>();
+        list.add(String.valueOf(point.getBurette()));
+        list.add(String.valueOf(point.getReagentName()));
+        list.add(String.valueOf(point.getReagentConcentration()).concat(String.valueOf(point.getReagentConcentrationUnit())));
+        list.add(String.valueOf(point.getAddVolume()));
+        list.add(String.valueOf(point.getAddSpeed()));
+        list.add(String.valueOf(point.getAddTime()));
+        list.add(String.valueOf(point.getReferenceEndPoint()));
+        list.add(String.valueOf(point.getDelayTime()));
+        return list;
+    }
+
     // TODO: 2020-05-05 need to change English
-    public static List<String> getChineseEndPointBar(boolean isChinese) {
+    public static List<String> getChineseEndPointBar() {
+        boolean isChinese=true;
         List<String> barList = new ArrayList<>();
         if (isChinese) {
             barList.add("终点值");
             barList.add("预控值");
             barList.add("相关系数");
             barList.add("测试结构单位");
+        } else {
+            barList.add("终点值");
+            barList.add("预控值");
+            barList.add("相关系数");
+            barList.add("测试结构单位");
+        }
+        return barList;
+    }
+
+    // TODO: 2020-05-16 need to change English
+    public static List<String> getAuxiliaryReagent(){
+        boolean isChinese=true;
+        List<String> barList = new ArrayList<>();
+        if (isChinese) {
+            barList.add("滴定管");
+            barList.add("试剂名称");
+            barList.add("试剂浓度");
+            barList.add("添加体积");
+            barList.add("添加速度");
+            barList.add("添加时间");
+            barList.add("参考终点");
+            barList.add("延时时间");
         } else {
             barList.add("终点值");
             barList.add("预控值");
