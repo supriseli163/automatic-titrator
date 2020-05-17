@@ -1,5 +1,6 @@
 package com.jh.automatic_titrator.entity.common.titrator;
 
+import com.jh.automatic_titrator.common.utils.CollectionUtils;
 import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.entity.common.MainTitrant;
 import com.jh.automatic_titrator.entity.common.PreTitrant;
@@ -80,5 +81,47 @@ public class TitratorParamsBean {
 
     public String getMethodName() {
         return titratorMethod != null ? StringUtils.getSecurity(titratorMethod.getMethodName()) : "";
+    }
+
+    public void updateEndPointSetting(EndPointSetting setting) {
+        if (setting == null) {
+            return;
+        }
+        if (endPointSettings == null) {
+            endPointSettings = new ArrayList<>();
+        }
+        boolean hasSomeData = false;
+        for (int i = 0; i < CollectionUtils.size(endPointSettings); i++) {
+            EndPointSetting data = endPointSettings.get(i);
+            if (data != null && data.getId() == setting.getId()) {
+                hasSomeData = true;
+                endPointSettings.set(i, setting);
+                break;
+            }
+        }
+        if (!hasSomeData) {
+            endPointSettings.add(setting);
+        }
+    }
+
+    public void updateTitratorEndPoint(TitratorEndPoint point) {
+        if (point == null) {
+            return;
+        }
+        if (titratorEndPoints == null) {
+            titratorEndPoints = new ArrayList<>();
+        }
+        boolean hasSomeData = false;
+        for (int i = 0; i < CollectionUtils.size(titratorEndPoints); i++) {
+            TitratorEndPoint data = titratorEndPoints.get(i);
+            if (data != null && data.getId() == point.getId()) {
+                hasSomeData = true;
+                titratorEndPoints.set(i, point);
+                break;
+            }
+        }
+        if (!hasSomeData) {
+            titratorEndPoints.add(point);
+        }
     }
 }

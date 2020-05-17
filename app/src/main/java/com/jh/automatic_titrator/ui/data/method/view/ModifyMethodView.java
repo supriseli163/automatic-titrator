@@ -19,8 +19,10 @@ import com.jh.automatic_titrator.common.utils.StringUtils;
 import com.jh.automatic_titrator.databinding.TitratorMethodFragmentBurettePopup;
 import com.jh.automatic_titrator.databinding.TitratorMethodFragmentEndPointPopup;
 import com.jh.automatic_titrator.databinding.TitratorSettingMethodFragmentPopupBinding;
+import com.jh.automatic_titrator.entity.common.MainTitrant;
 import com.jh.automatic_titrator.entity.common.titrator.EndPointSetting;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorEndPoint;
+import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.common.titrator.TitratorParamsBean;
 
 import java.util.ArrayList;
@@ -29,16 +31,20 @@ import java.util.List;
 import androidx.databinding.DataBindingUtil;
 
 import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getAuxiliaryReagentList;
+import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getEqualsTitratorParamsBean;
+import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getListFromEndPointSetting;
 import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getListFromTitratorEndPoints;
 import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.getTitratorEndList;
+import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.saveEndPointSetting;
+import static com.jh.automatic_titrator.common.utils.TitratorParamsBeanUtils.saveTitratorEndPoint;
 import static com.jh.automatic_titrator.common.utils.ViewUtils.setTextViewColor;
 
 public class ModifyMethodView extends RelativeLayout {
     private TitratorSettingMethodFragmentPopupBinding binding;
     private OnModifyMethodOperateListener listener;
     private TitratorParamsBean bean;
-    private AlertDialog settingDialog,dialog2;
-    private boolean isCreate;
+    private AlertDialog settingDialog, dialog2;
+    private boolean isCreate, isCreateSetting, isModify;
 
     public ModifyMethodView(Context context) {
         this(context, null);
@@ -61,6 +67,14 @@ public class ModifyMethodView extends RelativeLayout {
             public void onClick(View v) {
                 if (listener != null) {
                     listener.onClickBackToMethodListBtn();
+                }
+            }
+        });
+        binding.saveMethodListBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onClickSaveMethodListBtn(getEqualsTitratorParamsBean(bean, binding), isModify);
                 }
             }
         });
@@ -355,6 +369,47 @@ public class ModifyMethodView extends RelativeLayout {
                 bean.getPreTitrant().setPreAfterStiringTime(Double.parseDouble(content));
             }
         });
+
+        // 主滴定剂名称
+        binding.titratorMainReagentName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                checkBean();
+                String content = s != null ? s.toString() : "0";
+                bean.getMainTitrant().setReagentName(content);
+            }
+        });
+
+        // 主滴定剂浓度
+        binding.titratorMainTheoreticalConcentration.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                checkBean();
+                String content = s != null ? s.toString() : "0";
+                bean.getMainTitrant().setTheoreticalConcentration(Double.parseDouble(content));
+            }
+        });
+
         // 预滴定添加体积
         binding.titratorPreAddVolume.addTextChangedListener(new TextWatcher() {
             @Override
@@ -432,25 +487,49 @@ public class ModifyMethodView extends RelativeLayout {
         if (bean == null) {
             bean = new TitratorParamsBean();
         }
+        MainTitrant mainTitrant = bean.getMainTitrant();
+        if (mainTitrant == null) {
+            mainTitrant = new MainTitrant();
+        }
+        TitratorMethod method = bean.getTitratorMethod();
+        if (method == null) {
+            method = new TitratorMethod();
+        }
+        List<EndPointSetting> endPointSettings = bean.getEndPointSettings();
+        if (endPointSettings == null) {
+            endPointSettings = new ArrayList<>();
+        }
+        List<TitratorEndPoint> endPointList = bean.getTitratorEndPoint();
+        if (endPointList == null) {
+            endPointList = new ArrayList<>();
+        }
     }
 
     public void setListener(OnModifyMethodOperateListener listener) {
         this.listener = listener;
     }
 
-    public void setBean(TitratorParamsBean bean) {
+    public void setBean(final TitratorParamsBean bean) {
         // 刷新方法数据
-        this.bean = bean;
+        if (bean == null) {
+            this.bean = new TitratorParamsBean();
+        } else {
+            isModify = true;
+            this.bean = bean;
+        }
         binding.setBean(bean);
         binding.titratorExtraParamsListLayout.setArraysList(getAuxiliaryReagentList(bean), new ParamsListItemView.OperateListener() {
             @Override
             public void onAddEvent(int position) {
-                showBuretteDialog(null,position);
+                isCreateSetting = true;
+                showBuretteDialog(null, position);
             }
 
             @Override
             public void onModifyEvent(int position) {
-
+                isCreateSetting = false;
+                EndPointSetting point = bean.getEndPointSettings().get(position);
+                showBuretteDialog(point, position);
             }
 
             @Override
@@ -463,30 +542,19 @@ public class ModifyMethodView extends RelativeLayout {
             public void onAddEvent(int position) {
                 isCreate = true;
                 showEndPointDialog(null, position);
-                // TODO: 2020-05-05 触发弹窗
-//                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
-//                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
-//                helper.insert(bean);
             }
 
             @Override
             public void onModifyEvent(int position) {
-                // TODO: 2020-05-05 触发弹窗修改内容
                 isCreate = false;
                 TitratorEndPoint point = bean.getTitratorEndPoint().get(position);
                 showEndPointDialog(point, position);
-//                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
-//                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
-//                helper.insert(bean);
             }
 
             @Override
             public void onDeleteEvent(int position) {
                 List<TitratorEndPoint> endPoints = bean.getTitratorEndPoint();
                 endPoints.remove(position);
-//                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
-//                helper.deleteByTitratorMethodId(bean.getTitratorMethod().getId());
-//                helper.insert(bean);
             }
         });
     }
@@ -512,6 +580,15 @@ public class ModifyMethodView extends RelativeLayout {
         pointPopup.settingMethodPopupSaveButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoftKeyboardUtil.hideSoftKeyboard();
+                EndPointSetting point1 = saveEndPointSetting(pointPopup);
+                bean.updateEndPointSetting(point1);
+                if (isCreateSetting) {
+                    binding.titratorEndListLayout.addItemData(getListFromEndPointSetting(point1), position);
+                } else {
+                    binding.titratorEndListLayout.modifyItem(getListFromEndPointSetting(point1), position);
+                }
+                dialog2.cancel();
                 settingDialog.dismiss();
             }
         });
@@ -643,20 +720,21 @@ public class ModifyMethodView extends RelativeLayout {
         pointPopup.settingMethodPopupSaveButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                TitratorEndPoint point1 = ((TitratorEndPoint) pointPopup.getRoot().getTag());
-                bean.getTitratorEndPoint().add(point1);
+                SoftKeyboardUtil.hideSoftKeyboard();
+                TitratorEndPoint point1 = saveTitratorEndPoint(pointPopup);
+                bean.updateTitratorEndPoint(point1);
                 if (isCreate) {
                     binding.titratorEndListLayout.addItemData(getListFromTitratorEndPoints(point1), position);
                 } else {
                     binding.titratorEndListLayout.modifyItem(getListFromTitratorEndPoints(point1), position);
                 }
                 dialog2.cancel();
-                SoftKeyboardUtil.hideSoftKeyboard();
             }
         });
         pointPopup.settingMethodPopupCancelButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoftKeyboardUtil.hideSoftKeyboard();
                 dialog2.cancel();
             }
         });
@@ -690,6 +768,8 @@ public class ModifyMethodView extends RelativeLayout {
 
     public interface OnModifyMethodOperateListener {
         void onClickBackToMethodListBtn();
+
+        void onClickSaveMethodListBtn(TitratorParamsBean bean, boolean isModify);
     }
 
 

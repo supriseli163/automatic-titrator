@@ -72,6 +72,17 @@ public class ModifyMethodFragment extends BaseFragment<TitratorDataFragmentBindi
             public void onClickBackToMethodListBtn() {
                 switchMethodDetailView(false);
             }
+
+            @Override
+            public void onClickSaveMethodListBtn(TitratorParamsBean bean, boolean isModify) {
+                switchMethodDetailView(false);
+                TitratorParamsBeanHelper helper = new TitratorParamsBeanHelper();
+                if (isModify) {
+                    helper.updateTitratorMethod(bean);
+                } else {
+                    helper.insert(bean);
+                }
+            }
         });
     }
 

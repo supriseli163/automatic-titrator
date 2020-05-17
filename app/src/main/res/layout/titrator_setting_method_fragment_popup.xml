@@ -347,6 +347,7 @@
                                     android:layout_height="match_parent"
                                     android:entries="@array/titrator_speed_arrays"
                                     android:paddingLeft="5dp"
+                                    android:backgroundTint="@color/black_overlay"
                                     android:paddingRight="5dp" />
                             </LinearLayout>
 
@@ -587,6 +588,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="50dp">
 
