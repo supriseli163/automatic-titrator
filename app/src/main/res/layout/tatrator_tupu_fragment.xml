@@ -17,6 +17,7 @@
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:visibility="gone"
                 android:orientation="vertical">
 
                 <TextView
@@ -24,7 +25,7 @@
                     android:layout_width="80dp"
                     android:layout_height="30dp"
                     android:gravity="center"
-                    android:text="@string/automatic_titrator"
+                    android:text="滴定仪"
                     android:textAlignment="center"
                     android:textColor="@color/fontOrange"
                     android:textSize="20sp" />
@@ -36,7 +37,13 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="5dp" />
+                android:padding="5dp">
+
+                <com.jh.automatic_titrator.ui.chat.charts.LineChart
+                    android:id="@+id/chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

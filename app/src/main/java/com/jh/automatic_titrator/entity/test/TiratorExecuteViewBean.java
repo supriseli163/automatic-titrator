@@ -27,7 +27,7 @@ public class TiratorExecuteViewBean extends BaseObservable implements Serializab
 
     @Bindable
     public boolean isEnableClick() {
-        Toast.makeText(BaseApplication.getApplication(), "可点击：" + isEnableClick, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(BaseApplication.getApplication(), "可点击：" + isEnableClick, Toast.LENGTH_SHORT).show();
         return isEnableClick;
     }
 
