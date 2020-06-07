@@ -65,16 +65,30 @@
                 android:layout_weight="2">
 
                 <RelativeLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
                     android:layout_toLeftOf="@+id/titrator_operate_btn_bg">
 
-                    <ImageView
+                    <com.jh.automatic_titrator.ui.view.CircleMenuLayout
+                        android:id="@+id/menu_layout"
+                        android:layout_centerInParent="true"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignParentLeft="true"
-                        android:padding="@dimen/_60px"
-                        android:src="@mipmap/ic_launcher" />
+                        android:background="@android:color/white" />
+
+                    <com.jh.automatic_titrator.ui.view.RoundTextView
+                        android:id="@+id/text_content"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true"
+                        android:background="@color/colorAccent"
+                        android:gravity="center"
+                        android:lineSpacingExtra="@dimen/_10px"
+                        android:text="0.0℃\n0.000mL\n0.0mv\n0"
+                        android:textColor="@color/black_overlay1"
+                        android:textSize="@dimen/_20spx"
+                        app:rtvRadius="@dimen/_70px" />
                 </RelativeLayout>
 
                 <LinearLayout

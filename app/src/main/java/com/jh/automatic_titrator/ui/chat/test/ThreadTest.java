@@ -37,7 +37,7 @@ public class ThreadTest {
                 }
             }
         };
-        mSubThreadHandler.sendEmptyMessageDelayed(1, 500);
+        mSubThreadHandler.sendEmptyMessageDelayed(1, 50);
     }
 
     public class HandlerTest extends HandlerThread {

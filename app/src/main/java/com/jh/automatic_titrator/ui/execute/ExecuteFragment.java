@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.jh.automatic_titrator.R;
 import com.jh.automatic_titrator.databinding.FragmentTitratorTestLayoutBinding;
@@ -11,6 +13,8 @@ import com.jh.automatic_titrator.entity.common.titrator.TitratorMethod;
 import com.jh.automatic_titrator.entity.test.TiratorExecuteViewBean;
 import com.jh.automatic_titrator.factory.FunctionFactory;
 import com.jh.automatic_titrator.ui.base.BaseFragment;
+import com.jh.automatic_titrator.ui.execute.adapter.MenuAdapter;
+import com.jh.automatic_titrator.ui.view.CircleMenuLayout;
 
 public class ExecuteFragment extends BaseFragment<FragmentTitratorTestLayoutBinding> implements View.OnClickListener {
 
@@ -26,6 +30,31 @@ public class ExecuteFragment extends BaseFragment<FragmentTitratorTestLayoutBind
         binding.titratorAtlasSwitchBtn.setOnClickListener(this);
         binding.titratorOperateStartBtn.setOnClickListener(this);
         binding.titratorOperateStopBtn.setOnClickListener(this);
+        MenuAdapter adapter = new MenuAdapter(MenuAdapter.getTestData());
+        binding.menuLayout.setAdapter(adapter);
+        initMenuLayout();
+        binding.menuLayout.setOnItemClickListener(new CircleMenuLayout.OnItemClickListener() {
+            @Override
+            public void onItemClickListener(View v, int position) {
+                Toast.makeText(activity, "点击了第" + (position + 1) + "个", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRefreshFinish() {
+
+            }
+        });
+    }
+
+    private void initMenuLayout() {
+        binding.menuLayout.post(() -> {
+            Log.d("ExecuteFragment", "initMenuLayout: ");
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) binding.textContent.getLayoutParams();
+            layoutParams.width = (int) (binding.menuLayout.mInnerRadius * 4 / 5 * 2);
+            layoutParams.height = (int) (binding.menuLayout.mInnerRadius * 4 / 5 * 2);
+            binding.textContent.setLayoutParams(layoutParams);
+            binding.textContent.setRTVRadius(binding.menuLayout.mInnerRadius * 4 / 5);
+        });
     }
 
     @Override

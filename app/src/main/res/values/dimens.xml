@@ -111,6 +111,8 @@
     <dimen name="_180px">180.0dp</dimen>
     <dimen name="_200px">200.0dp</dimen>
     <dimen name="_300px">300.0dp</dimen>
+    <dimen name="_140px">140dp</dimen>
+    <dimen name="_150px">150dp</dimen>
 
     <dimen name="_1spx">1.0sp</dimen>
     <dimen name="_2spx">2.0sp</dimen>
@@ -212,4 +214,5 @@
     <dimen name="_98spx">98.0sp</dimen>
     <dimen name="_99spx">99.0sp</dimen>
     <dimen name="_100spx">100.0sp</dimen>
+
 </resources>
